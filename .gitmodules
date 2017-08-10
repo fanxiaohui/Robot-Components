@@ -1,0 +1,3 @@
+[submodule "Robot-HAL"]
+	path = Robot-HAL
+	url = https://github.com/PhoenixArsTechnica/Robot-HAL.git
