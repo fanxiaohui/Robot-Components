@@ -81,46 +81,46 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p"</avrgcc.common.Device>
-  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </avrgcc.compiler.symbols.DefSymbols>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
-      <Value>../Include</Value>
-      <Value>../Example/Config</Value>
-      <Value>../HAL/Include</Value>
-      <Value>../HAL/Config</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-  <avrgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
-    </ListValues>
-  </avrgcc.assembler.general.IncludePaths>
-  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
-</AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p"</avrgcc.common.Device>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+            <Value>../Include</Value>
+            <Value>../Example/Config</Value>
+            <Value>../HAL/Include</Value>
+            <Value>../HAL/Config</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
@@ -132,9 +132,14 @@
     <Folder Include="HAL\Source" />
     <Folder Include="Include" />
     <Folder Include="HAL" />
+    <Folder Include="Include\VL53L0X" />
     <Folder Include="Source" />
+    <Folder Include="Source\VL53L0X" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Example\Config\vl53l0x_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Example\Source\main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -255,7 +260,58 @@
     <Compile Include="Include\vl53l0x.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_api.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_api_calibration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_api_core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_api_ranging.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_api_strings.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_def.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_i2c_platform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_interrupt_threshold_settings.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_platform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\VL53L0X\vl53l0x_tuning.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Source\vl53l0x.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_api.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_api_calibration.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_api_core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_api_ranging.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_api_strings.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\VL53L0X\vl53l0x_platform.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

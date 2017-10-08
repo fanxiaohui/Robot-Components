@@ -6,6 +6,7 @@
 #include "timer.h"
 #include "uart.h"
 #include "wdg.h"
+#include "VL53L0X/vl53l0x_platform.h"
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
@@ -14,7 +15,7 @@
 uart_struct_t s_debugUart;
 timer_struct_t s_schedulerTimer;
 
-u32 milliseconds = 0;
+volatile u32 milliseconds = 0;
 
 void debug_init()
 {
@@ -48,24 +49,27 @@ void scheduler_init()
 
 int main(void)
 {
-	u8 u8_distance = 0;
 	device_disableJTAG();
 	debug_init();
-
-	vl53l0x_init();
-
 	scheduler_init();
 	sei();
 
+	vl53l0x_init();
+	vl53l0x_calibrate();
 	vl53l0x_start();
+	
+	uart_transmit(s_debugUart, 'a');
+	u16 distance;
 
     while (1)
-    {
+    {/*
 		u8_distance = vl53l0x_getDistance();
 	    uart_transmit(s_debugUart, (u8)(u8_distance >> 8));
 	    uart_transmit(s_debugUart, u8_distance);
-	    uart_transmit(s_debugUart, '\n');
-	    //uart_transmit(s_debugUart, b_vl53l0x_testConnection());
+	    uart_transmit(s_debugUart, '\n');*/
+		distance = vl53l0x_getDistance();
+	    uart_transmit(s_debugUart, b_vl53l0x_testConnection());
+	    //uart_transmit(s_debugUart, distance);
 		_delay_ms(100);
     }
 }

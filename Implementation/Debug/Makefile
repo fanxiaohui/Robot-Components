@@ -41,7 +41,9 @@ SUBDIRS :=  \
 ../HAL/Source \
 ../Include \
 ../HAL \
-../Source
+../Include/VL53L0X \
+../Source \
+../Source/VL53L0X
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -60,7 +62,13 @@ C_SRCS +=  \
 ../HAL/Source/timer.c \
 ../HAL/Source/uart.c \
 ../HAL/Source/wdg.c \
-../Source/vl53l0x.c
+../Source/vl53l0x.c \
+../Source/VL53L0X/vl53l0x_api.c \
+../Source/VL53L0X/vl53l0x_api_calibration.c \
+../Source/VL53L0X/vl53l0x_api_core.c \
+../Source/VL53L0X/vl53l0x_api_ranging.c \
+../Source/VL53L0X/vl53l0x_api_strings.c \
+../Source/VL53L0X/vl53l0x_platform.c
 
 
 PREPROCESSING_SRCS += 
@@ -84,7 +92,13 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
-Source/vl53l0x.o
+Source/vl53l0x.o \
+Source/VL53L0X/vl53l0x_api.o \
+Source/VL53L0X/vl53l0x_api_calibration.o \
+Source/VL53L0X/vl53l0x_api_core.o \
+Source/VL53L0X/vl53l0x_api_ranging.o \
+Source/VL53L0X/vl53l0x_api_strings.o \
+Source/VL53L0X/vl53l0x_platform.o
 
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
@@ -101,7 +115,13 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
-Source/vl53l0x.o
+Source/vl53l0x.o \
+Source/VL53L0X/vl53l0x_api.o \
+Source/VL53L0X/vl53l0x_api_calibration.o \
+Source/VL53L0X/vl53l0x_api_core.o \
+Source/VL53L0X/vl53l0x_api_ranging.o \
+Source/VL53L0X/vl53l0x_api_strings.o \
+Source/VL53L0X/vl53l0x_platform.o
 
 C_DEPS +=  \
 Example/Source/main.d \
@@ -118,7 +138,13 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
-Source/vl53l0x.d
+Source/vl53l0x.d \
+Source/VL53L0X/vl53l0x_api.d \
+Source/VL53L0X/vl53l0x_api_calibration.d \
+Source/VL53L0X/vl53l0x_api_core.d \
+Source/VL53L0X/vl53l0x_api_ranging.d \
+Source/VL53L0X/vl53l0x_api_strings.d \
+Source/VL53L0X/vl53l0x_platform.d
 
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
@@ -135,7 +161,13 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
-Source/vl53l0x.d
+Source/vl53l0x.d \
+Source/VL53L0X/vl53l0x_api.d \
+Source/VL53L0X/vl53l0x_api_calibration.d \
+Source/VL53L0X/vl53l0x_api_core.d \
+Source/VL53L0X/vl53l0x_api_ranging.d \
+Source/VL53L0X/vl53l0x_api_strings.d \
+Source/VL53L0X/vl53l0x_platform.d
 
 OUTPUT_FILE_PATH +=Implementation.elf
 
@@ -182,6 +214,18 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 Example/Source/%.o: ../Example/Source/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -197,6 +241,13 @@ HAL/Source/%.o: ../HAL/Source/%.c
 	
 
 Source/%.o: ../Source/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../Include" -I"../Example/Config" -I"../HAL/Include" -I"../HAL/Config"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Source/VL53L0X/%.o: ../Source/VL53L0X/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../Include" -I"../Example/Config" -I"../HAL/Include" -I"../HAL/Config"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

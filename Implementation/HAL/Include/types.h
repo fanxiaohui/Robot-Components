@@ -61,4 +61,8 @@ typedef signed short	s16;
 */
 typedef signed long		s32;
 
+/**	floating point value where the first 16 bits represent the integer part and the last 16 bits the decimal part
+*/
+typedef u32 f1616;
+
 #endif /* TYPES_H_ */
