@@ -68,8 +68,8 @@ int main(void)
 	    uart_transmit(s_debugUart, u8_distance);
 	    uart_transmit(s_debugUart, '\n');*/
 		distance = vl53l0x_getDistance();
-	    uart_transmit(s_debugUart, b_vl53l0x_testConnection());
-	    //uart_transmit(s_debugUart, distance);
+	    //uart_transmit(s_debugUart, b_vl53l0x_testConnection());
+	    uart_transmit(s_debugUart, distance);
 		_delay_ms(100);
     }
 }

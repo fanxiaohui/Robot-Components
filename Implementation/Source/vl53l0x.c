@@ -68,6 +68,7 @@ void vl53l0x_calibrate()
 void vl53l0x_start()
 {
 	VL53L0X_SetDeviceMode(&frontSensor, VL53L0X_DEVICEMODE_CONTINUOUS_RANGING);
+	VL53L0X_StartMeasurement(&frontSensor);
 }
 
 void vl53l0x_stop()
@@ -119,7 +120,7 @@ u16 vl53l0x_getDistance()
 	u16 u16_returnValue = 0;
 	VL53L0X_RangingMeasurementData_t rangingMeasurementData;
 
-	VL53L0X_PerformSingleRangingMeasurement(&frontSensor, &rangingMeasurementData);
+	VL53L0X_GetRangingMeasurementData(&frontSensor, &rangingMeasurementData);
 	u16_returnValue = rangingMeasurementData.RangeStatus;
 
 	return u16_returnValue;
