@@ -257,6 +257,9 @@
     <Compile Include="HAL\Source\wdg.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Include\motor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Include\vl53l0x.h">
       <SubType>compile</SubType>
     </Compile>
@@ -291,6 +294,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Include\VL53L0X\vl53l0x_tuning.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\motor.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\vl53l0x.c">

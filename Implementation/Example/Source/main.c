@@ -2,20 +2,15 @@
 */
 
 #include "device.h"
-#include "vl53l0x.h"
 #include "timer.h"
 #include "uart.h"
-#include "wdg.h"
-#include "VL53L0X/vl53l0x_platform.h"
+#include "motor.h"
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
 #include <util/delay.h>
 
 uart_struct_t s_debugUart;
-timer_struct_t s_schedulerTimer;
-
-volatile u32 milliseconds = 0;
 
 void debug_init()
 {
@@ -31,45 +26,38 @@ void debug_init()
 	uart_start(s_debugUart);
 }
 
-void incrementMillis()
-{
-	milliseconds++;
-}
 
-void scheduler_init()
-{
-	s_schedulerTimer.frequency = 1000;
-	s_schedulerTimer.peripheral = TIMER1;
-
-	timer_init(s_schedulerTimer);
-	timer_attachInterrupt(s_schedulerTimer, OVERFLOW, incrementMillis);
-	timer_enableInterrupt(s_schedulerTimer, OVERFLOW);
-	timer_start(s_schedulerTimer);
-}
 
 int main(void)
 {
 	device_disableJTAG();
-	debug_init();
-	scheduler_init();
+	//debug_init();
 	sei();
-
-	vl53l0x_init();
-	vl53l0x_calibrate();
-	vl53l0x_start();
-	
-	uart_transmit(s_debugUart, 'a');
-	u16 distance;
-
+	motor_init();
     while (1)
-    {/*
-		u8_distance = vl53l0x_getDistance();
-	    uart_transmit(s_debugUart, (u8)(u8_distance >> 8));
-	    uart_transmit(s_debugUart, u8_distance);
-	    uart_transmit(s_debugUart, '\n');*/
-		distance = vl53l0x_getDistance();
-	    //uart_transmit(s_debugUart, b_vl53l0x_testConnection());
-	    uart_transmit(s_debugUart, distance);
-		_delay_ms(100);
+    {
+		motor_start();
+		_delay_ms(3000);
+		for(u8 i = 30; i <= 50; i+=5){
+			motor_speed(i);
+			_delay_ms(100);
+		}
+		_delay_ms(3000);
+		motor_direction(BACKWARD);
+		_delay_ms(2000);
+		motor_direction(LEFT);
+		for(u8 i = 30; i <= 90; i+=10){
+			motor_speed(i);
+			_delay_ms(100);
+		}
+		_delay_ms(5000);
+		for(u8 i = 30; i <= 90; i+=10){
+			motor_speed(i);
+			_delay_ms(100);
+		}
+		motor_direction(RIGHT);
+		_delay_ms(5000);
+		motor_stop();
+		_delay_ms(2000);
     }
 }

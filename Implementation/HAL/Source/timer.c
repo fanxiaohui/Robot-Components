@@ -508,22 +508,26 @@ void timer_stop(timer_struct_t s_timer)
 	{
 		case TIMER0:
 		#ifdef USING_TIMER0
-			u8_timer0ClockSource = TCCR3B & (0b00000111);
+			u8_timer0ClockSource = TCCR0B & (0b00000111);
+			TCCR0B = TCCR0B & ~(0b00000111);
 		#endif
 			break;
 		case TIMER1:
 		#ifdef USING_TIMER1
-			u8_timer1ClockSource = TCCR3B & (0b00000111);
+			u8_timer1ClockSource = TCCR1B & (0b00000111);
+			TCCR1B = TCCR1B & ~(0b00000111);
 		#endif
 			break;
 		case TIMER2:
 		#ifdef USING_TIMER2
-			u8_timer2ClockSource = TCCR3B & (0b00000111);
+			u8_timer2ClockSource = TCCR2B & (0b00000111);
+			TCCR2B = TCCR2B & ~(0b00000111);
 		#endif
 			break;
 		case TIMER3:
 		#ifdef USING_TIMER3
 			u8_timer3ClockSource = TCCR3B & (0b00000111);
+			TCCR3B = TCCR3B & ~(0b00000111);
 		#endif
 			break;
 	}
