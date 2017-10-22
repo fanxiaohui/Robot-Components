@@ -19,6 +19,7 @@
 
 #include "gpio.h"
 #include "math.h"
+#include "uart.h"
 
 /************************************************************************/
 /* Internal variables                                                   */
@@ -43,6 +44,8 @@ u8 u8_pcInt3OldState;
 #ifdef USING_EXTINT
 void (*p_extIntCallbacks[3])(void);
 #endif
+
+uart_struct_t s_debugUart;
 
 /************************************************************************/
 /* Internal functions                                                   */
@@ -88,6 +91,7 @@ ISR(PCINT1_vect)
 ISR(PCINT2_vect)
 {
 #ifdef USING_PCINT2
+	uart_transmit(s_debugUart, 'x');
 	p_pcInt2Callback();
 #endif
 }
@@ -126,6 +130,18 @@ ISR(INT2_vect)
 
 void gpio_init(gpio_struct_t s_gpio)
 {
+	
+	s_debugUart.peripheral = UART0;
+	s_debugUart.baudRate = _9600;
+	s_debugUart.frameSize = _8BIT;
+	s_debugUart.parityBit = NONE;
+	s_debugUart.stopBits = _1BIT;
+	s_debugUart.useRx = FALSE;
+	s_debugUart.useTx = TRUE;
+
+	uart_init(s_debugUart);
+	uart_start(s_debugUart);
+	
 	/* Configure pin direction */
 	gpio_changeDirection(s_gpio);
 
@@ -421,8 +437,8 @@ void gpio_attachInterrupt(gpio_struct_t s_gpio, gpio_interruptType_enum_t e_inte
 			{
 		#endif
 		#ifdef USING_PCINT1
-				p_pcInt1Callback = p_function;
-				u8_pcInt1OldState = PORTB;
+			p_pcInt1Callback = p_function;
+			u8_pcInt1OldState = PORTB;
 		#endif
 		#ifdef USING_EXTINT
 			}

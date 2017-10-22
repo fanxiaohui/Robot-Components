@@ -5,7 +5,7 @@
  *  Author: Adrian
  */ 
 
-#include <motor.h>
+#include "motor.h"
 
 gpio_struct_t motorEnable;
 gpio_struct_t motorDirectionA;
@@ -13,8 +13,8 @@ gpio_struct_t motorDirectionB;
 timer_struct_t motorTimer;
 pwm_struct_t motorPWM;
 
-void calibrateSpeed(){
-	
+u8 calibrateSpeed(u8 speed){
+	return 0.91*speed;
 }
 
 
@@ -26,12 +26,12 @@ void motor_init(){
 	
 	motorDirectionA.direction = OUTPUT;
 	motorDirectionA.port = PD;
-	motorDirectionA.number = 3;
+	motorDirectionA.number = 6;
 	motorDirectionA.pullUp = NO_PULL;
 	
 	motorDirectionB.direction = OUTPUT;
 	motorDirectionB.port = PD;
-	motorDirectionB.number = 6;
+	motorDirectionB.number = 3;
 	motorDirectionB.pullUp = NO_PULL;
 	
 	motorTimer.frequency = 20000;
@@ -92,10 +92,32 @@ void motor_direction(motorDirection direction){
 }
 
 void motor_speed(u8 speed){
-	pwm_setDutyCycle(motorPWM, CHANNEL_A, speed);
+	pwm_setDutyCycle(motorPWM, CHANNEL_A, calibrateSpeed(speed));
 	pwm_setDutyCycle(motorPWM, CHANNEL_B, speed);
 }
 
 void motor_individualDirSpeed(motorDirection directionA, u8 speedA, motorDirection directionB, u8 speedB){
+	switch(directionA){
+		case FORWARD:
+			gpio_out_reset(motorDirectionA);
+			break;
+		case BACKWARD:
+			gpio_out_set(motorDirectionA);
+			break;
+		default:
+			break;
+	}
+	pwm_setDutyCycle(motorPWM, CHANNEL_A, calibrateSpeed(speedA));
 	
+	switch(directionB){
+		case FORWARD:
+			gpio_out_reset(motorDirectionB);
+			break;
+		case BACKWARD:
+			gpio_out_set(motorDirectionB);
+			break;
+		default:
+			break;
+	}
+	pwm_setDutyCycle(motorPWM, CHANNEL_B, speedB);
 }

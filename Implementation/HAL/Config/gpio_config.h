@@ -14,7 +14,7 @@
 */
 //#define USING_PCINT0
 //#define USING_PCINT1
-//#define USING_PCINT2
+#define USING_PCINT2
 
 /** Using external edge or low level interrupts
 */

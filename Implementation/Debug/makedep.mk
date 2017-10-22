@@ -30,6 +30,8 @@ HAL\Source\uart.c
 
 HAL\Source\wdg.c
 
+Source\encoder.c
+
 Source\motor.c
 
 Source\vl53l0x.c

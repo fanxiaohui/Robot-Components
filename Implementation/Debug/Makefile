@@ -62,6 +62,7 @@ C_SRCS +=  \
 ../HAL/Source/timer.c \
 ../HAL/Source/uart.c \
 ../HAL/Source/wdg.c \
+../Source/encoder.c \
 ../Source/motor.c \
 ../Source/vl53l0x.c \
 ../Source/VL53L0X/vl53l0x_api.c \
@@ -93,6 +94,7 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
+Source/encoder.o \
 Source/motor.o \
 Source/vl53l0x.o \
 Source/VL53L0X/vl53l0x_api.o \
@@ -117,6 +119,7 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
+Source/encoder.o \
 Source/motor.o \
 Source/vl53l0x.o \
 Source/VL53L0X/vl53l0x_api.o \
@@ -141,6 +144,7 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
+Source/encoder.d \
 Source/motor.d \
 Source/vl53l0x.d \
 Source/VL53L0X/vl53l0x_api.d \
@@ -165,6 +169,7 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
+Source/encoder.d \
 Source/motor.d \
 Source/vl53l0x.d \
 Source/VL53L0X/vl53l0x_api.d \
@@ -188,6 +193,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
