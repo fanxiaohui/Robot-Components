@@ -6,51 +6,59 @@
 #include "uart.h"
 #include "motor.h"
 #include "encoder.h"
+#include "scheduler.h"
+
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
 #include <util/delay.h>
 
-uart_struct_t s_debugUart;
+static u32 left_EncoderCounter;
+static u32 right_EncoderCounter;
+timer_struct_t s_scheduler_timer;
 
-void debug_init()
+
+extern void Task_ReadEncoders ()
 {
-	s_debugUart.peripheral = UART0;
-	s_debugUart.baudRate = _9600;
-	s_debugUart.frameSize = _8BIT;
-	s_debugUart.parityBit = NONE;
-	s_debugUart.stopBits = _1BIT;
-	s_debugUart.useRx = FALSE;
-	s_debugUart.useTx = TRUE;
-
-	uart_init(s_debugUart);
-	uart_start(s_debugUart);
+	left_EncoderCounter = encoder_getLeft ();
+	right_EncoderCounter = encoder_getRight();
 }
 
+extern void Task_SetMotorSpeed()
+{
+	
+	if ( left_EncoderCounter > 0 )
+	{
+			motor_speed(10);
+	}
+	else 
+	{
+		motor_speed(40);
+	}
+	
+}
 
 int main(void)
 {
+	
+	s_scheduler_timer.peripheral = TIMER2;
+	s_scheduler_timer.frequency = 1000;
+	left_EncoderCounter = 0 ;
+	right_EncoderCounter =0 ;
 	device_disableJTAG();
-	debug_init();
-	motor_init();
-	//encoder_init();
-	//encoder_start();
+	encoder_init();
+	encoder_start();
+	motor_init();		
+	scheduler_inti(s_scheduler_timer,OVERFLOW);
+	create_task(1,Task_SetMotorSpeed);
+	create_task(0,Task_ReadEncoders);
+	activate_task(0,10);
+	activate_task(1,15);
+	motor_start();
+	motor_speed(1);
 	sei();
     while (1)
     {
-		motor_start();
-		/*for(u8 i = 30; i<=50; i+=10){
-			motor_speed(i);
-			_delay_ms(100);
-		}*/
-		//_delay_ms(1000);
-		//motor_individualDirSpeed(BACKWARD, 50, BACKWARD, 50);
-		//_delay_ms(2000);
-		//motor_individualDirSpeed(FORWARD, 50, BACKWARD, 50);
-		_delay_ms(6000);
-		//motor_individualDirSpeed(BACKWARD, 50, FORWARD, 50);
-		//_delay_ms(6000);
-		motor_stop();
-		_delay_ms(1000);
+		scheduler();
     }
 }

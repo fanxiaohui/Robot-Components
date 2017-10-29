@@ -34,6 +34,10 @@ Source\encoder.c
 
 Source\motor.c
 
+Source\pid.c
+
+Source\scheduler.c
+
 Source\vl53l0x.c
 
 Source\VL53L0X\vl53l0x_api.c

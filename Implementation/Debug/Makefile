@@ -64,6 +64,8 @@ C_SRCS +=  \
 ../HAL/Source/wdg.c \
 ../Source/encoder.c \
 ../Source/motor.c \
+../Source/pid.c \
+../Source/scheduler.c \
 ../Source/vl53l0x.c \
 ../Source/VL53L0X/vl53l0x_api.c \
 ../Source/VL53L0X/vl53l0x_api_calibration.c \
@@ -96,6 +98,8 @@ HAL/Source/uart.o \
 HAL/Source/wdg.o \
 Source/encoder.o \
 Source/motor.o \
+Source/pid.o \
+Source/scheduler.o \
 Source/vl53l0x.o \
 Source/VL53L0X/vl53l0x_api.o \
 Source/VL53L0X/vl53l0x_api_calibration.o \
@@ -121,6 +125,8 @@ HAL/Source/uart.o \
 HAL/Source/wdg.o \
 Source/encoder.o \
 Source/motor.o \
+Source/pid.o \
+Source/scheduler.o \
 Source/vl53l0x.o \
 Source/VL53L0X/vl53l0x_api.o \
 Source/VL53L0X/vl53l0x_api_calibration.o \
@@ -146,6 +152,8 @@ HAL/Source/uart.d \
 HAL/Source/wdg.d \
 Source/encoder.d \
 Source/motor.d \
+Source/pid.d \
+Source/scheduler.d \
 Source/vl53l0x.d \
 Source/VL53L0X/vl53l0x_api.d \
 Source/VL53L0X/vl53l0x_api_calibration.d \
@@ -171,6 +179,8 @@ HAL/Source/uart.d \
 HAL/Source/wdg.d \
 Source/encoder.d \
 Source/motor.d \
+Source/pid.d \
+Source/scheduler.d \
 Source/vl53l0x.d \
 Source/VL53L0X/vl53l0x_api.d \
 Source/VL53L0X/vl53l0x_api_calibration.d \
@@ -193,6 +203,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
