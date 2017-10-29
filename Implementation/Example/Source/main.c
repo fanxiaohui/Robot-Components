@@ -6,12 +6,33 @@
 #include "uart.h"
 #include "motor.h"
 #include "encoder.h"
+#include "i2c.h"
+#include "VL53L0X.h"
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
 #include <util/delay.h>
 
 uart_struct_t s_debugUart;
+timer_struct_t s_schedulerTimer;
+
+volatile u32 milliseconds = 0;
+
+void incrementMillis()
+{
+	milliseconds++;
+}
+
+void scheduler_init()
+{
+	s_schedulerTimer.frequency = 1000;
+	s_schedulerTimer.peripheral = TIMER1;
+	
+	timer_init(s_schedulerTimer);
+	timer_attachInterrupt(s_schedulerTimer, OVERFLOW, incrementMillis);
+	timer_enableInterrupt(s_schedulerTimer, OVERFLOW);
+	timer_start(s_schedulerTimer);
+}
 
 void debug_init()
 {
@@ -27,30 +48,39 @@ void debug_init()
 	uart_start(s_debugUart);
 }
 
+void sensor_i2c_init()
+{
+	i2c_struct_t s_i2c;
+	s_i2c.frequency = 80000;
+	s_i2c.mode = I2C_MASTER;
+	i2c_init(s_i2c);
+}
 
 int main(void)
 {
+	u16 u16_distance;
+	
 	device_disableJTAG();
 	debug_init();
 	motor_init();
-	//encoder_init();
-	//encoder_start();
+	scheduler_init();
+	sensor_i2c_init();
+	VL53L0X_init();
+	setTimeout(500);
+	startContinuous();
+	
 	sei();
+	
     while (1)
     {
-		motor_start();
-		/*for(u8 i = 30; i<=50; i+=10){
-			motor_speed(i);
-			_delay_ms(100);
-		}*/
-		//_delay_ms(1000);
-		//motor_individualDirSpeed(BACKWARD, 50, BACKWARD, 50);
-		//_delay_ms(2000);
-		//motor_individualDirSpeed(FORWARD, 50, BACKWARD, 50);
-		_delay_ms(6000);
-		//motor_individualDirSpeed(BACKWARD, 50, FORWARD, 50);
-		//_delay_ms(6000);
-		motor_stop();
-		_delay_ms(1000);
+		u16_distance = readRangeContinuousMillimeters();
+		if (timeoutOccurred())
+			uart_transmit(s_debugUart, '1');
+		else
+		{
+			uart_transmit(s_debugUart, u16_distance >> 8);
+			uart_transmit(s_debugUart, u16_distance & 0xff);
+		}
+		uart_transmit(s_debugUart, '\n');
     }
 }
