@@ -21,57 +21,34 @@ gpio_struct_t encoderRA;
 gpio_struct_t encoderRB;
 uart_struct_t s_debugUart;
 
-void p_pcInt2Callback(){
-	/*currentState = PINC & 0xF0;
-	if(((currentState & 0x20) == 0) && ((lastState & 0x20) == 1)){
-		counterRight++;
-		lastState &= ~(0x20);
+void p_pcInt2Callback()
+{
+	currentState = PINC & 0xF0;
+	switch (lastState ^ currentState)
+	{
+		case 0x10:
+			counterRight++;
+			break;
+		case 0x20:
+			counterRight++;
+			break;
+		case 0x40:
+			counterLeft++;
+			break;
+		case 0x80:
+			counterLeft++;
+			break;
+		default:
+				break;
 	}
-	else{
-		if((lastState & 0x20) == 0){
-			lastState |= 0x20;
-		}
-	}
-	
-	if(((currentState & 0x10) == 0) && ((lastState & 0x10) == 1)){
-		counterRight++;
-		lastState &= ~(0x10);
-	}
-	else{
-		if((lastState & 0x10) == 0){
-			lastState |= 0x10;
-		}
-	if(((currentState & 0x40) == 0) && ((lastState & 0x40) == 1)){
-		counterLeft++;
-		lastState &= ~(0x40);
-	}
-	else{
-		if((lastState & 0x40) == 0){
-			lastState |= 0x40;
-		}
-	}
-	
-	if(((currentState & 0x80) == 0) && ((lastState & 0x80) == 1)){
-		counterLeft++;
-		lastState &= ~(0x80);
-	}
-	else{
-		if((lastState & 0x80) == 0){
-			lastState |= 0x80;
-		}
-	}*/
-	uart_transmit(s_debugUart, 'x');
-	uart_transmit(s_debugUart, ' ');
-	uart_transmit(s_debugUart, counter);
-	uart_transmit(s_debugUart, '\n');
-	counter++;
+	lastState = currentState;
 }
 
 void encoder_init(){
 	counter = 0;
 	counterLeft = 0;
 	counterRight = 0;
-	lastState = 0xF0;
+	lastState = 0x00;
 	currentState = 0x00;
 	encoderLA.direction = INPUT;
 	encoderLA.port = PC;
@@ -108,17 +85,6 @@ void encoder_start(){
 	gpio_enableInterrupt(encoderLB, INTERRUPT_TOGGLE);
 	gpio_enableInterrupt(encoderRA, INTERRUPT_TOGGLE);
 	gpio_enableInterrupt(encoderRB, INTERRUPT_TOGGLE);
-	
-	s_debugUart.peripheral = UART0;
-	s_debugUart.baudRate = _9600;
-	s_debugUart.frameSize = _8BIT;
-	s_debugUart.parityBit = NONE;
-	s_debugUart.stopBits = _1BIT;
-	s_debugUart.useRx = FALSE;
-	s_debugUart.useTx = TRUE;
-
-	uart_init(s_debugUart);
-	uart_start(s_debugUart);
 }
 
 void encoder_stop(){
@@ -126,10 +92,6 @@ void encoder_stop(){
 	gpio_disableInterrupt(encoderLB, INTERRUPT_TOGGLE);
 	gpio_disableInterrupt(encoderRA, INTERRUPT_TOGGLE);
 	gpio_disableInterrupt(encoderRB, INTERRUPT_TOGGLE);
-}
-
-u8 encoder_get(){
-	return counter;
 }
 
 u32 encoder_getRight(){

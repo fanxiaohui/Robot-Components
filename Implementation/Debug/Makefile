@@ -63,6 +63,9 @@ C_SRCS +=  \
 ../Source/encoder.c \
 ../Source/motor.c \
 ../Source/VL53L0X.c
+../Source/pid.c \
+../Source/scheduler.c \
+../Source/vl53l0x.c \
 
 
 PREPROCESSING_SRCS += 
@@ -89,6 +92,9 @@ HAL/Source/wdg.o \
 Source/encoder.o \
 Source/motor.o \
 Source/VL53L0X.o
+Source/pid.o \
+Source/scheduler.o \
+Source/vl53l0x.o \
 
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
@@ -108,6 +114,9 @@ HAL/Source/wdg.o \
 Source/encoder.o \
 Source/motor.o \
 Source/VL53L0X.o
+Source/pid.o \
+Source/scheduler.o \
+Source/vl53l0x.o \
 
 C_DEPS +=  \
 Example/Source/main.d \
@@ -127,6 +136,9 @@ HAL/Source/wdg.d \
 Source/encoder.d \
 Source/motor.d \
 Source/VL53L0X.d
+Source/pid.d \
+Source/scheduler.d \
+Source/vl53l0x.d \
 
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
@@ -146,6 +158,9 @@ HAL/Source/wdg.d \
 Source/encoder.d \
 Source/motor.d \
 Source/VL53L0X.d
+Source/pid.d \
+Source/scheduler.d \
+Source/vl53l0x.d \
 
 OUTPUT_FILE_PATH +=Implementation.elf
 

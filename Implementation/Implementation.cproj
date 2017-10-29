@@ -262,6 +262,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Include\VL53L0X.h">
+    <Compile Include="Include\pid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\vl53l0x.h">
+      <SubType>compile</SubType>
+    </Compile>
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\encoder.c">
@@ -271,6 +280,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\VL53L0X.c">
+    <Compile Include="Source\pid.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\scheduler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\vl53l0x.c">
+      <SubType>compile</SubType>
+    </Compile>
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include "encoder.h"
 #include "i2c.h"
 #include "VL53L0X.h"
+#include "scheduler.h"
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
@@ -33,19 +34,15 @@ void scheduler_init()
 	timer_enableInterrupt(s_schedulerTimer, OVERFLOW);
 	timer_start(s_schedulerTimer);
 }
+static u32 left_EncoderCounter;
+static u32 right_EncoderCounter;
+timer_struct_t s_scheduler_timer;
 
-void debug_init()
+
+extern void Task_ReadEncoders ()
 {
-	s_debugUart.peripheral = UART0;
-	s_debugUart.baudRate = _9600;
-	s_debugUart.frameSize = _8BIT;
-	s_debugUart.parityBit = NONE;
-	s_debugUart.stopBits = _1BIT;
-	s_debugUart.useRx = FALSE;
-	s_debugUart.useTx = TRUE;
-
-	uart_init(s_debugUart);
-	uart_start(s_debugUart);
+	left_EncoderCounter = encoder_getLeft ();
+	right_EncoderCounter = encoder_getRight();
 }
 
 void sensor_i2c_init()
