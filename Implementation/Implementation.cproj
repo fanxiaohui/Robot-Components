@@ -132,9 +132,7 @@
     <Folder Include="HAL\Source" />
     <Folder Include="Include" />
     <Folder Include="HAL" />
-    <Folder Include="Include\VL53L0X" />
     <Folder Include="Source" />
-    <Folder Include="Source\VL53L0X" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Example\Config\vl53l0x_config.h">
@@ -272,39 +270,6 @@
     <Compile Include="Include\vl53l0x.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_api.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_api_calibration.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_api_core.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_api_ranging.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_api_strings.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_def.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_device.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_i2c_platform.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_interrupt_threshold_settings.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_platform.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\VL53L0X\vl53l0x_tuning.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Source\encoder.c">
       <SubType>compile</SubType>
     </Compile>
@@ -318,24 +283,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\vl53l0x.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_api.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_api_calibration.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_api_core.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_api_ranging.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_api_strings.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Source\VL53L0X\vl53l0x_platform.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

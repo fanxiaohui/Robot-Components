@@ -40,15 +40,3 @@ Source\scheduler.c
 
 Source\vl53l0x.c
 
-Source\VL53L0X\vl53l0x_api.c
-
-Source\VL53L0X\vl53l0x_api_calibration.c
-
-Source\VL53L0X\vl53l0x_api_core.c
-
-Source\VL53L0X\vl53l0x_api_ranging.c
-
-Source\VL53L0X\vl53l0x_api_strings.c
-
-Source\VL53L0X\vl53l0x_platform.c
-
