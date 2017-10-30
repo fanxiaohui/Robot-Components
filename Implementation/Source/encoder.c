@@ -19,7 +19,6 @@ gpio_struct_t encoderLA;
 gpio_struct_t encoderLB;
 gpio_struct_t encoderRA;
 gpio_struct_t encoderRB;
-uart_struct_t s_debugUart;
 
 void p_pcInt2Callback()
 {
@@ -74,6 +73,7 @@ void encoder_init(){
 	gpio_init(encoderLB);
 	gpio_init(encoderRA);
 	gpio_init(encoderRB);
+	
 	gpio_attachInterrupt(encoderLA, INTERRUPT_TOGGLE, p_pcInt2Callback);
 	gpio_attachInterrupt(encoderLB, INTERRUPT_TOGGLE, p_pcInt2Callback);
 	gpio_attachInterrupt(encoderRA, INTERRUPT_TOGGLE, p_pcInt2Callback);

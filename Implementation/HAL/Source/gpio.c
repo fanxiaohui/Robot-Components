@@ -17,6 +17,7 @@
 /* Project specific includes                                            */
 /************************************************************************/
 
+#include "gpio_config.h"
 #include "gpio.h"
 #include "math.h"
 #include "uart.h"
@@ -91,7 +92,6 @@ ISR(PCINT1_vect)
 ISR(PCINT2_vect)
 {
 #ifdef USING_PCINT2
-	uart_transmit(s_debugUart, 'x');
 	p_pcInt2Callback();
 #endif
 }
@@ -130,18 +130,6 @@ ISR(INT2_vect)
 
 void gpio_init(gpio_struct_t s_gpio)
 {
-	
-	s_debugUart.peripheral = UART0;
-	s_debugUart.baudRate = _9600;
-	s_debugUart.frameSize = _8BIT;
-	s_debugUart.parityBit = NONE;
-	s_debugUart.stopBits = _1BIT;
-	s_debugUart.useRx = FALSE;
-	s_debugUart.useTx = TRUE;
-
-	uart_init(s_debugUart);
-	uart_start(s_debugUart);
-	
 	/* Configure pin direction */
 	gpio_changeDirection(s_gpio);
 
@@ -152,7 +140,6 @@ void gpio_init(gpio_struct_t s_gpio)
 		{
 			case PA:
 				updateBit(&PORTA, s_gpio.number, s_gpio.pullUp);
-				clearBit(&DIDR0, s_gpio.number);
 				break;
 			case PB:
 				updateBit(&PORTB, s_gpio.number, s_gpio.pullUp);

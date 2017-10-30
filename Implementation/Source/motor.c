@@ -56,13 +56,9 @@ void motor_start(){
 	gpio_out_reset(motorDirectionA);
 	gpio_out_reset(motorDirectionB);
 	gpio_out_set(motorEnable);
-	
+	pwm_setDutyCycle(motorPWM, CHANNEL_A, 0);
+	pwm_setDutyCycle(motorPWM, CHANNEL_B, 0);
 	pwm_start(motorPWM);
-	for(u8 i = 0; i <= 30; i += 10){
-		pwm_setDutyCycle(motorPWM, CHANNEL_A, i);
-		pwm_setDutyCycle(motorPWM, CHANNEL_B, i);
-	}
-	
 }
 
 void motor_stop(){
