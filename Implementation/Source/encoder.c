@@ -24,27 +24,27 @@
 /* Internal variables                                                   */
 /************************************************************************/
 
-extern encoder_struct_t s_encoderLeft;
-extern encoder_struct_t s_encoderRight;
+encoder_struct_t s_encoderLeft;
+encoder_struct_t s_encoderRight;
 
 /************************************************************************/
 /* Internal functions                                                   */
 /************************************************************************/
 
-void p_pcInt2Callback()
+void encoder_increment()
 {
 	s_encoderLeft.currentState = ((checkBit(s_encoderLeft.A.port, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(s_encoderLeft.B.port, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
 	s_encoderRight.currentState = ((checkBit(s_encoderRight.A.port, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(s_encoderLeft.B.port, s_encoderRight.B.number)) << s_encoderRight.B.number);
-	if((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState) == (1 << s_encoderLeft.A.number)){
+	if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.A.number)){
 		s_encoderLeft.counter++;
 	}
-	else if((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState) == (1 << s_encoderLeft.B.number)){
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.B.number)){
 		s_encoderLeft.counter++;
 	}
-	else if((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState) == (1 << s_encoderRight.A.number)){
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.A.number)){
 		s_encoderRight.counter++;
 	}
-	else if((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState) == (1 << s_encoderRight.B.number)){
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.B.number)){
 		s_encoderRight.counter++;
 	}
 	s_encoderLeft.lastState = s_encoderLeft.currentState;
@@ -61,8 +61,8 @@ void encoder_init(encoder_struct_t s_encoder){
 	s_encoder.counter = 0;
 	s_encoder.lastState = 0;
 	s_encoder.currentState = 0;
-	gpio_attachInterrupt(s_encoder.A, INTERRUPT_TOGGLE, p_pcInt2Callback);
-	gpio_attachInterrupt(s_encoder.B, INTERRUPT_TOGGLE, p_pcInt2Callback);
+	gpio_attachInterrupt(s_encoder.A, INTERRUPT_TOGGLE, encoder_increment);
+	gpio_attachInterrupt(s_encoder.B, INTERRUPT_TOGGLE, encoder_increment);
 }
 
 void encoder_start(encoder_struct_t s_encoder){

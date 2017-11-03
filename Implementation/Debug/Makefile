@@ -64,7 +64,14 @@ C_SRCS +=  \
 ../Source/motor.c \
 ../Source/pid.c \
 ../Source/scheduler.c \
-../Source/vl53l0x.c
+../Source/vl53l0x.c \
+../Source/vl53l0x_api.c \
+../Source/vl53l0x_api_calibration.c \
+../Source/vl53l0x_api_core.c \
+../Source/vl53l0x_api_ranging.c \
+../Source/vl53l0x_api_strings.c \
+../Source/vl53l0x_i2c_comms.c \
+../Source/vl53l0x_platform.c
 
 
 PREPROCESSING_SRCS += 
@@ -92,7 +99,14 @@ Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
-Source/vl53l0x.o
+Source/vl53l0x.o \
+Source/vl53l0x_api.o \
+Source/vl53l0x_api_calibration.o \
+Source/vl53l0x_api_core.o \
+Source/vl53l0x_api_ranging.o \
+Source/vl53l0x_api_strings.o \
+Source/vl53l0x_i2c_comms.o \
+Source/vl53l0x_platform.o
 
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
@@ -113,7 +127,14 @@ Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
-Source/vl53l0x.o
+Source/vl53l0x.o \
+Source/vl53l0x_api.o \
+Source/vl53l0x_api_calibration.o \
+Source/vl53l0x_api_core.o \
+Source/vl53l0x_api_ranging.o \
+Source/vl53l0x_api_strings.o \
+Source/vl53l0x_i2c_comms.o \
+Source/vl53l0x_platform.o
 
 C_DEPS +=  \
 Example/Source/main.d \
@@ -134,7 +155,14 @@ Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
-Source/vl53l0x.d
+Source/vl53l0x.d \
+Source/vl53l0x_api.d \
+Source/vl53l0x_api_calibration.d \
+Source/vl53l0x_api_core.d \
+Source/vl53l0x_api_ranging.d \
+Source/vl53l0x_api_strings.d \
+Source/vl53l0x_i2c_comms.d \
+Source/vl53l0x_platform.d
 
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
@@ -155,7 +183,14 @@ Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
-Source/vl53l0x.d
+Source/vl53l0x.d \
+Source/vl53l0x_api.d \
+Source/vl53l0x_api_calibration.d \
+Source/vl53l0x_api_core.d \
+Source/vl53l0x_api_ranging.d \
+Source/vl53l0x_api_strings.d \
+Source/vl53l0x_i2c_comms.d \
+Source/vl53l0x_platform.d
 
 OUTPUT_FILE_PATH +=Implementation.elf
 
@@ -171,6 +206,20 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

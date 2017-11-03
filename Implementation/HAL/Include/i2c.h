@@ -110,12 +110,12 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength);
 */
 u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength);
 
-/** Enables I2C interrupt
+/** Enables I2C interrupts
 	@pre Must be called after an interrupt is attached(with @link i2c_attachInterrupt @endlink).
 */
 void i2c_enableInterrupts();
 
-/** Disables I2C interrupt
+/** Disables I2C interrupts
 */
 void i2c_disableInterrupts();
 

@@ -17,10 +17,8 @@
 /* Project specific includes                                            */
 /************************************************************************/
 
-#include "gpio_config.h"
 #include "gpio.h"
 #include "math.h"
-#include "uart.h"
 
 /************************************************************************/
 /* Internal variables                                                   */
@@ -45,8 +43,6 @@ u8 u8_pcInt3OldState;
 #ifdef USING_EXTINT
 void (*p_extIntCallbacks[3])(void);
 #endif
-
-uart_struct_t s_debugUart;
 
 /************************************************************************/
 /* Internal functions                                                   */
@@ -140,6 +136,7 @@ void gpio_init(gpio_struct_t s_gpio)
 		{
 			case PA:
 				updateBit(&PORTA, s_gpio.number, s_gpio.pullUp);
+				clearBit(&DIDR0, s_gpio.number);
 				break;
 			case PB:
 				updateBit(&PORTB, s_gpio.number, s_gpio.pullUp);
@@ -424,8 +421,8 @@ void gpio_attachInterrupt(gpio_struct_t s_gpio, gpio_interruptType_enum_t e_inte
 			{
 		#endif
 		#ifdef USING_PCINT1
-			p_pcInt1Callback = p_function;
-			u8_pcInt1OldState = PORTB;
+				p_pcInt1Callback = p_function;
+				u8_pcInt1OldState = PORTB;
 		#endif
 		#ifdef USING_EXTINT
 			}

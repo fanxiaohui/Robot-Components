@@ -1023,10 +1023,13 @@ bool VL53L0X::performSingleRefCalibration(uint8_t vhv_init_byte)
   writeReg(SYSRANGE_START, 0x01 | vhv_init_byte); // VL53L0X_REG_SYSRANGE_MODE_START_STOP
 
   startTimeout();
+  Serial.println("cal started");
   while ((readReg(RESULT_INTERRUPT_STATUS) & 0x07) == 0)
   {
     if (checkTimeoutExpired()) { return false; }
   }
+  Serial.println("cal done");
+  Serial.println((uint16_t)millis() - timeout_start_ms);
 
   writeReg(SYSTEM_INTERRUPT_CLEAR, 0x01);
 

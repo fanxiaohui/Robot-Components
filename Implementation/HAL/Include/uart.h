@@ -155,7 +155,7 @@ void uart_transmit(uart_struct_t s_uart, u16 u16_data);
 /**	Checks if there is a received frame in the ring buffer that hasn't been processed yet.
 	@pre		Must be called after the UART was initialized (with @link uart_init @endlink) with receive enabled.
 	@param[in]	s_uart: UART peripheral to use
-	@return		true if there is an unprocessed frame
+	@return		TRUE if there is an unprocessed frame
 @*/
 bool uart_receiveAvailable(uart_struct_t s_uart);
 

@@ -21,6 +21,9 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "math.h"
+#include "uart.h"
+
+extern uart_struct_t s_debugUart;
 
 /************************************************************************/
 /* Internal variables                                                   */
@@ -105,7 +108,7 @@ void i2c_init(i2c_struct_t s_i2c)
 	s_sdaPin.direction = INPUT;
 	s_sdaPin.pullUp = USE_PULLUP;
 	gpio_init(s_sdaPin);
-
+	
 	gpio_struct_t s_sclPin;
 	s_sclPin.port = PC;
 	s_sclPin.number = 0;
@@ -140,13 +143,14 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 		TWDR = u8_address << 1;
 		/* Set write mode */
 		clearBit(&TWDR, TWD0);
-		/* Clear start condition. Also clears I2C flag because it writes a 1 to it. */
+		/* Set repeated start condition. Also clears I2C flag because it writes a 1 to it. */
 		clearBit(&TWCR, TWSTA);
 		/* Wait for interrupt flag */
 		while (!checkBit(TWCR, TWINT));
 		/* Check if ACK was received */
 		if ((TWSR & 0xF8) == I2C_SLAVE_WRITE_ACK)
 		{
+			uart_transmit(s_debugUart, i);
 			/* Transmit data */
 			while (i != u8_dataLength)
 			{
@@ -167,7 +171,7 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 	}
 	else
 		return stopAndGetErrorCode();
-
+	
 	/* Send stop condition. Also clears I2C flag because it writes a 1 to it. */
 	setBit(&TWCR, TWSTO);
 	/* Wait for stop condition to be sent. */
@@ -192,7 +196,7 @@ u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 		TWDR = u8_address << 1;
 		/* Set read mode */
 		setBit(&TWDR, TWD0);
-		/* Clear start condition. Also clears I2C flag because it writes a 1 to it. */
+		/* Set repeated start condition. Also clears I2C flag because it writes a 1 to it. */
 		clearBit(&TWCR, TWSTA);
 		/* Wait for interrupt flag */
 		while (!checkBit(TWCR, TWINT));
@@ -219,7 +223,7 @@ u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 	}
 	else
 		return stopAndGetErrorCode();
-
+	
 	/* Send NACK after all expected transfers are done. Also clears I2C flag because it writes a 1 to it. */
 	clearBit(&TWCR, TWEA);
 	/* Wait for interrupt flag */
