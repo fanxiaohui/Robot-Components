@@ -19,9 +19,12 @@ int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, ui
 	return VL53L0X_ERROR_NONE;
 }
 
+#include "uart.h"
+uart_struct_t s_debugUart;
+
 int VL53L0X_read_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
   i2c_transmit(deviceAddress, &index, 1);
-  i2c_transmit(deviceAddress, pdata, count);
+  i2c_receive(deviceAddress, pdata, count);
   return VL53L0X_ERROR_NONE;
 }
 

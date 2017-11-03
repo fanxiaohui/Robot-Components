@@ -25,7 +25,7 @@
 /** Using interrupt mode for UARTs
 */
 #ifdef USING_UART0
-	#define UART0_INTERRUPT_MODE
+	//#define UART0_INTERRUPT_MODE
 #endif
 #ifdef USING_UART1
 	#define UART1_INTERRUPT_MODE

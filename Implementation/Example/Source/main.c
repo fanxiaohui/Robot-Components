@@ -9,6 +9,7 @@
 #include "i2c.h"
 #include "vl53l0x.h"
 #include "scheduler.h"
+#include "vl53l0x_platform.h"
 
 #include <avr/interrupt.h>
 #define F_CPU	8000000UL
@@ -36,24 +37,17 @@ void debug_init()
 	uart_init(s_debugUart);
 	uart_start(s_debugUart);
 }
-
+extern VL53L0X_Dev_t MyDevice;
 int main(void)
 {
-	u8 data[] = {'a', 'b', 'c', 'd'};
-	VL53L0X_i2c_init();
-	debug_init();
-	sei();
-	
-	i2c_transmit(8, data, 5);
-	while (1)
-	{
-	}
-/*
 	VL53L0X_RangingMeasurementData_t measure;
+	VL53L0X_DeviceInfo_t pVL53L0X_DeviceInfo;
+	u8 data[10];
+	data[9] = 0xbf;
 	
-	vl53l0x_begin(VL53L0X_I2C_ADDR);
 	device_disableJTAG();	
 	debug_init();
+	vl53l0x_begin(VL53L0X_I2C_ADDR);
 	
 	sei();
 	
@@ -63,6 +57,6 @@ int main(void)
 		uart_transmit(s_debugUart, measure.RangeStatus);
 		uart_transmit(s_debugUart, measure.RangeMilliMeter >> 8);
 		uart_transmit(s_debugUart, measure.RangeMilliMeter & 0xff);
-		uart_transmit(s_debugUart, '\n');
-    }*/
+		_delay_ms(1000);
+    }
 }

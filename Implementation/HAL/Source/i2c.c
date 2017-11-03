@@ -21,9 +21,6 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "math.h"
-#include "uart.h"
-
-extern uart_struct_t s_debugUart;
 
 /************************************************************************/
 /* Internal variables                                                   */
@@ -132,8 +129,6 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 	u8 i = 0;
 	/* Send start condition */
 	setBit(&TWCR, TWSTA);
-	/* Clear I2C flag */
-	setBit(&TWCR, TWINT);
 	/* Wait for interrupt flag */
 	while (!checkBit(TWCR, TWINT));
 	/* Check if start condition was issued */
@@ -150,7 +145,6 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 		/* Check if ACK was received */
 		if ((TWSR & 0xF8) == I2C_SLAVE_WRITE_ACK)
 		{
-			uart_transmit(s_debugUart, i);
 			/* Transmit data */
 			while (i != u8_dataLength)
 			{
@@ -185,8 +179,6 @@ u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 	u8 i = 0;
 	/* Send start condition */
 	setBit(&TWCR, TWSTA);
-	/* Clear I2C flag */
-	setBit(&TWCR, TWINT);
 	/* Wait for interrupt flag */
 	while (!checkBit(TWCR, TWINT));
 	/* Check if start condition was issued */
