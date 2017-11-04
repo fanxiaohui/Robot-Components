@@ -137,7 +137,7 @@ u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 		/* Set slave address */
 		TWDR = u8_address << 1;
 		/* Set write mode */
-		clearBit(&TWDR, TWD0);
+		clearBit(&TWDR, 0);
 		/* Set repeated start condition. Also clears I2C flag because it writes a 1 to it. */
 		clearBit(&TWCR, TWSTA);
 		/* Wait for interrupt flag */
@@ -187,7 +187,7 @@ u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
 		/* Set slave address */
 		TWDR = u8_address << 1;
 		/* Set read mode */
-		setBit(&TWDR, TWD0);
+		setBit(&TWDR, 0);
 		/* Set repeated start condition. Also clears I2C flag because it writes a 1 to it. */
 		clearBit(&TWCR, TWSTA);
 		/* Wait for interrupt flag */
