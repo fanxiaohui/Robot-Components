@@ -29,7 +29,7 @@ void FlagUpdate ()
 /************************************************************************/
 /* Exported functions                                                   */
 /************************************************************************/
-void scheduler_inti(timer_struct_t s_Timer,timer_interruptType_enum_t interrupt)
+void scheduler_init(timer_struct_t s_Timer,timer_interruptType_enum_t interrupt)
 {
 	task_number = 0;
 	timer_flag = FALSE;
@@ -38,7 +38,7 @@ void scheduler_inti(timer_struct_t s_Timer,timer_interruptType_enum_t interrupt)
 	timer_enableInterrupt(s_Timer,interrupt);
 	timer_start(s_Timer);
 }
-void activate_task(u8 taskId,u8 task_timer)
+void activate_task(u8 taskId,u16 task_timer)
 {
 	task_table[taskId].timerValue = task_timer;
 	task_timers[taskId] =task_table[taskId].timerValue;

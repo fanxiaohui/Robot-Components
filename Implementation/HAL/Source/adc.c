@@ -69,11 +69,11 @@ void adc_init(adc_struct_t s_adc)
 	}
 }
 
-u16 adc_singleRead(adc_struct_t s_adc, u8 channel)
+u16 adc_singleRead(adc_struct_t s_adc)
 {
 	u16 readValue = 0;
 	u16 temp = 0;
-	ADMUX = channel | (ADMUX & 0b11111000);
+	ADMUX = s_adc.channel | (ADMUX & 0b11111000);
 	if(s_adc.conversionMode == SINGLE_CONVERSION)
 	{
 		setBit(&ADCSRA, ADSC);
@@ -101,7 +101,7 @@ u16 adc_singleRead(adc_struct_t s_adc, u8 channel)
 	return readValue;
 }
 
-u16 *adc_multiRead(adc_struct_t s_adc)
+/*u16 *adc_multiRead(adc_struct_t s_adc)
 {
 	u8 index = 0;
 	for(index = 0; index < 8; index++)
@@ -111,15 +111,14 @@ u16 *adc_multiRead(adc_struct_t s_adc)
 			au16_conversionResultsBuffer[index] = 0;
 	return au16_conversionResultsBuffer;
 }
-
+*/
 
 
 void adc_start(adc_struct_t s_adc)
 {
 	u8 u8_channel;
 	setBit(&ADCSRA, ADEN);
-	for (u8_channel = 0; u8_channel < 8; u8_channel++)
-		updateBit(&DIDR0, 1 << u8_channel, s_adc.channelEnabled[u8_channel]);
+		updateBit(&DIDR0, s_adc.channel, TRUE);
 	if (s_adc.conversionMode != SINGLE_CONVERSION)
 		setBit(&ADCSRA, ADSC);
 }
@@ -128,8 +127,7 @@ void adc_stop(adc_struct_t s_adc)
 {
 	u8 u8_channel;
 	clearBit(&ADCSRA, ADEN);
-	for (u8_channel = 0; u8_channel < 8; u8_channel++)
-		updateBit(&DIDR0, 1 << u8_channel, ~s_adc.channelEnabled[u8_channel]);
+		updateBit(&DIDR0, s_adc.channel,FALSE);
 }
 
 void adc_enableInterrupts()

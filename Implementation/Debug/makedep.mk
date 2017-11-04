@@ -38,6 +38,8 @@ Source\pid.c
 
 Source\scheduler.c
 
+Source\surface_sensor.c
+
 Source\vl53l0x.c
 
 Source\vl53l0x_api.c

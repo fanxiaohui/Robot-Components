@@ -69,6 +69,9 @@ void motor_init(motor_struct_t s_motor);
 	@pre		Must be called after the motor driver was initialized (with @link motor_init @endlink).
 	@param[in]	s_motor: motor parameters to initialize
 */
+ 
+
+
 void motor_start(motor_struct_t s_motor);
 
 /** Stops motor driver.

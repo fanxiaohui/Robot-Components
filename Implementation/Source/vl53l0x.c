@@ -1,5 +1,8 @@
 #include "vl53l0x.h"
 #include "types.h"
+#include "uart.h"
+
+extern uart_struct_t s_debugUart;
 
 #define VERSION_REQUIRED_MAJOR  1
 #define VERSION_REQUIRED_MINOR  0
@@ -26,7 +29,8 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
   pMyDevice->I2cDevAddr      =  VL53L0X_I2C_ADDR;  // default
   pMyDevice->comms_type      =  1;
   pMyDevice->comms_speed_khz =  400;
-
+  
+  uart_transmit(s_debugUart, 'a');
   VL53L0X_i2c_init();
 
   Status = VL53L0X_DataInit( &MyDevice );         // Data initialization

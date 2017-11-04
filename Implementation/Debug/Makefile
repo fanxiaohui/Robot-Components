@@ -64,6 +64,7 @@ C_SRCS +=  \
 ../Source/motor.c \
 ../Source/pid.c \
 ../Source/scheduler.c \
+../Source/surface_sensor.c \
 ../Source/vl53l0x.c \
 ../Source/vl53l0x_api.c \
 ../Source/vl53l0x_api_calibration.c \
@@ -99,6 +100,7 @@ Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
+Source/surface_sensor.o \
 Source/vl53l0x.o \
 Source/vl53l0x_api.o \
 Source/vl53l0x_api_calibration.o \
@@ -127,6 +129,7 @@ Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
+Source/surface_sensor.o \
 Source/vl53l0x.o \
 Source/vl53l0x_api.o \
 Source/vl53l0x_api_calibration.o \
@@ -155,6 +158,7 @@ Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
+Source/surface_sensor.d \
 Source/vl53l0x.d \
 Source/vl53l0x_api.d \
 Source/vl53l0x_api_calibration.d \
@@ -183,6 +187,7 @@ Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
+Source/surface_sensor.d \
 Source/vl53l0x.d \
 Source/vl53l0x_api.d \
 Source/vl53l0x_api_calibration.d \
@@ -206,6 +211,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

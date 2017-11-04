@@ -110,7 +110,7 @@ typedef struct adc_struct_t
 	adc_reference_enum_t referenceVoltage;
 
 /** Which channels are going to be used*/
-	bool channelEnabled[8];
+	bool channel;
 
 /**	Division factor for ADC clock */
 	adc_prescaler_enum_t prescaler;
@@ -169,7 +169,7 @@ void adc_detachInterrupt();
 	@return value converted (16bit)
 */
 
-u16 adc_singleRead(adc_struct_t s_adc, u8 channel);
+u16 adc_singleRead(adc_struct_t s_adc);
 
 /** Reads the value from every selected channel.
 	@pre Must be called after the ADC is initialized(with @link adc_init @endlink).
