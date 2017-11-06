@@ -14,8 +14,13 @@ int VL53L0X_i2c_init(void) {
 }
 
 int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
-	i2c_transmit(deviceAddress, &index, 1);
-	i2c_transmit(deviceAddress, pdata, count);
+	u8 dataToSend[count + 1];
+	u8 i;
+	
+	dataToSend[0] = index;
+	for (i = 0; i < count; i++)
+		dataToSend[i + 1] = pdata[i];
+	i2c_transmit(deviceAddress, dataToSend, count + 1);
 	return VL53L0X_ERROR_NONE;
 }
 
