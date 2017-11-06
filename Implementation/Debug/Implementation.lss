@@ -3,31 +3,31 @@ Implementation.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000006ea  00800100  000059b4  00005a48  2**0
+  0 .data         000006ea  00800100  00005a32  00005ac6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000059b4  00000000  00000000  00000094  2**1
+  1 .text         00005a32  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000212  008007ea  008007ea  00006132  2**0
+  2 .bss          00000212  008007ea  008007ea  000061b0  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00006132  2**0
+  3 .comment      00000030  00000000  00000000  000061b0  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00006164  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000061e0  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000a50  00000000  00000000  000061a4  2**0
+  5 .debug_aranges 00000a50  00000000  00000000  00006220  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0001202c  00000000  00000000  00006bf4  2**0
+  6 .debug_info   0001203f  00000000  00000000  00006c70  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000255a  00000000  00000000  00018c20  2**0
+  7 .debug_abbrev 00002584  00000000  00000000  00018caf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000670c  00000000  00000000  0001b17a  2**0
+  8 .debug_line   00006732  00000000  00000000  0001b233  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00002b14  00000000  00000000  00021888  2**2
+  9 .debug_frame  00002b3c  00000000  00000000  00021968  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00004a9e  00000000  00000000  0002439c  2**0
+ 10 .debug_str    00004a9c  00000000  00000000  000244a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00011e26  00000000  00000000  00028e3a  2**0
+ 11 .debug_loc    00011eb1  00000000  00000000  00028f40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000978  00000000  00000000  0003ac60  2**0
+ 12 .debug_ranges 00000978  00000000  00000000  0003adf1  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -116,8 +116,8 @@ Disassembly of section .text:
       98:	17 e0       	ldi	r17, 0x07	; 7
       9a:	a0 e0       	ldi	r26, 0x00	; 0
       9c:	b1 e0       	ldi	r27, 0x01	; 1
-      9e:	e4 eb       	ldi	r30, 0xB4	; 180
-      a0:	f9 e5       	ldi	r31, 0x59	; 89
+      9e:	e2 e3       	ldi	r30, 0x32	; 50
+      a0:	fa e5       	ldi	r31, 0x5A	; 90
       a2:	00 e0       	ldi	r16, 0x00	; 0
       a4:	0b bf       	out	0x3b, r16	; 59
       a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
@@ -141,7 +141,7 @@ Disassembly of section .text:
       be:	b2 07       	cpc	r27, r18
       c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
       c2:	3b d0       	rcall	.+118    	; 0x13a <main>
-      c4:	0c 94 d8 2c 	jmp	0x59b0	; 0x59b0 <_exit>
+      c4:	0c 94 17 2d 	jmp	0x5a2e	; 0x5a2e <_exit>
 
 000000c8 <__bad_interrupt>:
       c8:	9b cf       	rjmp	.-202    	; 0x0 <__vectors>
@@ -537,7 +537,7 @@ void i2c_stop()
      2ae:	90 e0       	ldi	r25, 0x00	; 0
      2b0:	a9 01       	movw	r20, r18
      2b2:	98 01       	movw	r18, r16
-     2b4:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+     2b4:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
      2b8:	ba 01       	movw	r22, r20
      2ba:	a9 01       	movw	r20, r18
      2bc:	40 51       	subi	r20, 0x10	; 16
@@ -1202,10 +1202,10 @@ u16 calculateError(u32 u32_actualValue, u32 u32_expectedValue)
      67e:	5f 09       	sbc	r21, r15
      680:	a8 ee       	ldi	r26, 0xE8	; 232
      682:	b3 e0       	ldi	r27, 0x03	; 3
-     684:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+     684:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
      688:	a7 01       	movw	r20, r14
      68a:	96 01       	movw	r18, r12
-     68c:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+     68c:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
      690:	c9 01       	movw	r24, r18
      692:	99 23       	and	r25, r25
      694:	24 f4       	brge	.+8      	; 0x69e <calculateError+0x36>
@@ -1808,12 +1808,12 @@ ISR(TIMER2_COMPB_vect)
      aba:	b2 01       	movw	r22, r4
      abc:	a5 01       	movw	r20, r10
      abe:	94 01       	movw	r18, r8
-     ac0:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+     ac0:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
      ac4:	69 01       	movw	r12, r18
      ac6:	7a 01       	movw	r14, r20
      ac8:	c3 01       	movw	r24, r6
      aca:	b2 01       	movw	r22, r4
-     acc:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+     acc:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
      ad0:	ca 01       	movw	r24, r20
      ad2:	b9 01       	movw	r22, r18
      ad4:	a5 01       	movw	r20, r10
@@ -1835,7 +1835,7 @@ ISR(TIMER2_COMPB_vect)
      af4:	90 e0       	ldi	r25, 0x00	; 0
      af6:	a5 01       	movw	r20, r10
      af8:	94 01       	movw	r18, r8
-     afa:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+     afa:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
      afe:	da 01       	movw	r26, r20
      b00:	c9 01       	movw	r24, r18
      b02:	01 97       	sbiw	r24, 0x01	; 1
@@ -2506,7 +2506,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
      f76:	46 2f       	mov	r20, r22
      f78:	46 95       	lsr	r20
      f7a:	6a e8       	ldi	r22, 0x8A	; 138
-     f7c:	0c 94 a6 2b 	jmp	0x574c	; 0x574c <VL53L0X_WrByte>
+     f7c:	0c 94 e5 2b 	jmp	0x57ca	; 0x57ca <VL53L0X_WrByte>
      f80:	08 95       	ret
 
 00000f82 <VL53L0X_SetDeviceMode>:
@@ -2533,7 +2533,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
      fa6:	eb 01       	movw	r28, r22
      fa8:	ab 01       	movw	r20, r22
      faa:	69 e0       	ldi	r22, 0x09	; 9
-     fac:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+     fac:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
      fb0:	81 11       	cpse	r24, r1
      fb2:	03 c0       	rjmp	.+6      	; 0xfba <VL53L0X_GetFractionEnable+0x18>
      fb4:	98 81       	ld	r25, Y
@@ -2570,7 +2570,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
      fea:	4f 5f       	subi	r20, 0xFF	; 255
      fec:	5f 4f       	sbci	r21, 0xFF	; 255
      fee:	61 e0       	ldi	r22, 0x01	; 1
-     ff0:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+     ff0:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
      ff4:	18 2f       	mov	r17, r24
      ff6:	81 11       	cpse	r24, r1
      ff8:	56 c0       	rjmp	.+172    	; 0x10a6 <VL53L0X_SetSequenceStepEnable+0xda>
@@ -2637,7 +2637,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1072:	40 2f       	mov	r20, r16
     1074:	61 e0       	ldi	r22, 0x01	; 1
     1076:	c7 01       	movw	r24, r14
-    1078:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1078:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     107c:	18 2f       	mov	r17, r24
     107e:	81 11       	cpse	r24, r1
     1080:	12 c0       	rjmp	.+36     	; 0x10a6 <VL53L0X_SetSequenceStepEnable+0xda>
@@ -2739,7 +2739,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1138:	4f 5f       	subi	r20, 0xFF	; 255
     113a:	5f 4f       	sbci	r21, 0xFF	; 255
     113c:	61 e0       	ldi	r22, 0x01	; 1
-    113e:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    113e:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     1142:	81 11       	cpse	r24, r1
     1144:	20 c0       	rjmp	.+64     	; 0x1186 <VL53L0X_GetSequenceStepEnables+0x68>
     1146:	97 01       	movw	r18, r14
@@ -2838,12 +2838,12 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     11fe:	b2 01       	movw	r22, r4
     1200:	a5 01       	movw	r20, r10
     1202:	94 01       	movw	r18, r8
-    1204:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    1204:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     1208:	69 01       	movw	r12, r18
     120a:	7a 01       	movw	r14, r20
     120c:	a8 ee       	ldi	r26, 0xE8	; 232
     120e:	b3 e0       	ldi	r27, 0x03	; 3
-    1210:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    1210:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     1214:	a3 01       	movw	r20, r6
     1216:	92 01       	movw	r18, r4
     1218:	26 1b       	sub	r18, r22
@@ -2852,14 +2852,14 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     121e:	59 0b       	sbc	r21, r25
     1220:	af ef       	ldi	r26, 0xFF	; 255
     1222:	bf ef       	ldi	r27, 0xFF	; 255
-    1224:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    1224:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     1228:	6c 50       	subi	r22, 0x0C	; 12
     122a:	7e 4f       	sbci	r23, 0xFE	; 254
     122c:	8f 4f       	sbci	r24, 0xFF	; 255
     122e:	9f 4f       	sbci	r25, 0xFF	; 255
     1230:	a5 01       	movw	r20, r10
     1232:	94 01       	movw	r18, r8
-    1234:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    1234:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     1238:	76 01       	movw	r14, r12
     123a:	dd 24       	eor	r13, r13
     123c:	cc 24       	eor	r12, r12
@@ -2917,7 +2917,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     12a0:	4f 5f       	subi	r20, 0xFF	; 255
     12a2:	5f 4f       	sbci	r21, 0xFF	; 255
     12a4:	68 ef       	ldi	r22, 0xF8	; 248
-    12a6:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    12a6:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     12aa:	18 2f       	mov	r17, r24
     12ac:	81 11       	cpse	r24, r1
     12ae:	26 c0       	rjmp	.+76     	; 0x12fc <VL53L0X_GetInterMeasurementPeriodMilliSeconds+0x7a>
@@ -2926,7 +2926,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     12b4:	5f 4f       	sbci	r21, 0xFF	; 255
     12b6:	64 e0       	ldi	r22, 0x04	; 4
     12b8:	c7 01       	movw	r24, r14
-    12ba:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    12ba:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     12be:	18 2f       	mov	r17, r24
     12c0:	81 11       	cpse	r24, r1
     12c2:	1c c0       	rjmp	.+56     	; 0x12fc <VL53L0X_GetInterMeasurementPeriodMilliSeconds+0x7a>
@@ -2941,7 +2941,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     12d4:	7c 81       	ldd	r23, Y+4	; 0x04
     12d6:	8d 81       	ldd	r24, Y+5	; 0x05
     12d8:	9e 81       	ldd	r25, Y+6	; 0x06
-    12da:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    12da:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     12de:	f6 01       	movw	r30, r12
     12e0:	20 83       	st	Z, r18
     12e2:	31 83       	std	Z+1, r19	; 0x01
@@ -2997,7 +2997,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     133e:	4f 5f       	subi	r20, 0xFF	; 255
     1340:	5f 4f       	sbci	r21, 0xFF	; 255
     1342:	60 e2       	ldi	r22, 0x20	; 32
-    1344:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    1344:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     1348:	81 11       	cpse	r24, r1
     134a:	26 c0       	rjmp	.+76     	; 0x1398 <VL53L0X_GetXTalkCompensationRateMegaCps+0x72>
     134c:	49 81       	ldd	r20, Y+1	; 0x01
@@ -3095,7 +3095,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1400:	30 2d       	mov	r19, r0
     1402:	64 e4       	ldi	r22, 0x44	; 68
     1404:	c7 01       	movw	r24, r14
-    1406:	0e 94 b1 2b 	call	0x5762	; 0x5762 <VL53L0X_WrWord>
+    1406:	0e 94 f0 2b 	call	0x57e0	; 0x57e0 <VL53L0X_WrWord>
     140a:	14 c0       	rjmp	.+40     	; 0x1434 <VL53L0X_SetLimitCheckEnable+0x8a>
     140c:	f7 01       	movw	r30, r14
     140e:	37 a3       	std	Z+39, r19	; 0x27
@@ -3107,14 +3107,14 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     141a:	4e ef       	ldi	r20, 0xFE	; 254
     141c:	60 e6       	ldi	r22, 0x60	; 96
     141e:	c7 01       	movw	r24, r14
-    1420:	0e 94 bc 2b 	call	0x5778	; 0x5778 <VL53L0X_UpdateByte>
+    1420:	0e 94 fb 2b 	call	0x57f6	; 0x57f6 <VL53L0X_UpdateByte>
     1424:	07 c0       	rjmp	.+14     	; 0x1434 <VL53L0X_SetLimitCheckEnable+0x8a>
     1426:	22 95       	swap	r18
     1428:	20 7f       	andi	r18, 0xF0	; 240
     142a:	4f ee       	ldi	r20, 0xEF	; 239
     142c:	60 e6       	ldi	r22, 0x60	; 96
     142e:	c7 01       	movw	r24, r14
-    1430:	0e 94 bc 2b 	call	0x5778	; 0x5778 <VL53L0X_UpdateByte>
+    1430:	0e 94 fb 2b 	call	0x57f6	; 0x57f6 <VL53L0X_UpdateByte>
     1434:	81 11       	cpse	r24, r1
     1436:	2d c0       	rjmp	.+90     	; 0x1492 <VL53L0X_SetLimitCheckEnable+0xe8>
     1438:	11 11       	cpse	r17, r1
@@ -3257,7 +3257,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1542:	d1 f7       	brne	.-12     	; 0x1538 <VL53L0X_SetLimitCheckValue+0x74>
     1544:	30 2d       	mov	r19, r0
     1546:	64 e4       	ldi	r22, 0x44	; 68
-    1548:	0e 94 b1 2b 	call	0x5762	; 0x5762 <VL53L0X_WrWord>
+    1548:	0e 94 f0 2b 	call	0x57e0	; 0x57e0 <VL53L0X_WrWord>
     154c:	1d c0       	rjmp	.+58     	; 0x1588 <VL53L0X_SetLimitCheckValue+0xc4>
     154e:	fc 01       	movw	r30, r24
     1550:	21 af       	std	Z+57, r18	; 0x39
@@ -3284,7 +3284,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     157a:	d1 f7       	brne	.-12     	; 0x1570 <VL53L0X_SetLimitCheckValue+0xac>
     157c:	30 2d       	mov	r19, r0
     157e:	64 e6       	ldi	r22, 0x64	; 100
-    1580:	0e 94 b1 2b 	call	0x5762	; 0x5762 <VL53L0X_WrWord>
+    1580:	0e 94 f0 2b 	call	0x57e0	; 0x57e0 <VL53L0X_WrWord>
     1584:	01 c0       	rjmp	.+2      	; 0x1588 <VL53L0X_SetLimitCheckValue+0xc4>
     1586:	8c ef       	ldi	r24, 0xFC	; 252
     1588:	81 11       	cpse	r24, r1
@@ -3352,7 +3352,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1600:	4f 5f       	subi	r20, 0xFF	; 255
     1602:	5f 4f       	sbci	r21, 0xFF	; 255
     1604:	64 e4       	ldi	r22, 0x44	; 68
-    1606:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    1606:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     160a:	81 11       	cpse	r24, r1
     160c:	4c c0       	rjmp	.+152    	; 0x16a6 <VL53L0X_GetLimitCheckValue+0xee>
     160e:	99 81       	ldd	r25, Y+1	; 0x01
@@ -3385,7 +3385,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1644:	4f 5f       	subi	r20, 0xFF	; 255
     1646:	5f 4f       	sbci	r21, 0xFF	; 255
     1648:	64 e6       	ldi	r22, 0x64	; 100
-    164a:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    164a:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     164e:	81 11       	cpse	r24, r1
     1650:	2a c0       	rjmp	.+84     	; 0x16a6 <VL53L0X_GetLimitCheckValue+0xee>
     1652:	29 81       	ldd	r18, Y+1	; 0x01
@@ -3456,7 +3456,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     16d0:	4f 5f       	subi	r20, 0xFF	; 255
     16d2:	5f 4f       	sbci	r21, 0xFF	; 255
     16d4:	61 e0       	ldi	r22, 0x01	; 1
-    16d6:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    16d6:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     16da:	81 11       	cpse	r24, r1
     16dc:	13 c0       	rjmp	.+38     	; 0x1704 <VL53L0X_GetWrapAroundCheckEnable+0x4c>
     16de:	99 81       	ldd	r25, Y+1	; 0x01
@@ -3609,19 +3609,19 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     17fe:	21 e0       	ldi	r18, 0x01	; 1
     1800:	4e ef       	ldi	r20, 0xFE	; 254
     1802:	69 e8       	ldi	r22, 0x89	; 137
-    1804:	0e 94 bc 2b 	call	0x5778	; 0x5778 <VL53L0X_UpdateByte>
+    1804:	0e 94 fb 2b 	call	0x57f6	; 0x57f6 <VL53L0X_UpdateByte>
     1808:	81 11       	cpse	r24, r1
     180a:	05 c0       	rjmp	.+10     	; 0x1816 <VL53L0X_DataInit+0x36>
     180c:	40 e0       	ldi	r20, 0x00	; 0
     180e:	68 e8       	ldi	r22, 0x88	; 136
     1810:	c8 01       	movw	r24, r16
-    1812:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1812:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1816:	ae 01       	movw	r20, r28
     1818:	44 5c       	subi	r20, 0xC4	; 196
     181a:	5f 4f       	sbci	r21, 0xFF	; 255
     181c:	60 ec       	ldi	r22, 0xC0	; 192
     181e:	c8 01       	movw	r24, r16
-    1820:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    1820:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     1824:	f8 01       	movw	r30, r16
     1826:	e1 52       	subi	r30, 0x21	; 33
     1828:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -3708,25 +3708,25 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     18ca:	41 e0       	ldi	r20, 0x01	; 1
     18cc:	60 e8       	ldi	r22, 0x80	; 128
     18ce:	c8 01       	movw	r24, r16
-    18d0:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    18d0:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     18d4:	e8 2e       	mov	r14, r24
     18d6:	41 e0       	ldi	r20, 0x01	; 1
     18d8:	6f ef       	ldi	r22, 0xFF	; 255
     18da:	c8 01       	movw	r24, r16
-    18dc:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    18dc:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     18e0:	8e 29       	or	r24, r14
     18e2:	f8 2a       	or	r15, r24
     18e4:	40 e0       	ldi	r20, 0x00	; 0
     18e6:	60 e0       	ldi	r22, 0x00	; 0
     18e8:	c8 01       	movw	r24, r16
-    18ea:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    18ea:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     18ee:	f8 2a       	or	r15, r24
     18f0:	ae 01       	movw	r20, r28
     18f2:	45 5c       	subi	r20, 0xC5	; 197
     18f4:	5f 4f       	sbci	r21, 0xFF	; 255
     18f6:	61 e9       	ldi	r22, 0x91	; 145
     18f8:	c8 01       	movw	r24, r16
-    18fa:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    18fa:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     18fe:	f8 2a       	or	r15, r24
     1900:	8b ad       	ldd	r24, Y+59	; 0x3b
     1902:	f8 01       	movw	r30, r16
@@ -3736,17 +3736,17 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     190a:	41 e0       	ldi	r20, 0x01	; 1
     190c:	60 e0       	ldi	r22, 0x00	; 0
     190e:	c8 01       	movw	r24, r16
-    1910:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1910:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1914:	f8 2a       	or	r15, r24
     1916:	40 e0       	ldi	r20, 0x00	; 0
     1918:	6f ef       	ldi	r22, 0xFF	; 255
     191a:	c8 01       	movw	r24, r16
-    191c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    191c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1920:	f8 2a       	or	r15, r24
     1922:	40 e0       	ldi	r20, 0x00	; 0
     1924:	60 e8       	ldi	r22, 0x80	; 128
     1926:	c8 01       	movw	r24, r16
-    1928:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1928:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     192c:	8f 29       	or	r24, r15
     192e:	09 f4       	brne	.+2      	; 0x1932 <VL53L0X_DataInit+0x152>
     1930:	69 c0       	rjmp	.+210    	; 0x1a04 <VL53L0X_DataInit+0x224>
@@ -3841,7 +3841,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     19e2:	4f ef       	ldi	r20, 0xFF	; 255
     19e4:	61 e0       	ldi	r22, 0x01	; 1
     19e6:	c8 01       	movw	r24, r16
-    19e8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    19e8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     19ec:	91 e0       	ldi	r25, 0x01	; 1
     19ee:	f8 01       	movw	r30, r16
     19f0:	e1 5e       	subi	r30, 0xE1	; 225
@@ -3919,7 +3919,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1a7a:	4e 5f       	subi	r20, 0xFE	; 254
     1a7c:	5f 4f       	sbci	r21, 0xFF	; 255
     1a7e:	64 e1       	ldi	r22, 0x14	; 20
-    1a80:	0e 94 8e 2b 	call	0x571c	; 0x571c <VL53L0X_ReadMulti>
+    1a80:	0e 94 cd 2b 	call	0x579a	; 0x579a <VL53L0X_ReadMulti>
     1a84:	81 11       	cpse	r24, r1
     1a86:	fb c0       	rjmp	.+502    	; 0x1c7e <VL53L0X_GetRangingMeasurementData+0x246>
     1a88:	d5 01       	movw	r26, r10
@@ -4006,7 +4006,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1b2a:	27 95       	ror	r18
     1b2c:	a5 ec       	ldi	r26, 0xC5	; 197
     1b2e:	b0 e2       	ldi	r27, 0x20	; 32
-    1b30:	0e 94 6b 2c 	call	0x58d6	; 0x58d6 <__umulhisi3>
+    1b30:	0e 94 aa 2c 	call	0x5954	; 0x5954 <__umulhisi3>
     1b34:	9c 01       	movw	r18, r24
     1b36:	32 95       	swap	r19
     1b38:	22 95       	swap	r18
@@ -4049,12 +4049,12 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1b82:	d9 01       	movw	r26, r18
     1b84:	a3 01       	movw	r20, r6
     1b86:	92 01       	movw	r18, r4
-    1b88:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    1b88:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     1b8c:	2c 19       	sub	r18, r12
     1b8e:	3d 09       	sbc	r19, r13
     1b90:	4e 09       	sbc	r20, r14
     1b92:	5f 09       	sbc	r21, r15
-    1b94:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    1b94:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     1b98:	22 20       	and	r2, r2
     1b9a:	89 f0       	breq	.+34     	; 0x1bbe <VL53L0X_GetRangingMeasurementData+0x186>
     1b9c:	02 c0       	rjmp	.+4      	; 0x1ba2 <VL53L0X_GetRangingMeasurementData+0x16a>
@@ -4214,7 +4214,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1cce:	4f 5f       	subi	r20, 0xFF	; 255
     1cd0:	5f 4f       	sbci	r21, 0xFF	; 255
     1cd2:	6e e0       	ldi	r22, 0x0E	; 14
-    1cd4:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    1cd4:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     1cd8:	49 81       	ldd	r20, Y+1	; 0x01
     1cda:	5a 81       	ldd	r21, Y+2	; 0x02
     1cdc:	5f 70       	andi	r21, 0x0F	; 15
@@ -4241,7 +4241,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1d06:	5f 4f       	sbci	r21, 0xFF	; 255
     1d08:	6c e0       	ldi	r22, 0x0C	; 12
     1d0a:	c8 01       	movw	r24, r16
-    1d0c:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    1d0c:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     1d10:	49 81       	ldd	r20, Y+1	; 0x01
     1d12:	5a 81       	ldd	r21, Y+2	; 0x02
     1d14:	5f 70       	andi	r21, 0x0F	; 15
@@ -4337,22 +4337,22 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1dc6:	44 e0       	ldi	r20, 0x04	; 4
     1dc8:	6f ef       	ldi	r22, 0xFF	; 255
     1dca:	c7 01       	movw	r24, r14
-    1dcc:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1dcc:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1dd0:	18 2f       	mov	r17, r24
     1dd2:	40 e0       	ldi	r20, 0x00	; 0
     1dd4:	60 e7       	ldi	r22, 0x70	; 112
     1dd6:	c7 01       	movw	r24, r14
-    1dd8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1dd8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1ddc:	18 2b       	or	r17, r24
     1dde:	40 e0       	ldi	r20, 0x00	; 0
     1de0:	6f ef       	ldi	r22, 0xFF	; 255
     1de2:	c7 01       	movw	r24, r14
-    1de4:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1de4:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1de8:	18 2b       	or	r17, r24
     1dea:	40 e0       	ldi	r20, 0x00	; 0
     1dec:	60 e8       	ldi	r22, 0x80	; 128
     1dee:	c7 01       	movw	r24, r14
-    1df0:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1df0:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1df4:	81 2b       	or	r24, r17
     1df6:	01 c0       	rjmp	.+2      	; 0x1dfa <VL53L0X_CheckAndLoadInterruptSettings+0xae>
     1df8:	80 e0       	ldi	r24, 0x00	; 0
@@ -4386,34 +4386,34 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1e2c:	f0 88       	ldd	r15, Z+16	; 0x10
     1e2e:	41 e0       	ldi	r20, 0x01	; 1
     1e30:	60 e8       	ldi	r22, 0x80	; 128
-    1e32:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e32:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e36:	41 e0       	ldi	r20, 0x01	; 1
     1e38:	6f ef       	ldi	r22, 0xFF	; 255
     1e3a:	c8 01       	movw	r24, r16
-    1e3c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e3c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e40:	40 e0       	ldi	r20, 0x00	; 0
     1e42:	60 e0       	ldi	r22, 0x00	; 0
     1e44:	c8 01       	movw	r24, r16
-    1e46:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e46:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e4a:	f8 01       	movw	r30, r16
     1e4c:	e9 5d       	subi	r30, 0xD9	; 217
     1e4e:	fe 4f       	sbci	r31, 0xFE	; 254
     1e50:	40 81       	ld	r20, Z
     1e52:	61 e9       	ldi	r22, 0x91	; 145
     1e54:	c8 01       	movw	r24, r16
-    1e56:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e56:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e5a:	41 e0       	ldi	r20, 0x01	; 1
     1e5c:	60 e0       	ldi	r22, 0x00	; 0
     1e5e:	c8 01       	movw	r24, r16
-    1e60:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e60:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e64:	40 e0       	ldi	r20, 0x00	; 0
     1e66:	6f ef       	ldi	r22, 0xFF	; 255
     1e68:	c8 01       	movw	r24, r16
-    1e6a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e6a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e6e:	40 e0       	ldi	r20, 0x00	; 0
     1e70:	60 e8       	ldi	r22, 0x80	; 128
     1e72:	c8 01       	movw	r24, r16
-    1e74:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e74:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e78:	f1 e0       	ldi	r31, 0x01	; 1
     1e7a:	ff 16       	cp	r15, r31
     1e7c:	d9 f1       	breq	.+118    	; 0x1ef4 <VL53L0X_StartMeasurement+0xe2>
@@ -4427,7 +4427,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1e8c:	41 e0       	ldi	r20, 0x01	; 1
     1e8e:	60 e0       	ldi	r22, 0x00	; 0
     1e90:	c8 01       	movw	r24, r16
-    1e92:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1e92:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1e96:	91 e0       	ldi	r25, 0x01	; 1
     1e98:	99 83       	std	Y+1, r25	; 0x01
     1e9a:	88 23       	and	r24, r24
@@ -4443,7 +4443,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1eae:	5f 4f       	sbci	r21, 0xFF	; 255
     1eb0:	60 e0       	ldi	r22, 0x00	; 0
     1eb2:	c8 01       	movw	r24, r16
-    1eb4:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    1eb4:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     1eb8:	03 c0       	rjmp	.+6      	; 0x1ec0 <VL53L0X_StartMeasurement+0xae>
     1eba:	c1 2c       	mov	r12, r1
     1ebc:	d1 2c       	mov	r13, r1
@@ -4482,7 +4482,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1efe:	42 e0       	ldi	r20, 0x02	; 2
     1f00:	60 e0       	ldi	r22, 0x00	; 0
     1f02:	c8 01       	movw	r24, r16
-    1f04:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1f04:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1f08:	81 11       	cpse	r24, r1
     1f0a:	19 c0       	rjmp	.+50     	; 0x1f3e <VL53L0X_StartMeasurement+0x12c>
     1f0c:	f8 01       	movw	r30, r16
@@ -4499,7 +4499,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1f22:	44 e0       	ldi	r20, 0x04	; 4
     1f24:	60 e0       	ldi	r22, 0x00	; 0
     1f26:	c8 01       	movw	r24, r16
-    1f28:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1f28:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1f2c:	81 11       	cpse	r24, r1
     1f2e:	07 c0       	rjmp	.+14     	; 0x1f3e <VL53L0X_StartMeasurement+0x12c>
     1f30:	f8 01       	movw	r30, r16
@@ -4567,19 +4567,19 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     1fa8:	41 e0       	ldi	r20, 0x01	; 1
     1faa:	6b e0       	ldi	r22, 0x0B	; 11
     1fac:	c7 01       	movw	r24, r14
-    1fae:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1fae:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1fb2:	18 2f       	mov	r17, r24
     1fb4:	40 e0       	ldi	r20, 0x00	; 0
     1fb6:	6b e0       	ldi	r22, 0x0B	; 11
     1fb8:	c7 01       	movw	r24, r14
-    1fba:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    1fba:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     1fbe:	18 2b       	or	r17, r24
     1fc0:	ae 01       	movw	r20, r28
     1fc2:	4f 5f       	subi	r20, 0xFF	; 255
     1fc4:	5f 4f       	sbci	r21, 0xFF	; 255
     1fc6:	63 e1       	ldi	r22, 0x13	; 19
     1fc8:	c7 01       	movw	r24, r14
-    1fca:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    1fca:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     1fce:	81 2b       	or	r24, r17
     1fd0:	0f 5f       	subi	r16, 0xFF	; 255
     1fd2:	99 81       	ldd	r25, Y+1	; 0x01
@@ -4653,84 +4653,84 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     2054:	40 e1       	ldi	r20, 0x10	; 16
     2056:	64 e8       	ldi	r22, 0x84	; 132
     2058:	ce 01       	movw	r24, r28
-    205a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    205a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     205e:	93 c0       	rjmp	.+294    	; 0x2186 <VL53L0X_SetGpioConfig+0x14e>
     2060:	45 31       	cpi	r20, 0x15	; 21
     2062:	09 f0       	breq	.+2      	; 0x2066 <VL53L0X_SetGpioConfig+0x2e>
     2064:	5a c0       	rjmp	.+180    	; 0x211a <VL53L0X_SetGpioConfig+0xe2>
     2066:	41 e0       	ldi	r20, 0x01	; 1
     2068:	6f ef       	ldi	r22, 0xFF	; 255
-    206a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    206a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     206e:	18 2f       	mov	r17, r24
     2070:	40 e0       	ldi	r20, 0x00	; 0
     2072:	60 e0       	ldi	r22, 0x00	; 0
     2074:	ce 01       	movw	r24, r28
-    2076:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2076:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     207a:	18 2b       	or	r17, r24
     207c:	40 e0       	ldi	r20, 0x00	; 0
     207e:	6f ef       	ldi	r22, 0xFF	; 255
     2080:	ce 01       	movw	r24, r28
-    2082:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2082:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2086:	18 2b       	or	r17, r24
     2088:	41 e0       	ldi	r20, 0x01	; 1
     208a:	60 e8       	ldi	r22, 0x80	; 128
     208c:	ce 01       	movw	r24, r28
-    208e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    208e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2092:	18 2b       	or	r17, r24
     2094:	42 e0       	ldi	r20, 0x02	; 2
     2096:	65 e8       	ldi	r22, 0x85	; 133
     2098:	ce 01       	movw	r24, r28
-    209a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    209a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     209e:	18 2b       	or	r17, r24
     20a0:	44 e0       	ldi	r20, 0x04	; 4
     20a2:	6f ef       	ldi	r22, 0xFF	; 255
     20a4:	ce 01       	movw	r24, r28
-    20a6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20a6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20aa:	18 2b       	or	r17, r24
     20ac:	40 e0       	ldi	r20, 0x00	; 0
     20ae:	6d ec       	ldi	r22, 0xCD	; 205
     20b0:	ce 01       	movw	r24, r28
-    20b2:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20b2:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20b6:	18 2b       	or	r17, r24
     20b8:	41 e1       	ldi	r20, 0x11	; 17
     20ba:	6c ec       	ldi	r22, 0xCC	; 204
     20bc:	ce 01       	movw	r24, r28
-    20be:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20be:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20c2:	18 2b       	or	r17, r24
     20c4:	47 e0       	ldi	r20, 0x07	; 7
     20c6:	6f ef       	ldi	r22, 0xFF	; 255
     20c8:	ce 01       	movw	r24, r28
-    20ca:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20ca:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20ce:	18 2b       	or	r17, r24
     20d0:	40 e0       	ldi	r20, 0x00	; 0
     20d2:	6e eb       	ldi	r22, 0xBE	; 190
     20d4:	ce 01       	movw	r24, r28
-    20d6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20d6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20da:	18 2b       	or	r17, r24
     20dc:	46 e0       	ldi	r20, 0x06	; 6
     20de:	6f ef       	ldi	r22, 0xFF	; 255
     20e0:	ce 01       	movw	r24, r28
-    20e2:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20e2:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20e6:	18 2b       	or	r17, r24
     20e8:	49 e0       	ldi	r20, 0x09	; 9
     20ea:	6c ec       	ldi	r22, 0xCC	; 204
     20ec:	ce 01       	movw	r24, r28
-    20ee:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20ee:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20f2:	18 2b       	or	r17, r24
     20f4:	40 e0       	ldi	r20, 0x00	; 0
     20f6:	6f ef       	ldi	r22, 0xFF	; 255
     20f8:	ce 01       	movw	r24, r28
-    20fa:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    20fa:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     20fe:	18 2b       	or	r17, r24
     2100:	41 e0       	ldi	r20, 0x01	; 1
     2102:	6f ef       	ldi	r22, 0xFF	; 255
     2104:	ce 01       	movw	r24, r28
-    2106:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2106:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     210a:	18 2b       	or	r17, r24
     210c:	40 e0       	ldi	r20, 0x00	; 0
     210e:	60 e0       	ldi	r22, 0x00	; 0
     2110:	ce 01       	movw	r24, r28
-    2112:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2112:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2116:	81 2b       	or	r24, r17
     2118:	36 c0       	rjmp	.+108    	; 0x2186 <VL53L0X_SetGpioConfig+0x14e>
     211a:	22 30       	cpi	r18, 0x02	; 2
@@ -4753,7 +4753,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     213c:	40 e0       	ldi	r20, 0x00	; 0
     213e:	6a e0       	ldi	r22, 0x0A	; 10
     2140:	ce 01       	movw	r24, r28
-    2142:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2142:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2146:	01 c0       	rjmp	.+2      	; 0x214a <VL53L0X_SetGpioConfig+0x112>
     2148:	85 ef       	ldi	r24, 0xF5	; 245
     214a:	81 11       	cpse	r24, r1
@@ -4766,7 +4766,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     2158:	4f ee       	ldi	r20, 0xEF	; 239
     215a:	64 e8       	ldi	r22, 0x84	; 132
     215c:	ce 01       	movw	r24, r28
-    215e:	0e 94 bc 2b 	call	0x5778	; 0x5778 <VL53L0X_UpdateByte>
+    215e:	0e 94 fb 2b 	call	0x57f6	; 0x57f6 <VL53L0X_UpdateByte>
     2162:	81 11       	cpse	r24, r1
     2164:	10 c0       	rjmp	.+32     	; 0x2186 <VL53L0X_SetGpioConfig+0x14e>
     2166:	fe 01       	movw	r30, r28
@@ -4888,19 +4888,19 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     224c:	41 e0       	ldi	r20, 0x01	; 1
     224e:	6f ef       	ldi	r22, 0xFF	; 255
     2250:	c7 01       	movw	r24, r14
-    2252:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2252:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2256:	18 2f       	mov	r17, r24
     2258:	ae 01       	movw	r20, r28
     225a:	45 5c       	subi	r20, 0xC5	; 197
     225c:	5f 4f       	sbci	r21, 0xFF	; 255
     225e:	64 e8       	ldi	r22, 0x84	; 132
     2260:	c7 01       	movw	r24, r14
-    2262:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    2262:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     2266:	18 2b       	or	r17, r24
     2268:	40 e0       	ldi	r20, 0x00	; 0
     226a:	6f ef       	ldi	r22, 0xFF	; 255
     226c:	c7 01       	movw	r24, r14
-    226e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    226e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2272:	81 2b       	or	r24, r17
     2274:	81 11       	cpse	r24, r1
     2276:	a5 c0       	rjmp	.+330    	; 0x23c2 <VL53L0X_StaticInit+0x232>
@@ -4954,7 +4954,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     22d8:	5f 4f       	sbci	r21, 0xFF	; 255
     22da:	61 e0       	ldi	r22, 0x01	; 1
     22dc:	c7 01       	movw	r24, r14
-    22de:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    22de:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     22e2:	81 11       	cpse	r24, r1
     22e4:	71 c0       	rjmp	.+226    	; 0x23c8 <VL53L0X_StaticInit+0x238>
     22e6:	8d ad       	ldd	r24, Y+61	; 0x3d
@@ -5091,7 +5091,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     23f6:	4f 5f       	subi	r20, 0xFF	; 255
     23f8:	5f 4f       	sbci	r21, 0xFF	; 255
     23fa:	63 e1       	ldi	r22, 0x13	; 19
-    23fc:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    23fc:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     2400:	99 81       	ldd	r25, Y+1	; 0x01
     2402:	49 2f       	mov	r20, r25
     2404:	47 70       	andi	r20, 0x07	; 7
@@ -5154,7 +5154,7 @@ bool vl53l0x_begin(uint8_t i2c_addr) {
     2472:	4f 5f       	subi	r20, 0xFF	; 255
     2474:	5f 4f       	sbci	r21, 0xFF	; 255
     2476:	64 e1       	ldi	r22, 0x14	; 20
-    2478:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    2478:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     247c:	81 11       	cpse	r24, r1
     247e:	09 c0       	rjmp	.+18     	; 0x2492 <VL53L0X_GetMeasurementDataReady+0x6a>
     2480:	99 81       	ldd	r25, Y+1	; 0x01
@@ -5204,7 +5204,7 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     24bc:	4f 5f       	subi	r20, 0xFF	; 255
     24be:	5f 4f       	sbci	r21, 0xFF	; 255
     24c0:	68 e2       	ldi	r22, 0x28	; 40
-    24c2:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    24c2:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     24c6:	81 11       	cpse	r24, r1
     24c8:	27 c0       	rjmp	.+78     	; 0x2518 <VL53L0X_get_offset_calibration_data_micro_meter+0x6e>
     24ca:	29 81       	ldd	r18, Y+1	; 0x01
@@ -5476,7 +5476,7 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     26ce:	20 e0       	ldi	r18, 0x00	; 0
     26d0:	30 e0       	ldi	r19, 0x00	; 0
     26d2:	60 eb       	ldi	r22, 0xB0	; 176
-    26d4:	0e 94 76 2b 	call	0x56ec	; 0x56ec <VL53L0X_WriteMulti>
+    26d4:	0e 94 b5 2b 	call	0x576a	; 0x576a <VL53L0X_WriteMulti>
     26d8:	1f 91       	pop	r17
     26da:	0f 91       	pop	r16
     26dc:	08 95       	ret
@@ -5490,7 +5490,7 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     26e8:	20 e0       	ldi	r18, 0x00	; 0
     26ea:	30 e0       	ldi	r19, 0x00	; 0
     26ec:	60 eb       	ldi	r22, 0xB0	; 176
-    26ee:	0e 94 8e 2b 	call	0x571c	; 0x571c <VL53L0X_ReadMulti>
+    26ee:	0e 94 cd 2b 	call	0x579a	; 0x579a <VL53L0X_ReadMulti>
     26f2:	1f 91       	pop	r17
     26f4:	0f 91       	pop	r16
     26f6:	08 95       	ret
@@ -5754,7 +5754,7 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     28f2:	f0 80       	ld	r15, Z
     28f4:	40 ec       	ldi	r20, 0xC0	; 192
     28f6:	61 e0       	ldi	r22, 0x01	; 1
-    28f8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    28f8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     28fc:	81 11       	cpse	r24, r1
     28fe:	1a c0       	rjmp	.+52     	; 0x2934 <perform_ref_signal_measurement+0x6a>
     2900:	be 01       	movw	r22, r28
@@ -5767,25 +5767,25 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     290e:	41 e0       	ldi	r20, 0x01	; 1
     2910:	6f ef       	ldi	r22, 0xFF	; 255
     2912:	c8 01       	movw	r24, r16
-    2914:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2914:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2918:	81 11       	cpse	r24, r1
     291a:	19 c0       	rjmp	.+50     	; 0x294e <perform_ref_signal_measurement+0x84>
     291c:	a6 01       	movw	r20, r12
     291e:	66 eb       	ldi	r22, 0xB6	; 182
     2920:	c8 01       	movw	r24, r16
-    2922:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    2922:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     2926:	81 11       	cpse	r24, r1
     2928:	12 c0       	rjmp	.+36     	; 0x294e <perform_ref_signal_measurement+0x84>
     292a:	40 e0       	ldi	r20, 0x00	; 0
     292c:	6f ef       	ldi	r22, 0xFF	; 255
     292e:	c8 01       	movw	r24, r16
-    2930:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2930:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2934:	81 11       	cpse	r24, r1
     2936:	0b c0       	rjmp	.+22     	; 0x294e <perform_ref_signal_measurement+0x84>
     2938:	4f 2d       	mov	r20, r15
     293a:	61 e0       	ldi	r22, 0x01	; 1
     293c:	c8 01       	movw	r24, r16
-    293e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    293e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2942:	81 11       	cpse	r24, r1
     2944:	04 c0       	rjmp	.+8      	; 0x294e <perform_ref_signal_measurement+0x84>
     2946:	f8 01       	movw	r30, r16
@@ -5834,31 +5834,31 @@ VL53L0X_Error VL53L0X_PerformRefSpadManagement(VL53L0X_DEV Dev,
     2998:	72 2e       	mov	r7, r18
     299a:	41 e0       	ldi	r20, 0x01	; 1
     299c:	6f ef       	ldi	r22, 0xFF	; 255
-    299e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    299e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     29a2:	81 11       	cpse	r24, r1
     29a4:	1a c0       	rjmp	.+52     	; 0x29da <VL53L0X_set_reference_spads+0x70>
     29a6:	40 e0       	ldi	r20, 0x00	; 0
     29a8:	6f e4       	ldi	r22, 0x4F	; 79
     29aa:	c4 01       	movw	r24, r8
-    29ac:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    29ac:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     29b0:	81 11       	cpse	r24, r1
     29b2:	13 c0       	rjmp	.+38     	; 0x29da <VL53L0X_set_reference_spads+0x70>
     29b4:	4c e2       	ldi	r20, 0x2C	; 44
     29b6:	6e e4       	ldi	r22, 0x4E	; 78
     29b8:	c4 01       	movw	r24, r8
-    29ba:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    29ba:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     29be:	81 11       	cpse	r24, r1
     29c0:	0c c0       	rjmp	.+24     	; 0x29da <VL53L0X_set_reference_spads+0x70>
     29c2:	40 e0       	ldi	r20, 0x00	; 0
     29c4:	6f ef       	ldi	r22, 0xFF	; 255
     29c6:	c4 01       	movw	r24, r8
-    29c8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    29c8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     29cc:	81 11       	cpse	r24, r1
     29ce:	05 c0       	rjmp	.+10     	; 0x29da <VL53L0X_set_reference_spads+0x70>
     29d0:	44 eb       	ldi	r20, 0xB4	; 180
     29d2:	66 eb       	ldi	r22, 0xB6	; 182
     29d4:	c4 01       	movw	r24, r8
-    29d6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    29d6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     29da:	f4 01       	movw	r30, r8
     29dc:	ef 5e       	subi	r30, 0xEF	; 239
     29de:	fe 4f       	sbci	r31, 0xFE	; 254
@@ -5988,7 +5988,7 @@ VL53L0X_Error VL53L0X_perform_single_ref_calibration(VL53L0X_DEV Dev,
     2ac0:	46 2f       	mov	r20, r22
     2ac2:	41 60       	ori	r20, 0x01	; 1
     2ac4:	60 e0       	ldi	r22, 0x00	; 0
-    2ac6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2ac6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 				VL53L0X_REG_SYSRANGE_MODE_START_STOP |
 				vhv_init_byte);
 
@@ -6016,7 +6016,7 @@ VL53L0X_Error VL53L0X_perform_single_ref_calibration(VL53L0X_DEV Dev,
     2ae4:	40 e0       	ldi	r20, 0x00	; 0
     2ae6:	60 e0       	ldi	r22, 0x00	; 0
     2ae8:	ce 01       	movw	r24, r28
-    2aea:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2aea:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	return Status;
 }
@@ -6062,19 +6062,19 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
 	Status |= VL53L0X_WrByte(Dev, 0xFF, 0x01);
     2b24:	41 e0       	ldi	r20, 0x01	; 1
     2b26:	6f ef       	ldi	r22, 0xFF	; 255
-    2b28:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2b28:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2b2c:	18 2f       	mov	r17, r24
 	Status |= VL53L0X_WrByte(Dev, 0x00, 0x00);
     2b2e:	40 e0       	ldi	r20, 0x00	; 0
     2b30:	60 e0       	ldi	r22, 0x00	; 0
     2b32:	c4 01       	movw	r24, r8
-    2b34:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2b34:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2b38:	18 2b       	or	r17, r24
 	Status |= VL53L0X_WrByte(Dev, 0xFF, 0x00);
     2b3a:	40 e0       	ldi	r20, 0x00	; 0
     2b3c:	6f ef       	ldi	r22, 0xFF	; 255
     2b3e:	c4 01       	movw	r24, r8
-    2b40:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2b40:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2b44:	18 2b       	or	r17, r24
 
 	if (read_not_write) {
@@ -6087,7 +6087,7 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
     2b4e:	a3 01       	movw	r20, r6
     2b50:	6b ec       	ldi	r22, 0xCB	; 203
     2b52:	c4 01       	movw	r24, r8
-    2b54:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    2b54:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     2b58:	18 2b       	or	r17, r24
 		if (phase_enable)
     2b5a:	aa 20       	and	r10, r10
@@ -6098,7 +6098,7 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
     2b62:	5f 4f       	sbci	r21, 0xFF	; 255
     2b64:	6e ee       	ldi	r22, 0xEE	; 238
     2b66:	c4 01       	movw	r24, r8
-    2b68:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    2b68:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     2b6c:	18 2b       	or	r17, r24
     2b6e:	11 c0       	rjmp	.+34     	; 0x2b92 <VL53L0X_ref_calibration_io+0x9e>
 	} else {
@@ -6109,7 +6109,7 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
     2b74:	45 2d       	mov	r20, r5
     2b76:	6b ec       	ldi	r22, 0xCB	; 203
     2b78:	c4 01       	movw	r24, r8
-    2b7a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2b7a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2b7e:	18 2b       	or	r17, r24
 		if (phase_enable)
     2b80:	aa 20       	and	r10, r10
@@ -6119,7 +6119,7 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
     2b86:	40 e8       	ldi	r20, 0x80	; 128
     2b88:	6e ee       	ldi	r22, 0xEE	; 238
     2b8a:	c4 01       	movw	r24, r8
-    2b8c:	0e 94 bc 2b 	call	0x5778	; 0x5778 <VL53L0X_UpdateByte>
+    2b8c:	0e 94 fb 2b 	call	0x57f6	; 0x57f6 <VL53L0X_UpdateByte>
     2b90:	18 2b       	or	r17, r24
 	}
 
@@ -6127,19 +6127,19 @@ VL53L0X_Error VL53L0X_ref_calibration_io(VL53L0X_DEV Dev, uint8_t read_not_write
     2b92:	41 e0       	ldi	r20, 0x01	; 1
     2b94:	6f ef       	ldi	r22, 0xFF	; 255
     2b96:	c4 01       	movw	r24, r8
-    2b98:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2b98:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2b9c:	18 2b       	or	r17, r24
 	Status |= VL53L0X_WrByte(Dev, 0x00, 0x01);
     2b9e:	41 e0       	ldi	r20, 0x01	; 1
     2ba0:	60 e0       	ldi	r22, 0x00	; 0
     2ba2:	c4 01       	movw	r24, r8
-    2ba4:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2ba4:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     2ba8:	18 2b       	or	r17, r24
 	Status |= VL53L0X_WrByte(Dev, 0xFF, 0x00);
     2baa:	40 e0       	ldi	r20, 0x00	; 0
     2bac:	6f ef       	ldi	r22, 0xFF	; 255
     2bae:	c4 01       	movw	r24, r8
-    2bb0:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2bb0:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	*pPhaseCal = (uint8_t)(PhaseCalint&0xEF);
     2bb4:	99 81       	ldd	r25, Y+1	; 0x01
@@ -6230,7 +6230,7 @@ VL53L0X_Error VL53L0X_perform_vhv_calibration(VL53L0X_DEV Dev,
     2c18:	41 e0       	ldi	r20, 0x01	; 1
     2c1a:	61 e0       	ldi	r22, 0x01	; 1
     2c1c:	c4 01       	movw	r24, r8
-    2c1e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2c1e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	if (Status == VL53L0X_ERROR_NONE)
     2c22:	81 11       	cpse	r24, r1
@@ -6279,7 +6279,7 @@ VL53L0X_Error VL53L0X_perform_vhv_calibration(VL53L0X_DEV Dev,
     2c5a:	4b 2d       	mov	r20, r11
     2c5c:	61 e0       	ldi	r22, 0x01	; 1
     2c5e:	c4 01       	movw	r24, r8
-    2c60:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2c60:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 				SequenceConfig);
 		if (Status == VL53L0X_ERROR_NONE)
     2c64:	81 11       	cpse	r24, r1
@@ -6364,7 +6364,7 @@ VL53L0X_Error VL53L0X_perform_phase_calibration(VL53L0X_DEV Dev,
     2cc2:	42 e0       	ldi	r20, 0x02	; 2
     2cc4:	61 e0       	ldi	r22, 0x01	; 1
     2cc6:	c4 01       	movw	r24, r8
-    2cc8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2cc8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	if (Status == VL53L0X_ERROR_NONE)
     2ccc:	81 11       	cpse	r24, r1
@@ -6412,7 +6412,7 @@ VL53L0X_Error VL53L0X_perform_phase_calibration(VL53L0X_DEV Dev,
     2d02:	4b 2d       	mov	r20, r11
     2d04:	61 e0       	ldi	r22, 0x01	; 1
     2d06:	c4 01       	movw	r24, r8
-    2d08:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2d08:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 				SequenceConfig);
 		if (Status == VL53L0X_ERROR_NONE)
     2d0c:	81 11       	cpse	r24, r1
@@ -6496,7 +6496,7 @@ VL53L0X_Error VL53L0X_perform_ref_calibration(VL53L0X_DEV Dev,
     2d66:	40 2f       	mov	r20, r16
     2d68:	61 e0       	ldi	r22, 0x01	; 1
     2d6a:	ce 01       	movw	r24, r28
-    2d6c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2d6c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 				SequenceConfig);
 		if (Status == VL53L0X_ERROR_NONE)
     2d70:	81 11       	cpse	r24, r1
@@ -6614,7 +6614,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
 	Status = VL53L0X_WrByte(Dev, 0xFF, 0x01);
     2dfc:	41 e0       	ldi	r20, 0x01	; 1
     2dfe:	6f ef       	ldi	r22, 0xFF	; 255
-    2e00:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e00:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	if (Status == VL53L0X_ERROR_NONE)
     2e04:	81 11       	cpse	r24, r1
@@ -6623,7 +6623,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     2e08:	40 e0       	ldi	r20, 0x00	; 0
     2e0a:	6f e4       	ldi	r22, 0x4F	; 79
     2e0c:	c4 01       	movw	r24, r8
-    2e0e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e0e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 			VL53L0X_REG_DYNAMIC_SPAD_REF_EN_START_OFFSET, 0x00);
 
 	if (Status == VL53L0X_ERROR_NONE)
@@ -6633,7 +6633,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     2e16:	4c e2       	ldi	r20, 0x2C	; 44
     2e18:	6e e4       	ldi	r22, 0x4E	; 78
     2e1a:	c4 01       	movw	r24, r8
-    2e1c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e1c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 			VL53L0X_REG_DYNAMIC_SPAD_NUM_REQUESTED_REF_SPAD, 0x2C);
 
 	if (Status == VL53L0X_ERROR_NONE)
@@ -6643,7 +6643,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     2e24:	40 e0       	ldi	r20, 0x00	; 0
     2e26:	6f ef       	ldi	r22, 0xFF	; 255
     2e28:	c4 01       	movw	r24, r8
-    2e2a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e2a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 
 	if (Status == VL53L0X_ERROR_NONE)
     2e2e:	81 11       	cpse	r24, r1
@@ -6652,7 +6652,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     2e32:	44 eb       	ldi	r20, 0xB4	; 180
     2e34:	66 eb       	ldi	r22, 0xB6	; 182
     2e36:	c4 01       	movw	r24, r8
-    2e38:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e38:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 			VL53L0X_REG_GLOBAL_CONFIG_REF_EN_START_SELECT,
 			startSelect);
 
@@ -6664,7 +6664,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     2e40:	40 e0       	ldi	r20, 0x00	; 0
     2e42:	60 e8       	ldi	r22, 0x80	; 128
     2e44:	c4 01       	movw	r24, r8
-    2e46:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    2e46:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
 				VL53L0X_REG_POWER_MANAGEMENT_GO1_POWER_FORCE, 0);
 
 	/* Perform ref calibration */
@@ -7430,7 +7430,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3228:	11 05       	cpc	r17, r1
     322a:	21 f0       	breq	.+8      	; 0x3234 <VL53L0X_measurement_poll_for_completion+0x40>
     322c:	c7 01       	movw	r24, r14
-    322e:	0e 94 0a 2c 	call	0x5814	; 0x5814 <VL53L0X_PollingDelay>
+    322e:	0e 94 49 2c 	call	0x5892	; 0x5892 <VL53L0X_PollingDelay>
     3232:	ed cf       	rjmp	.-38     	; 0x320e <VL53L0X_measurement_poll_for_completion+0x1a>
     3234:	89 ef       	ldi	r24, 0xF9	; 249
     3236:	0f 90       	pop	r0
@@ -7556,7 +7556,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     331e:	5c 01       	movw	r10, r24
     3320:	40 e0       	ldi	r20, 0x00	; 0
     3322:	63 e8       	ldi	r22, 0x83	; 131
-    3324:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3324:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3328:	18 2f       	mov	r17, r24
     332a:	81 11       	cpse	r24, r1
     332c:	24 c0       	rjmp	.+72     	; 0x3376 <VL53L0X_device_read_strobe+0x70>
@@ -7568,7 +7568,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3338:	5f 4f       	sbci	r21, 0xFF	; 255
     333a:	63 e8       	ldi	r22, 0x83	; 131
     333c:	c5 01       	movw	r24, r10
-    333e:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    333e:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     3342:	18 2f       	mov	r17, r24
     3344:	89 81       	ldd	r24, Y+1	; 0x01
     3346:	81 11       	cpse	r24, r1
@@ -7598,7 +7598,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3376:	41 e0       	ldi	r20, 0x01	; 1
     3378:	63 e8       	ldi	r22, 0x83	; 131
     337a:	c5 01       	movw	r24, r10
-    337c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    337c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3380:	81 2b       	or	r24, r17
     3382:	0f 90       	pop	r0
     3384:	df 91       	pop	r29
@@ -7659,53 +7659,53 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     33ee:	7c 01       	movw	r14, r24
     33f0:	41 e0       	ldi	r20, 0x01	; 1
     33f2:	60 e8       	ldi	r22, 0x80	; 128
-    33f4:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    33f4:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     33f8:	18 2f       	mov	r17, r24
     33fa:	41 e0       	ldi	r20, 0x01	; 1
     33fc:	6f ef       	ldi	r22, 0xFF	; 255
     33fe:	c7 01       	movw	r24, r14
-    3400:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3400:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3404:	18 2b       	or	r17, r24
     3406:	40 e0       	ldi	r20, 0x00	; 0
     3408:	60 e0       	ldi	r22, 0x00	; 0
     340a:	c7 01       	movw	r24, r14
-    340c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    340c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3410:	18 2b       	or	r17, r24
     3412:	46 e0       	ldi	r20, 0x06	; 6
     3414:	6f ef       	ldi	r22, 0xFF	; 255
     3416:	c7 01       	movw	r24, r14
-    3418:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3418:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     341c:	18 2b       	or	r17, r24
     341e:	ae 01       	movw	r20, r28
     3420:	4f 5f       	subi	r20, 0xFF	; 255
     3422:	5f 4f       	sbci	r21, 0xFF	; 255
     3424:	63 e8       	ldi	r22, 0x83	; 131
     3426:	c7 01       	movw	r24, r14
-    3428:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    3428:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     342c:	18 2b       	or	r17, r24
     342e:	49 81       	ldd	r20, Y+1	; 0x01
     3430:	44 60       	ori	r20, 0x04	; 4
     3432:	63 e8       	ldi	r22, 0x83	; 131
     3434:	c7 01       	movw	r24, r14
-    3436:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3436:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     343a:	18 2b       	or	r17, r24
     343c:	47 e0       	ldi	r20, 0x07	; 7
     343e:	6f ef       	ldi	r22, 0xFF	; 255
     3440:	c7 01       	movw	r24, r14
-    3442:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3442:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3446:	18 2b       	or	r17, r24
     3448:	41 e0       	ldi	r20, 0x01	; 1
     344a:	61 e8       	ldi	r22, 0x81	; 129
     344c:	c7 01       	movw	r24, r14
-    344e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    344e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3452:	18 2b       	or	r17, r24
     3454:	c7 01       	movw	r24, r14
-    3456:	0e 94 0a 2c 	call	0x5814	; 0x5814 <VL53L0X_PollingDelay>
+    3456:	0e 94 49 2c 	call	0x5892	; 0x5892 <VL53L0X_PollingDelay>
     345a:	18 2b       	or	r17, r24
     345c:	41 e0       	ldi	r20, 0x01	; 1
     345e:	60 e8       	ldi	r22, 0x80	; 128
     3460:	c7 01       	movw	r24, r14
-    3462:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3462:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3466:	18 2b       	or	r17, r24
     3468:	80 2f       	mov	r24, r16
     346a:	81 70       	andi	r24, 0x01	; 1
@@ -7717,7 +7717,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3476:	4b e6       	ldi	r20, 0x6B	; 107
     3478:	64 e9       	ldi	r22, 0x94	; 148
     347a:	c7 01       	movw	r24, r14
-    347c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    347c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3480:	c8 2e       	mov	r12, r24
     3482:	c7 01       	movw	r24, r14
     3484:	40 df       	rcall	.-384    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7728,7 +7728,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     348e:	5f 4f       	sbci	r21, 0xFF	; 255
     3490:	60 e9       	ldi	r22, 0x90	; 144
     3492:	c7 01       	movw	r24, r14
-    3494:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3494:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3498:	18 2b       	or	r17, r24
     349a:	8a 81       	ldd	r24, Y+2	; 0x02
     349c:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -7752,7 +7752,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     34c0:	44 e2       	ldi	r20, 0x24	; 36
     34c2:	64 e9       	ldi	r22, 0x94	; 148
     34c4:	c7 01       	movw	r24, r14
-    34c6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    34c6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     34ca:	18 2b       	or	r17, r24
     34cc:	c7 01       	movw	r24, r14
     34ce:	1b df       	rcall	.-458    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7762,7 +7762,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     34d6:	5f 4f       	sbci	r21, 0xFF	; 255
     34d8:	60 e9       	ldi	r22, 0x90	; 144
     34da:	c7 01       	movw	r24, r14
-    34dc:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    34dc:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     34e0:	18 2b       	or	r17, r24
     34e2:	8a 81       	ldd	r24, Y+2	; 0x02
     34e4:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -7775,7 +7775,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     34f2:	45 e2       	ldi	r20, 0x25	; 37
     34f4:	64 e9       	ldi	r22, 0x94	; 148
     34f6:	c7 01       	movw	r24, r14
-    34f8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    34f8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     34fc:	18 2b       	or	r17, r24
     34fe:	c7 01       	movw	r24, r14
     3500:	02 df       	rcall	.-508    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7785,7 +7785,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3508:	5f 4f       	sbci	r21, 0xFF	; 255
     350a:	60 e9       	ldi	r22, 0x90	; 144
     350c:	c7 01       	movw	r24, r14
-    350e:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    350e:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3512:	18 2b       	or	r17, r24
     3514:	8c 81       	ldd	r24, Y+4	; 0x04
     3516:	9d 81       	ldd	r25, Y+5	; 0x05
@@ -7807,7 +7807,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3536:	42 e0       	ldi	r20, 0x02	; 2
     3538:	64 e9       	ldi	r22, 0x94	; 148
     353a:	c7 01       	movw	r24, r14
-    353c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    353c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3540:	c8 2e       	mov	r12, r24
     3542:	c7 01       	movw	r24, r14
     3544:	e0 de       	rcall	.-576    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7818,12 +7818,12 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     354e:	5f 4f       	sbci	r21, 0xFF	; 255
     3550:	60 e9       	ldi	r22, 0x90	; 144
     3552:	c7 01       	movw	r24, r14
-    3554:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    3554:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     3558:	18 2b       	or	r17, r24
     355a:	4b e7       	ldi	r20, 0x7B	; 123
     355c:	64 e9       	ldi	r22, 0x94	; 148
     355e:	c7 01       	movw	r24, r14
-    3560:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3560:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3564:	18 2b       	or	r17, r24
     3566:	c7 01       	movw	r24, r14
     3568:	ce de       	rcall	.-612    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7833,12 +7833,12 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3570:	5f 4f       	sbci	r21, 0xFF	; 255
     3572:	60 e9       	ldi	r22, 0x90	; 144
     3574:	c7 01       	movw	r24, r14
-    3576:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    3576:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     357a:	18 2b       	or	r17, r24
     357c:	47 e7       	ldi	r20, 0x77	; 119
     357e:	64 e9       	ldi	r22, 0x94	; 148
     3580:	c7 01       	movw	r24, r14
-    3582:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3582:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3586:	18 2b       	or	r17, r24
     3588:	c7 01       	movw	r24, r14
     358a:	bd de       	rcall	.-646    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7848,7 +7848,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3592:	5f 4f       	sbci	r21, 0xFF	; 255
     3594:	60 e9       	ldi	r22, 0x90	; 144
     3596:	c7 01       	movw	r24, r14
-    3598:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3598:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     359c:	18 2b       	or	r17, r24
     359e:	4a 81       	ldd	r20, Y+2	; 0x02
     35a0:	5b 81       	ldd	r21, Y+3	; 0x03
@@ -7913,7 +7913,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3616:	48 e7       	ldi	r20, 0x78	; 120
     3618:	64 e9       	ldi	r22, 0x94	; 148
     361a:	c7 01       	movw	r24, r14
-    361c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    361c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3620:	18 2b       	or	r17, r24
     3622:	c7 01       	movw	r24, r14
     3624:	70 de       	rcall	.-800    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -7923,7 +7923,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     362c:	5f 4f       	sbci	r21, 0xFF	; 255
     362e:	60 e9       	ldi	r22, 0x90	; 144
     3630:	c7 01       	movw	r24, r14
-    3632:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3632:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3636:	18 2b       	or	r17, r24
     3638:	8a 81       	ldd	r24, Y+2	; 0x02
     363a:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -7992,7 +7992,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     36b8:	49 e7       	ldi	r20, 0x79	; 121
     36ba:	64 e9       	ldi	r22, 0x94	; 148
     36bc:	c7 01       	movw	r24, r14
-    36be:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    36be:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     36c2:	18 2b       	or	r17, r24
     36c4:	c7 01       	movw	r24, r14
     36c6:	1f de       	rcall	.-962    	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8002,7 +8002,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     36ce:	5f 4f       	sbci	r21, 0xFF	; 255
     36d0:	60 e9       	ldi	r22, 0x90	; 144
     36d2:	c7 01       	movw	r24, r14
-    36d4:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    36d4:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     36d8:	18 2b       	or	r17, r24
     36da:	8a 81       	ldd	r24, Y+2	; 0x02
     36dc:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -8070,7 +8070,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3758:	4a e7       	ldi	r20, 0x7A	; 122
     375a:	64 e9       	ldi	r22, 0x94	; 148
     375c:	c7 01       	movw	r24, r14
-    375e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    375e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3762:	18 2b       	or	r17, r24
     3764:	c7 01       	movw	r24, r14
     3766:	cf dd       	rcall	.-1122   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8080,7 +8080,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     376e:	5f 4f       	sbci	r21, 0xFF	; 255
     3770:	60 e9       	ldi	r22, 0x90	; 144
     3772:	c7 01       	movw	r24, r14
-    3774:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3774:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3778:	18 2b       	or	r17, r24
     377a:	8a 81       	ldd	r24, Y+2	; 0x02
     377c:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -8152,7 +8152,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3800:	4b e7       	ldi	r20, 0x7B	; 123
     3802:	64 e9       	ldi	r22, 0x94	; 148
     3804:	c7 01       	movw	r24, r14
-    3806:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3806:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     380a:	b8 2e       	mov	r11, r24
     380c:	c7 01       	movw	r24, r14
     380e:	7b dd       	rcall	.-1290   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8163,12 +8163,12 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3818:	5f 4f       	sbci	r21, 0xFF	; 255
     381a:	60 e9       	ldi	r22, 0x90	; 144
     381c:	c7 01       	movw	r24, r14
-    381e:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    381e:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3822:	18 2b       	or	r17, r24
     3824:	4c e7       	ldi	r20, 0x7C	; 124
     3826:	64 e9       	ldi	r22, 0x94	; 148
     3828:	c7 01       	movw	r24, r14
-    382a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    382a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     382e:	18 2b       	or	r17, r24
     3830:	c7 01       	movw	r24, r14
     3832:	69 dd       	rcall	.-1326   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8178,12 +8178,12 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     383a:	5f 4f       	sbci	r21, 0xFF	; 255
     383c:	60 e9       	ldi	r22, 0x90	; 144
     383e:	c7 01       	movw	r24, r14
-    3840:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3840:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3844:	18 2b       	or	r17, r24
     3846:	43 e7       	ldi	r20, 0x73	; 115
     3848:	64 e9       	ldi	r22, 0x94	; 148
     384a:	c7 01       	movw	r24, r14
-    384c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    384c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3850:	18 2b       	or	r17, r24
     3852:	c7 01       	movw	r24, r14
     3854:	58 dd       	rcall	.-1360   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8193,7 +8193,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     385c:	5f 4f       	sbci	r21, 0xFF	; 255
     385e:	60 e9       	ldi	r22, 0x90	; 144
     3860:	c7 01       	movw	r24, r14
-    3862:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    3862:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3866:	18 2b       	or	r17, r24
     3868:	8a 80       	ldd	r8, Y+2	; 0x02
     386a:	9b 80       	ldd	r9, Y+3	; 0x03
@@ -8210,7 +8210,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3880:	44 e7       	ldi	r20, 0x74	; 116
     3882:	64 e9       	ldi	r22, 0x94	; 148
     3884:	c7 01       	movw	r24, r14
-    3886:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3886:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     388a:	18 2b       	or	r17, r24
     388c:	c7 01       	movw	r24, r14
     388e:	3b dd       	rcall	.-1418   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8220,7 +8220,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3896:	5f 4f       	sbci	r21, 0xFF	; 255
     3898:	60 e9       	ldi	r22, 0x90	; 144
     389a:	c7 01       	movw	r24, r14
-    389c:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    389c:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     38a0:	18 2b       	or	r17, r24
     38a2:	8a 80       	ldd	r8, Y+2	; 0x02
     38a4:	9b 80       	ldd	r9, Y+3	; 0x03
@@ -8237,7 +8237,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     38ba:	45 e7       	ldi	r20, 0x75	; 117
     38bc:	64 e9       	ldi	r22, 0x94	; 148
     38be:	c7 01       	movw	r24, r14
-    38c0:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    38c0:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     38c4:	18 2b       	or	r17, r24
     38c6:	c7 01       	movw	r24, r14
     38c8:	1e dd       	rcall	.-1476   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8247,7 +8247,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     38d0:	5f 4f       	sbci	r21, 0xFF	; 255
     38d2:	60 e9       	ldi	r22, 0x90	; 144
     38d4:	c7 01       	movw	r24, r14
-    38d6:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    38d6:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     38da:	18 2b       	or	r17, r24
     38dc:	4a 80       	ldd	r4, Y+2	; 0x02
     38de:	5b 80       	ldd	r5, Y+3	; 0x03
@@ -8262,7 +8262,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     38f0:	46 e7       	ldi	r20, 0x76	; 118
     38f2:	64 e9       	ldi	r22, 0x94	; 148
     38f4:	c7 01       	movw	r24, r14
-    38f6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    38f6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     38fa:	18 2b       	or	r17, r24
     38fc:	c7 01       	movw	r24, r14
     38fe:	03 dd       	rcall	.-1530   	; 0x3306 <VL53L0X_device_read_strobe>
@@ -8272,7 +8272,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3906:	5f 4f       	sbci	r21, 0xFF	; 255
     3908:	60 e9       	ldi	r22, 0x90	; 144
     390a:	c7 01       	movw	r24, r14
-    390c:	0e 94 ff 2b 	call	0x57fe	; 0x57fe <VL53L0X_RdDWord>
+    390c:	0e 94 3e 2c 	call	0x587c	; 0x587c <VL53L0X_RdDWord>
     3910:	18 2b       	or	r17, r24
     3912:	8a 81       	ldd	r24, Y+2	; 0x02
     3914:	9b 81       	ldd	r25, Y+3	; 0x03
@@ -8303,45 +8303,45 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3946:	40 e0       	ldi	r20, 0x00	; 0
     3948:	61 e8       	ldi	r22, 0x81	; 129
     394a:	c7 01       	movw	r24, r14
-    394c:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    394c:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3950:	18 2b       	or	r17, r24
     3952:	46 e0       	ldi	r20, 0x06	; 6
     3954:	6f ef       	ldi	r22, 0xFF	; 255
     3956:	c7 01       	movw	r24, r14
-    3958:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3958:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     395c:	18 2b       	or	r17, r24
     395e:	ae 01       	movw	r20, r28
     3960:	4f 5f       	subi	r20, 0xFF	; 255
     3962:	5f 4f       	sbci	r21, 0xFF	; 255
     3964:	63 e8       	ldi	r22, 0x83	; 131
     3966:	c7 01       	movw	r24, r14
-    3968:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    3968:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     396c:	18 2b       	or	r17, r24
     396e:	49 81       	ldd	r20, Y+1	; 0x01
     3970:	4b 7f       	andi	r20, 0xFB	; 251
     3972:	63 e8       	ldi	r22, 0x83	; 131
     3974:	c7 01       	movw	r24, r14
-    3976:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3976:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     397a:	18 2b       	or	r17, r24
     397c:	41 e0       	ldi	r20, 0x01	; 1
     397e:	6f ef       	ldi	r22, 0xFF	; 255
     3980:	c7 01       	movw	r24, r14
-    3982:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3982:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3986:	18 2b       	or	r17, r24
     3988:	41 e0       	ldi	r20, 0x01	; 1
     398a:	60 e0       	ldi	r22, 0x00	; 0
     398c:	c7 01       	movw	r24, r14
-    398e:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    398e:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3992:	18 2b       	or	r17, r24
     3994:	40 e0       	ldi	r20, 0x00	; 0
     3996:	6f ef       	ldi	r22, 0xFF	; 255
     3998:	c7 01       	movw	r24, r14
-    399a:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    399a:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     399e:	18 2b       	or	r17, r24
     39a0:	40 e0       	ldi	r20, 0x00	; 0
     39a2:	60 e8       	ldi	r22, 0x80	; 128
     39a4:	c7 01       	movw	r24, r14
-    39a6:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    39a6:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     39aa:	18 2b       	or	r17, r24
     39ac:	09 f0       	breq	.+2      	; 0x39b0 <VL53L0X_get_info_from_device+0x618>
     39ae:	82 c0       	rjmp	.+260    	; 0x3ab4 <VL53L0X_get_info_from_device+0x71c>
@@ -8388,7 +8388,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3a00:	c7 01       	movw	r24, r14
     3a02:	8e 51       	subi	r24, 0x1E	; 30
     3a04:	9f 4f       	sbci	r25, 0xFF	; 255
-    3a06:	0e 94 d1 2c 	call	0x59a2	; 0x59a2 <strcpy>
+    3a06:	0e 94 10 2d 	call	0x5a20	; 0x5a20 <strcpy>
     3a0a:	cc 20       	and	r12, r12
     3a0c:	09 f4       	brne	.+2      	; 0x3a10 <VL53L0X_get_info_from_device+0x678>
     3a0e:	4b c0       	rjmp	.+150    	; 0x3aa6 <VL53L0X_get_info_from_device+0x70e>
@@ -8440,7 +8440,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3a6a:	51 09       	sbc	r21, r1
     3a6c:	a8 ee       	ldi	r26, 0xE8	; 232
     3a6e:	b3 e0       	ldi	r27, 0x03	; 3
-    3a70:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    3a70:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     3a74:	dc 01       	movw	r26, r24
     3a76:	cb 01       	movw	r24, r22
     3a78:	68 94       	set
@@ -8567,7 +8567,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3b62:	3f e2       	ldi	r19, 0x2F	; 47
     3b64:	4a e3       	ldi	r20, 0x3A	; 58
     3b66:	50 e0       	ldi	r21, 0x00	; 0
-    3b68:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    3b68:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     3b6c:	6b 01       	movw	r12, r22
     3b6e:	7c 01       	movw	r14, r24
     3b70:	24 ef       	ldi	r18, 0xF4	; 244
@@ -8580,7 +8580,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3b7e:	b3 e0       	ldi	r27, 0x03	; 3
     3b80:	a5 01       	movw	r20, r10
     3b82:	94 01       	movw	r18, r8
-    3b84:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    3b84:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     3b88:	4b 01       	movw	r8, r22
     3b8a:	5c 01       	movw	r10, r24
     3b8c:	c7 01       	movw	r24, r14
@@ -8589,7 +8589,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3b92:	37 e0       	ldi	r19, 0x07	; 7
     3b94:	40 e0       	ldi	r20, 0x00	; 0
     3b96:	50 e0       	ldi	r21, 0x00	; 0
-    3b98:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3b98:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3b9c:	82 0e       	add	r8, r18
     3b9e:	93 1e       	adc	r9, r19
     3ba0:	a4 1e       	adc	r10, r20
@@ -8600,10 +8600,10 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3baa:	33 e0       	ldi	r19, 0x03	; 3
     3bac:	40 e0       	ldi	r20, 0x00	; 0
     3bae:	50 e0       	ldi	r21, 0x00	; 0
-    3bb0:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3bb0:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3bb4:	c5 01       	movw	r24, r10
     3bb6:	b4 01       	movw	r22, r8
-    3bb8:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3bb8:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3bbc:	ca 01       	movw	r24, r20
     3bbe:	b9 01       	movw	r22, r18
     3bc0:	ff 90       	pop	r15
@@ -8636,7 +8636,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3bf2:	3f e2       	ldi	r19, 0x2F	; 47
     3bf4:	4a e3       	ldi	r20, 0x3A	; 58
     3bf6:	50 e0       	ldi	r21, 0x00	; 0
-    3bf8:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    3bf8:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     3bfc:	6b 01       	movw	r12, r22
     3bfe:	7c 01       	movw	r14, r24
     3c00:	24 ef       	ldi	r18, 0xF4	; 244
@@ -8657,9 +8657,9 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3c1e:	b6 01       	movw	r22, r12
     3c20:	a5 01       	movw	r20, r10
     3c22:	94 01       	movw	r18, r8
-    3c24:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3c24:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3c28:	d3 01       	movw	r26, r6
-    3c2a:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    3c2a:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     3c2e:	2b 01       	movw	r4, r22
     3c30:	3c 01       	movw	r6, r24
     3c32:	c7 01       	movw	r24, r14
@@ -8668,7 +8668,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3c38:	37 e0       	ldi	r19, 0x07	; 7
     3c3a:	40 e0       	ldi	r20, 0x00	; 0
     3c3c:	50 e0       	ldi	r21, 0x00	; 0
-    3c3e:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3c3e:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3c42:	c3 01       	movw	r24, r6
     3c44:	b2 01       	movw	r22, r4
     3c46:	62 0f       	add	r22, r18
@@ -8677,7 +8677,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3c4c:	95 1f       	adc	r25, r21
     3c4e:	a5 01       	movw	r20, r10
     3c50:	94 01       	movw	r18, r8
-    3c52:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    3c52:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
     3c56:	ca 01       	movw	r24, r20
     3c58:	b9 01       	movw	r22, r18
     3c5a:	ff 90       	pop	r15
@@ -8732,7 +8732,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3cba:	5f 4f       	sbci	r21, 0xFF	; 255
     3cbc:	66 e4       	ldi	r22, 0x46	; 70
     3cbe:	c7 01       	movw	r24, r14
-    3cc0:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    3cc0:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
     3cc4:	18 2f       	mov	r17, r24
     3cc6:	6a 81       	ldd	r22, Y+2	; 0x02
     3cc8:	86 2f       	mov	r24, r22
@@ -8773,7 +8773,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3d12:	5f 4f       	sbci	r21, 0xFF	; 255
     3d14:	61 e5       	ldi	r22, 0x51	; 81
     3d16:	c7 01       	movw	r24, r14
-    3d18:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    3d18:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     3d1c:	18 2f       	mov	r17, r24
     3d1e:	2b 81       	ldd	r18, Y+3	; 0x03
     3d20:	3c 81       	ldd	r19, Y+4	; 0x04
@@ -8823,7 +8823,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3d7c:	5f 4f       	sbci	r21, 0xFF	; 255
     3d7e:	61 e5       	ldi	r22, 0x51	; 81
     3d80:	c7 01       	movw	r24, r14
-    3d82:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    3d82:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     3d86:	18 2f       	mov	r17, r24
     3d88:	2b 81       	ldd	r18, Y+3	; 0x03
     3d8a:	3c 81       	ldd	r19, Y+4	; 0x04
@@ -8861,7 +8861,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3dcc:	5f 4f       	sbci	r21, 0xFF	; 255
     3dce:	61 e7       	ldi	r22, 0x71	; 113
     3dd0:	c7 01       	movw	r24, r14
-    3dd2:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    3dd2:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     3dd6:	18 2f       	mov	r17, r24
     3dd8:	2d 81       	ldd	r18, Y+5	; 0x05
     3dda:	3e 81       	ldd	r19, Y+6	; 0x06
@@ -8984,7 +8984,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3ec2:	80 83       	st	Z, r24
     3ec4:	66 e4       	ldi	r22, 0x46	; 70
     3ec6:	c8 01       	movw	r24, r16
-    3ec8:	0e 94 a6 2b 	call	0x574c	; 0x574c <VL53L0X_WrByte>
+    3ec8:	0e 94 e5 2b 	call	0x57ca	; 0x57ca <VL53L0X_WrByte>
     3ecc:	f8 2e       	mov	r15, r24
     3ece:	87 c0       	rjmp	.+270    	; 0x3fde <set_sequence_step_timeout+0x186>
     3ed0:	63 30       	cpi	r22, 0x03	; 3
@@ -9015,7 +9015,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3f04:	ac 01       	movw	r20, r24
     3f06:	61 e5       	ldi	r22, 0x51	; 81
     3f08:	c8 01       	movw	r24, r16
-    3f0a:	0e 94 b1 2b 	call	0x5762	; 0x5762 <VL53L0X_WrWord>
+    3f0a:	0e 94 f0 2b 	call	0x57e0	; 0x57e0 <VL53L0X_WrWord>
     3f0e:	f8 2e       	mov	r15, r24
     3f10:	81 11       	cpse	r24, r1
     3f12:	65 c0       	rjmp	.+202    	; 0x3fde <set_sequence_step_timeout+0x186>
@@ -9051,7 +9051,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3f52:	5f 4f       	sbci	r21, 0xFF	; 255
     3f54:	61 e5       	ldi	r22, 0x51	; 81
     3f56:	c8 01       	movw	r24, r16
-    3f58:	0e 94 f4 2b 	call	0x57e8	; 0x57e8 <VL53L0X_RdWord>
+    3f58:	0e 94 33 2c 	call	0x5866	; 0x5866 <VL53L0X_RdWord>
     3f5c:	f8 2e       	mov	r15, r24
     3f5e:	81 11       	cpse	r24, r1
     3f60:	3e c0       	rjmp	.+124    	; 0x3fde <set_sequence_step_timeout+0x186>
@@ -9099,7 +9099,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
     3fb6:	ac 01       	movw	r20, r24
     3fb8:	61 e7       	ldi	r22, 0x71	; 113
     3fba:	c8 01       	movw	r24, r16
-    3fbc:	0e 94 b1 2b 	call	0x5762	; 0x5762 <VL53L0X_WrWord>
+    3fbc:	0e 94 f0 2b 	call	0x57e0	; 0x57e0 <VL53L0X_WrWord>
     3fc0:	f8 2e       	mov	r15, r24
     3fc2:	81 11       	cpse	r24, r1
     3fc4:	0c c0       	rjmp	.+24     	; 0x3fde <set_sequence_step_timeout+0x186>
@@ -9164,7 +9164,7 @@ VL53L0X_Error VL53L0X_get_vcsel_pulse_period(VL53L0X_DEV Dev,
     4022:	4f 5f       	subi	r20, 0xFF	; 255
     4024:	5f 4f       	sbci	r21, 0xFF	; 255
     4026:	60 e5       	ldi	r22, 0x50	; 80
-    4028:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    4028:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
 			VL53L0X_REG_PRE_RANGE_CONFIG_VCSEL_PERIOD,
 			&vcsel_period_reg);
 	break;
@@ -9175,7 +9175,7 @@ VL53L0X_Error VL53L0X_get_vcsel_pulse_period(VL53L0X_DEV Dev,
     4030:	4f 5f       	subi	r20, 0xFF	; 255
     4032:	5f 4f       	sbci	r21, 0xFF	; 255
     4034:	60 e7       	ldi	r22, 0x70	; 112
-    4036:	0e 94 e9 2b 	call	0x57d2	; 0x57d2 <VL53L0X_RdByte>
+    4036:	0e 94 28 2c 	call	0x5850	; 0x5850 <VL53L0X_RdByte>
 			VL53L0X_REG_FINAL_RANGE_CONFIG_VCSEL_PERIOD,
 			&vcsel_period_reg);
 	break;
@@ -10309,7 +10309,7 @@ VL53L0X_Error VL53L0X_load_tuning_settings(VL53L0X_DEV Dev,
     4580:	4f 5f       	subi	r20, 0xFF	; 255
     4582:	5f 4f       	sbci	r21, 0xFF	; 255
     4584:	c5 01       	movw	r24, r10
-    4586:	0e 94 76 2b 	call	0x56ec	; 0x56ec <VL53L0X_WriteMulti>
+    4586:	0e 94 b5 2b 	call	0x576a	; 0x576a <VL53L0X_WriteMulti>
     458a:	05 c0       	rjmp	.+10     	; 0x4596 <VL53L0X_load_tuning_settings+0x182>
 		NumberOfWrites = *(pTuningSettingBuffer + Index);
 		Index++;
@@ -10451,7 +10451,7 @@ VL53L0X_Error VL53L0X_get_total_xtalk_rate(VL53L0X_DEV Dev,
     4628:	5c 91       	ld	r21, X
     462a:	90 97       	sbiw	r26, 0x20	; 32
     462c:	dc 01       	movw	r26, r24
-    462e:	0e 94 7a 2c 	call	0x58f4	; 0x58f4 <__muluhisi3>
+    462e:	0e 94 b9 2c 	call	0x5972	; 0x5972 <__muluhisi3>
     4632:	dc 01       	movw	r26, r24
     4634:	cb 01       	movw	r24, r22
     4636:	80 58       	subi	r24, 0x80	; 128
@@ -10649,7 +10649,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4736:	93 81       	ldd	r25, Z+3	; 0x03
     4738:	a3 01       	movw	r20, r6
     473a:	92 01       	movw	r18, r4
-    473c:	0e 94 3a 2c 	call	0x5874	; 0x5874 <__mulsi3>
+    473c:	0e 94 79 2c 	call	0x58f2	; 0x58f2 <__mulsi3>
     4740:	dc 01       	movw	r26, r24
     4742:	cb 01       	movw	r24, r22
     4744:	80 58       	subi	r24, 0x80	; 128
@@ -10661,7 +10661,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4750:	8b 2f       	mov	r24, r27
     4752:	99 27       	eor	r25, r25
 	SignalAt0mm *= dmaxCalRange_mm;
-    4754:	0e 94 3a 2c 	call	0x5874	; 0x5874 <__mulsi3>
+    4754:	0e 94 79 2c 	call	0x58f2	; 0x58f2 <__mulsi3>
     4758:	6d 87       	std	Y+13, r22	; 0x0d
     475a:	7e 87       	std	Y+14, r23	; 0x0e
     475c:	8f 87       	std	Y+15, r24	; 0x0f
@@ -10713,7 +10713,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
 
 		/* FixPoint0626/FixPoint1616 = FixPoint2210 */
 		minSignalNeeded_p1 /= totalCorrSignalRate_mcps;
-    47a4:	0e 94 49 2c 	call	0x5892	; 0x5892 <__udivmodsi4>
+    47a4:	0e 94 88 2c 	call	0x5910	; 0x5910 <__udivmodsi4>
 
 		/* Apply a factored version of the speed of light.
 		 Correction to be applied at the end */
@@ -10738,7 +10738,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
 		minSignalNeeded_p1 = (minSignalNeeded_p1 + 0x8000) >> 16;
     47c0:	9b 01       	movw	r18, r22
     47c2:	ac 01       	movw	r20, r24
-    47c4:	0e 94 3a 2c 	call	0x5874	; 0x5874 <__mulsi3>
+    47c4:	0e 94 79 2c 	call	0x58f2	; 0x58f2 <__mulsi3>
     47c8:	dc 01       	movw	r26, r24
     47ca:	cb 01       	movw	r24, r22
     47cc:	90 58       	subi	r25, 0x80	; 128
@@ -10772,7 +10772,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     47ec:	96 01       	movw	r18, r12
     47ee:	c5 01       	movw	r24, r10
     47f0:	b4 01       	movw	r22, r8
-    47f2:	0e 94 3a 2c 	call	0x5874	; 0x5874 <__mulsi3>
+    47f2:	0e 94 79 2c 	call	0x58f2	; 0x58f2 <__mulsi3>
     47f6:	dc 01       	movw	r26, r24
     47f8:	cb 01       	movw	r24, r22
     47fa:	90 58       	subi	r25, 0x80	; 128
@@ -10786,7 +10786,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
 	minSignalNeeded_p2 *= minSignalNeeded_p2;
     4806:	9b 01       	movw	r18, r22
     4808:	ac 01       	movw	r20, r24
-    480a:	0e 94 3a 2c 	call	0x5874	; 0x5874 <__mulsi3>
+    480a:	0e 94 79 2c 	call	0x58f2	; 0x58f2 <__mulsi3>
     480e:	69 8b       	std	Y+17, r22	; 0x11
     4810:	7a 8b       	std	Y+18, r23	; 0x12
     4812:	8b 8b       	std	Y+19, r24	; 0x13
@@ -10817,9 +10817,9 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4838:	3a ea       	ldi	r19, 0xAA	; 170
     483a:	4a ea       	ldi	r20, 0xAA	; 170
     483c:	5a ea       	ldi	r21, 0xAA	; 170
-    483e:	0e 94 84 2c 	call	0x5908	; 0x5908 <__umulsidi3>
+    483e:	0e 94 c3 2c 	call	0x5986	; 0x5986 <__umulsidi3>
     4842:	00 e2       	ldi	r16, 0x20	; 32
-    4844:	0e 94 ad 2c 	call	0x595a	; 0x595a <__lshrdi3>
+    4844:	0e 94 ec 2c 	call	0x59d8	; 0x59d8 <__lshrdi3>
     4848:	82 2e       	mov	r8, r18
     484a:	93 2e       	mov	r9, r19
     484c:	a4 2e       	mov	r10, r20
@@ -10879,8 +10879,8 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     48a4:	3a ea       	ldi	r19, 0xAA	; 170
     48a6:	4a ea       	ldi	r20, 0xAA	; 170
     48a8:	5a ea       	ldi	r21, 0xAA	; 170
-    48aa:	0e 94 84 2c 	call	0x5908	; 0x5908 <__umulsidi3>
-    48ae:	0e 94 ad 2c 	call	0x595a	; 0x595a <__lshrdi3>
+    48aa:	0e 94 c3 2c 	call	0x5986	; 0x5986 <__umulsidi3>
+    48ae:	0e 94 ec 2c 	call	0x59d8	; 0x59d8 <__lshrdi3>
     48b2:	29 83       	std	Y+1, r18	; 0x01
     48b4:	3a 83       	std	Y+2, r19	; 0x02
     48b6:	4b 83       	std	Y+3, r20	; 0x03
@@ -10934,7 +10934,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
 		minSignalNeeded_p3 *= minSignalNeeded_p3;
     490a:	9b 01       	movw	r18, r22
     490c:	ac 01       	movw	r20, r24
-    490e:	b2 d7       	rcall	.+3940   	; 0x5874 <__mulsi3>
+    490e:	f1 d7       	rcall	.+4066   	; 0x58f2 <__mulsi3>
     4910:	04 c0       	rjmp	.+8      	; 0x491a <VL53L0X_calc_dmax+0x23c>
 	sigmaEstP2Tmp = (sigmaEstP2Tmp + cAmbEffWidthSigmaEst_ns/2)/
 		cAmbEffWidthSigmaEst_ns;
@@ -10977,7 +10977,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4944:	3c a5       	ldd	r19, Y+44	; 0x2c
     4946:	4d a5       	ldd	r20, Y+45	; 0x2d
     4948:	5e a5       	ldd	r21, Y+46	; 0x2e
-    494a:	a3 d7       	rcall	.+3910   	; 0x5892 <__udivmodsi4>
+    494a:	e2 d7       	rcall	.+4036   	; 0x5910 <__udivmodsi4>
 
 	/* uint32 << 14 = FixPoint1814 */
 	minSignalNeeded <<= 14;
@@ -11006,7 +11006,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4970:	30 e0       	ldi	r19, 0x00	; 0
     4972:	40 e0       	ldi	r20, 0x00	; 0
     4974:	50 e0       	ldi	r21, 0x00	; 0
-    4976:	8d d7       	rcall	.+3866   	; 0x5892 <__udivmodsi4>
+    4976:	cc d7       	rcall	.+3992   	; 0x5910 <__udivmodsi4>
     4978:	ca 01       	movw	r24, r20
     497a:	b9 01       	movw	r22, r18
 	 * and 10E-22 on the denominator.
@@ -11019,7 +11019,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     497e:	3a 85       	ldd	r19, Y+10	; 0x0a
     4980:	4b 85       	ldd	r20, Y+11	; 0x0b
     4982:	5c 85       	ldd	r21, Y+12	; 0x0c
-    4984:	77 d7       	rcall	.+3822   	; 0x5874 <__mulsi3>
+    4984:	b6 d7       	rcall	.+3948   	; 0x58f2 <__mulsi3>
     4986:	6c 50       	subi	r22, 0x0C	; 12
     4988:	7e 4f       	sbci	r23, 0xFE	; 254
     498a:	8f 4f       	sbci	r24, 0xFF	; 255
@@ -11034,7 +11034,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     499c:	f0 2d       	mov	r31, r0
     499e:	a5 01       	movw	r20, r10
     49a0:	94 01       	movw	r18, r8
-    49a2:	77 d7       	rcall	.+3822   	; 0x5892 <__udivmodsi4>
+    49a2:	b6 d7       	rcall	.+3948   	; 0x5910 <__udivmodsi4>
 	minSignalNeeded <<= 4;
 
 	minSignalNeeded = (minSignalNeeded + 500) / 1000;
@@ -11066,7 +11066,7 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     49d6:	b6 01       	movw	r22, r12
     49d8:	a5 01       	movw	r20, r10
     49da:	94 01       	movw	r18, r8
-    49dc:	5a d7       	rcall	.+3764   	; 0x5892 <__udivmodsi4>
+    49dc:	99 d7       	rcall	.+3890   	; 0x5910 <__udivmodsi4>
     49de:	49 01       	movw	r8, r18
     49e0:	5a 01       	movw	r10, r20
 		dmaxDarkTmp = (SignalAt0mm + (signalLimitTmp / 2))
@@ -11102,15 +11102,15 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4a0e:	91 04       	cpc	r9, r1
     4a10:	a1 04       	cpc	r10, r1
     4a12:	b1 04       	cpc	r11, r1
-		dmaxAmbient = (SignalAt0mm + minSignalNeeded/2)
     4a14:	a9 f0       	breq	.+42     	; 0x4a40 <VL53L0X_calc_dmax+0x362>
+		dmaxAmbient = (SignalAt0mm + minSignalNeeded/2)
     4a16:	c7 01       	movw	r24, r14
     4a18:	b6 01       	movw	r22, r12
     4a1a:	20 ed       	ldi	r18, 0xD0	; 208
     4a1c:	37 e0       	ldi	r19, 0x07	; 7
     4a1e:	40 e0       	ldi	r20, 0x00	; 0
     4a20:	50 e0       	ldi	r21, 0x00	; 0
-    4a22:	37 d7       	rcall	.+3694   	; 0x5892 <__udivmodsi4>
+    4a22:	76 d7       	rcall	.+3820   	; 0x5910 <__udivmodsi4>
     4a24:	6d 85       	ldd	r22, Y+13	; 0x0d
     4a26:	7e 85       	ldd	r23, Y+14	; 0x0e
     4a28:	8f 85       	ldd	r24, Y+15	; 0x0f
@@ -11121,18 +11121,18 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4a32:	95 1f       	adc	r25, r21
     4a34:	a5 01       	movw	r20, r10
     4a36:	94 01       	movw	r18, r8
-    4a38:	2c d7       	rcall	.+3672   	; 0x5892 <__udivmodsi4>
+    4a38:	6b d7       	rcall	.+3798   	; 0x5910 <__udivmodsi4>
     4a3a:	ca 01       	movw	r24, r20
     4a3c:	b9 01       	movw	r22, r18
+    4a3e:	03 c0       	rjmp	.+6      	; 0x4a46 <VL53L0X_calc_dmax+0x368>
 			/ minSignalNeeded;
 	else
 		dmaxAmbient = 0;
-    4a3e:	03 c0       	rjmp	.+6      	; 0x4a46 <VL53L0X_calc_dmax+0x368>
     4a40:	60 e0       	ldi	r22, 0x00	; 0
     4a42:	70 e0       	ldi	r23, 0x00	; 0
+    4a44:	cb 01       	movw	r24, r22
 
 	dmaxAmbient = VL53L0X_isqrt(dmaxAmbient);
-    4a44:	cb 01       	movw	r24, r22
     4a46:	0e 94 23 19 	call	0x3246	; 0x3246 <VL53L0X_isqrt>
 
 	*pdmax_mm = dmaxDark;
@@ -11141,13 +11141,13 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4a4c:	75 05       	cpc	r23, r5
     4a4e:	86 05       	cpc	r24, r6
     4a50:	97 05       	cpc	r25, r7
+    4a52:	40 f0       	brcs	.+16     	; 0x4a64 <VL53L0X_calc_dmax+0x386>
 	else
 		dmaxAmbient = 0;
 
 	dmaxAmbient = VL53L0X_isqrt(dmaxAmbient);
 
 	*pdmax_mm = dmaxDark;
-    4a52:	40 f0       	brcs	.+16     	; 0x4a64 <VL53L0X_calc_dmax+0x386>
     4a54:	af a5       	ldd	r26, Y+47	; 0x2f
     4a56:	b8 a9       	ldd	r27, Y+48	; 0x30
     4a58:	4d 92       	st	X+, r4
@@ -11155,20 +11155,20 @@ VL53L0X_Error VL53L0X_get_total_signal_rate(VL53L0X_DEV Dev,
     4a5c:	6d 92       	st	X+, r6
     4a5e:	7c 92       	st	X, r7
     4a60:	13 97       	sbiw	r26, 0x03	; 3
+    4a62:	06 c0       	rjmp	.+12     	; 0x4a70 <VL53L0X_calc_dmax+0x392>
 	if (dmaxDark > dmaxAmbient)
 		*pdmax_mm = dmaxAmbient;
-    4a62:	06 c0       	rjmp	.+12     	; 0x4a70 <VL53L0X_calc_dmax+0x392>
     4a64:	ef a5       	ldd	r30, Y+47	; 0x2f
     4a66:	f8 a9       	ldd	r31, Y+48	; 0x30
     4a68:	60 83       	st	Z, r22
     4a6a:	71 83       	std	Z+1, r23	; 0x01
     4a6c:	82 83       	std	Z+2, r24	; 0x02
+    4a6e:	93 83       	std	Z+3, r25	; 0x03
 
 	LOG_FUNCTION_END(Status);
 
 	return Status;
 }
-    4a6e:	93 83       	std	Z+3, r25	; 0x03
     4a70:	80 e0       	ldi	r24, 0x00	; 0
     4a72:	64 96       	adiw	r28, 0x14	; 20
     4a74:	0f b6       	in	r0, 0x3f	; 63
@@ -11405,7 +11405,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4ba6:	b3 e0       	ldi	r27, 0x03	; 3
     4ba8:	a7 01       	movw	r20, r14
     4baa:	96 01       	movw	r18, r12
-    4bac:	a3 d6       	rcall	.+3398   	; 0x58f4 <__muluhisi3>
+    4bac:	e2 d6       	rcall	.+3524   	; 0x5972 <__muluhisi3>
     4bae:	dc 01       	movw	r26, r24
     4bb0:	cb 01       	movw	r24, r22
     4bb2:	90 58       	subi	r25, 0x80	; 128
@@ -11528,7 +11528,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4c62:	7e 89       	ldd	r23, Y+22	; 0x16
     4c64:	8f 89       	ldd	r24, Y+23	; 0x17
     4c66:	98 8d       	ldd	r25, Y+24	; 0x18
-    4c68:	05 d6       	rcall	.+3082   	; 0x5874 <__mulsi3>
+    4c68:	44 d6       	rcall	.+3208   	; 0x58f2 <__mulsi3>
     4c6a:	6c 50       	subi	r22, 0x0C	; 12
     4c6c:	7e 4f       	sbci	r23, 0xFE	; 254
     4c6e:	8f 4f       	sbci	r24, 0xFF	; 255
@@ -11545,17 +11545,17 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4c84:	94 01       	movw	r18, r8
 		peakVcselDuration_us *= cPllPeriod_ps;
 		peakVcselDuration_us = (peakVcselDuration_us + 500)/1000;
-    4c86:	05 d6       	rcall	.+3082   	; 0x5892 <__udivmodsi4>
+    4c86:	44 d6       	rcall	.+3208   	; 0x5910 <__udivmodsi4>
     4c88:	a7 e7       	ldi	r26, 0x77	; 119
     4c8a:	b6 e0       	ldi	r27, 0x06	; 6
-    4c8c:	33 d6       	rcall	.+3174   	; 0x58f4 <__muluhisi3>
+    4c8c:	72 d6       	rcall	.+3300   	; 0x5972 <__muluhisi3>
     4c8e:	6c 50       	subi	r22, 0x0C	; 12
     4c90:	7e 4f       	sbci	r23, 0xFE	; 254
     4c92:	8f 4f       	sbci	r24, 0xFF	; 255
     4c94:	9f 4f       	sbci	r25, 0xFF	; 255
     4c96:	a5 01       	movw	r20, r10
     4c98:	94 01       	movw	r18, r8
-    4c9a:	fb d5       	rcall	.+3062   	; 0x5892 <__udivmodsi4>
+    4c9a:	3a d6       	rcall	.+3188   	; 0x5910 <__udivmodsi4>
     4c9c:	2d 8b       	std	Y+21, r18	; 0x15
     4c9e:	39 a7       	std	Y+41, r19	; 0x29
     4ca0:	04 2f       	mov	r16, r20
@@ -11568,7 +11568,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4ca2:	15 2f       	mov	r17, r21
     4ca4:	c7 01       	movw	r24, r14
     4ca6:	b6 01       	movw	r22, r12
-    4ca8:	e5 d5       	rcall	.+3018   	; 0x5874 <__mulsi3>
+    4ca8:	24 d6       	rcall	.+3144   	; 0x58f2 <__mulsi3>
     4caa:	dc 01       	movw	r26, r24
     4cac:	cb 01       	movw	r24, r22
     4cae:	80 58       	subi	r24, 0x80	; 128
@@ -11601,7 +11601,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4cd6:	3c 8d       	ldd	r19, Y+28	; 0x1c
     4cd8:	4d 8d       	ldd	r20, Y+29	; 0x1d
     4cda:	5e 8d       	ldd	r21, Y+30	; 0x1e
-    4cdc:	0b d6       	rcall	.+3094   	; 0x58f4 <__muluhisi3>
+    4cdc:	4a d6       	rcall	.+3220   	; 0x5972 <__muluhisi3>
     4cde:	4b 01       	movw	r8, r22
     4ce0:	5c 01       	movw	r10, r24
     4ce2:	61 30       	cpi	r22, 0x01	; 1
@@ -11628,7 +11628,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4d00:	3a 89       	ldd	r19, Y+18	; 0x12
     4d02:	4b 89       	ldd	r20, Y+19	; 0x13
     4d04:	5c 89       	ldd	r21, Y+20	; 0x14
-    4d06:	f6 d5       	rcall	.+3052   	; 0x58f4 <__muluhisi3>
+    4d06:	35 d6       	rcall	.+3178   	; 0x5972 <__muluhisi3>
     4d08:	66 27       	eor	r22, r22
 		if (sigmaEstimateP2 > cAmbToSignalRatioMax) {
 			/* Clip to prevent overflow. Will ensure safe
@@ -11641,7 +11641,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4d0e:	3e 85       	ldd	r19, Y+14	; 0x0e
     4d10:	4f 85       	ldd	r20, Y+15	; 0x0f
     4d12:	58 89       	ldd	r21, Y+16	; 0x10
-    4d14:	be d5       	rcall	.+2940   	; 0x5892 <__udivmodsi4>
+    4d14:	fd d5       	rcall	.+3066   	; 0x5910 <__udivmodsi4>
     4d16:	27 36       	cpi	r18, 0x67	; 103
     4d18:	e6 e6       	ldi	r30, 0x66	; 102
     4d1a:	3e 07       	cpc	r19, r30
@@ -11654,7 +11654,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4d28:	50 e0       	ldi	r21, 0x00	; 0
     4d2a:	a8 e5       	ldi	r26, 0x58	; 88
     4d2c:	b2 e0       	ldi	r27, 0x02	; 2
-    4d2e:	e2 d5       	rcall	.+3012   	; 0x58f4 <__muluhisi3>
+    4d2e:	21 d6       	rcall	.+3138   	; 0x5972 <__muluhisi3>
     4d30:	69 8b       	std	Y+17, r22	; 0x11
     4d32:	7a 8b       	std	Y+18, r23	; 0x12
     4d34:	8b 8b       	std	Y+19, r24	; 0x13
@@ -11715,7 +11715,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4d94:	33 e0       	ldi	r19, 0x03	; 3
     4d96:	40 e0       	ldi	r20, 0x00	; 0
     4d98:	50 e0       	ldi	r21, 0x00	; 0
-    4d9a:	7b d5       	rcall	.+2806   	; 0x5892 <__udivmodsi4>
+    4d9a:	ba d5       	rcall	.+2932   	; 0x5910 <__udivmodsi4>
 		/* Shift by 8 bits to increase resolution prior to the
 		 * division */
 		diff1_mcps <<= 8;
@@ -11746,12 +11746,12 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4dc6:	33 e0       	ldi	r19, 0x03	; 3
     4dc8:	40 e0       	ldi	r20, 0x00	; 0
     4dca:	50 e0       	ldi	r21, 0x00	; 0
-    4dcc:	62 d5       	rcall	.+2756   	; 0x5892 <__udivmodsi4>
+    4dcc:	a1 d5       	rcall	.+2882   	; 0x5910 <__udivmodsi4>
     4dce:	6d 85       	ldd	r22, Y+13	; 0x0d
     4dd0:	7e 85       	ldd	r23, Y+14	; 0x0e
     4dd2:	8f 85       	ldd	r24, Y+15	; 0x0f
     4dd4:	98 89       	ldd	r25, Y+16	; 0x10
-    4dd6:	5d d5       	rcall	.+2746   	; 0x5892 <__udivmodsi4>
+    4dd6:	9c d5       	rcall	.+2872   	; 0x5910 <__udivmodsi4>
     4dd8:	69 01       	movw	r12, r18
     4dda:	33 23       	and	r19, r19
     4ddc:	24 f4       	brge	.+8      	; 0x4de6 <VL53L0X_calc_sigma_estimate+0x346>
@@ -11777,12 +11777,12 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4df8:	39 e9       	ldi	r19, 0x99	; 153
     4dfa:	46 e0       	ldi	r20, 0x06	; 6
     4dfc:	50 e0       	ldi	r21, 0x00	; 0
-    4dfe:	7a d5       	rcall	.+2804   	; 0x58f4 <__muluhisi3>
+    4dfe:	b9 d5       	rcall	.+2930   	; 0x5972 <__muluhisi3>
     4e00:	2c e5       	ldi	r18, 0x5C	; 92
     4e02:	32 e1       	ldi	r19, 0x12	; 18
     4e04:	40 e0       	ldi	r20, 0x00	; 0
     4e06:	50 e0       	ldi	r21, 0x00	; 0
-    4e08:	44 d5       	rcall	.+2696   	; 0x5892 <__udivmodsi4>
+    4e08:	83 d5       	rcall	.+2822   	; 0x5910 <__udivmodsi4>
     4e0a:	ca 01       	movw	r24, r20
 		 * exceeded.
 		 */
@@ -11805,7 +11805,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4e24:	3d 09       	sbc	r19, r13
     4e26:	4e 09       	sbc	r20, r14
     4e28:	5f 09       	sbc	r21, r15
-    4e2a:	24 d5       	rcall	.+2632   	; 0x5874 <__mulsi3>
+    4e2a:	63 d5       	rcall	.+2758   	; 0x58f2 <__mulsi3>
     4e2c:	dc 01       	movw	r26, r24
     4e2e:	cb 01       	movw	r24, r22
     4e30:	90 58       	subi	r25, 0x80	; 128
@@ -11837,7 +11837,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
 		/* (FixPoint3430 >> 14) = Fix1616 */
 		pwMult >>= 14;
     4e4c:	ac 01       	movw	r20, r24
-    4e4e:	12 d5       	rcall	.+2596   	; 0x5874 <__mulsi3>
+    4e4e:	51 d5       	rcall	.+2722   	; 0x58f2 <__mulsi3>
     4e50:	6b 01       	movw	r12, r22
     4e52:	7c 01       	movw	r14, r24
     4e54:	0b 2e       	mov	r0, r27
@@ -11859,7 +11859,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4e68:	b3 e0       	ldi	r27, 0x03	; 3
     4e6a:	a7 01       	movw	r20, r14
     4e6c:	96 01       	movw	r18, r12
-    4e6e:	42 d5       	rcall	.+2692   	; 0x58f4 <__muluhisi3>
+    4e6e:	81 d5       	rcall	.+2818   	; 0x5972 <__muluhisi3>
     4e70:	dc 01       	movw	r26, r24
     4e72:	cb 01       	movw	r24, r22
     4e74:	90 58       	subi	r25, 0x80	; 128
@@ -11893,7 +11893,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4e94:	bb 24       	eor	r11, r11
     4e96:	9b 01       	movw	r18, r22
     4e98:	ac 01       	movw	r20, r24
-    4e9a:	ec d4       	rcall	.+2520   	; 0x5874 <__mulsi3>
+    4e9a:	2b d5       	rcall	.+2646   	; 0x58f2 <__mulsi3>
     4e9c:	69 87       	std	Y+9, r22	; 0x09
     4e9e:	7a 87       	std	Y+10, r23	; 0x0a
     4ea0:	8b 87       	std	Y+11, r24	; 0x0b
@@ -11902,7 +11902,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4ea6:	94 01       	movw	r18, r8
     4ea8:	c5 01       	movw	r24, r10
     4eaa:	b4 01       	movw	r22, r8
-    4eac:	e3 d4       	rcall	.+2502   	; 0x5874 <__mulsi3>
+    4eac:	22 d5       	rcall	.+2628   	; 0x58f2 <__mulsi3>
     4eae:	29 85       	ldd	r18, Y+9	; 0x09
     4eb0:	3a 85       	ldd	r19, Y+10	; 0x0a
     4eb2:	4b 85       	ldd	r20, Y+11	; 0x0b
@@ -11931,7 +11931,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4ed6:	30 e0       	ldi	r19, 0x00	; 0
     4ed8:	40 e0       	ldi	r20, 0x00	; 0
     4eda:	50 e0       	ldi	r21, 0x00	; 0
-    4edc:	da d4       	rcall	.+2484   	; 0x5892 <__udivmodsi4>
+    4edc:	19 d5       	rcall	.+2610   	; 0x5910 <__udivmodsi4>
     4ede:	ca 01       	movw	r24, r20
     4ee0:	b9 01       	movw	r22, r18
     4ee2:	2b 8d       	ldd	r18, Y+27	; 0x1b
@@ -11944,13 +11944,13 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
 		sigmaEstRtn		 *= VL53L0X_SPEED_OF_LIGHT_IN_AIR;
     4eee:	44 1f       	adc	r20, r20
     4ef0:	55 1f       	adc	r21, r21
-    4ef2:	cf d4       	rcall	.+2462   	; 0x5892 <__udivmodsi4>
+    4ef2:	0e d5       	rcall	.+2588   	; 0x5910 <__udivmodsi4>
 
 		/* Add 5000 before dividing by 10000 to ensure rounding. */
 		sigmaEstRtn		 += 5000;
     4ef4:	a5 eb       	ldi	r26, 0xB5	; 181
     4ef6:	bb e0       	ldi	r27, 0x0B	; 11
-    4ef8:	fd d4       	rcall	.+2554   	; 0x58f4 <__muluhisi3>
+    4ef8:	3c d5       	rcall	.+2680   	; 0x5972 <__muluhisi3>
     4efa:	68 57       	subi	r22, 0x78	; 120
     4efc:	7c 4e       	sbci	r23, 0xEC	; 236
     4efe:	8f 4f       	sbci	r24, 0xFF	; 255
@@ -11959,7 +11959,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4f04:	37 e2       	ldi	r19, 0x27	; 39
     4f06:	40 e0       	ldi	r20, 0x00	; 0
     4f08:	50 e0       	ldi	r21, 0x00	; 0
-    4f0a:	c3 d4       	rcall	.+2438   	; 0x5892 <__udivmodsi4>
+    4f0a:	02 d5       	rcall	.+2564   	; 0x5910 <__udivmodsi4>
     4f0c:	ca 01       	movw	r24, r20
     4f0e:	b9 01       	movw	r22, r18
     4f10:	61 30       	cpi	r22, 0x01	; 1
@@ -11980,7 +11980,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4f22:	90 e0       	ldi	r25, 0x00	; 0
     4f24:	9b 01       	movw	r18, r22
     4f26:	ac 01       	movw	r20, r24
-    4f28:	a5 d4       	rcall	.+2378   	; 0x5874 <__mulsi3>
+    4f28:	e4 d4       	rcall	.+2504   	; 0x58f2 <__mulsi3>
     4f2a:	6c 5f       	subi	r22, 0xFC	; 252
     4f2c:	7e 4e       	sbci	r23, 0xEE	; 238
     4f2e:	8f 4f       	sbci	r24, 0xFF	; 255
@@ -12000,7 +12000,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     4f40:	b3 e0       	ldi	r27, 0x03	; 3
     4f42:	9b 01       	movw	r18, r22
     4f44:	ac 01       	movw	r20, r24
-    4f46:	d6 d4       	rcall	.+2476   	; 0x58f4 <__muluhisi3>
+    4f46:	15 d5       	rcall	.+2602   	; 0x5972 <__muluhisi3>
     4f48:	6f 3a       	cpi	r22, 0xAF	; 175
     4f4a:	47 e8       	ldi	r20, 0x87	; 135
     4f4c:	74 07       	cpc	r23, r20
@@ -12236,7 +12236,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     50a4:	41 e0       	ldi	r20, 0x01	; 1
     50a6:	6f ef       	ldi	r22, 0xFF	; 255
     50a8:	c5 01       	movw	r24, r10
-    50aa:	50 d3       	rcall	.+1696   	; 0x574c <VL53L0X_WrByte>
+    50aa:	8f d3       	rcall	.+1822   	; 0x57ca <VL53L0X_WrByte>
 
 	if (Status == VL53L0X_ERROR_NONE)
     50ac:	81 11       	cpse	r24, r1
@@ -12247,7 +12247,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     50b4:	5f 4f       	sbci	r21, 0xFF	; 255
     50b6:	66 eb       	ldi	r22, 0xB6	; 182
     50b8:	c5 01       	movw	r24, r10
-    50ba:	96 d3       	rcall	.+1836   	; 0x57e8 <VL53L0X_RdWord>
+    50ba:	d5 d3       	rcall	.+1962   	; 0x5866 <VL53L0X_RdWord>
 			VL53L0X_REG_RESULT_PEAK_SIGNAL_RATE_REF,
 			&tmpWord);
 
@@ -12268,7 +12268,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     50d0:	40 e0       	ldi	r20, 0x00	; 0
     50d2:	6f ef       	ldi	r22, 0xFF	; 255
     50d4:	c5 01       	movw	r24, r10
-    50d6:	3a d3       	rcall	.+1652   	; 0x574c <VL53L0X_WrByte>
+    50d6:	79 d3       	rcall	.+1778   	; 0x57ca <VL53L0X_WrByte>
 
 	PALDevDataSet(Dev, LastSignalRefMcps, LastSignalRefMcps);
     50d8:	f5 01       	movw	r30, r10
@@ -12504,7 +12504,7 @@ VL53L0X_Error VL53L0X_calc_sigma_estimate(VL53L0X_DEV Dev,
     5206:	94 01       	movw	r18, r8
     5208:	40 e0       	ldi	r20, 0x00	; 0
     520a:	50 e0       	ldi	r21, 0x00	; 0
-    520c:	42 d3       	rcall	.+1668   	; 0x5892 <__udivmodsi4>
+    520c:	81 d3       	rcall	.+1794   	; 0x5910 <__udivmodsi4>
     520e:	29 01       	movw	r4, r18
     5210:	3a 01       	movw	r6, r20
     5212:	03 c0       	rjmp	.+6      	; 0x521a <VL53L0X_get_pal_range_status+0x20c>
@@ -12937,7 +12937,7 @@ VL53L0X_Error VL53L0X_check_part_used(VL53L0X_DEV Dev,
     541e:	c7 01       	movw	r24, r14
     5420:	80 5c       	subi	r24, 0xC0	; 192
     5422:	9f 4f       	sbci	r25, 0xFF	; 255
-    5424:	be d2       	rcall	.+1404   	; 0x59a2 <strcpy>
+    5424:	fd d2       	rcall	.+1530   	; 0x5a20 <strcpy>
 	}
 	}
 
@@ -13063,7 +13063,7 @@ VL53L0X_Error VL53L0X_get_device_info(VL53L0X_DEV Dev,
     54ca:	5f 4f       	sbci	r21, 0xFF	; 255
     54cc:	60 ec       	ldi	r22, 0xC0	; 192
     54ce:	c7 01       	movw	r24, r14
-    54d0:	80 d1       	rcall	.+768    	; 0x57d2 <VL53L0X_RdByte>
+    54d0:	bf d1       	rcall	.+894    	; 0x5850 <VL53L0X_RdByte>
 				&pVL53L0X_DeviceInfo->ProductType);
 	}
 	if (Status == VL53L0X_ERROR_NONE) {
@@ -13075,7 +13075,7 @@ VL53L0X_Error VL53L0X_get_device_info(VL53L0X_DEV Dev,
     54da:	5f 4f       	sbci	r21, 0xFF	; 255
     54dc:	62 ec       	ldi	r22, 0xC2	; 194
     54de:	c7 01       	movw	r24, r14
-    54e0:	78 d1       	rcall	.+752    	; 0x57d2 <VL53L0X_RdByte>
+    54e0:	b7 d1       	rcall	.+878    	; 0x5850 <VL53L0X_RdByte>
 			VL53L0X_REG_IDENTIFICATION_REVISION_ID,
 				&revision_id);
 		pVL53L0X_DeviceInfo->ProductRevisionMajor = 1;
@@ -13139,784 +13139,848 @@ VL53L0X_Error VL53L0X_get_device_info(VL53L0X_DEV Dev,
     553c:	08 95       	ret
 
 0000553e <VL53L0X_write_multi>:
-    553e:	ef 92       	push	r14
-    5540:	ff 92       	push	r15
-    5542:	0f 93       	push	r16
-    5544:	1f 93       	push	r17
-    5546:	cf 93       	push	r28
-    5548:	df 93       	push	r29
-    554a:	1f 92       	push	r1
-    554c:	cd b7       	in	r28, 0x3d	; 61
-    554e:	de b7       	in	r29, 0x3e	; 62
-    5550:	18 2f       	mov	r17, r24
-    5552:	69 83       	std	Y+1, r22	; 0x01
-    5554:	7a 01       	movw	r14, r20
-    5556:	41 e0       	ldi	r20, 0x01	; 1
-    5558:	be 01       	movw	r22, r28
-    555a:	6f 5f       	subi	r22, 0xFF	; 255
-    555c:	7f 4f       	sbci	r23, 0xFF	; 255
-    555e:	0e 94 ef 01 	call	0x3de	; 0x3de <i2c_transmit>
-    5562:	40 2f       	mov	r20, r16
-    5564:	b7 01       	movw	r22, r14
-    5566:	81 2f       	mov	r24, r17
-    5568:	0e 94 ef 01 	call	0x3de	; 0x3de <i2c_transmit>
-    556c:	80 e0       	ldi	r24, 0x00	; 0
-    556e:	90 e0       	ldi	r25, 0x00	; 0
-    5570:	0f 90       	pop	r0
-    5572:	df 91       	pop	r29
-    5574:	cf 91       	pop	r28
-    5576:	1f 91       	pop	r17
-    5578:	0f 91       	pop	r16
-    557a:	ff 90       	pop	r15
-    557c:	ef 90       	pop	r14
-    557e:	08 95       	ret
+    553e:	4f 92       	push	r4
+    5540:	5f 92       	push	r5
+    5542:	6f 92       	push	r6
+    5544:	7f 92       	push	r7
+    5546:	8f 92       	push	r8
+    5548:	9f 92       	push	r9
+    554a:	af 92       	push	r10
+    554c:	bf 92       	push	r11
+    554e:	ef 92       	push	r14
+    5550:	ff 92       	push	r15
+    5552:	0f 93       	push	r16
+    5554:	1f 93       	push	r17
+    5556:	cf 93       	push	r28
+    5558:	df 93       	push	r29
+    555a:	cd b7       	in	r28, 0x3d	; 61
+    555c:	de b7       	in	r29, 0x3e	; 62
+    555e:	96 2f       	mov	r25, r22
+    5560:	28 01       	movw	r4, r16
+    5562:	39 01       	movw	r6, r18
+    5564:	ed b6       	in	r14, 0x3d	; 61
+    5566:	fe b6       	in	r15, 0x3e	; 62
+    5568:	48 01       	movw	r8, r16
+    556a:	59 01       	movw	r10, r18
+    556c:	2f ef       	ldi	r18, 0xFF	; 255
+    556e:	82 1a       	sub	r8, r18
+    5570:	92 0a       	sbc	r9, r18
+    5572:	a2 0a       	sbc	r10, r18
+    5574:	b2 0a       	sbc	r11, r18
+    5576:	ad b7       	in	r26, 0x3d	; 61
+    5578:	be b7       	in	r27, 0x3e	; 62
+    557a:	a8 19       	sub	r26, r8
+    557c:	b9 09       	sbc	r27, r9
+    557e:	0f b6       	in	r0, 0x3f	; 63
+    5580:	f8 94       	cli
+    5582:	be bf       	out	0x3e, r27	; 62
+    5584:	0f be       	out	0x3f, r0	; 63
+    5586:	ad bf       	out	0x3d, r26	; 61
+    5588:	6d b7       	in	r22, 0x3d	; 61
+    558a:	7e b7       	in	r23, 0x3e	; 62
+    558c:	6f 5f       	subi	r22, 0xFF	; 255
+    558e:	7f 4f       	sbci	r23, 0xFF	; 255
+    5590:	8b 01       	movw	r16, r22
+    5592:	11 96       	adiw	r26, 0x01	; 1
+    5594:	9c 93       	st	X, r25
+    5596:	41 14       	cp	r4, r1
+    5598:	51 04       	cpc	r5, r1
+    559a:	61 04       	cpc	r6, r1
+    559c:	71 04       	cpc	r7, r1
+    559e:	a9 f0       	breq	.+42     	; 0x55ca <VL53L0X_write_multi+0x8c>
+    55a0:	90 e0       	ldi	r25, 0x00	; 0
+    55a2:	29 2f       	mov	r18, r25
+    55a4:	30 e0       	ldi	r19, 0x00	; 0
+    55a6:	f8 01       	movw	r30, r16
+    55a8:	e2 0f       	add	r30, r18
+    55aa:	f3 1f       	adc	r31, r19
+    55ac:	24 0f       	add	r18, r20
+    55ae:	35 1f       	adc	r19, r21
+    55b0:	d9 01       	movw	r26, r18
+    55b2:	2c 91       	ld	r18, X
+    55b4:	21 83       	std	Z+1, r18	; 0x01
+    55b6:	9f 5f       	subi	r25, 0xFF	; 255
+    55b8:	89 2e       	mov	r8, r25
+    55ba:	91 2c       	mov	r9, r1
+    55bc:	a1 2c       	mov	r10, r1
+    55be:	b1 2c       	mov	r11, r1
+    55c0:	84 14       	cp	r8, r4
+    55c2:	95 04       	cpc	r9, r5
+    55c4:	a6 04       	cpc	r10, r6
+    55c6:	b7 04       	cpc	r11, r7
+    55c8:	60 f3       	brcs	.-40     	; 0x55a2 <VL53L0X_write_multi+0x64>
+    55ca:	41 e0       	ldi	r20, 0x01	; 1
+    55cc:	44 0d       	add	r20, r4
+    55ce:	0e 94 ef 01 	call	0x3de	; 0x3de <i2c_transmit>
+    55d2:	80 e0       	ldi	r24, 0x00	; 0
+    55d4:	90 e0       	ldi	r25, 0x00	; 0
+    55d6:	0f b6       	in	r0, 0x3f	; 63
+    55d8:	f8 94       	cli
+    55da:	fe be       	out	0x3e, r15	; 62
+    55dc:	0f be       	out	0x3f, r0	; 63
+    55de:	ed be       	out	0x3d, r14	; 61
+    55e0:	df 91       	pop	r29
+    55e2:	cf 91       	pop	r28
+    55e4:	1f 91       	pop	r17
+    55e6:	0f 91       	pop	r16
+    55e8:	ff 90       	pop	r15
+    55ea:	ef 90       	pop	r14
+    55ec:	bf 90       	pop	r11
+    55ee:	af 90       	pop	r10
+    55f0:	9f 90       	pop	r9
+    55f2:	8f 90       	pop	r8
+    55f4:	7f 90       	pop	r7
+    55f6:	6f 90       	pop	r6
+    55f8:	5f 90       	pop	r5
+    55fa:	4f 90       	pop	r4
+    55fc:	08 95       	ret
 
-00005580 <VL53L0X_read_multi>:
-    5580:	ef 92       	push	r14
-    5582:	ff 92       	push	r15
-    5584:	0f 93       	push	r16
-    5586:	1f 93       	push	r17
-    5588:	cf 93       	push	r28
-    558a:	df 93       	push	r29
-    558c:	1f 92       	push	r1
-    558e:	cd b7       	in	r28, 0x3d	; 61
-    5590:	de b7       	in	r29, 0x3e	; 62
-    5592:	18 2f       	mov	r17, r24
-    5594:	69 83       	std	Y+1, r22	; 0x01
-    5596:	7a 01       	movw	r14, r20
-    5598:	41 e0       	ldi	r20, 0x01	; 1
-    559a:	be 01       	movw	r22, r28
-    559c:	6f 5f       	subi	r22, 0xFF	; 255
-    559e:	7f 4f       	sbci	r23, 0xFF	; 255
-    55a0:	0e 94 ef 01 	call	0x3de	; 0x3de <i2c_transmit>
-    55a4:	40 2f       	mov	r20, r16
-    55a6:	b7 01       	movw	r22, r14
-    55a8:	81 2f       	mov	r24, r17
-    55aa:	0e 94 6c 02 	call	0x4d8	; 0x4d8 <i2c_receive>
-    55ae:	80 e0       	ldi	r24, 0x00	; 0
-    55b0:	90 e0       	ldi	r25, 0x00	; 0
-    55b2:	0f 90       	pop	r0
-    55b4:	df 91       	pop	r29
-    55b6:	cf 91       	pop	r28
-    55b8:	1f 91       	pop	r17
-    55ba:	0f 91       	pop	r16
-    55bc:	ff 90       	pop	r15
-    55be:	ef 90       	pop	r14
-    55c0:	08 95       	ret
+000055fe <VL53L0X_read_multi>:
+    55fe:	ef 92       	push	r14
+    5600:	ff 92       	push	r15
+    5602:	0f 93       	push	r16
+    5604:	1f 93       	push	r17
+    5606:	cf 93       	push	r28
+    5608:	df 93       	push	r29
+    560a:	1f 92       	push	r1
+    560c:	cd b7       	in	r28, 0x3d	; 61
+    560e:	de b7       	in	r29, 0x3e	; 62
+    5610:	18 2f       	mov	r17, r24
+    5612:	69 83       	std	Y+1, r22	; 0x01
+    5614:	7a 01       	movw	r14, r20
+    5616:	41 e0       	ldi	r20, 0x01	; 1
+    5618:	be 01       	movw	r22, r28
+    561a:	6f 5f       	subi	r22, 0xFF	; 255
+    561c:	7f 4f       	sbci	r23, 0xFF	; 255
+    561e:	0e 94 ef 01 	call	0x3de	; 0x3de <i2c_transmit>
+    5622:	40 2f       	mov	r20, r16
+    5624:	b7 01       	movw	r22, r14
+    5626:	81 2f       	mov	r24, r17
+    5628:	0e 94 6c 02 	call	0x4d8	; 0x4d8 <i2c_receive>
+    562c:	80 e0       	ldi	r24, 0x00	; 0
+    562e:	90 e0       	ldi	r25, 0x00	; 0
+    5630:	0f 90       	pop	r0
+    5632:	df 91       	pop	r29
+    5634:	cf 91       	pop	r28
+    5636:	1f 91       	pop	r17
+    5638:	0f 91       	pop	r16
+    563a:	ff 90       	pop	r15
+    563c:	ef 90       	pop	r14
+    563e:	08 95       	ret
 
-000055c2 <VL53L0X_write_byte>:
-    55c2:	0f 93       	push	r16
-    55c4:	1f 93       	push	r17
-    55c6:	cf 93       	push	r28
-    55c8:	df 93       	push	r29
-    55ca:	1f 92       	push	r1
-    55cc:	cd b7       	in	r28, 0x3d	; 61
-    55ce:	de b7       	in	r29, 0x3e	; 62
-    55d0:	49 83       	std	Y+1, r20	; 0x01
-    55d2:	01 e0       	ldi	r16, 0x01	; 1
-    55d4:	10 e0       	ldi	r17, 0x00	; 0
-    55d6:	20 e0       	ldi	r18, 0x00	; 0
-    55d8:	30 e0       	ldi	r19, 0x00	; 0
-    55da:	ae 01       	movw	r20, r28
-    55dc:	4f 5f       	subi	r20, 0xFF	; 255
-    55de:	5f 4f       	sbci	r21, 0xFF	; 255
-    55e0:	ae df       	rcall	.-164    	; 0x553e <VL53L0X_write_multi>
-    55e2:	0f 90       	pop	r0
-    55e4:	df 91       	pop	r29
-    55e6:	cf 91       	pop	r28
-    55e8:	1f 91       	pop	r17
-    55ea:	0f 91       	pop	r16
-    55ec:	08 95       	ret
+00005640 <VL53L0X_write_byte>:
+    5640:	0f 93       	push	r16
+    5642:	1f 93       	push	r17
+    5644:	cf 93       	push	r28
+    5646:	df 93       	push	r29
+    5648:	1f 92       	push	r1
+    564a:	cd b7       	in	r28, 0x3d	; 61
+    564c:	de b7       	in	r29, 0x3e	; 62
+    564e:	49 83       	std	Y+1, r20	; 0x01
+    5650:	01 e0       	ldi	r16, 0x01	; 1
+    5652:	10 e0       	ldi	r17, 0x00	; 0
+    5654:	20 e0       	ldi	r18, 0x00	; 0
+    5656:	30 e0       	ldi	r19, 0x00	; 0
+    5658:	ae 01       	movw	r20, r28
+    565a:	4f 5f       	subi	r20, 0xFF	; 255
+    565c:	5f 4f       	sbci	r21, 0xFF	; 255
+    565e:	6f df       	rcall	.-290    	; 0x553e <VL53L0X_write_multi>
+    5660:	0f 90       	pop	r0
+    5662:	df 91       	pop	r29
+    5664:	cf 91       	pop	r28
+    5666:	1f 91       	pop	r17
+    5668:	0f 91       	pop	r16
+    566a:	08 95       	ret
 
-000055ee <VL53L0X_write_word>:
-    55ee:	0f 93       	push	r16
-    55f0:	1f 93       	push	r17
-    55f2:	cf 93       	push	r28
-    55f4:	df 93       	push	r29
-    55f6:	00 d0       	rcall	.+0      	; 0x55f8 <VL53L0X_write_word+0xa>
-    55f8:	cd b7       	in	r28, 0x3d	; 61
-    55fa:	de b7       	in	r29, 0x3e	; 62
-    55fc:	4a 83       	std	Y+2, r20	; 0x02
-    55fe:	59 83       	std	Y+1, r21	; 0x01
-    5600:	02 e0       	ldi	r16, 0x02	; 2
-    5602:	10 e0       	ldi	r17, 0x00	; 0
-    5604:	20 e0       	ldi	r18, 0x00	; 0
-    5606:	30 e0       	ldi	r19, 0x00	; 0
-    5608:	ae 01       	movw	r20, r28
-    560a:	4f 5f       	subi	r20, 0xFF	; 255
-    560c:	5f 4f       	sbci	r21, 0xFF	; 255
-    560e:	97 df       	rcall	.-210    	; 0x553e <VL53L0X_write_multi>
-    5610:	0f 90       	pop	r0
-    5612:	0f 90       	pop	r0
-    5614:	df 91       	pop	r29
-    5616:	cf 91       	pop	r28
-    5618:	1f 91       	pop	r17
-    561a:	0f 91       	pop	r16
-    561c:	08 95       	ret
+0000566c <VL53L0X_write_word>:
+    566c:	0f 93       	push	r16
+    566e:	1f 93       	push	r17
+    5670:	cf 93       	push	r28
+    5672:	df 93       	push	r29
+    5674:	00 d0       	rcall	.+0      	; 0x5676 <VL53L0X_write_word+0xa>
+    5676:	cd b7       	in	r28, 0x3d	; 61
+    5678:	de b7       	in	r29, 0x3e	; 62
+    567a:	4a 83       	std	Y+2, r20	; 0x02
+    567c:	59 83       	std	Y+1, r21	; 0x01
+    567e:	02 e0       	ldi	r16, 0x02	; 2
+    5680:	10 e0       	ldi	r17, 0x00	; 0
+    5682:	20 e0       	ldi	r18, 0x00	; 0
+    5684:	30 e0       	ldi	r19, 0x00	; 0
+    5686:	ae 01       	movw	r20, r28
+    5688:	4f 5f       	subi	r20, 0xFF	; 255
+    568a:	5f 4f       	sbci	r21, 0xFF	; 255
+    568c:	58 df       	rcall	.-336    	; 0x553e <VL53L0X_write_multi>
+    568e:	0f 90       	pop	r0
+    5690:	0f 90       	pop	r0
+    5692:	df 91       	pop	r29
+    5694:	cf 91       	pop	r28
+    5696:	1f 91       	pop	r17
+    5698:	0f 91       	pop	r16
+    569a:	08 95       	ret
 
-0000561e <VL53L0X_read_byte>:
+0000569c <VL53L0X_read_byte>:
 
 int VL53L0X_read_byte(uint8_t deviceAddress, uint8_t index, uint8_t *data) {
-    561e:	0f 93       	push	r16
-    5620:	1f 93       	push	r17
+    569c:	0f 93       	push	r16
+    569e:	1f 93       	push	r17
   return VL53L0X_read_multi(deviceAddress, index, data, 1);
-    5622:	01 e0       	ldi	r16, 0x01	; 1
-    5624:	10 e0       	ldi	r17, 0x00	; 0
-    5626:	20 e0       	ldi	r18, 0x00	; 0
-    5628:	30 e0       	ldi	r19, 0x00	; 0
-    562a:	aa df       	rcall	.-172    	; 0x5580 <VL53L0X_read_multi>
+    56a0:	01 e0       	ldi	r16, 0x01	; 1
+    56a2:	10 e0       	ldi	r17, 0x00	; 0
+    56a4:	20 e0       	ldi	r18, 0x00	; 0
+    56a6:	30 e0       	ldi	r19, 0x00	; 0
+    56a8:	aa df       	rcall	.-172    	; 0x55fe <VL53L0X_read_multi>
 }
-    562c:	1f 91       	pop	r17
-    562e:	0f 91       	pop	r16
-    5630:	08 95       	ret
+    56aa:	1f 91       	pop	r17
+    56ac:	0f 91       	pop	r16
+    56ae:	08 95       	ret
 
-00005632 <VL53L0X_read_word>:
+000056b0 <VL53L0X_read_word>:
 
 int VL53L0X_read_word(uint8_t deviceAddress, uint8_t index, uint16_t *data) {
-    5632:	ef 92       	push	r14
-    5634:	ff 92       	push	r15
-    5636:	0f 93       	push	r16
-    5638:	1f 93       	push	r17
-    563a:	cf 93       	push	r28
-    563c:	df 93       	push	r29
-    563e:	00 d0       	rcall	.+0      	; 0x5640 <VL53L0X_read_word+0xe>
-    5640:	cd b7       	in	r28, 0x3d	; 61
-    5642:	de b7       	in	r29, 0x3e	; 62
-    5644:	7a 01       	movw	r14, r20
+    56b0:	ef 92       	push	r14
+    56b2:	ff 92       	push	r15
+    56b4:	0f 93       	push	r16
+    56b6:	1f 93       	push	r17
+    56b8:	cf 93       	push	r28
+    56ba:	df 93       	push	r29
+    56bc:	00 d0       	rcall	.+0      	; 0x56be <VL53L0X_read_word+0xe>
+    56be:	cd b7       	in	r28, 0x3d	; 61
+    56c0:	de b7       	in	r29, 0x3e	; 62
+    56c2:	7a 01       	movw	r14, r20
   uint8_t buff[2];
   int r = VL53L0X_read_multi(deviceAddress, index, buff, 2);
-    5646:	02 e0       	ldi	r16, 0x02	; 2
-    5648:	10 e0       	ldi	r17, 0x00	; 0
-    564a:	20 e0       	ldi	r18, 0x00	; 0
-    564c:	30 e0       	ldi	r19, 0x00	; 0
-    564e:	ae 01       	movw	r20, r28
-    5650:	4f 5f       	subi	r20, 0xFF	; 255
-    5652:	5f 4f       	sbci	r21, 0xFF	; 255
-    5654:	95 df       	rcall	.-214    	; 0x5580 <VL53L0X_read_multi>
+    56c4:	02 e0       	ldi	r16, 0x02	; 2
+    56c6:	10 e0       	ldi	r17, 0x00	; 0
+    56c8:	20 e0       	ldi	r18, 0x00	; 0
+    56ca:	30 e0       	ldi	r19, 0x00	; 0
+    56cc:	ae 01       	movw	r20, r28
+    56ce:	4f 5f       	subi	r20, 0xFF	; 255
+    56d0:	5f 4f       	sbci	r21, 0xFF	; 255
+    56d2:	95 df       	rcall	.-214    	; 0x55fe <VL53L0X_read_multi>
 
   uint16_t tmp;
   tmp = buff[0];
-    5656:	29 81       	ldd	r18, Y+1	; 0x01
-    5658:	30 e0       	ldi	r19, 0x00	; 0
+    56d4:	29 81       	ldd	r18, Y+1	; 0x01
+    56d6:	30 e0       	ldi	r19, 0x00	; 0
   tmp <<= 8;
-    565a:	32 2f       	mov	r19, r18
-    565c:	22 27       	eor	r18, r18
+    56d8:	32 2f       	mov	r19, r18
+    56da:	22 27       	eor	r18, r18
   tmp |= buff[1];
   *data = tmp;
-    565e:	4a 81       	ldd	r20, Y+2	; 0x02
-    5660:	24 2b       	or	r18, r20
-    5662:	f7 01       	movw	r30, r14
-    5664:	31 83       	std	Z+1, r19	; 0x01
-    5666:	20 83       	st	Z, r18
+    56dc:	4a 81       	ldd	r20, Y+2	; 0x02
+    56de:	24 2b       	or	r18, r20
+    56e0:	f7 01       	movw	r30, r14
+    56e2:	31 83       	std	Z+1, r19	; 0x01
+    56e4:	20 83       	st	Z, r18
 
   return r;
 }
-    5668:	0f 90       	pop	r0
-    566a:	0f 90       	pop	r0
-    566c:	df 91       	pop	r29
-    566e:	cf 91       	pop	r28
-    5670:	1f 91       	pop	r17
-    5672:	0f 91       	pop	r16
-    5674:	ff 90       	pop	r15
-    5676:	ef 90       	pop	r14
-    5678:	08 95       	ret
+    56e6:	0f 90       	pop	r0
+    56e8:	0f 90       	pop	r0
+    56ea:	df 91       	pop	r29
+    56ec:	cf 91       	pop	r28
+    56ee:	1f 91       	pop	r17
+    56f0:	0f 91       	pop	r16
+    56f2:	ff 90       	pop	r15
+    56f4:	ef 90       	pop	r14
+    56f6:	08 95       	ret
 
-0000567a <VL53L0X_read_dword>:
+000056f8 <VL53L0X_read_dword>:
 
 int VL53L0X_read_dword(uint8_t deviceAddress, uint8_t index, uint32_t *data) {
-    567a:	ef 92       	push	r14
-    567c:	ff 92       	push	r15
-    567e:	0f 93       	push	r16
-    5680:	1f 93       	push	r17
-    5682:	cf 93       	push	r28
-    5684:	df 93       	push	r29
-    5686:	00 d0       	rcall	.+0      	; 0x5688 <VL53L0X_read_dword+0xe>
-    5688:	00 d0       	rcall	.+0      	; 0x568a <VL53L0X_read_dword+0x10>
-    568a:	cd b7       	in	r28, 0x3d	; 61
-    568c:	de b7       	in	r29, 0x3e	; 62
-    568e:	7a 01       	movw	r14, r20
+    56f8:	ef 92       	push	r14
+    56fa:	ff 92       	push	r15
+    56fc:	0f 93       	push	r16
+    56fe:	1f 93       	push	r17
+    5700:	cf 93       	push	r28
+    5702:	df 93       	push	r29
+    5704:	00 d0       	rcall	.+0      	; 0x5706 <VL53L0X_read_dword+0xe>
+    5706:	00 d0       	rcall	.+0      	; 0x5708 <VL53L0X_read_dword+0x10>
+    5708:	cd b7       	in	r28, 0x3d	; 61
+    570a:	de b7       	in	r29, 0x3e	; 62
+    570c:	7a 01       	movw	r14, r20
   uint8_t buff[4];
   int r = VL53L0X_read_multi(deviceAddress, index, buff, 4);
-    5690:	04 e0       	ldi	r16, 0x04	; 4
-    5692:	10 e0       	ldi	r17, 0x00	; 0
-    5694:	20 e0       	ldi	r18, 0x00	; 0
-    5696:	30 e0       	ldi	r19, 0x00	; 0
-    5698:	ae 01       	movw	r20, r28
-    569a:	4f 5f       	subi	r20, 0xFF	; 255
-    569c:	5f 4f       	sbci	r21, 0xFF	; 255
-    569e:	70 df       	rcall	.-288    	; 0x5580 <VL53L0X_read_multi>
+    570e:	04 e0       	ldi	r16, 0x04	; 4
+    5710:	10 e0       	ldi	r17, 0x00	; 0
+    5712:	20 e0       	ldi	r18, 0x00	; 0
+    5714:	30 e0       	ldi	r19, 0x00	; 0
+    5716:	ae 01       	movw	r20, r28
+    5718:	4f 5f       	subi	r20, 0xFF	; 255
+    571a:	5f 4f       	sbci	r21, 0xFF	; 255
+    571c:	70 df       	rcall	.-288    	; 0x55fe <VL53L0X_read_multi>
 
   uint32_t tmp;
   tmp = buff[0];
-    56a0:	49 81       	ldd	r20, Y+1	; 0x01
-    56a2:	50 e0       	ldi	r21, 0x00	; 0
-    56a4:	60 e0       	ldi	r22, 0x00	; 0
-    56a6:	70 e0       	ldi	r23, 0x00	; 0
+    571e:	49 81       	ldd	r20, Y+1	; 0x01
+    5720:	50 e0       	ldi	r21, 0x00	; 0
+    5722:	60 e0       	ldi	r22, 0x00	; 0
+    5724:	70 e0       	ldi	r23, 0x00	; 0
   tmp <<= 8;
-    56a8:	76 2f       	mov	r23, r22
-    56aa:	65 2f       	mov	r22, r21
-    56ac:	54 2f       	mov	r21, r20
-    56ae:	44 27       	eor	r20, r20
+    5726:	76 2f       	mov	r23, r22
+    5728:	65 2f       	mov	r22, r21
+    572a:	54 2f       	mov	r21, r20
+    572c:	44 27       	eor	r20, r20
   tmp |= buff[1];
-    56b0:	2a 81       	ldd	r18, Y+2	; 0x02
-    56b2:	42 2b       	or	r20, r18
+    572e:	2a 81       	ldd	r18, Y+2	; 0x02
+    5730:	42 2b       	or	r20, r18
   tmp <<= 8;
-    56b4:	76 2f       	mov	r23, r22
-    56b6:	65 2f       	mov	r22, r21
-    56b8:	54 2f       	mov	r21, r20
-    56ba:	44 27       	eor	r20, r20
+    5732:	76 2f       	mov	r23, r22
+    5734:	65 2f       	mov	r22, r21
+    5736:	54 2f       	mov	r21, r20
+    5738:	44 27       	eor	r20, r20
   tmp |= buff[2];
-    56bc:	2b 81       	ldd	r18, Y+3	; 0x03
-    56be:	42 2b       	or	r20, r18
+    573a:	2b 81       	ldd	r18, Y+3	; 0x03
+    573c:	42 2b       	or	r20, r18
   tmp <<= 8;
-    56c0:	76 2f       	mov	r23, r22
-    56c2:	65 2f       	mov	r22, r21
-    56c4:	54 2f       	mov	r21, r20
-    56c6:	44 27       	eor	r20, r20
+    573e:	76 2f       	mov	r23, r22
+    5740:	65 2f       	mov	r22, r21
+    5742:	54 2f       	mov	r21, r20
+    5744:	44 27       	eor	r20, r20
   tmp |= buff[3];
 
   *data = tmp;
-    56c8:	2c 81       	ldd	r18, Y+4	; 0x04
-    56ca:	42 2b       	or	r20, r18
-    56cc:	f7 01       	movw	r30, r14
-    56ce:	40 83       	st	Z, r20
-    56d0:	51 83       	std	Z+1, r21	; 0x01
-    56d2:	62 83       	std	Z+2, r22	; 0x02
-    56d4:	73 83       	std	Z+3, r23	; 0x03
+    5746:	2c 81       	ldd	r18, Y+4	; 0x04
+    5748:	42 2b       	or	r20, r18
+    574a:	f7 01       	movw	r30, r14
+    574c:	40 83       	st	Z, r20
+    574e:	51 83       	std	Z+1, r21	; 0x01
+    5750:	62 83       	std	Z+2, r22	; 0x02
+    5752:	73 83       	std	Z+3, r23	; 0x03
 
   return r;
 }
-    56d6:	0f 90       	pop	r0
-    56d8:	0f 90       	pop	r0
-    56da:	0f 90       	pop	r0
-    56dc:	0f 90       	pop	r0
-    56de:	df 91       	pop	r29
-    56e0:	cf 91       	pop	r28
-    56e2:	1f 91       	pop	r17
-    56e4:	0f 91       	pop	r16
-    56e6:	ff 90       	pop	r15
-    56e8:	ef 90       	pop	r14
-    56ea:	08 95       	ret
+    5754:	0f 90       	pop	r0
+    5756:	0f 90       	pop	r0
+    5758:	0f 90       	pop	r0
+    575a:	0f 90       	pop	r0
+    575c:	df 91       	pop	r29
+    575e:	cf 91       	pop	r28
+    5760:	1f 91       	pop	r17
+    5762:	0f 91       	pop	r16
+    5764:	ff 90       	pop	r15
+    5766:	ef 90       	pop	r14
+    5768:	08 95       	ret
 
-000056ec <VL53L0X_WriteMulti>:
+0000576a <VL53L0X_WriteMulti>:
 
 	if (status_int != 0)
 		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
 
     return Status;
 }
-    56ec:	0f 93       	push	r16
-    56ee:	1f 93       	push	r17
-    56f0:	cf 93       	push	r28
-    56f2:	00 34       	cpi	r16, 0x40	; 64
-    56f4:	11 05       	cpc	r17, r1
-    56f6:	21 05       	cpc	r18, r1
-    56f8:	31 05       	cpc	r19, r1
-    56fa:	10 f0       	brcs	.+4      	; 0x5700 <VL53L0X_WriteMulti+0x14>
-    56fc:	cc ef       	ldi	r28, 0xFC	; 252
-    56fe:	01 c0       	rjmp	.+2      	; 0x5702 <VL53L0X_WriteMulti+0x16>
-    5700:	c0 e0       	ldi	r28, 0x00	; 0
-    5702:	fc 01       	movw	r30, r24
-    5704:	ef 5b       	subi	r30, 0xBF	; 191
-    5706:	fe 4f       	sbci	r31, 0xFE	; 254
-    5708:	80 81       	ld	r24, Z
-    570a:	19 df       	rcall	.-462    	; 0x553e <VL53L0X_write_multi>
-    570c:	89 2b       	or	r24, r25
-    570e:	09 f0       	breq	.+2      	; 0x5712 <VL53L0X_WriteMulti+0x26>
-    5710:	cc ee       	ldi	r28, 0xEC	; 236
-    5712:	8c 2f       	mov	r24, r28
-    5714:	cf 91       	pop	r28
-    5716:	1f 91       	pop	r17
-    5718:	0f 91       	pop	r16
-    571a:	08 95       	ret
+    576a:	0f 93       	push	r16
+    576c:	1f 93       	push	r17
+    576e:	cf 93       	push	r28
+    5770:	00 34       	cpi	r16, 0x40	; 64
+    5772:	11 05       	cpc	r17, r1
+    5774:	21 05       	cpc	r18, r1
+    5776:	31 05       	cpc	r19, r1
+    5778:	10 f0       	brcs	.+4      	; 0x577e <VL53L0X_WriteMulti+0x14>
+    577a:	cc ef       	ldi	r28, 0xFC	; 252
+    577c:	01 c0       	rjmp	.+2      	; 0x5780 <VL53L0X_WriteMulti+0x16>
+    577e:	c0 e0       	ldi	r28, 0x00	; 0
+    5780:	fc 01       	movw	r30, r24
+    5782:	ef 5b       	subi	r30, 0xBF	; 191
+    5784:	fe 4f       	sbci	r31, 0xFE	; 254
+    5786:	80 81       	ld	r24, Z
+    5788:	da de       	rcall	.-588    	; 0x553e <VL53L0X_write_multi>
+    578a:	89 2b       	or	r24, r25
+    578c:	09 f0       	breq	.+2      	; 0x5790 <VL53L0X_WriteMulti+0x26>
+    578e:	cc ee       	ldi	r28, 0xEC	; 236
+    5790:	8c 2f       	mov	r24, r28
+    5792:	cf 91       	pop	r28
+    5794:	1f 91       	pop	r17
+    5796:	0f 91       	pop	r16
+    5798:	08 95       	ret
 
-0000571c <VL53L0X_ReadMulti>:
-    571c:	0f 93       	push	r16
-    571e:	1f 93       	push	r17
-    5720:	cf 93       	push	r28
-    5722:	00 34       	cpi	r16, 0x40	; 64
-    5724:	11 05       	cpc	r17, r1
-    5726:	21 05       	cpc	r18, r1
-    5728:	31 05       	cpc	r19, r1
-    572a:	10 f0       	brcs	.+4      	; 0x5730 <VL53L0X_ReadMulti+0x14>
-    572c:	cc ef       	ldi	r28, 0xFC	; 252
-    572e:	01 c0       	rjmp	.+2      	; 0x5732 <VL53L0X_ReadMulti+0x16>
-    5730:	c0 e0       	ldi	r28, 0x00	; 0
-    5732:	fc 01       	movw	r30, r24
-    5734:	ef 5b       	subi	r30, 0xBF	; 191
-    5736:	fe 4f       	sbci	r31, 0xFE	; 254
-    5738:	80 81       	ld	r24, Z
-    573a:	22 df       	rcall	.-444    	; 0x5580 <VL53L0X_read_multi>
-    573c:	89 2b       	or	r24, r25
-    573e:	09 f0       	breq	.+2      	; 0x5742 <VL53L0X_ReadMulti+0x26>
-    5740:	cc ee       	ldi	r28, 0xEC	; 236
-    5742:	8c 2f       	mov	r24, r28
-    5744:	cf 91       	pop	r28
-    5746:	1f 91       	pop	r17
-    5748:	0f 91       	pop	r16
-    574a:	08 95       	ret
+0000579a <VL53L0X_ReadMulti>:
+    579a:	0f 93       	push	r16
+    579c:	1f 93       	push	r17
+    579e:	cf 93       	push	r28
+    57a0:	00 34       	cpi	r16, 0x40	; 64
+    57a2:	11 05       	cpc	r17, r1
+    57a4:	21 05       	cpc	r18, r1
+    57a6:	31 05       	cpc	r19, r1
+    57a8:	10 f0       	brcs	.+4      	; 0x57ae <VL53L0X_ReadMulti+0x14>
+    57aa:	cc ef       	ldi	r28, 0xFC	; 252
+    57ac:	01 c0       	rjmp	.+2      	; 0x57b0 <VL53L0X_ReadMulti+0x16>
+    57ae:	c0 e0       	ldi	r28, 0x00	; 0
+    57b0:	fc 01       	movw	r30, r24
+    57b2:	ef 5b       	subi	r30, 0xBF	; 191
+    57b4:	fe 4f       	sbci	r31, 0xFE	; 254
+    57b6:	80 81       	ld	r24, Z
+    57b8:	22 df       	rcall	.-444    	; 0x55fe <VL53L0X_read_multi>
+    57ba:	89 2b       	or	r24, r25
+    57bc:	09 f0       	breq	.+2      	; 0x57c0 <VL53L0X_ReadMulti+0x26>
+    57be:	cc ee       	ldi	r28, 0xEC	; 236
+    57c0:	8c 2f       	mov	r24, r28
+    57c2:	cf 91       	pop	r28
+    57c4:	1f 91       	pop	r17
+    57c6:	0f 91       	pop	r16
+    57c8:	08 95       	ret
 
-0000574c <VL53L0X_WrByte>:
-    574c:	8f 5b       	subi	r24, 0xBF	; 191
-    574e:	9e 4f       	sbci	r25, 0xFE	; 254
-    5750:	fc 01       	movw	r30, r24
-    5752:	80 81       	ld	r24, Z
-    5754:	36 df       	rcall	.-404    	; 0x55c2 <VL53L0X_write_byte>
-    5756:	89 2b       	or	r24, r25
-    5758:	11 f0       	breq	.+4      	; 0x575e <VL53L0X_WrByte+0x12>
-    575a:	8c ee       	ldi	r24, 0xEC	; 236
-    575c:	08 95       	ret
-    575e:	80 e0       	ldi	r24, 0x00	; 0
-    5760:	08 95       	ret
+000057ca <VL53L0X_WrByte>:
+    57ca:	8f 5b       	subi	r24, 0xBF	; 191
+    57cc:	9e 4f       	sbci	r25, 0xFE	; 254
+    57ce:	fc 01       	movw	r30, r24
+    57d0:	80 81       	ld	r24, Z
+    57d2:	36 df       	rcall	.-404    	; 0x5640 <VL53L0X_write_byte>
+    57d4:	89 2b       	or	r24, r25
+    57d6:	11 f0       	breq	.+4      	; 0x57dc <VL53L0X_WrByte+0x12>
+    57d8:	8c ee       	ldi	r24, 0xEC	; 236
+    57da:	08 95       	ret
+    57dc:	80 e0       	ldi	r24, 0x00	; 0
+    57de:	08 95       	ret
 
-00005762 <VL53L0X_WrWord>:
-    5762:	8f 5b       	subi	r24, 0xBF	; 191
-    5764:	9e 4f       	sbci	r25, 0xFE	; 254
-    5766:	fc 01       	movw	r30, r24
-    5768:	80 81       	ld	r24, Z
-    576a:	41 df       	rcall	.-382    	; 0x55ee <VL53L0X_write_word>
-    576c:	89 2b       	or	r24, r25
-    576e:	11 f0       	breq	.+4      	; 0x5774 <VL53L0X_WrWord+0x12>
-    5770:	8c ee       	ldi	r24, 0xEC	; 236
-    5772:	08 95       	ret
-    5774:	80 e0       	ldi	r24, 0x00	; 0
-    5776:	08 95       	ret
+000057e0 <VL53L0X_WrWord>:
+    57e0:	8f 5b       	subi	r24, 0xBF	; 191
+    57e2:	9e 4f       	sbci	r25, 0xFE	; 254
+    57e4:	fc 01       	movw	r30, r24
+    57e6:	80 81       	ld	r24, Z
+    57e8:	41 df       	rcall	.-382    	; 0x566c <VL53L0X_write_word>
+    57ea:	89 2b       	or	r24, r25
+    57ec:	11 f0       	breq	.+4      	; 0x57f2 <VL53L0X_WrWord+0x12>
+    57ee:	8c ee       	ldi	r24, 0xEC	; 236
+    57f0:	08 95       	ret
+    57f2:	80 e0       	ldi	r24, 0x00	; 0
+    57f4:	08 95       	ret
 
-00005778 <VL53L0X_UpdateByte>:
+000057f6 <VL53L0X_UpdateByte>:
 
 VL53L0X_Error VL53L0X_UpdateByte(VL53L0X_DEV Dev, uint8_t index, uint8_t AndData, uint8_t OrData){
-    5778:	ef 92       	push	r14
-    577a:	ff 92       	push	r15
-    577c:	0f 93       	push	r16
-    577e:	1f 93       	push	r17
-    5780:	cf 93       	push	r28
-    5782:	df 93       	push	r29
-    5784:	1f 92       	push	r1
-    5786:	cd b7       	in	r28, 0x3d	; 61
-    5788:	de b7       	in	r29, 0x3e	; 62
-    578a:	f6 2e       	mov	r15, r22
-    578c:	e4 2e       	mov	r14, r20
-    578e:	12 2f       	mov	r17, r18
+    57f6:	ef 92       	push	r14
+    57f8:	ff 92       	push	r15
+    57fa:	0f 93       	push	r16
+    57fc:	1f 93       	push	r17
+    57fe:	cf 93       	push	r28
+    5800:	df 93       	push	r29
+    5802:	1f 92       	push	r1
+    5804:	cd b7       	in	r28, 0x3d	; 61
+    5806:	de b7       	in	r29, 0x3e	; 62
+    5808:	f6 2e       	mov	r15, r22
+    580a:	e4 2e       	mov	r14, r20
+    580c:	12 2f       	mov	r17, r18
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     int32_t status_int;
     uint8_t deviceAddress;
     uint8_t data;
 
     deviceAddress = Dev->I2cDevAddr;
-    5790:	8f 5b       	subi	r24, 0xBF	; 191
-    5792:	9e 4f       	sbci	r25, 0xFE	; 254
-    5794:	fc 01       	movw	r30, r24
-    5796:	00 81       	ld	r16, Z
+    580e:	8f 5b       	subi	r24, 0xBF	; 191
+    5810:	9e 4f       	sbci	r25, 0xFE	; 254
+    5812:	fc 01       	movw	r30, r24
+    5814:	00 81       	ld	r16, Z
 
     status_int = VL53L0X_read_byte(deviceAddress, index, &data);
-    5798:	ae 01       	movw	r20, r28
-    579a:	4f 5f       	subi	r20, 0xFF	; 255
-    579c:	5f 4f       	sbci	r21, 0xFF	; 255
-    579e:	80 2f       	mov	r24, r16
-    57a0:	3e df       	rcall	.-388    	; 0x561e <VL53L0X_read_byte>
+    5816:	ae 01       	movw	r20, r28
+    5818:	4f 5f       	subi	r20, 0xFF	; 255
+    581a:	5f 4f       	sbci	r21, 0xFF	; 255
+    581c:	80 2f       	mov	r24, r16
+    581e:	3e df       	rcall	.-388    	; 0x569c <VL53L0X_read_byte>
 
     if (status_int != 0)
-    57a2:	89 2b       	or	r24, r25
-    57a4:	21 f0       	breq	.+8      	; 0x57ae <VL53L0X_UpdateByte+0x36>
+    5820:	89 2b       	or	r24, r25
+    5822:	21 f0       	breq	.+8      	; 0x582c <VL53L0X_UpdateByte+0x36>
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    57a6:	8c ee       	ldi	r24, 0xEC	; 236
-    57a8:	0c c0       	rjmp	.+24     	; 0x57c2 <VL53L0X_UpdateByte+0x4a>
-    57aa:	80 e0       	ldi	r24, 0x00	; 0
-    57ac:	0a c0       	rjmp	.+20     	; 0x57c2 <VL53L0X_UpdateByte+0x4a>
+    5824:	8c ee       	ldi	r24, 0xEC	; 236
+    5826:	0c c0       	rjmp	.+24     	; 0x5840 <VL53L0X_UpdateByte+0x4a>
+    5828:	80 e0       	ldi	r24, 0x00	; 0
+    582a:	0a c0       	rjmp	.+20     	; 0x5840 <VL53L0X_UpdateByte+0x4a>
 
     if (Status == VL53L0X_ERROR_NONE) {
         data = (data & AndData) | OrData;
-    57ae:	49 81       	ldd	r20, Y+1	; 0x01
-    57b0:	4e 21       	and	r20, r14
-    57b2:	41 2b       	or	r20, r17
-    57b4:	49 83       	std	Y+1, r20	; 0x01
+    582c:	49 81       	ldd	r20, Y+1	; 0x01
+    582e:	4e 21       	and	r20, r14
+    5830:	41 2b       	or	r20, r17
+    5832:	49 83       	std	Y+1, r20	; 0x01
         status_int = VL53L0X_write_byte(deviceAddress, index, data);
-    57b6:	6f 2d       	mov	r22, r15
-    57b8:	80 2f       	mov	r24, r16
-    57ba:	03 df       	rcall	.-506    	; 0x55c2 <VL53L0X_write_byte>
+    5834:	6f 2d       	mov	r22, r15
+    5836:	80 2f       	mov	r24, r16
+    5838:	03 df       	rcall	.-506    	; 0x5640 <VL53L0X_write_byte>
 
         if (status_int != 0)
-    57bc:	89 2b       	or	r24, r25
-    57be:	a9 f3       	breq	.-22     	; 0x57aa <VL53L0X_UpdateByte+0x32>
+    583a:	89 2b       	or	r24, r25
+    583c:	a9 f3       	breq	.-22     	; 0x5828 <VL53L0X_UpdateByte+0x32>
             Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    57c0:	8c ee       	ldi	r24, 0xEC	; 236
+    583e:	8c ee       	ldi	r24, 0xEC	; 236
     }
 
     return Status;
 }
-    57c2:	0f 90       	pop	r0
-    57c4:	df 91       	pop	r29
-    57c6:	cf 91       	pop	r28
-    57c8:	1f 91       	pop	r17
-    57ca:	0f 91       	pop	r16
-    57cc:	ff 90       	pop	r15
-    57ce:	ef 90       	pop	r14
-    57d0:	08 95       	ret
+    5840:	0f 90       	pop	r0
+    5842:	df 91       	pop	r29
+    5844:	cf 91       	pop	r28
+    5846:	1f 91       	pop	r17
+    5848:	0f 91       	pop	r16
+    584a:	ff 90       	pop	r15
+    584c:	ef 90       	pop	r14
+    584e:	08 95       	ret
 
-000057d2 <VL53L0X_RdByte>:
+00005850 <VL53L0X_RdByte>:
 VL53L0X_Error VL53L0X_RdByte(VL53L0X_DEV Dev, uint8_t index, uint8_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     int32_t status_int;
     uint8_t deviceAddress;
 
     deviceAddress = Dev->I2cDevAddr;
-    57d2:	8f 5b       	subi	r24, 0xBF	; 191
-    57d4:	9e 4f       	sbci	r25, 0xFE	; 254
+    5850:	8f 5b       	subi	r24, 0xBF	; 191
+    5852:	9e 4f       	sbci	r25, 0xFE	; 254
 
     status_int = VL53L0X_read_byte(deviceAddress, index, data);
-    57d6:	fc 01       	movw	r30, r24
-    57d8:	80 81       	ld	r24, Z
-    57da:	21 df       	rcall	.-446    	; 0x561e <VL53L0X_read_byte>
+    5854:	fc 01       	movw	r30, r24
+    5856:	80 81       	ld	r24, Z
+    5858:	21 df       	rcall	.-446    	; 0x569c <VL53L0X_read_byte>
 
     if (status_int != 0)
-    57dc:	89 2b       	or	r24, r25
-    57de:	11 f0       	breq	.+4      	; 0x57e4 <VL53L0X_RdByte+0x12>
+    585a:	89 2b       	or	r24, r25
+    585c:	11 f0       	breq	.+4      	; 0x5862 <VL53L0X_RdByte+0x12>
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    57e0:	8c ee       	ldi	r24, 0xEC	; 236
-    57e2:	08 95       	ret
+    585e:	8c ee       	ldi	r24, 0xEC	; 236
+    5860:	08 95       	ret
 
     return Status;
 }
 
 VL53L0X_Error VL53L0X_RdByte(VL53L0X_DEV Dev, uint8_t index, uint8_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-    57e4:	80 e0       	ldi	r24, 0x00	; 0
+    5862:	80 e0       	ldi	r24, 0x00	; 0
 
     if (status_int != 0)
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
 
     return Status;
 }
-    57e6:	08 95       	ret
+    5864:	08 95       	ret
 
-000057e8 <VL53L0X_RdWord>:
+00005866 <VL53L0X_RdWord>:
 VL53L0X_Error VL53L0X_RdWord(VL53L0X_DEV Dev, uint8_t index, uint16_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     int32_t status_int;
     uint8_t deviceAddress;
 
     deviceAddress = Dev->I2cDevAddr;
-    57e8:	8f 5b       	subi	r24, 0xBF	; 191
-    57ea:	9e 4f       	sbci	r25, 0xFE	; 254
+    5866:	8f 5b       	subi	r24, 0xBF	; 191
+    5868:	9e 4f       	sbci	r25, 0xFE	; 254
 
     status_int = VL53L0X_read_word(deviceAddress, index, data);
-    57ec:	fc 01       	movw	r30, r24
-    57ee:	80 81       	ld	r24, Z
-    57f0:	20 df       	rcall	.-448    	; 0x5632 <VL53L0X_read_word>
+    586a:	fc 01       	movw	r30, r24
+    586c:	80 81       	ld	r24, Z
+    586e:	20 df       	rcall	.-448    	; 0x56b0 <VL53L0X_read_word>
 
     if (status_int != 0)
-    57f2:	89 2b       	or	r24, r25
-    57f4:	11 f0       	breq	.+4      	; 0x57fa <VL53L0X_RdWord+0x12>
+    5870:	89 2b       	or	r24, r25
+    5872:	11 f0       	breq	.+4      	; 0x5878 <VL53L0X_RdWord+0x12>
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    57f6:	8c ee       	ldi	r24, 0xEC	; 236
-    57f8:	08 95       	ret
+    5874:	8c ee       	ldi	r24, 0xEC	; 236
+    5876:	08 95       	ret
 
     return Status;
 }
 
 VL53L0X_Error VL53L0X_RdWord(VL53L0X_DEV Dev, uint8_t index, uint16_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-    57fa:	80 e0       	ldi	r24, 0x00	; 0
+    5878:	80 e0       	ldi	r24, 0x00	; 0
 
     if (status_int != 0)
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
 
     return Status;
 }
-    57fc:	08 95       	ret
+    587a:	08 95       	ret
 
-000057fe <VL53L0X_RdDWord>:
+0000587c <VL53L0X_RdDWord>:
 VL53L0X_Error  VL53L0X_RdDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     int32_t status_int;
     uint8_t deviceAddress;
 
     deviceAddress = Dev->I2cDevAddr;
-    57fe:	8f 5b       	subi	r24, 0xBF	; 191
-    5800:	9e 4f       	sbci	r25, 0xFE	; 254
+    587c:	8f 5b       	subi	r24, 0xBF	; 191
+    587e:	9e 4f       	sbci	r25, 0xFE	; 254
 
     status_int = VL53L0X_read_dword(deviceAddress, index, data);
-    5802:	fc 01       	movw	r30, r24
-    5804:	80 81       	ld	r24, Z
-    5806:	39 df       	rcall	.-398    	; 0x567a <VL53L0X_read_dword>
+    5880:	fc 01       	movw	r30, r24
+    5882:	80 81       	ld	r24, Z
+    5884:	39 df       	rcall	.-398    	; 0x56f8 <VL53L0X_read_dword>
 
     if (status_int != 0)
-    5808:	89 2b       	or	r24, r25
-    580a:	11 f0       	breq	.+4      	; 0x5810 <VL53L0X_RdDWord+0x12>
+    5886:	89 2b       	or	r24, r25
+    5888:	11 f0       	breq	.+4      	; 0x588e <VL53L0X_RdDWord+0x12>
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    580c:	8c ee       	ldi	r24, 0xEC	; 236
-    580e:	08 95       	ret
+    588a:	8c ee       	ldi	r24, 0xEC	; 236
+    588c:	08 95       	ret
 
     return Status;
 }
 
 VL53L0X_Error  VL53L0X_RdDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t *data){
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-    5810:	80 e0       	ldi	r24, 0x00	; 0
+    588e:	80 e0       	ldi	r24, 0x00	; 0
 
     if (status_int != 0)
         Status = VL53L0X_ERROR_CONTROL_INTERFACE;
 
     return Status;
 }
-    5812:	08 95       	ret
+    5890:	08 95       	ret
 
-00005814 <VL53L0X_PollingDelay>:
+00005892 <VL53L0X_PollingDelay>:
 
 #define VL53L0X_POLLINGDELAY_LOOPNB  250
 VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev){
-    5814:	cf 93       	push	r28
-    5816:	df 93       	push	r29
-    5818:	00 d0       	rcall	.+0      	; 0x581a <VL53L0X_PollingDelay+0x6>
-    581a:	00 d0       	rcall	.+0      	; 0x581c <VL53L0X_PollingDelay+0x8>
-    581c:	cd b7       	in	r28, 0x3d	; 61
-    581e:	de b7       	in	r29, 0x3e	; 62
+    5892:	cf 93       	push	r28
+    5894:	df 93       	push	r29
+    5896:	00 d0       	rcall	.+0      	; 0x5898 <VL53L0X_PollingDelay+0x6>
+    5898:	00 d0       	rcall	.+0      	; 0x589a <VL53L0X_PollingDelay+0x8>
+    589a:	cd b7       	in	r28, 0x3d	; 61
+    589c:	de b7       	in	r29, 0x3e	; 62
     VL53L0X_Error status = VL53L0X_ERROR_NONE;
     volatile uint32_t i;
     LOG_FUNCTION_START("");
 
     for(i=0;i<VL53L0X_POLLINGDELAY_LOOPNB;i++){
-    5820:	19 82       	std	Y+1, r1	; 0x01
-    5822:	1a 82       	std	Y+2, r1	; 0x02
-    5824:	1b 82       	std	Y+3, r1	; 0x03
-    5826:	1c 82       	std	Y+4, r1	; 0x04
-    5828:	89 81       	ldd	r24, Y+1	; 0x01
-    582a:	9a 81       	ldd	r25, Y+2	; 0x02
-    582c:	ab 81       	ldd	r26, Y+3	; 0x03
-    582e:	bc 81       	ldd	r27, Y+4	; 0x04
-    5830:	8a 3f       	cpi	r24, 0xFA	; 250
-    5832:	91 05       	cpc	r25, r1
-    5834:	a1 05       	cpc	r26, r1
-    5836:	b1 05       	cpc	r27, r1
-    5838:	a8 f4       	brcc	.+42     	; 0x5864 <VL53L0X_PollingDelay+0x50>
+    589e:	19 82       	std	Y+1, r1	; 0x01
+    58a0:	1a 82       	std	Y+2, r1	; 0x02
+    58a2:	1b 82       	std	Y+3, r1	; 0x03
+    58a4:	1c 82       	std	Y+4, r1	; 0x04
+    58a6:	89 81       	ldd	r24, Y+1	; 0x01
+    58a8:	9a 81       	ldd	r25, Y+2	; 0x02
+    58aa:	ab 81       	ldd	r26, Y+3	; 0x03
+    58ac:	bc 81       	ldd	r27, Y+4	; 0x04
+    58ae:	8a 3f       	cpi	r24, 0xFA	; 250
+    58b0:	91 05       	cpc	r25, r1
+    58b2:	a1 05       	cpc	r26, r1
+    58b4:	b1 05       	cpc	r27, r1
+    58b6:	a8 f4       	brcc	.+42     	; 0x58e2 <VL53L0X_PollingDelay+0x50>
         //Do nothing
         asm("nop");
-    583a:	00 00       	nop
+    58b8:	00 00       	nop
 VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev){
     VL53L0X_Error status = VL53L0X_ERROR_NONE;
     volatile uint32_t i;
     LOG_FUNCTION_START("");
 
     for(i=0;i<VL53L0X_POLLINGDELAY_LOOPNB;i++){
-    583c:	89 81       	ldd	r24, Y+1	; 0x01
-    583e:	9a 81       	ldd	r25, Y+2	; 0x02
-    5840:	ab 81       	ldd	r26, Y+3	; 0x03
-    5842:	bc 81       	ldd	r27, Y+4	; 0x04
-    5844:	01 96       	adiw	r24, 0x01	; 1
-    5846:	a1 1d       	adc	r26, r1
-    5848:	b1 1d       	adc	r27, r1
-    584a:	89 83       	std	Y+1, r24	; 0x01
-    584c:	9a 83       	std	Y+2, r25	; 0x02
-    584e:	ab 83       	std	Y+3, r26	; 0x03
-    5850:	bc 83       	std	Y+4, r27	; 0x04
-    5852:	89 81       	ldd	r24, Y+1	; 0x01
-    5854:	9a 81       	ldd	r25, Y+2	; 0x02
-    5856:	ab 81       	ldd	r26, Y+3	; 0x03
-    5858:	bc 81       	ldd	r27, Y+4	; 0x04
-    585a:	8a 3f       	cpi	r24, 0xFA	; 250
-    585c:	91 05       	cpc	r25, r1
-    585e:	a1 05       	cpc	r26, r1
-    5860:	b1 05       	cpc	r27, r1
-    5862:	58 f3       	brcs	.-42     	; 0x583a <VL53L0X_PollingDelay+0x26>
+    58ba:	89 81       	ldd	r24, Y+1	; 0x01
+    58bc:	9a 81       	ldd	r25, Y+2	; 0x02
+    58be:	ab 81       	ldd	r26, Y+3	; 0x03
+    58c0:	bc 81       	ldd	r27, Y+4	; 0x04
+    58c2:	01 96       	adiw	r24, 0x01	; 1
+    58c4:	a1 1d       	adc	r26, r1
+    58c6:	b1 1d       	adc	r27, r1
+    58c8:	89 83       	std	Y+1, r24	; 0x01
+    58ca:	9a 83       	std	Y+2, r25	; 0x02
+    58cc:	ab 83       	std	Y+3, r26	; 0x03
+    58ce:	bc 83       	std	Y+4, r27	; 0x04
+    58d0:	89 81       	ldd	r24, Y+1	; 0x01
+    58d2:	9a 81       	ldd	r25, Y+2	; 0x02
+    58d4:	ab 81       	ldd	r26, Y+3	; 0x03
+    58d6:	bc 81       	ldd	r27, Y+4	; 0x04
+    58d8:	8a 3f       	cpi	r24, 0xFA	; 250
+    58da:	91 05       	cpc	r25, r1
+    58dc:	a1 05       	cpc	r26, r1
+    58de:	b1 05       	cpc	r27, r1
+    58e0:	58 f3       	brcs	.-42     	; 0x58b8 <VL53L0X_PollingDelay+0x26>
         asm("nop");
     }
 
     LOG_FUNCTION_END(status);
     return status;
 }
-    5864:	80 e0       	ldi	r24, 0x00	; 0
-    5866:	0f 90       	pop	r0
-    5868:	0f 90       	pop	r0
-    586a:	0f 90       	pop	r0
-    586c:	0f 90       	pop	r0
-    586e:	df 91       	pop	r29
-    5870:	cf 91       	pop	r28
-    5872:	08 95       	ret
+    58e2:	80 e0       	ldi	r24, 0x00	; 0
+    58e4:	0f 90       	pop	r0
+    58e6:	0f 90       	pop	r0
+    58e8:	0f 90       	pop	r0
+    58ea:	0f 90       	pop	r0
+    58ec:	df 91       	pop	r29
+    58ee:	cf 91       	pop	r28
+    58f0:	08 95       	ret
 
-00005874 <__mulsi3>:
-    5874:	db 01       	movw	r26, r22
-    5876:	8f 93       	push	r24
-    5878:	9f 93       	push	r25
-    587a:	3c d0       	rcall	.+120    	; 0x58f4 <__muluhisi3>
-    587c:	bf 91       	pop	r27
-    587e:	af 91       	pop	r26
-    5880:	a2 9f       	mul	r26, r18
-    5882:	80 0d       	add	r24, r0
-    5884:	91 1d       	adc	r25, r1
-    5886:	a3 9f       	mul	r26, r19
-    5888:	90 0d       	add	r25, r0
-    588a:	b2 9f       	mul	r27, r18
-    588c:	90 0d       	add	r25, r0
-    588e:	11 24       	eor	r1, r1
-    5890:	08 95       	ret
-
-00005892 <__udivmodsi4>:
-    5892:	a1 e2       	ldi	r26, 0x21	; 33
-    5894:	1a 2e       	mov	r1, r26
-    5896:	aa 1b       	sub	r26, r26
-    5898:	bb 1b       	sub	r27, r27
-    589a:	fd 01       	movw	r30, r26
-    589c:	0d c0       	rjmp	.+26     	; 0x58b8 <__udivmodsi4_ep>
-
-0000589e <__udivmodsi4_loop>:
-    589e:	aa 1f       	adc	r26, r26
-    58a0:	bb 1f       	adc	r27, r27
-    58a2:	ee 1f       	adc	r30, r30
-    58a4:	ff 1f       	adc	r31, r31
-    58a6:	a2 17       	cp	r26, r18
-    58a8:	b3 07       	cpc	r27, r19
-    58aa:	e4 07       	cpc	r30, r20
-    58ac:	f5 07       	cpc	r31, r21
-    58ae:	20 f0       	brcs	.+8      	; 0x58b8 <__udivmodsi4_ep>
-    58b0:	a2 1b       	sub	r26, r18
-    58b2:	b3 0b       	sbc	r27, r19
-    58b4:	e4 0b       	sbc	r30, r20
-    58b6:	f5 0b       	sbc	r31, r21
-
-000058b8 <__udivmodsi4_ep>:
-    58b8:	66 1f       	adc	r22, r22
-    58ba:	77 1f       	adc	r23, r23
-    58bc:	88 1f       	adc	r24, r24
-    58be:	99 1f       	adc	r25, r25
-    58c0:	1a 94       	dec	r1
-    58c2:	69 f7       	brne	.-38     	; 0x589e <__udivmodsi4_loop>
-    58c4:	60 95       	com	r22
-    58c6:	70 95       	com	r23
-    58c8:	80 95       	com	r24
-    58ca:	90 95       	com	r25
-    58cc:	9b 01       	movw	r18, r22
-    58ce:	ac 01       	movw	r20, r24
-    58d0:	bd 01       	movw	r22, r26
-    58d2:	cf 01       	movw	r24, r30
-    58d4:	08 95       	ret
-
-000058d6 <__umulhisi3>:
-    58d6:	a2 9f       	mul	r26, r18
-    58d8:	b0 01       	movw	r22, r0
-    58da:	b3 9f       	mul	r27, r19
-    58dc:	c0 01       	movw	r24, r0
-    58de:	a3 9f       	mul	r26, r19
-    58e0:	70 0d       	add	r23, r0
-    58e2:	81 1d       	adc	r24, r1
-    58e4:	11 24       	eor	r1, r1
-    58e6:	91 1d       	adc	r25, r1
-    58e8:	b2 9f       	mul	r27, r18
-    58ea:	70 0d       	add	r23, r0
-    58ec:	81 1d       	adc	r24, r1
-    58ee:	11 24       	eor	r1, r1
-    58f0:	91 1d       	adc	r25, r1
-    58f2:	08 95       	ret
-
-000058f4 <__muluhisi3>:
-    58f4:	f0 df       	rcall	.-32     	; 0x58d6 <__umulhisi3>
-    58f6:	a5 9f       	mul	r26, r21
-    58f8:	90 0d       	add	r25, r0
-    58fa:	b4 9f       	mul	r27, r20
-    58fc:	90 0d       	add	r25, r0
-    58fe:	a4 9f       	mul	r26, r20
+000058f2 <__mulsi3>:
+    58f2:	db 01       	movw	r26, r22
+    58f4:	8f 93       	push	r24
+    58f6:	9f 93       	push	r25
+    58f8:	3c d0       	rcall	.+120    	; 0x5972 <__muluhisi3>
+    58fa:	bf 91       	pop	r27
+    58fc:	af 91       	pop	r26
+    58fe:	a2 9f       	mul	r26, r18
     5900:	80 0d       	add	r24, r0
     5902:	91 1d       	adc	r25, r1
-    5904:	11 24       	eor	r1, r1
-    5906:	08 95       	ret
+    5904:	a3 9f       	mul	r26, r19
+    5906:	90 0d       	add	r25, r0
+    5908:	b2 9f       	mul	r27, r18
+    590a:	90 0d       	add	r25, r0
+    590c:	11 24       	eor	r1, r1
+    590e:	08 95       	ret
 
-00005908 <__umulsidi3>:
-    5908:	e8 94       	clt
+00005910 <__udivmodsi4>:
+    5910:	a1 e2       	ldi	r26, 0x21	; 33
+    5912:	1a 2e       	mov	r1, r26
+    5914:	aa 1b       	sub	r26, r26
+    5916:	bb 1b       	sub	r27, r27
+    5918:	fd 01       	movw	r30, r26
+    591a:	0d c0       	rjmp	.+26     	; 0x5936 <__udivmodsi4_ep>
 
-0000590a <__umulsidi3_helper>:
-    590a:	df 93       	push	r29
-    590c:	cf 93       	push	r28
-    590e:	fc 01       	movw	r30, r24
-    5910:	db 01       	movw	r26, r22
-    5912:	e1 df       	rcall	.-62     	; 0x58d6 <__umulhisi3>
-    5914:	7f 93       	push	r23
-    5916:	6f 93       	push	r22
-    5918:	e9 01       	movw	r28, r18
-    591a:	9a 01       	movw	r18, r20
-    591c:	ac 01       	movw	r20, r24
-    591e:	bf 93       	push	r27
-    5920:	af 93       	push	r26
-    5922:	3f 93       	push	r19
-    5924:	2f 93       	push	r18
-    5926:	df 01       	movw	r26, r30
-    5928:	d6 df       	rcall	.-84     	; 0x58d6 <__umulhisi3>
-    592a:	26 f4       	brtc	.+8      	; 0x5934 <__umulsidi3_helper+0x2a>
-    592c:	6c 1b       	sub	r22, r28
-    592e:	7d 0b       	sbc	r23, r29
-    5930:	82 0b       	sbc	r24, r18
-    5932:	93 0b       	sbc	r25, r19
-    5934:	9e 01       	movw	r18, r28
-    5936:	eb 01       	movw	r28, r22
-    5938:	fc 01       	movw	r30, r24
-    593a:	2b d0       	rcall	.+86     	; 0x5992 <__muldi3_6>
-    593c:	af 91       	pop	r26
-    593e:	bf 91       	pop	r27
-    5940:	2f 91       	pop	r18
-    5942:	3f 91       	pop	r19
-    5944:	26 d0       	rcall	.+76     	; 0x5992 <__muldi3_6>
-    5946:	be 01       	movw	r22, r28
-    5948:	cf 01       	movw	r24, r30
-    594a:	f9 01       	movw	r30, r18
-    594c:	2f 91       	pop	r18
-    594e:	3f 91       	pop	r19
-    5950:	cf 91       	pop	r28
-    5952:	df 91       	pop	r29
-    5954:	08 95       	ret
+0000591c <__udivmodsi4_loop>:
+    591c:	aa 1f       	adc	r26, r26
+    591e:	bb 1f       	adc	r27, r27
+    5920:	ee 1f       	adc	r30, r30
+    5922:	ff 1f       	adc	r31, r31
+    5924:	a2 17       	cp	r26, r18
+    5926:	b3 07       	cpc	r27, r19
+    5928:	e4 07       	cpc	r30, r20
+    592a:	f5 07       	cpc	r31, r21
+    592c:	20 f0       	brcs	.+8      	; 0x5936 <__udivmodsi4_ep>
+    592e:	a2 1b       	sub	r26, r18
+    5930:	b3 0b       	sbc	r27, r19
+    5932:	e4 0b       	sbc	r30, r20
+    5934:	f5 0b       	sbc	r31, r21
 
-00005956 <__ashrdi3>:
-    5956:	97 fb       	bst	r25, 7
-    5958:	10 f8       	bld	r1, 0
+00005936 <__udivmodsi4_ep>:
+    5936:	66 1f       	adc	r22, r22
+    5938:	77 1f       	adc	r23, r23
+    593a:	88 1f       	adc	r24, r24
+    593c:	99 1f       	adc	r25, r25
+    593e:	1a 94       	dec	r1
+    5940:	69 f7       	brne	.-38     	; 0x591c <__udivmodsi4_loop>
+    5942:	60 95       	com	r22
+    5944:	70 95       	com	r23
+    5946:	80 95       	com	r24
+    5948:	90 95       	com	r25
+    594a:	9b 01       	movw	r18, r22
+    594c:	ac 01       	movw	r20, r24
+    594e:	bd 01       	movw	r22, r26
+    5950:	cf 01       	movw	r24, r30
+    5952:	08 95       	ret
 
-0000595a <__lshrdi3>:
-    595a:	16 94       	lsr	r1
-    595c:	00 08       	sbc	r0, r0
-    595e:	0f 93       	push	r16
-    5960:	08 30       	cpi	r16, 0x08	; 8
-    5962:	98 f0       	brcs	.+38     	; 0x598a <__lshrdi3+0x30>
-    5964:	08 50       	subi	r16, 0x08	; 8
-    5966:	23 2f       	mov	r18, r19
-    5968:	34 2f       	mov	r19, r20
-    596a:	45 2f       	mov	r20, r21
-    596c:	56 2f       	mov	r21, r22
-    596e:	67 2f       	mov	r22, r23
-    5970:	78 2f       	mov	r23, r24
-    5972:	89 2f       	mov	r24, r25
-    5974:	90 2d       	mov	r25, r0
-    5976:	f4 cf       	rjmp	.-24     	; 0x5960 <__lshrdi3+0x6>
-    5978:	05 94       	asr	r0
-    597a:	97 95       	ror	r25
-    597c:	87 95       	ror	r24
-    597e:	77 95       	ror	r23
-    5980:	67 95       	ror	r22
-    5982:	57 95       	ror	r21
-    5984:	47 95       	ror	r20
-    5986:	37 95       	ror	r19
-    5988:	27 95       	ror	r18
-    598a:	0a 95       	dec	r16
-    598c:	aa f7       	brpl	.-22     	; 0x5978 <__lshrdi3+0x1e>
-    598e:	0f 91       	pop	r16
-    5990:	08 95       	ret
+00005954 <__umulhisi3>:
+    5954:	a2 9f       	mul	r26, r18
+    5956:	b0 01       	movw	r22, r0
+    5958:	b3 9f       	mul	r27, r19
+    595a:	c0 01       	movw	r24, r0
+    595c:	a3 9f       	mul	r26, r19
+    595e:	70 0d       	add	r23, r0
+    5960:	81 1d       	adc	r24, r1
+    5962:	11 24       	eor	r1, r1
+    5964:	91 1d       	adc	r25, r1
+    5966:	b2 9f       	mul	r27, r18
+    5968:	70 0d       	add	r23, r0
+    596a:	81 1d       	adc	r24, r1
+    596c:	11 24       	eor	r1, r1
+    596e:	91 1d       	adc	r25, r1
+    5970:	08 95       	ret
 
-00005992 <__muldi3_6>:
-    5992:	a1 df       	rcall	.-190    	; 0x58d6 <__umulhisi3>
-    5994:	46 0f       	add	r20, r22
-    5996:	57 1f       	adc	r21, r23
-    5998:	c8 1f       	adc	r28, r24
-    599a:	d9 1f       	adc	r29, r25
-    599c:	08 f4       	brcc	.+2      	; 0x59a0 <__muldi3_6+0xe>
-    599e:	31 96       	adiw	r30, 0x01	; 1
-    59a0:	08 95       	ret
+00005972 <__muluhisi3>:
+    5972:	f0 df       	rcall	.-32     	; 0x5954 <__umulhisi3>
+    5974:	a5 9f       	mul	r26, r21
+    5976:	90 0d       	add	r25, r0
+    5978:	b4 9f       	mul	r27, r20
+    597a:	90 0d       	add	r25, r0
+    597c:	a4 9f       	mul	r26, r20
+    597e:	80 0d       	add	r24, r0
+    5980:	91 1d       	adc	r25, r1
+    5982:	11 24       	eor	r1, r1
+    5984:	08 95       	ret
 
-000059a2 <strcpy>:
-    59a2:	fb 01       	movw	r30, r22
-    59a4:	dc 01       	movw	r26, r24
-    59a6:	01 90       	ld	r0, Z+
-    59a8:	0d 92       	st	X+, r0
-    59aa:	00 20       	and	r0, r0
-    59ac:	e1 f7       	brne	.-8      	; 0x59a6 <strcpy+0x4>
-    59ae:	08 95       	ret
+00005986 <__umulsidi3>:
+    5986:	e8 94       	clt
 
-000059b0 <_exit>:
-    59b0:	f8 94       	cli
+00005988 <__umulsidi3_helper>:
+    5988:	df 93       	push	r29
+    598a:	cf 93       	push	r28
+    598c:	fc 01       	movw	r30, r24
+    598e:	db 01       	movw	r26, r22
+    5990:	e1 df       	rcall	.-62     	; 0x5954 <__umulhisi3>
+    5992:	7f 93       	push	r23
+    5994:	6f 93       	push	r22
+    5996:	e9 01       	movw	r28, r18
+    5998:	9a 01       	movw	r18, r20
+    599a:	ac 01       	movw	r20, r24
+    599c:	bf 93       	push	r27
+    599e:	af 93       	push	r26
+    59a0:	3f 93       	push	r19
+    59a2:	2f 93       	push	r18
+    59a4:	df 01       	movw	r26, r30
+    59a6:	d6 df       	rcall	.-84     	; 0x5954 <__umulhisi3>
+    59a8:	26 f4       	brtc	.+8      	; 0x59b2 <__umulsidi3_helper+0x2a>
+    59aa:	6c 1b       	sub	r22, r28
+    59ac:	7d 0b       	sbc	r23, r29
+    59ae:	82 0b       	sbc	r24, r18
+    59b0:	93 0b       	sbc	r25, r19
+    59b2:	9e 01       	movw	r18, r28
+    59b4:	eb 01       	movw	r28, r22
+    59b6:	fc 01       	movw	r30, r24
+    59b8:	2b d0       	rcall	.+86     	; 0x5a10 <__muldi3_6>
+    59ba:	af 91       	pop	r26
+    59bc:	bf 91       	pop	r27
+    59be:	2f 91       	pop	r18
+    59c0:	3f 91       	pop	r19
+    59c2:	26 d0       	rcall	.+76     	; 0x5a10 <__muldi3_6>
+    59c4:	be 01       	movw	r22, r28
+    59c6:	cf 01       	movw	r24, r30
+    59c8:	f9 01       	movw	r30, r18
+    59ca:	2f 91       	pop	r18
+    59cc:	3f 91       	pop	r19
+    59ce:	cf 91       	pop	r28
+    59d0:	df 91       	pop	r29
+    59d2:	08 95       	ret
 
-000059b2 <__stop_program>:
-    59b2:	ff cf       	rjmp	.-2      	; 0x59b2 <__stop_program>
+000059d4 <__ashrdi3>:
+    59d4:	97 fb       	bst	r25, 7
+    59d6:	10 f8       	bld	r1, 0
+
+000059d8 <__lshrdi3>:
+    59d8:	16 94       	lsr	r1
+    59da:	00 08       	sbc	r0, r0
+    59dc:	0f 93       	push	r16
+    59de:	08 30       	cpi	r16, 0x08	; 8
+    59e0:	98 f0       	brcs	.+38     	; 0x5a08 <__lshrdi3+0x30>
+    59e2:	08 50       	subi	r16, 0x08	; 8
+    59e4:	23 2f       	mov	r18, r19
+    59e6:	34 2f       	mov	r19, r20
+    59e8:	45 2f       	mov	r20, r21
+    59ea:	56 2f       	mov	r21, r22
+    59ec:	67 2f       	mov	r22, r23
+    59ee:	78 2f       	mov	r23, r24
+    59f0:	89 2f       	mov	r24, r25
+    59f2:	90 2d       	mov	r25, r0
+    59f4:	f4 cf       	rjmp	.-24     	; 0x59de <__lshrdi3+0x6>
+    59f6:	05 94       	asr	r0
+    59f8:	97 95       	ror	r25
+    59fa:	87 95       	ror	r24
+    59fc:	77 95       	ror	r23
+    59fe:	67 95       	ror	r22
+    5a00:	57 95       	ror	r21
+    5a02:	47 95       	ror	r20
+    5a04:	37 95       	ror	r19
+    5a06:	27 95       	ror	r18
+    5a08:	0a 95       	dec	r16
+    5a0a:	aa f7       	brpl	.-22     	; 0x59f6 <__lshrdi3+0x1e>
+    5a0c:	0f 91       	pop	r16
+    5a0e:	08 95       	ret
+
+00005a10 <__muldi3_6>:
+    5a10:	a1 df       	rcall	.-190    	; 0x5954 <__umulhisi3>
+    5a12:	46 0f       	add	r20, r22
+    5a14:	57 1f       	adc	r21, r23
+    5a16:	c8 1f       	adc	r28, r24
+    5a18:	d9 1f       	adc	r29, r25
+    5a1a:	08 f4       	brcc	.+2      	; 0x5a1e <__muldi3_6+0xe>
+    5a1c:	31 96       	adiw	r30, 0x01	; 1
+    5a1e:	08 95       	ret
+
+00005a20 <strcpy>:
+    5a20:	fb 01       	movw	r30, r22
+    5a22:	dc 01       	movw	r26, r24
+    5a24:	01 90       	ld	r0, Z+
+    5a26:	0d 92       	st	X+, r0
+    5a28:	00 20       	and	r0, r0
+    5a2a:	e1 f7       	brne	.-8      	; 0x5a24 <strcpy+0x4>
+    5a2c:	08 95       	ret
+
+00005a2e <_exit>:
+    5a2e:	f8 94       	cli
+
+00005a30 <__stop_program>:
+    5a30:	ff cf       	rjmp	.-2      	; 0x5a30 <__stop_program>
