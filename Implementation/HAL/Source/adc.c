@@ -116,7 +116,6 @@ u16 adc_singleRead(adc_struct_t s_adc)
 
 void adc_start(adc_struct_t s_adc)
 {
-	u8 u8_channel;
 	setBit(&ADCSRA, ADEN);
 		updateBit(&DIDR0, s_adc.channel, TRUE);
 	if (s_adc.conversionMode != SINGLE_CONVERSION)
@@ -125,7 +124,6 @@ void adc_start(adc_struct_t s_adc)
 
 void adc_stop(adc_struct_t s_adc)
 {
-	u8 u8_channel;
 	clearBit(&ADCSRA, ADEN);
 		updateBit(&DIDR0, s_adc.channel,FALSE);
 }

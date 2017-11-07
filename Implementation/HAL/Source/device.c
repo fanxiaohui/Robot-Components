@@ -39,7 +39,7 @@ void device_setClockPrescaler(device_clockPrescaler_enum_t e_prescaler)
 
 void device_calibrateInternalOscillator(bool b_highFrequencyRange, u8 u8_calibrationValue)
 {
-	updateBit(&OSCCAL, OSCCAL7, b_highFrequencyRange);
+	updateBit(&OSCCAL, CAL7, b_highFrequencyRange);
 	OSCCAL |= u8_calibrationValue & (0x7f);
 }
 

@@ -30,6 +30,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef _VL53L0X_INTERRUPT_THRESHOLD_SETTINGS_H_
 #define _VL53L0X_INTERRUPT_THRESHOLD_SETTINGS_H_
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 uint8_t InterruptThresholdSettings[] = {
 
 	/* Start of Interrupt Threshold Settings */
@@ -180,5 +186,9 @@ uint8_t InterruptThresholdSettings[] = {
 	0x1, 0xff, 0x00,
 	0x00, 0x00, 0x00
 };
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _VL53L0X_INTERRUPT_THRESHOLD_SETTINGS_H_ */

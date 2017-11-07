@@ -32,6 +32,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vl53l0x_def.h"
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 uint8_t DefaultTuningSettings[] = {
 
 	/* update 02/11/2015_v36 */
@@ -132,5 +138,9 @@ uint8_t DefaultTuningSettings[] = {
 
 	0x00, 0x00, 0x00
 };
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _VL53L0X_TUNING_H_ */

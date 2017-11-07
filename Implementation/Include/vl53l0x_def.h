@@ -37,6 +37,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef _VL53L0X_DEF_H_
 #define _VL53L0X_DEF_H_
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** @defgroup VL53L0X_globaldefine_group VL53L0X Defines
  *	@brief	  VL53L0X Defines
  *	@{
@@ -620,5 +625,16 @@ typedef uint8_t VL53L0X_SequenceStepId;
 /** @} VL53L0X_define_GeneralMacro_group */
 
 /** @} VL53L0X_globaldefine_group */
+
+
+
+
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif /* _VL53L0X_DEF_H_ */

@@ -50,6 +50,7 @@ C_SRCS +=  \
 ../HAL/Source/adc.c \
 ../HAL/Source/asyncTimer.c \
 ../HAL/Source/counter.c \
+../HAL/Source/debug.c \
 ../HAL/Source/device.c \
 ../HAL/Source/gpio.c \
 ../HAL/Source/i2c.c \
@@ -60,19 +61,21 @@ C_SRCS +=  \
 ../HAL/Source/timer.c \
 ../HAL/Source/uart.c \
 ../HAL/Source/wdg.c \
+../Source/Adafruit_VL53L0X.c \
 ../Source/encoder.c \
 ../Source/motor.c \
 ../Source/pid.c \
 ../Source/scheduler.c \
 ../Source/surface_sensor.c \
-../Source/vl53l0x.c \
+../Source/twi.c \
 ../Source/vl53l0x_api.c \
 ../Source/vl53l0x_api_calibration.c \
 ../Source/vl53l0x_api_core.c \
 ../Source/vl53l0x_api_ranging.c \
 ../Source/vl53l0x_api_strings.c \
 ../Source/vl53l0x_i2c_comms.c \
-../Source/vl53l0x_platform.c
+../Source/vl53l0x_platform.c \
+../Source/Wire.c
 
 
 PREPROCESSING_SRCS += 
@@ -86,6 +89,7 @@ Example/Source/main.o \
 HAL/Source/adc.o \
 HAL/Source/asyncTimer.o \
 HAL/Source/counter.o \
+HAL/Source/debug.o \
 HAL/Source/device.o \
 HAL/Source/gpio.o \
 HAL/Source/i2c.o \
@@ -96,25 +100,28 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
+Source/Adafruit_VL53L0X.o \
 Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
 Source/surface_sensor.o \
-Source/vl53l0x.o \
+Source/twi.o \
 Source/vl53l0x_api.o \
 Source/vl53l0x_api_calibration.o \
 Source/vl53l0x_api_core.o \
 Source/vl53l0x_api_ranging.o \
 Source/vl53l0x_api_strings.o \
 Source/vl53l0x_i2c_comms.o \
-Source/vl53l0x_platform.o
+Source/vl53l0x_platform.o \
+Source/Wire.o
 
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
 HAL/Source/adc.o \
 HAL/Source/asyncTimer.o \
 HAL/Source/counter.o \
+HAL/Source/debug.o \
 HAL/Source/device.o \
 HAL/Source/gpio.o \
 HAL/Source/i2c.o \
@@ -125,25 +132,28 @@ HAL/Source/spi.o \
 HAL/Source/timer.o \
 HAL/Source/uart.o \
 HAL/Source/wdg.o \
+Source/Adafruit_VL53L0X.o \
 Source/encoder.o \
 Source/motor.o \
 Source/pid.o \
 Source/scheduler.o \
 Source/surface_sensor.o \
-Source/vl53l0x.o \
+Source/twi.o \
 Source/vl53l0x_api.o \
 Source/vl53l0x_api_calibration.o \
 Source/vl53l0x_api_core.o \
 Source/vl53l0x_api_ranging.o \
 Source/vl53l0x_api_strings.o \
 Source/vl53l0x_i2c_comms.o \
-Source/vl53l0x_platform.o
+Source/vl53l0x_platform.o \
+Source/Wire.o
 
 C_DEPS +=  \
 Example/Source/main.d \
 HAL/Source/adc.d \
 HAL/Source/asyncTimer.d \
 HAL/Source/counter.d \
+HAL/Source/debug.d \
 HAL/Source/device.d \
 HAL/Source/gpio.d \
 HAL/Source/i2c.d \
@@ -154,25 +164,28 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
+Source/Adafruit_VL53L0X.d \
 Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
 Source/surface_sensor.d \
-Source/vl53l0x.d \
+Source/twi.d \
 Source/vl53l0x_api.d \
 Source/vl53l0x_api_calibration.d \
 Source/vl53l0x_api_core.d \
 Source/vl53l0x_api_ranging.d \
 Source/vl53l0x_api_strings.d \
 Source/vl53l0x_i2c_comms.d \
-Source/vl53l0x_platform.d
+Source/vl53l0x_platform.d \
+Source/Wire.d
 
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
 HAL/Source/adc.d \
 HAL/Source/asyncTimer.d \
 HAL/Source/counter.d \
+HAL/Source/debug.d \
 HAL/Source/device.d \
 HAL/Source/gpio.d \
 HAL/Source/i2c.d \
@@ -183,19 +196,21 @@ HAL/Source/spi.d \
 HAL/Source/timer.d \
 HAL/Source/uart.d \
 HAL/Source/wdg.d \
+Source/Adafruit_VL53L0X.d \
 Source/encoder.d \
 Source/motor.d \
 Source/pid.d \
 Source/scheduler.d \
 Source/surface_sensor.d \
-Source/vl53l0x.d \
+Source/twi.d \
 Source/vl53l0x_api.d \
 Source/vl53l0x_api_calibration.d \
 Source/vl53l0x_api_core.d \
 Source/vl53l0x_api_ranging.d \
 Source/vl53l0x_api_strings.d \
 Source/vl53l0x_i2c_comms.d \
-Source/vl53l0x_platform.d
+Source/vl53l0x_platform.d \
+Source/Wire.d
 
 OUTPUT_FILE_PATH +=Implementation.elf
 
@@ -211,6 +226,12 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
 
 
 

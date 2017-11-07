@@ -253,6 +253,9 @@
     <Compile Include="HAL\Source\counter.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Source\debug.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\Source\device.c">
       <SubType>compile</SubType>
     </Compile>
@@ -283,6 +286,12 @@
     <Compile Include="HAL\Source\wdg.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Include\Adafruit_VL53L0X.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\debug.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Include\encoder.h">
       <SubType>compile</SubType>
     </Compile>
@@ -295,10 +304,7 @@
     <Compile Include="Include\scheduler.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Include\surface_sensor.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Include\vl53l0x.h">
+    <Compile Include="Include\twi.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Include\vl53l0x_api.h">
@@ -340,6 +346,12 @@
     <Compile Include="Include\vl53l0x_types.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Include\Wire.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\Adafruit_VL53L0X.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Source\encoder.c">
       <SubType>compile</SubType>
     </Compile>
@@ -355,7 +367,7 @@
     <Compile Include="Source\surface_sensor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Source\vl53l0x.c">
+    <Compile Include="Source\twi.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\vl53l0x_api.c">
@@ -377,6 +389,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Source\vl53l0x_platform.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Source\Wire.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

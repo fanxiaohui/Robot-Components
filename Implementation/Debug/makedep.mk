@@ -10,6 +10,8 @@ HAL\Source\asyncTimer.c
 
 HAL\Source\counter.c
 
+HAL\Source\debug.c
+
 HAL\Source\device.c
 
 HAL\Source\gpio.c
@@ -30,6 +32,8 @@ HAL\Source\uart.c
 
 HAL\Source\wdg.c
 
+Source\Adafruit_VL53L0X.c
+
 Source\encoder.c
 
 Source\motor.c
@@ -40,7 +44,7 @@ Source\scheduler.c
 
 Source\surface_sensor.c
 
-Source\vl53l0x.c
+Source\twi.c
 
 Source\vl53l0x_api.c
 
@@ -55,4 +59,6 @@ Source\vl53l0x_api_strings.c
 Source\vl53l0x_i2c_comms.c
 
 Source\vl53l0x_platform.c
+
+Source\Wire.c
 

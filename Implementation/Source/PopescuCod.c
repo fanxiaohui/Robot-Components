@@ -34,10 +34,10 @@ int main(void)
 	Adafruit_VL53L0X_begin(VL53L0X_I2C_ADDR, FALSE);
 	sei();
 	
-	while (1)
-	{
-		uart_transmit(s_debugUart, 'a');
+    while (1)
+    {
+	    uart_transmit(s_debugUart, 'a');
 		Adafruit_VL53L0X_getSingleRangingMeasurement(&measure, FALSE);
 		uart_transmit(s_debugUart, measure.RangeMilliMeter);
-	}
+    }
 }

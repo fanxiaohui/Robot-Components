@@ -33,6 +33,11 @@
 #include "vl53l0x_def.h"
 #include "vl53l0x_platform.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #ifdef _MSC_VER
 #   ifdef VL53L0X_API_EXPORTS
 #       define VL53L0X_API  __declspec(dllexport)
@@ -1937,5 +1942,9 @@ VL53L0X_API VL53L0X_Error VL53L0X_GetReferenceSpads(VL53L0X_DEV Dev,
 /** @} VL53L0X_SPADfunctions_group */
 
 /** @} VL53L0X_cut11_group */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _VL53L0X_API_H_ */
