@@ -10,6 +10,7 @@ int VL53L0X_i2c_init(void) {
 }
 
 int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
+<<<<<<< HEAD
   Wire_beginTransmission(deviceAddress);
   Wire_write(index);
 #ifdef I2C_DEBUG
@@ -27,6 +28,16 @@ int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, ui
 #endif
   Wire_endTransmission();
   return VL53L0X_ERROR_NONE;
+=======
+	u8 dataToSend[count + 1];
+	u8 i;
+	
+	dataToSend[0] = index;
+	for (i = 0; i < count; i++)
+		dataToSend[i + 1] = pdata[i];
+	i2c_transmit(deviceAddress, dataToSend, count + 1);
+	return VL53L0X_ERROR_NONE;
+>>>>>>> 4280c8b5b0981159dab2b5ac12bd1fbfe1e78eb2
 }
 
 int VL53L0X_read_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
