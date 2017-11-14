@@ -7,14 +7,13 @@
 				- Fast PWM (the duty cycle starts with the period)
 				- Centered PWM (The duty cycle is centered around the middle of the period, but not as the frequency changes; It is centered around the middle of the period even if the frequency changes only for Timer1 and Timer3)
 				Basic flow:
-				1. Initialize a @link tim_struct_t @endlink with either a fixed (set tim_struct_t.frequency to a value of type @link timer_frequency_enum_t) or a custom frequency (set to any unsigned value).
+				1. Initialize a @link timer_struct_t @endlink with either a fixed (set base frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
 				@remark If using @link TIMER0 @endlink or @link TIMER2 @endlink with a custom frequency only OCnB pin will be available for signal generation.
 				2. Pass it to @link pwm_init @endlink.
-				3. Default duty cycle is 0%. @link pwm_pwm_setDutyCycle @endlink can be called before starting the timer to change the starting duty cycle.
+				3. Default duty cycle is 0%. @link pwm_setDutyCycle @endlink can be called before starting the timer to change the starting duty cycle.
 				4. Call @link pwm_start @endlink for the channel you want to output on.
-				- Call @link pwm_pwm_setFrequency @endlink or @link pwm_pwm_setDutyCycle @endlink to modify one of these parameters.
+				- Call @link pwm_setFrequency @endlink or @link pwm_setDutyCycle @endlink to modify one of these parameters.
 				- To stop the timer call @link pwm_stop @endlink.
-				- Attach a function to the timer interrupt handler with @link pwm_attachInterrupt @endlink prior to calling @link pwm_enableInterrupt @endlink.
 */
 
 #ifndef PWM_H_

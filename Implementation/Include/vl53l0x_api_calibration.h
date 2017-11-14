@@ -32,11 +32,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vl53l0x_def.h"
 #include "vl53l0x_platform.h"
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 VL53L0X_Error VL53L0X_perform_xtalk_calibration(VL53L0X_DEV Dev,
 		FixPoint1616_t XTalkCalDistance,
 		FixPoint1616_t *pXTalkCompensationRateMegaCps);
@@ -74,12 +69,5 @@ VL53L0X_Error VL53L0X_set_ref_calibration(VL53L0X_DEV Dev,
 
 VL53L0X_Error VL53L0X_get_ref_calibration(VL53L0X_DEV Dev,
 		uint8_t *pVhvSettings, uint8_t *pPhaseCal);
-
-
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* _VL53L0X_API_CALIBRATION_H_ */

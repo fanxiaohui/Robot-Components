@@ -5,7 +5,7 @@
 	@date		08.09.2017
 	@details	Supports timers 0, 1, 3 as external event counters, which can be used to count number of external events
 				Basic flow:
-				1. Initialize a @link counter_struct_t @endlink with either a fixed (set counter_struct_t.base.frequency to a value of type @link timer_frequency_enum_t) or a custom frequency (set to any unsigned value).
+				1. Initialize a @link counter_struct_t @endlink with either a fixed (set base frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
 				2. Pass it to @link counter_init @endlink.
 				3. Call @link counter_start @endlink.
 				4. Use @link counter_getValue @endlink or @link counter_resetValue @endlink whenever needed.

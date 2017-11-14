@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['b',['B',['../structencoder__struct__t.html#a21f417a69a53f2861e6d432ff61f3ea9',1,'encoder_struct_t']]],
+  ['base',['base',['../structcounter__struct__t.html#a13d42186a30bd53f2ed4bdeddc6dc691',1,'counter_struct_t::base()'],['../structinput_capture__struct__t.html#a0a68177c7c4f010f63ff93dc33e2994a',1,'inputCapture_struct_t::base()'],['../structpwm__struct__t.html#a5b3e26b0a53b0b61f15e8b072d3cff43',1,'pwm_struct_t::base()']]],
+  ['battery_5flevel',['battery_level',['../struct__aci__packed__.html#a447f7308158fedce804c8b8f123cb4ce',1,'_aci_packed_']]],
+  ['baudrate',['baudRate',['../structuart__struct__t.html#ac8e40cd46ab44779a4b643799e35cf6b',1,'uart_struct_t']]],
+  ['bd_5faddr_5fown',['bd_addr_own',['../struct__aci__packed__.html#a40341dd0b02cfa29c06295e7525cb2d7',1,'_aci_packed_']]],
+  ['bd_5faddr_5ftype',['bd_addr_type',['../struct__aci__packed__.html#a8debe518d4a438a914a1feba3b26e661',1,'_aci_packed_']]],
+  ['board_5fname',['board_name',['../structaci__pins__t.html#add55d5386716fb64d2515d1a0c2da3c6',1,'aci_pins_t']]],
+  ['bond',['bond',['../struct__aci__packed__.html#a79ee4991026735fbd0b83195e168b8ec',1,'_aci_packed_']]],
+  ['bond_5fstatus',['bond_status',['../struct__aci__packed__.html#afc2aca469cc57aec621f1503353626f2',1,'_aci_packed_']]],
+  ['bonded',['bonded',['../structaci__state__t.html#a8d43ef76dc2ac1404dd9d40dc6d68aef',1,'aci_state_t']]],
+  ['broadcast',['broadcast',['../struct__aci__packed__.html#ab097871754b1e5d1d988b58a148266a4',1,'_aci_packed_']]],
+  ['btle_5fstatus',['btle_status',['../struct__aci__packed__.html#ae895506243c39941729d53aeadc0cd53',1,'_aci_packed_']]],
+  ['buffer',['buffer',['../struct__aci__packed__.html#ae832aa3bc9c637d68c9bc78fb1b01968',1,'_aci_packed_']]],
+  ['buffersize',['BufferSize',['../struct_v_l53_l0_x___histogram_measurement_data__t.html#a342f6defb445fe6d189c9507cf0fd2db',1,'VL53L0X_HistogramMeasurementData_t']]],
+  ['build',['build',['../struct_v_l53_l0_x___version__t.html#a504ac1ff3cd99738e1e5a368867a0d40',1,'VL53L0X_Version_t::build()'],['../struct_c_o_m_m_s___v_e_r_s_i_o_n___i_n_f_o.html#a58d1c5fc37cb3d1932b4360d50354d88',1,'COMMS_VERSION_INFO::build()']]],
+  ['bus_5ftype',['bus_type',['../structstmvl53l0x__data.html#adb9aa9481364438014d456b8c42a3f69',1,'stmvl53l0x_data']]]
+];

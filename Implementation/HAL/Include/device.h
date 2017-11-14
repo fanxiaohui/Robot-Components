@@ -8,7 +8,7 @@
 				- Call @link device_disableJTAG @endlink to be able to use the pins normally defined for JTAG functionality for something else.
 				- Call @link device_setClockPrescaler @endlink to change the division factor between the input clock and the actual system clock. This would typically be used when not much computation power is required but neither is a sleep mode.
 				- Call @link device_calibrateInternalOscillator @endlink to calibrate the internal oscillator when precise timing is desired. It is a good idea to save the calibration value to a non-volatile memory.
-				- Call @link device_getResetSource @endlink as early as possible after a reset to save current reset source and enable further checking. Since all reset flags are only cleared by HW on a @link POWER_ON @endlink reset after they are set once, having multiple flags set at once is possible if not cleared after every reset.
+				- Call @link device_getResetSource @endlink as early as possible after a reset to save current reset source and enable further checking. Since all reset flags are only cleared by HW on a @link POWER_ON_RESET @endlink after they are set once, having multiple flags set at once is possible if not cleared after every reset.
 */
 
 #ifndef DEVICE_H_
@@ -83,7 +83,7 @@ void device_calibrateInternalOscillator(bool b_highFrequencyRange, u8 u8_calibra
 
 /**	Checks current reset reason.
 	@return		reset reason
-	@remark		This function also clears the corresponding reset reason flags, as all of them are only cleared by HW on a @link POWER_ON @endlink reset after they are set once.
+	@remark		This function also clears the corresponding reset reason flags, as all of them are only cleared by HW on a @link POWER_ON_RESET @endlink after they are set once.
 */
 device_resetSource_enum_t device_getResetSource();
 

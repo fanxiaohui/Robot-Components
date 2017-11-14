@@ -81,22 +81,21 @@ typedef struct spi_struct_t
 
 /** HIGH or LOW SCK line when idle */
 	spi_sckIdleState_enum_t sckIdleState;
-	
+
 /** LEADING or TRAILING edge used for sampling data*/
 	spi_sckSampleEdge_enum_t sckSampleEdge;
-	
+
 /** Division factor from the I/O clock for the SCK line*/
 	spi_clkDivision_enum_t divisionFactor;
-	
+
 /** SPI double speed mode. Halves the division factor if used*/
 	bool doubleSpeed;
-	
+
 /** MSB or LSB first data transmission*/
 	spi_dataOrder_enum_t dataOrder;
-	
+
 /** Set the SPI module as Read only, Write only or both */
 	spi_readWrite_enum_t readWrite;
-	
 }spi_struct_t;
 
 /************************************************************************/
@@ -139,19 +138,18 @@ void spi_attachInterrupt(void (*p_function)(void));
 void spi_detachInterrupt();
 
 /** Starts a data transfer
-	@param[in] s_spi: SPI peripheral to use
 	@param[in] data: data to transfer (8 bits).
 */
 u8 spi_transferData(u8 data);
 
-/** Reads data received from the SPI 
+/** Reads data received from the SPI
 	@return data received (8 bits).
 */
 u8 spi_readData();
 
 /** Writes data for the SPI to send
-	@param[in]: data to be sent (8 bits).
+	@param[in] u8_data: data to be sent (8 bits).
 */
-void spi_writeData(u8 data);
+void spi_writeData(u8 u8_data);
 
 #endif /* SPI_H_ */

@@ -5,7 +5,7 @@
 	@date		29.08.2017
 	@details	Supports timers 1 and 3 as input capture, which can be used to count duration of external events
 				Basic flow:
-				1. Initialize a @link inputCapture_struct_t @endlink with either a fixed (set inputCapture_struct_t.base.frequency to a value of type @link timer_frequency_enum_t) or a custom frequency (set to any unsigned value).
+				1. Initialize a @link inputCapture_struct_t @endlink with either a fixed (set base frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
 				2. Pass it to @link inputCapture_init @endlink.
 				3. Call @link inputCapture_start @endlink.
 				4. Use @link inputCapture_getValue @endlink or @link inputCapture_resetValue @endlink whenever needed.
@@ -13,7 +13,7 @@
 				- Attach a function for the input capture interrupt handlers with @link inputCapture_attachInterrupt @endlink prior to calling @link inputCapture_enableInterrupt @endlink.
 				- To stop the input capture call @link inputCapture_stop @endlink.
 				- Useful to attach an interrupt to @link OVERFLOW @endlink if the duration until the external event happens (eg. signal period) is higher than the timer overflow period to increase the input capture clock division factor. Useful also to reset the input capture counter (with @link inputCapture_resetValue @endlink) if measuring periodic signals.
-				- Useful to attach an interrupt to @link EVENT @endlink to change the edge of the external event (with @link inputCapture_setEdge @endlink) if measuring both edges of a signal or a non-periodic signal.
+				- Useful to attach an interrupt to @link EXTERNAL @endlink to change the edge of the external event (with @link inputCapture_setEdge @endlink) if measuring both edges of a signal or a non-periodic signal.
 */
 
 #ifndef INPUTCAPTURE_H_

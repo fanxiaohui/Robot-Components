@@ -103,11 +103,11 @@ void asyncTimer_resetValue()
 	timer_resetValue(s_baseTimer);
 }
 
-void asyncTimer_setValue()
+void asyncTimer_setValue(u16 u16_value)
 {
 	timer_struct_t s_baseTimer;
 	s_baseTimer.peripheral = TIMER2;
-	asyncTimer_setValue(s_baseTimer);
+	timer_setValue(s_baseTimer, u16 u16_value);
 }
 
 u16 asyncTimer_getValue()

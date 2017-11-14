@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['deactivate_5ftask',['deactivate_task',['../scheduler_8h.html#a712829ce5563ab8c3115f0b7c3899ae2',1,'scheduler.h']]],
+  ['decodetimeout',['decodeTimeout',['../_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#ad9b0f4f19a2da93fd1e086a4eb0e13ab',1,'decodeTimeout(u16 value):&#160;vl53l0x.h'],['../vl53l0x_01-_01wire_8h.html#ad9b0f4f19a2da93fd1e086a4eb0e13ab',1,'decodeTimeout(u16 value):&#160;vl53l0x - wire.h']]],
+  ['destroy_5ftask',['destroy_task',['../scheduler_8h.html#a89234d624e7590d1cd571746fbc1304c',1,'scheduler.h']]],
+  ['device_5fcalibrateinternaloscillator',['device_calibrateInternalOscillator',['../_example_2_h_a_l_2_include_2device_8h.html#a480577059d4db0160a50e9d67fb77a5d',1,'device_calibrateInternalOscillator(bool b_highFrequencyRange, u8 u8_calibrationValue):&#160;device.h'],['../_h_a_l_2_include_2device_8h.html#a480577059d4db0160a50e9d67fb77a5d',1,'device_calibrateInternalOscillator(bool b_highFrequencyRange, u8 u8_calibrationValue):&#160;device.h']]],
+  ['device_5fdisablejtag',['device_disableJTAG',['../_example_2_h_a_l_2_include_2device_8h.html#a76b6324d2379d833875ca38f14219aea',1,'device_disableJTAG():&#160;device.h'],['../_h_a_l_2_include_2device_8h.html#a76b6324d2379d833875ca38f14219aea',1,'device_disableJTAG():&#160;device.h']]],
+  ['device_5fgetresetsource',['device_getResetSource',['../_example_2_h_a_l_2_include_2device_8h.html#a72d5bb989f7ec5c6e6b5a8361b2c4ca2',1,'device_getResetSource():&#160;device.h'],['../_h_a_l_2_include_2device_8h.html#a72d5bb989f7ec5c6e6b5a8361b2c4ca2',1,'device_getResetSource():&#160;device.h']]],
+  ['device_5fsetclockprescaler',['device_setClockPrescaler',['../_example_2_h_a_l_2_include_2device_8h.html#a7418a5170e2edeabd30657189c09add6',1,'device_setClockPrescaler(device_clockPrescaler_enum_t e_prescaler):&#160;device.h'],['../_h_a_l_2_include_2device_8h.html#a7418a5170e2edeabd30657189c09add6',1,'device_setClockPrescaler(device_clockPrescaler_enum_t e_prescaler):&#160;device.h']]],
+  ['do_5faci_5fsetup',['do_aci_setup',['../aci__setup_8h.html#a88c9660938f69ca72f79482f720caccd',1,'do_aci_setup(aci_state_t *aci_stat):&#160;aci_setup.h'],['../examples_2ble___a___hello___world___program_2aci__setup_8h.html#a88c9660938f69ca72f79482f720caccd',1,'do_aci_setup(aci_state_t *aci_stat):&#160;aci_setup.h']]]
+];

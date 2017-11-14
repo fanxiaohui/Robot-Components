@@ -1,34 +1,19 @@
 #include "vl53l0x_i2c_platform.h"
 #include "vl53l0x_def.h"
-#include "types.h"
+#include "i2c.h"
 
 //#define I2C_DEBUG
 
 int VL53L0X_i2c_init(void) {
-  Wire_begin();
-  return VL53L0X_ERROR_NONE;
+	i2c_struct_t s_i2c;
+	s_i2c.frequency = 80000;
+	s_i2c.mode = I2C_MASTER;
+	i2c_init(s_i2c);
+	i2c_start();
+	return VL53L0X_ERROR_NONE;
 }
 
 int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
-<<<<<<< HEAD
-  Wire_beginTransmission(deviceAddress);
-  Wire_write(index);
-#ifdef I2C_DEBUG
-  //Serial.print("\tWriting "); //Serial.print(count); //Serial.print(" to addr 0x"); //Serial.print(index, HEX); //Serial.print(": ");
-#endif
-  while(count--) {
-    Wire_write((uint8_t)pdata[0]);
-#ifdef I2C_DEBUG
-    //Serial.print("0x"); //Serial.print(pdata[0], HEX); //Serial.print(", ");
-#endif
-    pdata++;
-  }
-#ifdef I2C_DEBUG
-  //Serial.println();
-#endif
-  Wire_endTransmission();
-  return VL53L0X_ERROR_NONE;
-=======
 	u8 dataToSend[count + 1];
 	u8 i;
 	
@@ -37,28 +22,14 @@ int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, ui
 		dataToSend[i + 1] = pdata[i];
 	i2c_transmit(deviceAddress, dataToSend, count + 1);
 	return VL53L0X_ERROR_NONE;
->>>>>>> 4280c8b5b0981159dab2b5ac12bd1fbfe1e78eb2
 }
 
-int VL53L0X_read_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
-  Wire_beginTransmission(deviceAddress);
-  Wire_write(index);
-  Wire_endTransmission();
-  Wire_requestFrom(deviceAddress, (u8)count);
-#ifdef I2C_DEBUG
-  //Serial.print("\tReading "); //Serial.print(count); //Serial.print(" from addr 0x"); //Serial.print(index, HEX); //Serial.print(": ");
-#endif
+#include "uart.h"
+uart_struct_t s_debugUart;
 
-  while (count--) {
-    pdata[0] = Wire_read();
-#ifdef I2C_DEBUG
-    //Serial.print("0x"); //Serial.print(pdata[0], HEX); //Serial.print(", ");
-#endif
-    pdata++;
-  }
-#ifdef I2C_DEBUG
-  //Serial.println();
-#endif
+int VL53L0X_read_multi(uint8_t deviceAddress, uint8_t index, uint8_t *pdata, uint32_t count) {
+  i2c_transmit(deviceAddress, &index, 1);
+  i2c_receive(deviceAddress, pdata, count);
   return VL53L0X_ERROR_NONE;
 }
 

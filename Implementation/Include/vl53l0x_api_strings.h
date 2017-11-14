@@ -32,11 +32,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vl53l0x_def.h"
 #include "vl53l0x_platform.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-
 VL53L0X_Error VL53L0X_get_device_info(VL53L0X_DEV Dev,
 			VL53L0X_DeviceInfo_t *pVL53L0X_DeviceInfo);
 
@@ -267,11 +262,6 @@ VL53L0X_Error VL53L0X_get_limit_check_info(VL53L0X_DEV Dev, uint16_t LimitCheckI
 	#define  VL53L0X_STRING_SEQUENCESTEP_PRE_RANGE             "PRE RANGE"
 	#define  VL53L0X_STRING_SEQUENCESTEP_FINAL_RANGE           "FINAL RANGE"
 #endif /* USE_EMPTY_STRING */
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

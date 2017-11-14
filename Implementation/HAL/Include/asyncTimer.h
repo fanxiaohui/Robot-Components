@@ -7,7 +7,7 @@
 				Basic flow:
 				1. Call @link asyncTimer_init @endlink.
 				2. Call @link asyncTimer_start @endlink.
-				3. Call @link asyncTimer_getCounterValue @endlink or @link asyncTimer_resetCounter @endlink whenever needed.
+				3. Call @link asyncTimer_getValue @endlink or @link asyncTimer_resetValue @endlink whenever needed.
 				- Attach a function to the timer interrupt handler with @link asyncTimer_attachInterrupt @endlink prior to calling @link asyncTimer_enableInterrupt @endlink.
 				- To stop the timer call @link asyncTimer_stop @endlink.
 */
@@ -107,7 +107,7 @@ void asyncTimer_resetValue();
 /** Sets the timer counter to a certain value
 	@param[in]	u16_value: value to set
 */
-void asyncTimer_setValue();
+void asyncTimer_setValue(u16 u16_value);
 
 /** Returns the current timer counter value.
 	@return		timer counter value

@@ -8,7 +8,7 @@
 				1. Initialize a @link timer_struct_t @endlink with either a fixed (set timer_struct_t.frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
 				2. Pass it to @link timer_init @endlink.
 				3. Call @link timer_start @endlink.
-				4. Call @link timer_getCounterValue @endlink or @link timer_resetCounter @endlink whenever needed.
+				4. Call @link timer_getValue @endlink or @link timer_resetValue @endlink whenever needed.
 				- It may be useful to synchronously start all configured timers. To do this, call @link timer_prepareSynchronisedStart @endlink after all timers are initialised, afterwards call @link timer_start @endlink for each configured timer, followed by @link timer_synchronisedStart @endlink.
 				- Attach a function to the timer interrupt handlers with @link timer_attachInterrupt @endlink prior to calling @link timer_enableInterrupt @endlink.
 				- To stop the timer call @link timer_stop @endlink.
@@ -200,7 +200,7 @@ bool usingCompareRegisterAsMax(timer_struct_t s_timer);
 /**	Function internal to the timer libraries.
 	@param[in]	s_timer: timer peripheral to use
 	@param[in]	u32_frequency: target frequency
-	@param[in]	pu16_prescaler: pointer to prescaler value to set in register after function call
+	@param[in]	pu32_prescaler: pointer to prescaler value to set in register after function call
 	@return		value to set in timer top value register
 */
 u16 calculateTopRegister(timer_struct_t s_timer, u32 u32_frequency, u32 *pu32_prescaler);

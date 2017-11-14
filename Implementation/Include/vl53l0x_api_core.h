@@ -32,12 +32,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vl53l0x_def.h"
 #include "vl53l0x_platform.h"
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-
 VL53L0X_Error VL53L0X_reverse_bytes(uint8_t *data, uint32_t size);
 
 VL53L0X_Error VL53L0X_measurement_poll_for_completion(VL53L0X_DEV Dev);
@@ -100,9 +94,5 @@ uint32_t VL53L0X_calc_timeout_mclks(VL53L0X_DEV Dev,
 	uint32_t timeout_period_us, uint8_t vcsel_period_pclks);
 
 uint16_t VL53L0X_encode_timeout(uint32_t timeout_macro_clks);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* _VL53L0X_API_CORE_H_ */

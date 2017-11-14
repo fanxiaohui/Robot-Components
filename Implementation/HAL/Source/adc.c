@@ -1,8 +1,6 @@
 /**	@file		adc.c
 	@brief		ADC features
 	@author		Adrian Grosu
-	@version	0.1
-	@date		13.08.2017
 	@details	See adc.h for details.
 */
 
@@ -85,7 +83,6 @@ u16 adc_singleRead(adc_struct_t s_adc)
 		while(!(ADCSRA & (1<<ADIF)));
 		setBit(&ADCSRA, ADIF);
 		while(!(ADCSRA & (1<<ADIF)));
-		
 	}
 	switch(s_adc.resolution)
 	{
@@ -101,21 +98,9 @@ u16 adc_singleRead(adc_struct_t s_adc)
 	return readValue;
 }
 
-/*u16 *adc_multiRead(adc_struct_t s_adc)
-{
-	u8 index = 0;
-	for(index = 0; index < 8; index++)
-		if(s_adc.channelEnabled[index])
-			au16_conversionResultsBuffer[index] = adc_singleRead(s_adc, index);
-		else
-			au16_conversionResultsBuffer[index] = 0;
-	return au16_conversionResultsBuffer;
-}
-*/
-
-
 void adc_start(adc_struct_t s_adc)
 {
+	u8 u8_channel;
 	setBit(&ADCSRA, ADEN);
 		updateBit(&DIDR0, s_adc.channel, TRUE);
 	if (s_adc.conversionMode != SINGLE_CONVERSION)
@@ -124,6 +109,7 @@ void adc_start(adc_struct_t s_adc)
 
 void adc_stop(adc_struct_t s_adc)
 {
+	u8 u8_channel;
 	clearBit(&ADCSRA, ADEN);
 		updateBit(&DIDR0, s_adc.channel,FALSE);
 }

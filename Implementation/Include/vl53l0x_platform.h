@@ -34,10 +34,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vl53l0x_platform_log.h"
 #include "vl53l0x_i2c_platform.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @file vl53l0_platform.h
  *
@@ -230,10 +226,6 @@ VL53L0X_Error VL53L0X_UpdateByte(VL53L0X_DEV Dev, uint8_t index, uint8_t AndData
 VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev); /* usually best implemented as a real function */
 
 /** @} end of VL53L0X_platform_group */
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif  /* _VL53L0X_PLATFORM_H_ */
 
