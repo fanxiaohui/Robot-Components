@@ -1,8 +1,5 @@
 /**	@file		wdg.h
 	@brief		Watchdog features
-	@author		Florin Popescu
-	@version	1.0
-	@date		13.08.2017
 	@details	Supports the watchdog in the following modes:
 				- Interrupt, where a watchdog overflow just generates an interrupt. The interrupt is disabled afterwards in hardware and needs to be reenabled if desired.
 				- Reset, where a watchdog overflow resets the system, setting a flag.
@@ -103,6 +100,5 @@ void wdg_attachInterrupt(void (*p_function)(void));
 	@pre		Must be called while interrupt is disabled (with @link wdg_disableInterrupt @endlink).
 */
 void wdg_detachInterrupt();
-
 
 #endif /* WDG_H_ */

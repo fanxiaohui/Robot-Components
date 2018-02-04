@@ -1,8 +1,5 @@
 /**	@file		pwm.h
 	@brief		PWM features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
 	@details	Supports all 4 timers as PWM generators, with the following PWM implementations:
 				- Fast PWM (the duty cycle starts with the period)
 				- Centered PWM (The duty cycle is centered around the middle of the period, but not as the frequency changes; It is centered around the middle of the period even if the frequency changes only for Timer1 and Timer3)

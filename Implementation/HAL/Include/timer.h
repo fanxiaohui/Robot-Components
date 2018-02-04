@@ -1,11 +1,8 @@
 /**	@file		timer.h
 	@brief		Timer features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
 	@details	Supports all 4 timers as regular timers with a fixed or custom frequency
 				Basic flow:
-				1. Initialize a @link timer_struct_t @endlink with either a fixed (set timer_struct_t.frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
+				1. Initialize a @link timer_struct_t @endlink with either a fixed frequency (set timer_struct_t.frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).
 				2. Pass it to @link timer_init @endlink.
 				3. Call @link timer_start @endlink.
 				4. Call @link timer_getValue @endlink or @link timer_resetValue @endlink whenever needed.

@@ -1,8 +1,5 @@
 /**	@file		uart.h
 	@brief		UART features
-	@author		Florin Popescu
-	@version	1.0
-	@date		12.08.2017
 	@details	Supports both USART peripherals in asynchronous mode, with or without interrupts. Interrupt mode is implemented using separate ring buffers for receive and transmission for both peripherals.
 				Basic flow:
 				1. Initialize a @link uart_struct_t @endlink.

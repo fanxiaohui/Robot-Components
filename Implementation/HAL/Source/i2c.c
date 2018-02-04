@@ -1,9 +1,6 @@
-/**	@file		i2c.h
+/**	@file		i2c.c
 	@brief		i2c features
-	@author		Florin Popescu
-	@version	0.1
-	@date		01.10.2017
-	@details	See i2c.h for details
+	@details	See @link i2c.h @endlink for details
 */
 
 /************************************************************************/
@@ -12,19 +9,17 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <compat/twi.h>
 
 /************************************************************************/
 /* Project specific includes                                            */
 /************************************************************************/
 
 #include "device.h"
+#include "debug.h"
 #include "gpio.h"
 #include "i2c.h"
 #include "math.h"
-
-/************************************************************************/
-/* Internal variables                                                   */
-/************************************************************************/
 
 /************************************************************************/
 /* Internal functions                                                   */
@@ -36,40 +31,28 @@ u8 calculateTWBR(u32 u32_frequency, u8 *pu8_prescaler)
 	u8 u8_divisor = 1;
 	*pu8_prescaler = 0;
 
-	u32_returnValue = (SYSTEM_CLOCK_FREQUENCY / u32_frequency - 16) / (2 * u8_divisor);
+	u32_returnValue = (F_CPU / u32_frequency - 16) / (2 * u8_divisor);
 	if (u32_returnValue > 0xff)
 	{
 		u8_divisor = 4;
 		*pu8_prescaler = 1;
-		u32_returnValue = (SYSTEM_CLOCK_FREQUENCY / u32_frequency - 16) / (2 * u8_divisor);
+		u32_returnValue = (F_CPU / u32_frequency - 16) / (2 * u8_divisor);
 		if (u32_returnValue > 0xff)
 		{
 			u8_divisor = 16;
 			*pu8_prescaler = 2;
-			u32_returnValue = (SYSTEM_CLOCK_FREQUENCY / u32_frequency - 16) / (2 * u8_divisor);
+			u32_returnValue = (F_CPU / u32_frequency - 16) / (2 * u8_divisor);
 			if (u32_returnValue > 0xff)
 			{
 				u8_divisor = 64;
 				*pu8_prescaler = 3;
-				u32_returnValue = (SYSTEM_CLOCK_FREQUENCY / u32_frequency - 16) / (2 * u8_divisor);
+				u32_returnValue = (F_CPU / u32_frequency - 16) / (2 * u8_divisor);
 			}
 		}
 	}
 
 	return (u8) u32_returnValue;
 }
-
-u8 stopAndGetErrorCode()
-{
-	u8 u8_returnValue = (TWSR & 0xF8);
-	/* Send stop condition. Also clears I2C flag because it writes a 1 to it. */
-	setBit(&TWCR, TWSTO);
-	return u8_returnValue;
-}
-
-/************************************************************************/
-/* Interrupt handlers                                                   */
-/************************************************************************/
 
 /************************************************************************/
 /* Exported functions                                                   */
@@ -105,7 +88,7 @@ void i2c_init(i2c_struct_t s_i2c)
 	s_sdaPin.direction = INPUT;
 	s_sdaPin.pullUp = USE_PULLUP;
 	gpio_init(s_sdaPin);
-	
+
 	gpio_struct_t s_sclPin;
 	s_sclPin.port = PC;
 	s_sclPin.number = 0;
@@ -124,114 +107,105 @@ void i2c_stop()
 	clearBit(&TWCR, TWEN);
 }
 
-u8 i2c_transmit(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
+u8 i2c_sendStart(u8 u8_address)
 {
-	u8 i = 0;
-	/* Send start condition */
-	setBit(&TWCR, TWSTA);
-	/* Wait for interrupt flag */
-	while (!checkBit(TWCR, TWINT));
-	/* Check if start condition was issued */
-	if ((TWSR & 0xF8) == I2C_START)
-	{
-		/* Set slave address */
-		TWDR = u8_address << 1;
-		/* Set write mode */
-		clearBit(&TWDR, TWD0);
-		/* Clear start condition. Also clears I2C flag because it writes a 1 to it. */
-		clearBit(&TWCR, TWSTA);
-		/* Wait for interrupt flag */
-		while (!checkBit(TWCR, TWINT));
-		/* Check if ACK was received */
-		if ((TWSR & 0xF8) == I2C_SLAVE_WRITE_ACK)
-		{
-			/* Transmit data */
-			while (i != u8_dataLength)
-			{
-				/* Set next byte to write */
-				TWDR = au8_data[i];
-				/* Clear I2C flag */
-				setBit(&TWCR, TWINT);
-				/* Wait for interrupt flag */
-				while (!checkBit(TWCR, TWINT));
-				/* Check if slave didn't sent ACK */
-				if ((TWSR & 0xF8) != I2C_DATA_WRITE_ACK)
-					return stopAndGetErrorCode();
-				i++;
-			}
-		}
-		else
-			return stopAndGetErrorCode();
-	}
-	else
-		return stopAndGetErrorCode();
-	
-	/* Send stop condition. Also clears I2C flag because it writes a 1 to it. */
-	setBit(&TWCR, TWSTO);
-	/* Wait for stop condition to be sent. */
-	while (checkBit(TWCR, TWSTO));
+	u16 timeout=0xFFFF;
+	/* Send START condition */
+	TWCR |= (1 << TWINT) | (1 << TWSTA) | (checkBit(TWCR, TWEN) << TWEN);
+
+	/* Wait until start condition has been sent */
+	while(--timeout > 0)
+		if(checkBit(TWCR, TWINT))
+			break;
+	if(timeout == 0)
+		return I2C_BUS_LOCKED;
+
+	timeout=0xFFFF;
+	/* Check if start or repeated start condition was sent */
+	if (((TW_STATUS & 0xF8) != TW_START) && ((TW_STATUS & 0xF8) != TW_REP_START))
+		return (TW_STATUS & 0xF8);
+
+	/* Send device address */
+	TWDR = u8_address;
+	TWCR = (1<<TWINT) | (checkBit(TWCR, TWEN) << TWEN);
+
+	/* Wail until address has been sent */
+	while( --timeout > 0 )
+		if(checkBit(TWCR, TWINT))
+			break;
+	if(timeout == 0)
+		return I2C_BUS_LOCKED;
+
+	/* Check if ACK was received */
+	if (((TW_STATUS & 0xF8) != TW_MT_SLA_ACK) && ((TW_STATUS & 0xF8) != TW_MR_SLA_ACK))
+		return (TW_STATUS & 0xF8);
 
 	return I2C_NO_ERROR;
 }
 
-u8 i2c_receive(u8 u8_address, u8 *au8_data, u8 u8_dataLength)
+u8 i2c_sendRepStart(u8 u8_address)
 {
-	u8 i = 0;
-	/* Send start condition */
-	setBit(&TWCR, TWSTA);
-	/* Clear I2C flag */
-	setBit(&TWCR, TWINT);
-	/* Wait for interrupt flag */
-	while (!checkBit(TWCR, TWINT));
-	/* Check if start condition was issued */
-	if ((TWSR & 0xF8) == I2C_START)
-	{
-		/* Set slave address */
-		TWDR = u8_address << 1;
-		/* Set read mode */
-		setBit(&TWDR, TWD0);
-		/* Clear start condition. Also clears I2C flag because it writes a 1 to it. */
-		clearBit(&TWCR, TWSTA);
-		/* Wait for interrupt flag */
-		while (!checkBit(TWCR, TWINT));
-		/* Check if ACK was received */
-		if ((TWSR & 0xF8) == I2C_SLAVE_READ_ACK)
-		{
-			/* Receive data */
-			while (i != u8_dataLength)
-			{
-				/* Transmit ACK after a transfer */
-				setBit(&TWCR, TWEA);
-				/* Wait for interrupt flag */
-				while (!checkBit(TWCR, TWINT));
-				/* Check if slave didn't sent ACK */
-				if ((TWSR & 0xF8) != I2C_DATA_READ_ACK)
-					return stopAndGetErrorCode();
-				/* Read next byte */
-				au8_data[i] = TWDR;
-				i++;
-			}
-		}
-		else
-			return stopAndGetErrorCode();
-	}
-	else
-		return stopAndGetErrorCode();
-	
-	/* Send NACK after all expected transfers are done. Also clears I2C flag because it writes a 1 to it. */
-	clearBit(&TWCR, TWEA);
-	/* Wait for interrupt flag */
-	while (!checkBit(TWCR, TWINT));
-	/* If NACK was sent, all is good */
-	if ((TWSR & 0xF8) == I2C_DATA_READ_NACK)
-	{
-		/* Send stop condition. Also clears I2C flag because it writes a 1 to it. */
-		setBit(&TWCR, TWSTO);
-		/* Wait for stop condition to be sent. */
-		while (checkBit(TWCR, TWSTO));
-	}
+	return i2c_sendStart(u8_address);
+}
+
+void i2c_sendStop(void)
+{
+	u16 timeout=0xFFFF;
+	/* Send stop condition */
+	TWCR |= (1 << TWINT) | (1 << TWSTO) | (checkBit(TWCR, TWEN) << TWEN);
+	/* Wait until stop condition is sent and bus is released */
+	while(--timeout > 0)
+		if(!checkBit(TWCR, TWSTO))
+			return;
+}
+
+u8 i2c_write(u8 u8_data)
+{
+	u16 timeout=0xFFFF;
+	/* Send byte */
+	TWDR = u8_data;
+	TWCR = (1 << TWINT) | (checkBit(TWCR, TWEN) << TWEN);
+
+	/* Wait until transmission is completed */
+	while(--timeout > 0)
+		if(checkBit(TWCR, TWINT))
+			break;
+	if(timeout == 0)
+		return I2C_BUS_LOCKED;
+
+	/* Check if ACK was received */
+	if (((TW_STATUS & 0xF8) != TW_MT_SLA_ACK) && ((TW_STATUS & 0xF8) != TW_MR_SLA_ACK))
+		return (TW_STATUS & 0xF8);
 
 	return I2C_NO_ERROR;
+}
+
+u8 i2c_readAck(void)
+{
+	u16 timeout=0xFFFF;
+	/* Receive byte */
+	TWCR = (1<<TWINT) | (1<<TWEA) | (checkBit(TWCR, TWEN) << TWEN);
+
+	/* Wait until transmission is completed */
+	while(--timeout > 0)
+		if(checkBit(TWCR, TWINT))
+		return TWDR;
+
+	return I2C_BUS_LOCKED;
+}
+
+u8 i2c_readNak(void)
+{
+	u16 timeout=0xFFFF;
+	/* Receive byte */
+	TWCR = (1<<TWINT) | (checkBit(TWCR, TWEN) << TWEN);
+
+	/* Wait until transmission is completed */
+	while(--timeout > 0)
+		if(checkBit(TWCR, TWINT))
+			return TWDR;
+
+	return I2C_BUS_LOCKED;
 }
 
 void i2c_enableInterrupts()

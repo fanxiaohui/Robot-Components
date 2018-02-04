@@ -1,8 +1,5 @@
 /**	@file		inputCapture.h
 	@brief		Input Capture features
-	@author		Florin Popescu
-	@version	0.1
-	@date		29.08.2017
 	@details	Supports timers 1 and 3 as input capture, which can be used to count duration of external events
 				Basic flow:
 				1. Initialize a @link inputCapture_struct_t @endlink with either a fixed (set base frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).

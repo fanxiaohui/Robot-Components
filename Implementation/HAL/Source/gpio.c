@@ -1,9 +1,6 @@
 /**	@file		gpio.c
 	@brief		GPIO features
-	@author		Florin Popescu
-	@version	1.1
-	@date		11.09.2017
-	@details	See gpio.h for details.
+	@details	See @link gpio.h @endlink for details.
 */
 
 /************************************************************************/
@@ -25,23 +22,23 @@
 /************************************************************************/
 
 #ifdef USING_PCINT0
-void (*p_pcInt0Callback)(void);
-u8 u8_pcInt0OldState;
+	void (*p_pcInt0Callback)(void);
+	u8 u8_pcInt0OldState;
 #endif
 #ifdef USING_PCINT1
-void (*p_pcInt1Callback)(void);
-u8 u8_pcInt1OldState;
+	void (*p_pcInt1Callback)(void);
+	u8 u8_pcInt1OldState;
 #endif
 #ifdef USING_PCINT2
-void (*p_pcInt2Callback)(void);
-u8 u8_pcInt2OldState;
+	void (*p_pcInt2Callback)(void);
+	u8 u8_pcInt2OldState;
 #endif
 #ifdef USING_PCINT3
-void (*p_pcInt3Callback)(void);
-u8 u8_pcInt3OldState;
+	void (*p_pcInt3Callback)(void);
+	u8 u8_pcInt3OldState;
 #endif
 #ifdef USING_EXTINT
-void (*p_extIntCallbacks[3])(void);
+	void (*p_extIntCallbacks[3])(void);
 #endif
 
 /************************************************************************/

@@ -1,9 +1,6 @@
 /**	@file		device.c
 	@brief		Basic device features
-	@author		Florin Popescu
-	@version	1.0
-	@date		11.08.2017
-	@details	See device.h for details.
+	@details	See @link device.h @endlink for details.
 */
 
 /************************************************************************/
@@ -25,10 +22,8 @@
 
 void device_disableJTAG()
 {
-#ifndef USING_JTAG_PROGRAMMING
 	MCUCR = 0x80;
 	MCUCR = 0x80;
-#endif
 }
 
 void device_setClockPrescaler(device_clockPrescaler_enum_t e_prescaler)

@@ -1,9 +1,6 @@
 /**	@file		timer.c
 	@brief		Timer features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
-	@details	See timer.h for details.
+	@details	See @link timer.h @endlink for details.
 */
 
 /************************************************************************/
@@ -26,20 +23,20 @@
 /************************************************************************/
 
 #ifdef USING_TIMER0
-u8 u8_timer0ClockSource;
-void (*p_timer0Callbacks[3])(void);
+	u8 u8_timer0ClockSource;
+	void (*p_timer0Callbacks[3])(void);
 #endif
 #ifdef USING_TIMER1
-u8 u8_timer1ClockSource;
-void (*p_timer1Callbacks[4])(void);
+	u8 u8_timer1ClockSource;
+	void(*p_timer1Callbacks[4])(void);
 #endif
 #ifdef USING_TIMER2
-u8 u8_timer2ClockSource;
-void (*p_timer2Callbacks[3])(void);
+	u8 u8_timer2ClockSource;
+	void (*p_timer2Callbacks[3])(void);
 #endif
 #ifdef USING_TIMER3
-u8 u8_timer3ClockSource;
-void (*p_timer3Callbacks[4])(void);
+	u8 u8_timer3ClockSource;
+	void (*p_timer3Callbacks[4])(void);
 #endif
 
 /************************************************************************/
@@ -57,27 +54,27 @@ u16 calculateTopRegister(timer_struct_t s_timer, u32 u32_frequency, u32 *pu32_pr
 		#ifdef USING_TIMER0
 			u16_divisor = 1;
 			*pu32_prescaler = TIMER_CLK_DIV_1;
-			u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+			u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 			if (u32_returnValue > 0xff)
 			{
 				u16_divisor = 8;
 				*pu32_prescaler = TIMER_CLK_DIV_8;
-				u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+				u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 				if (u32_returnValue > 0xff)
 				{
 					u16_divisor = 64;
 					*pu32_prescaler = TIMER_CLK_DIV_64;
-					u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+					u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 					if (u32_returnValue > 0xff)
 					{
 						u16_divisor = 256;
 						*pu32_prescaler = TIMER_CLK_DIV_256;
-						u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+						u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						if (u32_returnValue > 0xff)
 						{
 							u16_divisor = 1024;
 							*pu32_prescaler = TIMER_CLK_DIV_1024;
-							u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+							u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						}
 					}
 				}
@@ -88,27 +85,27 @@ u16 calculateTopRegister(timer_struct_t s_timer, u32 u32_frequency, u32 *pu32_pr
 		#ifdef USING_TIMER1
 			u16_divisor = 1;
 			*pu32_prescaler = TIMER_CLK_DIV_1;
-			u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+			u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 			if (u32_returnValue > 0xffff)
 			{
 				u16_divisor = 8;
 				*pu32_prescaler = TIMER_CLK_DIV_8;
-				u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+				u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 				if (u32_returnValue > 0xffff)
 				{
 					u16_divisor = 64;
 					*pu32_prescaler = TIMER_CLK_DIV_64;
-					u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+					u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 					if (u32_returnValue > 0xffff)
 					{
 						u16_divisor = 256;
 						*pu32_prescaler = TIMER_CLK_DIV_256;
-						u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+						u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						if (u32_returnValue > 0xffff)
 						{
 							u16_divisor = 1024;
 							*pu32_prescaler = TIMER_CLK_DIV_1024;
-							u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+							u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						}
 					}
 				}
@@ -119,27 +116,27 @@ u16 calculateTopRegister(timer_struct_t s_timer, u32 u32_frequency, u32 *pu32_pr
 		#ifdef USING_TIMER3
 			u16_divisor = 1;
 			*pu32_prescaler = TIMER_CLK_DIV_1;
-			u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+			u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 			if (u32_returnValue > 0xffff)
 			{
 				u16_divisor = 8;
 				*pu32_prescaler = TIMER_CLK_DIV_8;
-				u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+				u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 				if (u32_returnValue > 0xffff)
 				{
 					u16_divisor = 64;
 					*pu32_prescaler = TIMER_CLK_DIV_64;
-					u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+					u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 					if (u32_returnValue > 0xffff)
 					{
 						u16_divisor = 256;
 						*pu32_prescaler = TIMER_CLK_DIV_256;
-						u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+						u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						if (u32_returnValue > 0xffff)
 						{
 							u16_divisor = 1024;
 							*pu32_prescaler = TIMER_CLK_DIV_1024;
-							u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+							u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						}
 					}
 				}
@@ -150,37 +147,37 @@ u16 calculateTopRegister(timer_struct_t s_timer, u32 u32_frequency, u32 *pu32_pr
 		#ifdef USING_TIMER2
 			u16_divisor = 1;
 			*pu32_prescaler = TIMER_CLK_DIV_1;
-			u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+			u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 			if (u32_returnValue > 0xff)
 			{
 				u16_divisor = 8;
 				*pu32_prescaler = TIMER_CLK_DIV_8;
-				u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+				u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 				if (u32_returnValue > 0xff)
 				{
 					u16_divisor = 32;
 					*pu32_prescaler = TIMER_CLK_DIV_32;
-					u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+					u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 					if (u32_returnValue > 0xff)
 					{
 						u16_divisor = 64;
 						*pu32_prescaler = TIMER_CLK_DIV_64;
-						u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+						u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 						if (u32_returnValue > 0xff)
 						{
 							u16_divisor = 128;
 							*pu32_prescaler = TIMER_CLK_DIV_128;
-							u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+							u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 							if (u32_returnValue > 0xff)
 							{
 								u16_divisor = 256;
 								*pu32_prescaler = TIMER_CLK_DIV_256;
-								u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+								u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 								if (u32_returnValue > 0xff)
 								{
 									u16_divisor = 1024;
 									*pu32_prescaler = TIMER_CLK_DIV_1024;
-									u32_returnValue = SYSTEM_CLOCK_FREQUENCY / u16_divisor / u32_frequency - 1;
+									u32_returnValue = F_CPU / u16_divisor / u32_frequency - 1;
 								}
 							}
 						}
@@ -967,12 +964,4 @@ u16 timer_getValue(timer_struct_t s_timer)
 			break;
 }
 return 0;
-}
-
-void timer_delayMs(u32 milliseconds)
-{
-}
-
-void timer_delayUs(u16 microseconds)
-{
 }

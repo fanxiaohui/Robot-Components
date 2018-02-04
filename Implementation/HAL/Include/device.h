@@ -1,8 +1,5 @@
 /**	@file		device.h
 	@brief		Basic device features
-	@author		Florin Popescu
-	@version	1.1
-	@date		11.09.2017
 	@details	Includes features that are required for the microcontroller to function properly or microcontroller specific.
 				Basic Flow:
 				- Call @link device_disableJTAG @endlink to be able to use the pins normally defined for JTAG functionality for something else.
@@ -20,10 +17,9 @@
 
 #include "types.h"
 
-/** @example device_config.h
-	This is an example of how to configure the Device
-*/
-#include "device_config.h"
+/************************************************************************/
+/* Defines, enums, structs, types                                       */
+/************************************************************************/
 
 /**	Specifies system clock division factors
 */

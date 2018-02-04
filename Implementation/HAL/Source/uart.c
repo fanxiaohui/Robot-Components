@@ -1,9 +1,6 @@
 /**	@file		uart.c
 	@brief		UART features
-	@author		Florin Popescu
-	@version	1.0
-	@date		12.08.2017
-	@details	See uart.h for details.
+	@details	See @link uart.h @endlink for details.
 */
 
 /************************************************************************/
@@ -55,15 +52,15 @@ u16 calculateUBRR(u32 u32_baudRate, bool *b_usingDoubleSpeed)
 	u8 u8_divisor = 16;
 	u32 u32_actualBaudRate;
 
-	u32_ubrr = SYSTEM_CLOCK_FREQUENCY / u8_divisor / u32_baudRate - 1;
-	u32_actualBaudRate = SYSTEM_CLOCK_FREQUENCY / u8_divisor / (u32_ubrr + 1);
+	u32_ubrr = F_CPU / u8_divisor / u32_baudRate - 1;
+	u32_actualBaudRate = F_CPU / u8_divisor / (u32_ubrr + 1);
 
 	if (calculateError(u32_actualBaudRate, u32_baudRate) >= 20)
 	{
 		u8_divisor = 8;
 		*b_usingDoubleSpeed = TRUE;
-		u32_ubrr = SYSTEM_CLOCK_FREQUENCY / u8_divisor / u32_baudRate - 1;
-		u32_actualBaudRate = SYSTEM_CLOCK_FREQUENCY / u8_divisor / (u32_ubrr + 1);
+		u32_ubrr = F_CPU / u8_divisor / u32_baudRate - 1;
+		u32_actualBaudRate = F_CPU / u8_divisor / (u32_ubrr + 1);
 	}
 	return u32_ubrr;
 }

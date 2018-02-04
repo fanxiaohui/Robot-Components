@@ -1,9 +1,6 @@
 /**	@file		inputCapture.c
 	@brief		Input Capture features
-	@author		Florin Popescu
-	@version	0.1
-	@date		29.08.2017
-	@details	See inputCapture.h for details.
+	@details	See @link inputCapture.h @endlink for details.
 */
 
 /************************************************************************/

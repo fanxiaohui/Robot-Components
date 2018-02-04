@@ -4,13 +4,13 @@
 
 Example\Source\main.c
 
+Example\Source\vl53l0x_example.c
+
 HAL\Source\adc.c
 
 HAL\Source\asyncTimer.c
 
 HAL\Source\counter.c
-
-HAL\Source\debug.c
 
 HAL\Source\device.c
 
@@ -32,7 +32,7 @@ HAL\Source\uart.c
 
 HAL\Source\wdg.c
 
-Source\Adafruit_VL53L0X.c
+Source\debug.c
 
 Source\encoder.c
 
@@ -44,21 +44,5 @@ Source\scheduler.c
 
 Source\surface_sensor.c
 
-Source\twi.c
-
-Source\vl53l0x_api.c
-
-Source\vl53l0x_api_calibration.c
-
-Source\vl53l0x_api_core.c
-
-Source\vl53l0x_api_ranging.c
-
-Source\vl53l0x_api_strings.c
-
-Source\vl53l0x_i2c_comms.c
-
-Source\vl53l0x_platform.c
-
-Source\Wire.c
+Source\vl53l0x.c
 

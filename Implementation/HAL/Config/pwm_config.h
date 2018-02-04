@@ -1,12 +1,9 @@
 /**	@file		pwm_config.h
 	@brief		PWM configuration
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
 	@details	Specifies the following:
 				- which Timer peripherals are used
 				- if interrupt modes are used
-	These defines are used for code size and memory usage reduction, so set the defines accordingly.
+				These defines are used for code size and memory usage reduction, so set the defines accordingly.
 */
 
 #ifndef PWM_CONFIG_H_

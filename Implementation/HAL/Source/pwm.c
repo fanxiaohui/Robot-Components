@@ -1,9 +1,6 @@
 /**	@file		pwm.c
 	@brief		PWM features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
-	@details	See pwm.h for details.
+	@details	See @link pwm.h @endlink for details.
 */
 
 /************************************************************************/
@@ -25,18 +22,18 @@
 /************************************************************************/
 
 #ifdef USING_PWM0
-u8 u8_pwm0Percent;
+	u8 u8_pwm0Percent;
 #endif
 #ifdef USING_PWM1
-u8 u8_pwm1aPercent;
-u8 u8_pwm1bPercent;
+	u8 u8_pwm1aPercent;
+	u8 u8_pwm1bPercent;
 #endif
 #ifdef USING_PWM2
-u8 u8_pwm2Percent;
+	u8 u8_pwm2Percent;
 #endif
 #ifdef USING_PWM3
-u8 u8_pwm3aPercent;
-u8 u8_pwm3bPercent;
+	u8 u8_pwm3aPercent;
+	u8 u8_pwm3bPercent;
 #endif
 
 /************************************************************************/

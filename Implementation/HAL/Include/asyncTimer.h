@@ -1,8 +1,5 @@
 /**	@file		asyncTimer.h
 	@brief		Asynchronous Timer features
-	@author		Florin Popescu
-	@version	0.1
-	@date		30.08.2017
 	@details	Uses @link TIMER2 @endlink in asynchronous mode
 				Basic flow:
 				1. Call @link asyncTimer_init @endlink.
@@ -50,7 +47,6 @@ typedef struct asyncTimer_struct_t
 /** What value should the input clock be divided by */
 	timer_prescaler_enum_t prescaler;
 }asyncTimer_struct_t;
-
 
 /************************************************************************/
 /* Exported functions                                                   */

@@ -1,8 +1,5 @@
 /**	@file		types.h
 	@brief		Generic data types
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.08.2017
 	@details	Contains the following definitions:
 				- NO_ERROR returned by a function which may fail
 				- bitValue set or clear

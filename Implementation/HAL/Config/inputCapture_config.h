@@ -1,12 +1,9 @@
 /**	@file		inputCapture_config.h
 	@brief		Input Capture configuration
-	@author		Florin Popescu
-	@version	0.1
-	@date		31.08.2017
 	@details	Specifies the following:
 				- which Timer peripherals are used
 				- if interrupt modes are used
-	These defines are used for code size and memory usage reduction, so set the defines accordingly.
+				These defines are used for code size and memory usage reduction, so set the defines accordingly.
 */
 
 #ifndef INPUTCAPTURE_CONFIG_H_

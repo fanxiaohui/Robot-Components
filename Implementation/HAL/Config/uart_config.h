@@ -1,21 +1,14 @@
 /**	@file		uart_config.h
 	@brief		UART configuration
-	@author		Florin Popescu
-	@version	1.0
-	@date		12.08.2017
 	@details	Specifies the following:
-	- which UART peripherals are used
-	- if interrupt modes are used
-	- sizes of ring buffers (only used in interrupt modes)
-	These defines are used for code size and memory usage reduction, so set the defines accordingly.
+				- which UART peripherals are used
+				- if interrupt modes are used
+				- sizes of ring buffers (only used in interrupt modes)
+				These definesare used for code size and memory usage reduction, so set the defines accordingly.
 */
 
 #ifndef UART_CONFIG_H_
 #define UART_CONFIG_H_
-
-/************************************************************************/
-/* Defines, enums, structs, types                                       */
-/************************************************************************/
 
 /** Used UART peripherals
 */
@@ -25,7 +18,7 @@
 /** Using interrupt mode for UARTs
 */
 #ifdef USING_UART0
-	#define UART0_INTERRUPT_MODE
+	//#define UART0_INTERRUPT_MODE
 #endif
 #ifdef USING_UART1
 	#define UART1_INTERRUPT_MODE

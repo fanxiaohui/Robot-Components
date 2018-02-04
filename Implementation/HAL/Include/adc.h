@@ -1,18 +1,14 @@
 /**	@file		adc.h
 	@brief		ADC features
-	@author		Adrian Grosu
-	@version	0.1
-	@date		3.09.2017
-	@details	Supports the successive approximations ADC 
+	@details	Supports the successive approximations ADC
 				Basic flow:
-				1. Initialize a @link adc_struct_t @endlink with the resolution (@link adc_struct_t.resolution @endlink), reference voltage (@link adc_struct_t.referenceVoltage @endlink), conversion mode (@link adc_struct_t.conversionMode @endlink), clock prescaler value (@link adc_struct_t.prescaler @endlink)and the channels to be used (@link adc_struct_t.channelEnabled[] @endlink).
+				1. Initialize a @link adc_struct_t @endlink.
 				2. Pass it to @link adc_init @endlink.
 				3. Call @link adc_start @endlink.
-				4. Call @link adc_read @endlink to read the values from the selected ADC channels.
+				4. Call @link adc_singleRead @endlink to read the values from the selected ADC channels.
 				- Attach a function to the ADC interrupt handler with @link adc_attachInterrupt @endlink prior to calling @link adc_enableInterrupt @endlink.
 				- To stop the ADC call @link adc_stop @endlink.
 */
-
 
 #ifndef ADC_H_
 #define ADC_H_
@@ -20,6 +16,7 @@
 /************************************************************************/
 /* Project specific includes                                            */
 /************************************************************************/
+
 #include "types.h"
 
 /** @example adc_config.h
@@ -123,7 +120,6 @@ typedef struct adc_struct_t
 /* Exported functions                                                   */
 /************************************************************************/
 
-
 /** Initializes ADC peripheral.
 	@remark Must be called before any other ADC function is used.
 	@param[in] s_adc: ADC parameters to initialize
@@ -142,15 +138,14 @@ void adc_start(adc_struct_t s_adc);
 */
 void adc_stop(adc_struct_t s_adc);
 
-/** Enables ADC interrupts when a conversion is completed
+/** Enables ADC interrupt when a conversion is completed
 	@pre Must be called after an interrupt is attached(with @link adc_attachInterrupt @endlink).
-	@param[in] s_adc: ADC peripheral to stop
 */
-void adc_enableInterrupts();
+void adc_enableInterrupt();
 
-/** Disables ADC interrupts
+/** Disables ADC interrupt
 */
-void adc_disableInterrupts();
+void adc_disableInterrupt();
 
 /** Sets a callback function to be called on ADC interrupt. Can replace previous callback (no need to call @link adc_detachInterrupt @endlink first).
 	@param[in]	p_function: pointer to function to call on interrupt
@@ -161,29 +156,25 @@ void adc_attachInterrupt(void (*p_function)(void));
 */
 void adc_detachInterrupt();
 
-
 /** Reads the value from a single specified channel
 	@pre Must be called after the ADC is initialized(with @link adc_init @endlink).
-	@param[in] s_adc: ADC peripheral to use
-	@param[in] channel: ADC channel to read from
-	@return value converted (16bit)
+	@param[in]	s_adc: ADC peripheral to use
+	@return		value read
 */
-
 u16 adc_singleRead(adc_struct_t s_adc);
 
 /** Reads the value from every selected channel.
 	@pre Must be called after the ADC is initialized(with @link adc_init @endlink).
-	@param[in] s_adc: ADC peripheral to use
-	@return pointer to an array which contains the values converted 
+	@param[in]	s_adc: ADC peripheral to use
+	@return		pointer to an array which contains the values read
 */
 u16 *adc_multiRead(adc_struct_t s_adc);
 
 /** Changes the reference voltage
 	@pre Must be called after the ADC is initialized(with @link adc_init @endlink).
-	@param[in] s_adc: address of the ADC peripheral to use
-	@param[in] s_adc.referenceVoltage: reference voltage to change to
+	@param[in]	s_adc: address of the ADC peripheral to use
+	@param[in]	e_referenceVoltage: reference voltage to change to
 */
-
-void adc_changeRefVoltage(adc_struct_t *s_adc, adc_reference_enum_t referenceVoltage);
+void adc_changeRefVoltage(adc_struct_t *s_adc, adc_reference_enum_t e_referenceVoltage);
 
 #endif /* ADC_H_ */

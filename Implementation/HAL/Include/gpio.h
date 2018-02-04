@@ -1,8 +1,5 @@
 /**	@file		gpio.h
 	@brief		GPIO features
-	@author		Florin Popescu
-	@version	1.1
-	@date		11.09.2017
 	@details	Supports basic I/O functionality for all microcontroller pins.
 				Basic flow:
 				1. Initialize a @link gpio_struct_t @endlink

@@ -1,9 +1,6 @@
 /**	@file		asyncTimer.c
 	@brief		Asynchronous Timer features
-	@author		Florin Popescu
-	@version	0.1
-	@date		30.08.2017
-	@details	See asyncTimer.h for details.
+	@details	See @link asyncTimer.h @endlink for details.
 */
 
 /************************************************************************/

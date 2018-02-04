@@ -1,9 +1,6 @@
 /**	@file		counter.c
 	@brief		Timer features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
-	@details	See counter.h for details.
+	@details	See @link counter.h @endlink for details.
 */
 
 /************************************************************************/
@@ -24,13 +21,13 @@
 /************************************************************************/
 
 #ifdef USING_COUNTER0
-u8 u8_counter0ClockSource;
+	u8 u8_counter0ClockSource;
 #endif
 #ifdef USING_COUNTER1
-u8 u8_counter1ClockSource;
+	u8 u8_counter1ClockSource;
 #endif
 #ifdef USING_COUNTER3
-u8 u8_counter3ClockSource;
+	u8 u8_counter3ClockSource;
 #endif
 
 /************************************************************************/

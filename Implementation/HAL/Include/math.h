@@ -1,9 +1,9 @@
 /**	@file		math.h
-	@brief		Basic mah functions
-	@author		Florin Popescu
-	@version	1.0
-	@date		12.08.2017
-	@details	Contains math functions to support easier bitwise operations or more advanced error calculations.
+	@brief		Basic math functions
+	@details	Contains math functions to support:
+				- bitwise operations
+				- advanced error calculations
+				- rule of three
 */
 
 #ifndef MATH_H_

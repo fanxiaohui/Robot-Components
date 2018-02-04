@@ -1,9 +1,6 @@
 /**	@file		math.c
-	@brief		Basic mah functions
-	@author		Florin Popescu
-	@version	1.0
-	@date		12.08.2017
-	@details	See math.h for details.
+	@brief		Basic math functions
+	@details	See @link math.h @endlink for details.
 */
 
 /************************************************************************/

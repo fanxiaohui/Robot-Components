@@ -1,7 +1,6 @@
 /**	@file		adc.c
 	@brief		ADC features
-	@author		Adrian Grosu
-	@details	See adc.h for details.
+	@details	See @link adc.h @endlink for details.
 */
 
 /************************************************************************/
@@ -24,7 +23,9 @@
 /************************************************************************/
 
 u16 au16_conversionResultsBuffer[8];
-void (*p_adcCallback)(void);
+#ifdef ADC_INTERRUPT_MODE
+	void (*p_adcCallback)(void);
+#endif
 
 /************************************************************************/
 /* Interrupt handlers                                                   */
@@ -100,43 +101,49 @@ u16 adc_singleRead(adc_struct_t s_adc)
 
 void adc_start(adc_struct_t s_adc)
 {
-	u8 u8_channel;
 	setBit(&ADCSRA, ADEN);
-		updateBit(&DIDR0, s_adc.channel, TRUE);
+	updateBit(&DIDR0, s_adc.channel, TRUE);
 	if (s_adc.conversionMode != SINGLE_CONVERSION)
 		setBit(&ADCSRA, ADSC);
 }
 
 void adc_stop(adc_struct_t s_adc)
 {
-	u8 u8_channel;
 	clearBit(&ADCSRA, ADEN);
-		updateBit(&DIDR0, s_adc.channel,FALSE);
+	updateBit(&DIDR0, s_adc.channel,FALSE);
 }
 
 void adc_enableInterrupts()
 {
+#ifdef ADC_INTERRUPT_MODE
 	setBit(&ADCSRA, ADIE);
+#endif
 }
 
 void adc_disableInterrupts()
 {
+#ifdef ADC_INTERRUPT_MODE
 	clearBit(&ADCSRA, ADIE);
+#endif
 }
 
 void adc_attachInterrupt(void (*p_function)(void))
 {
+#ifdef ADC_INTERRUPT_MODE
 	p_adcCallback = p_function;
+#endif
 }
 
 void adc_detachInterrupt()
 {
+#ifdef ADC_INTERRUPT_MODE
 	p_adcCallback = 0;
+#endif
 }
 
-void adc_changeRefVoltage(adc_struct_t *s_adc, adc_reference_enum_t referenceVoltage)
+void adc_changeRefVoltage(adc_struct_t *s_adc, adc_reference_enum_t e_referenceVoltage)
 {
-	s_adc->referenceVoltage = referenceVoltage;
+	s_adc->referenceVoltage = e_referenceVoltage;
 	updateBit(&ADMUX, REFS1, (s_adc->referenceVoltage >> 1) & 1);
 	updateBit(&ADMUX, REFS0, s_adc->referenceVoltage & 1);
 	if(s_adc->conversionMode == FREE_RUNNING)

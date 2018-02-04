@@ -1,9 +1,6 @@
 /**	@file		spi.h
 	@brief		SPI features
-	@author		Adrian Grosu
-	@version	0.1
-	@date		09.09.2017
-	@details	
+	@details
 */
 
 #ifndef SPI_H_
@@ -12,6 +9,7 @@
 /************************************************************************/
 /* Project specific includes                                            */
 /************************************************************************/
+
 #include "types.h"
 
 /** @example spi_config.h

@@ -1,8 +1,5 @@
 /**	@file		counter.h
 	@brief		Counter features
-	@author		Florin Popescu
-	@version	1.0
-	@date		08.09.2017
 	@details	Supports timers 0, 1, 3 as external event counters, which can be used to count number of external events
 				Basic flow:
 				1. Initialize a @link counter_struct_t @endlink with either a fixed (set base frequency to a value of type @link timer_prescaler_enum_t @endlink) or a custom frequency (set to any unsigned value).

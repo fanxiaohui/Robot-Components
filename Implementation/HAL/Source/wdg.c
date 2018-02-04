@@ -1,9 +1,6 @@
 /**	@file		wdg.c
 	@brief		Watchdog features
-	@author		Florin Popescu
-	@version	1.0
-	@date		13.08.2017
-	@details	See wdg.h for details.
+	@details	See @link wdg.h @endlink for details.
 */
 
 /************************************************************************/

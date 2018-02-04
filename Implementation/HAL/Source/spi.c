@@ -1,9 +1,6 @@
 /**	@file		spi.c
 	@brief		SPI features
-	@author		Adrian Grosu
-	@version	0.1
-	@date		09.09.2017
-	@details	See spi.h for details.
+	@details	See @link spi.h @endlink for details.
 */
 
 /************************************************************************/
@@ -49,7 +46,7 @@ ISR(SPI_STC_vect)
 	else
 		u8_RLastReceivedIndex = 0;
 	b_RAvailable = TRUE;
-	
+
 	if (u8_TLastTransmittedIndex != u8_TLastRequestedIndex)
 	{
 		SPDR = au8_TBuffer[u8_TLastTransmittedIndex];
