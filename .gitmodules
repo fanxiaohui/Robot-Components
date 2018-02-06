@@ -1,3 +1,6 @@
 [submodule "Implementation/HAL-test"]
 	path = Implementation/HAL-test
 	url = https://github.com/PhoenixArsTechnica/ATmega-HAL
+[submodule "Implementation/HAL"]
+	path = Implementation/HAL
+	url = https://github.com/PhoenixArsTechnica/ATmega-HAL
