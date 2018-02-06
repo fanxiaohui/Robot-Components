@@ -11,7 +11,7 @@ int main()
 	debug_init();
 	distanceSensor_init();
 
-	distanceSensor_maxSpeedTest();
+	distanceSensor_sleepTest();
 	while(1)
 	{
 	}

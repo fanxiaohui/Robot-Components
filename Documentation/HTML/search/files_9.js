@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['math_2eh',['math.h',['../_example_2_h_a_l_2_include_2math_8h.html',1,'(Global Namespace)'],['../_h_a_l_2_include_2math_8h.html',1,'(Global Namespace)']]],
-  ['motor_2eh',['motor.h',['../motor_8h.html',1,'']]]
+  ['scheduler_2ec',['scheduler.c',['../scheduler_8c.html',1,'']]],
+  ['scheduler_2eh',['scheduler.h',['../scheduler_8h.html',1,'']]],
+  ['spi_5fconfig_2eh',['spi_config.h',['../spi__config_8h.html',1,'']]],
+  ['surface_5fsensor_2ec',['surface_sensor.c',['../surface__sensor_8c.html',1,'']]],
+  ['surface_5fsensor_2eh',['surface_sensor.h',['../surface__sensor_8h.html',1,'']]]
 ];

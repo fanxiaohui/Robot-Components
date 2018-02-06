@@ -36,7 +36,6 @@ SUBDIRS :=  \
 ../Example \
 ../Example/Config \
 ../Example/Source \
-../HAL/Config \
 ../HAL/Include \
 ../HAL/Source \
 ../Include \

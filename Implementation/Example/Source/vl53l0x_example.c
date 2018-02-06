@@ -21,12 +21,12 @@ void distanceSensor_init()
 	timer_attachInterrupt(s_timeoutTimer, OVERFLOW, vl53l0x_incrementTimeoutCounter);
 	timer_enableInterrupt(s_timeoutTimer, OVERFLOW);
 	timer_start(s_timeoutTimer);
-	
+
 	s_frontSensor.address = VL53L0X_ADDRESS_DEFAULT;
 	s_frontSensor.i2cTimeout = 100;
 	s_frontSensor.xshutPin.port = PC;
 	s_frontSensor.xshutPin.number = 2;
-	
+
 	sei();
 
 	vl53l0x_init(&s_frontSensor);
@@ -35,8 +35,8 @@ void distanceSensor_defaultTest()
 {
 	u16 distance;
 	vl53l0x_start(&s_frontSensor);
-	vl53l0x_startContinuous(&s_frontSensor, 30);
 	vl53l0x_setMode(&s_frontSensor, VL53L0X_DEFAULT);
+	vl53l0x_startContinuous(&s_frontSensor, 0);
 
 	while (1)
 	{
@@ -51,7 +51,7 @@ void distanceSensor_sleepTest()
 {
 	u8 i = 0;
 	u16 distance;
-	
+
 	vl53l0x_start(&s_frontSensor);
 	vl53l0x_startContinuous(&s_frontSensor, 30);
 
@@ -69,7 +69,6 @@ void distanceSensor_sleepTest()
 		vl53l0x_stop(&s_frontSensor);
 		_delay_ms(3000);
 		i = 0;
-		vl53l0x_init(&s_frontSensor);
 		vl53l0x_start(&s_frontSensor);
 		vl53l0x_startContinuous(&s_frontSensor, 30);
 	}
@@ -79,11 +78,11 @@ void distanceSensor_maxAccuracyTest()
 {
 	u16 distance;
 	u16 rangePeriod = 200;
-	
+
 	vl53l0x_start(&s_frontSensor);
-	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
 	vl53l0x_setMode(&s_frontSensor, VL53L0X_MAX_ACCURACY);
-	
+	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
+
 	while (1)
 	{
 		distance = vl53l0x_readRangeContinuous(&s_frontSensor);
@@ -96,10 +95,10 @@ void distanceSensor_maxRangeTest()
 {
 	u16 distance;
 	u16 rangePeriod = 33;
-	
+
 	vl53l0x_start(&s_frontSensor);
-	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
 	vl53l0x_setMode(&s_frontSensor, VL53L0X_MAX_RANGE);
+	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
 
 	while (1)
 	{
@@ -113,10 +112,10 @@ void distanceSensor_maxSpeedTest()
 {
 	u16 distance;
 	u16 rangePeriod = 20;
-	
+
 	vl53l0x_start(&s_frontSensor);
-	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
 	vl53l0x_setMode(&s_frontSensor, VL53L0X_MAX_SPEED);
+	vl53l0x_startContinuous(&s_frontSensor, rangePeriod);
 
 	while (1)
 	{
@@ -129,7 +128,7 @@ void distanceSensor_maxSpeedTest()
 void distanceSensor_singleTest()
 {
 	u16 distance;
-	
+
 	vl53l0x_start(&s_frontSensor);
 
 	while (1)

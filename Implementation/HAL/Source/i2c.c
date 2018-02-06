@@ -16,7 +16,6 @@
 /************************************************************************/
 
 #include "device.h"
-#include "debug.h"
 #include "gpio.h"
 #include "i2c.h"
 #include "math.h"

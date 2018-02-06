@@ -59,19 +59,16 @@ typedef struct motor_struct_t{
 /* Exported functions                                                   */
 /************************************************************************/
 
-/** Initializes motor driver.
+/** Initializes the motor driver.
 	@remark		Must be called before any other motor function
 	@param[in]	s_motor: motor parameters to initialize
 */
 void motor_init(motor_struct_t s_motor);
 
-/** Starts motor driver.
+/** Starts the motor driver.
 	@pre		Must be called after the motor driver was initialized (with @link motor_init @endlink).
 	@param[in]	s_motor: motor parameters to initialize
 */
- 
-
-
 void motor_start(motor_struct_t s_motor);
 
 /** Stops motor driver.
@@ -100,9 +97,8 @@ void motor_speed(motor_struct_t s_motor, u8 speed);
 	@param[in]	directionA: direction of the left motor
 	@param[in]	speedA: speed of the left motor
 	@param[in]	directionB: direction of the right motor
-	@param[in]	speedA: speed of the right motor
+	@param[in]	speedB: speed of the right motor
 */
 void motor_individualDirSpeed(motor_struct_t s_motor, motorDirection directionA, u8 speedA, motorDirection directionB, u8 speedB);
-
 
 #endif /* MOTOR_H_ */

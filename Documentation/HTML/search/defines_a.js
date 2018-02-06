@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['le_5fpacket_5freporting_5fevent_5fmsb_5fbit',['LE_PACKET_REPORTING_EVENT_MSB_BIT',['../dtm_8h.html#aa6dae09db5f6e75c761bd6a9faf0f7e2',1,'LE_PACKET_REPORTING_EVENT_MSB_BIT():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#aa6dae09db5f6e75c761bd6a9faf0f7e2',1,'LE_PACKET_REPORTING_EVENT_MSB_BIT():&#160;dtm.h']]],
-  ['le_5ftest_5fpacket_5freport_5fevent',['LE_TEST_PACKET_REPORT_EVENT',['../dtm_8h.html#adaaf0bb2c65a38dabc63ce6dacff11ab',1,'LE_TEST_PACKET_REPORT_EVENT():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#adaaf0bb2c65a38dabc63ce6dacff11ab',1,'LE_TEST_PACKET_REPORT_EVENT():&#160;dtm.h']]],
-  ['le_5ftest_5fstatus_5fevent',['LE_TEST_STATUS_EVENT',['../dtm_8h.html#a2bd6040339d8aab25cec015ad1372046',1,'LE_TEST_STATUS_EVENT():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#a2bd6040339d8aab25cec015ad1372046',1,'LE_TEST_STATUS_EVENT():&#160;dtm.h']]],
-  ['le_5ftest_5fstatus_5fevent_5flsb_5fbit',['LE_TEST_STATUS_EVENT_LSB_BIT',['../dtm_8h.html#a7ed1388ff171c88452b9d99cbff754b0',1,'LE_TEST_STATUS_EVENT_LSB_BIT():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#a7ed1388ff171c88452b9d99cbff754b0',1,'LE_TEST_STATUS_EVENT_LSB_BIT():&#160;dtm.h']]],
-  ['le_5ftest_5fstatus_5ffailure',['LE_TEST_STATUS_FAILURE',['../dtm_8h.html#af2b362e21ce4277394cdc6a5408cd739',1,'LE_TEST_STATUS_FAILURE():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#af2b362e21ce4277394cdc6a5408cd739',1,'LE_TEST_STATUS_FAILURE():&#160;dtm.h']]],
-  ['le_5ftest_5fstatus_5fsuccess',['LE_TEST_STATUS_SUCCESS',['../dtm_8h.html#ab27b3e15f98a7321e3c9278d6021269f',1,'LE_TEST_STATUS_SUCCESS():&#160;dtm.h'],['../examples_2ble___a___hello___world___program_2dtm_8h.html#ab27b3e15f98a7321e3c9278d6021269f',1,'LE_TEST_STATUS_SUCCESS():&#160;dtm.h']]],
-  ['lobyte',['LOBYTE',['../ccsdk__types_8h.html#a04c0416272e5c07bdf955d803a21688e',1,'ccsdk_types.h']]],
-  ['loword',['LOWORD',['../ccsdk__types_8h.html#a00be6c40bc7a1297ada4d47a028066b8',1,'ccsdk_types.h']]]
+  ['result_5fcore_5fambient_5fwindow_5fevents_5fref',['RESULT_CORE_AMBIENT_WINDOW_EVENTS_REF',['../vl53l0x_8c.html#aa4662894211ed1f810668d8c64a5616e',1,'vl53l0x.c']]],
+  ['result_5fcore_5fambient_5fwindow_5fevents_5frtn',['RESULT_CORE_AMBIENT_WINDOW_EVENTS_RTN',['../vl53l0x_8c.html#ad655d862c529a55e17a20d401e7d967c',1,'vl53l0x.c']]],
+  ['result_5fcore_5franging_5ftotal_5fevents_5fref',['RESULT_CORE_RANGING_TOTAL_EVENTS_REF',['../vl53l0x_8c.html#a84179ae2a32adeb1c2df4f5336208d8a',1,'vl53l0x.c']]],
+  ['result_5fcore_5franging_5ftotal_5fevents_5frtn',['RESULT_CORE_RANGING_TOTAL_EVENTS_RTN',['../vl53l0x_8c.html#a8b8d1a3aac3d65ba4518ce14b0b58537',1,'vl53l0x.c']]],
+  ['result_5finterrupt_5fstatus',['RESULT_INTERRUPT_STATUS',['../vl53l0x_8c.html#af40e16604cc2cef5bc5bbed72000ae87',1,'vl53l0x.c']]],
+  ['result_5fpeak_5fsignal_5frate_5fref',['RESULT_PEAK_SIGNAL_RATE_REF',['../vl53l0x_8c.html#a8c340bcd85cffaac810ee47a0241706c',1,'vl53l0x.c']]],
+  ['result_5frange_5fstatus',['RESULT_RANGE_STATUS',['../vl53l0x_8c.html#a6429722d22fe6ca66ef3d8470d066ceb',1,'vl53l0x.c']]]
 ];

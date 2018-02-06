@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['battery_5fon_5fconnect',['battery_on_connect',['../group__battery.html#ga8544cd7974696b5330fbaf17c38edfd6',1,'battery.h']]],
-  ['battery_5fon_5fdisconnect',['battery_on_disconnect',['../group__battery.html#ga2fca80bdb1e04bcb6b4713e6aecde51a',1,'battery.h']]],
-  ['battery_5fon_5fpipe_5fstatus',['battery_on_pipe_status',['../group__battery.html#gac9d2d18d4bd3c14c93c9f7a1baaa3beb',1,'battery.h']]],
-  ['begin',['begin',['../class_adafruit___v_l53_l0_x.html#abd84b7f458055fe0ba1957dcde4e3cf1',1,'Adafruit_VL53L0X']]],
-  ['bootloader_5fdata_5fstore',['bootloader_data_store',['../bootloader__setup_8h.html#a3bf84a0be064d23826a73c7f9d5fa861',1,'bootloader_data_store(aci_state_t *state, uint16_t conn_timeout, uint16_t adv_interval, uint8_t *pipes, uint8_t n_pipes):&#160;bootloader_setup.h'],['../examples_2ble___a___hello___world___program_2bootloader__setup_8h.html#a3bf84a0be064d23826a73c7f9d5fa861',1,'bootloader_data_store(aci_state_t *state, uint16_t conn_timeout, uint16_t adv_interval, uint8_t *pipes, uint8_t n_pipes):&#160;bootloader_setup.h']]],
-  ['bootloader_5fjump',['bootloader_jump',['../bootloader__setup_8h.html#ac85889d15d11d6c410d9d98ac95d2e2f',1,'bootloader_jump(aci_state_t *state):&#160;bootloader_setup.h'],['../examples_2ble___a___hello___world___program_2bootloader__setup_8h.html#ac85889d15d11d6c410d9d98ac95d2e2f',1,'bootloader_jump(aci_state_t *state):&#160;bootloader_setup.h']]],
-  ['bootloader_5fjump_5fcheck',['bootloader_jump_check',['../bootloader__setup_8h.html#a3ca14656f0e699b31f68306321cc5e15',1,'bootloader_jump_check(void) __attribute__((used:&#160;bootloader_setup.h'],['../examples_2ble___a___hello___world___program_2bootloader__setup_8h.html#a3ca14656f0e699b31f68306321cc5e15',1,'bootloader_jump_check(void) __attribute__((used:&#160;bootloader_setup.h']]]
+  ['calcmacroperiod',['calcMacroPeriod',['../vl53l0x_8c.html#ad5157db48703f8dcde0713e96d92660f',1,'vl53l0x.c']]],
+  ['calibratespeed',['calibrateSpeed',['../motor_8c.html#a0370c14de7645e146da2f73a99607774',1,'motor.c']]],
+  ['checktimeoutexpired',['checkTimeoutExpired',['../vl53l0x_8c.html#a6b334e8ad6e78543ec1474f18e06e23c',1,'vl53l0x.c']]],
+  ['create_5ftask',['create_task',['../scheduler_8h.html#ad1b6c54ec22b68ee3133a14c339689a6',1,'create_task(taskIdType taskId, pf_TaskHandler pf_taskH):&#160;scheduler.c'],['../scheduler_8c.html#ad1b6c54ec22b68ee3133a14c339689a6',1,'create_task(taskIdType taskId, pf_TaskHandler pf_taskH):&#160;scheduler.c']]]
 ];

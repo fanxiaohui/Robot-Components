@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['adc_5fconversionmode_5fenum_5ft',['adc_conversionMode_enum_t',['../_example_2_h_a_l_2_include_2adc_8h.html#a22bdf8867c10e570ca99d5f0743814f9',1,'adc_conversionMode_enum_t():&#160;adc.h'],['../_h_a_l_2_include_2adc_8h.html#a22bdf8867c10e570ca99d5f0743814f9',1,'adc_conversionMode_enum_t():&#160;adc.h']]],
-  ['adc_5fprescaler_5fenum_5ft',['adc_prescaler_enum_t',['../_example_2_h_a_l_2_include_2adc_8h.html#a63ca947c07b4885fbb452ea69f775b08',1,'adc_prescaler_enum_t():&#160;adc.h'],['../_h_a_l_2_include_2adc_8h.html#a63ca947c07b4885fbb452ea69f775b08',1,'adc_prescaler_enum_t():&#160;adc.h']]],
-  ['adc_5freference_5fenum_5ft',['adc_reference_enum_t',['../_example_2_h_a_l_2_include_2adc_8h.html#a331e81631fbbe90725292de9574476c7',1,'adc_reference_enum_t():&#160;adc.h'],['../_h_a_l_2_include_2adc_8h.html#a331e81631fbbe90725292de9574476c7',1,'adc_reference_enum_t():&#160;adc.h']]],
-  ['adc_5fresolution_5fenum_5ft',['adc_resolution_enum_t',['../_example_2_h_a_l_2_include_2adc_8h.html#a70359831fdabd21524471b724f6c8db7',1,'adc_resolution_enum_t():&#160;adc.h'],['../_h_a_l_2_include_2adc_8h.html#a70359831fdabd21524471b724f6c8db7',1,'adc_resolution_enum_t():&#160;adc.h']]],
-  ['alert_5flevel_5ft',['alert_level_t',['../group__alert__level__characteristic.html#gaa6124435ddb92000f1ac137259b7a93a',1,'alert_level_t():&#160;alert_level_characteristic.h'],['../group__alert__level__characteristic.html#gaa6124435ddb92000f1ac137259b7a93a',1,'alert_level_t():&#160;alert_level_characteristic.h'],['../group__alert__level__characteristic.html#gaa6124435ddb92000f1ac137259b7a93a',1,'alert_level_t():&#160;alert_level_characteristic.h']]],
-  ['asynctimer_5fsource_5fenum_5ft',['asyncTimer_source_enum_t',['../_example_2_h_a_l_2_include_2async_timer_8h.html#aee34cdbd7f50f3ac3c62d03537b52113',1,'asyncTimer_source_enum_t():&#160;asyncTimer.h'],['../_h_a_l_2_include_2async_timer_8h.html#aee34cdbd7f50f3ac3c62d03537b52113',1,'asyncTimer_source_enum_t():&#160;asyncTimer.h']]]
+  ['vcselperiodtype_5fenum_5ft',['vcselPeriodType_enum_t',['../vl53l0x_8c.html#a263aec975bdc0dbfc92ba2baa9128473',1,'vl53l0x.c']]],
+  ['vl53l0x_5fmode_5fenum_5ft',['vl53l0x_mode_enum_t',['../vl53l0x_8h.html#a43ecdab4108a0bad05e522ef0f48a661',1,'vl53l0x.h']]]
 ];

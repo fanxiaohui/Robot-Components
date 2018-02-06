@@ -24,9 +24,9 @@
   <td id="projectlogo"><img alt="Logo" src=""/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Robot Components
-   &#160;<span id="projectnumber">build 24</span>
+   &#160;<span id="projectnumber">build 32</span>
    </div>
-   <div id="projectbrief"># Robot-Components</div>
+   <div id="projectbrief">Middle layer for sensors, motors etc. as well as some abstract components.</div>
   </td>
  </tr>
  </tbody>
@@ -95,16 +95,16 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a54b5d9881203938a0fa3a88a04e498c2"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#a54b5d9881203938a0fa3a88a04e498c2">pf_TaskHandler</a>) (void)</td></tr>
 <tr class="separator:a54b5d9881203938a0fa3a88a04e498c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc71490bfb3bc5e9050fa6b35741d6e0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#adc71490bfb3bc5e9050fa6b35741d6e0">taskIdType</a></td></tr>
+<tr class="memitem:adc71490bfb3bc5e9050fa6b35741d6e0"><td class="memItemLeft" align="right" valign="top">typedef u8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#adc71490bfb3bc5e9050fa6b35741d6e0">taskIdType</a></td></tr>
 <tr class="separator:adc71490bfb3bc5e9050fa6b35741d6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aefb253fc4282656f63fbd58cb81b6066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#aefb253fc4282656f63fbd58cb81b6066">scheduler_init</a> (<a class="el" href="structtimer__struct__t.html">timer_struct_t</a> s_Timer, <a class="el" href="_example_2_h_a_l_2_include_2timer_8h.html#ae0c94cf5e6c7ba1ee80f693a2e83f68d">timer_interruptType_enum_t</a> interrupt)</td></tr>
+<tr class="memitem:aefb253fc4282656f63fbd58cb81b6066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#aefb253fc4282656f63fbd58cb81b6066">scheduler_init</a> (timer_struct_t s_Timer, timer_interruptType_enum_t interrupt)</td></tr>
 <tr class="separator:aefb253fc4282656f63fbd58cb81b6066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac232d88e9a172a9e3985133300702596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#ac232d88e9a172a9e3985133300702596">activate_task</a> (<a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a> taskId, <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#a9e6c91d77e24643b888dbd1a1a590054">u16</a> task_timer)</td></tr>
+<tr class="memitem:ac232d88e9a172a9e3985133300702596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#ac232d88e9a172a9e3985133300702596">activate_task</a> (u8 taskId, u16 task_timer)</td></tr>
 <tr class="separator:ac232d88e9a172a9e3985133300702596"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712829ce5563ab8c3115f0b7c3899ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#a712829ce5563ab8c3115f0b7c3899ae2">deactivate_task</a> (<a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a> taskId)</td></tr>
+<tr class="memitem:a712829ce5563ab8c3115f0b7c3899ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#a712829ce5563ab8c3115f0b7c3899ae2">deactivate_task</a> (u8 taskId)</td></tr>
 <tr class="separator:a712829ce5563ab8c3115f0b7c3899ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fa00b0be5d3c4781048861e2506eb63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8h.html#a9fa00b0be5d3c4781048861e2506eb63">scheduler</a> (void)</td></tr>
 <tr class="separator:a9fa00b0be5d3c4781048861e2506eb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +164,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a> <a class="el" href="scheduler_8h.html#adc71490bfb3bc5e9050fa6b35741d6e0">taskIdType</a></td>
+          <td class="memname">typedef u8 <a class="el" href="scheduler_8h.html#adc71490bfb3bc5e9050fa6b35741d6e0">taskIdType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -181,13 +181,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void scheduler_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtimer__struct__t.html">timer_struct_t</a>&#160;</td>
+          <td class="paramtype">timer_struct_t&#160;</td>
           <td class="paramname"><em>s_Timer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_example_2_h_a_l_2_include_2timer_8h.html#ae0c94cf5e6c7ba1ee80f693a2e83f68d">timer_interruptType_enum_t</a>&#160;</td>
+          <td class="paramtype">timer_interruptType_enum_t&#160;</td>
           <td class="paramname"><em>interrupt</em>&#160;</td>
         </tr>
         <tr>
@@ -209,13 +209,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void activate_task </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a>&#160;</td>
+          <td class="paramtype">u8&#160;</td>
           <td class="paramname"><em>taskId</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#a9e6c91d77e24643b888dbd1a1a590054">u16</a>&#160;</td>
+          <td class="paramtype">u16&#160;</td>
           <td class="paramname"><em>task_timer</em>&#160;</td>
         </tr>
         <tr>
@@ -237,7 +237,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void deactivate_task </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#aed742c436da53c1080638ce6ef7d13de">u8</a>&#160;</td>
+          <td class="paramtype">u8&#160;</td>
           <td class="paramname"><em>taskId</em></td><td>)</td>
           <td></td>
         </tr>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 13 2017 16:01:13 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 6 2018 03:20:16 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

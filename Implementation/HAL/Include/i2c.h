@@ -15,7 +15,8 @@
 						- Call @link i2c_sendStart @endlink with the write address of the slave device
 						- Call @link i2c_write @endlink with the register to read from
 						- Call @link i2c_sendRepStart @endlink with the read address of the slave device
-						- Call @link i2c_read @endlink to read the register
+						- Call @link i2c_readAck @endlink to read the register all but the last register values
+						- Call @link i2c_readNak @endlink to read the last register value
 						- Call @link i2c_sendStop @endlink
 				- To stop the I2C (for power saving for instance) call @link i2c_stop @endlink.
 */
@@ -139,7 +140,7 @@ void i2c_stop();
  */
 u8 i2c_sendStart(u8 u8_address);
 
-/** Issues a repeated start condition and sends address and transfer direction. Functionally identical to @link sendStart @endlink.
+/** Issues a repeated start condition and sends address and transfer direction. Functionally identical to @link i2c_sendStart @endlink.
 	@pre Must be called after the I2C is initialized (with @link i2c_init @endlink).
 	@param[in]	u8_address: address and transfer direction of I2C device
 	@return		Succeeded in accessing device

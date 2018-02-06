@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['measure_5fbattery',['measure_battery',['../group__battery.html#ga576a4652851389261c495bb9278c0c79',1,'battery.h']]],
-  ['motor_5fdirection',['motor_direction',['../motor_8h.html#a25a3f72a5a73353d338072874669d7d4',1,'motor.h']]],
-  ['motor_5findividualdirspeed',['motor_individualDirSpeed',['../motor_8h.html#a37afb6ac47cfc7978cf6ca11fa10d009',1,'motor.h']]],
-  ['motor_5finit',['motor_init',['../motor_8h.html#a6e370caa40a475d8e799381c220a17a6',1,'motor.h']]],
-  ['motor_5fspeed',['motor_speed',['../motor_8h.html#a04cb27a9b3972bf5a1f32c0df2548e68',1,'motor.h']]],
-  ['motor_5fstart',['motor_start',['../motor_8h.html#a3fe4e3b719e51e346d83912287c5e1b0',1,'motor.h']]],
-  ['motor_5fstop',['motor_stop',['../motor_8h.html#a8d61a881d25362a3040e56baac29178b',1,'motor.h']]]
+  ['scheduler',['scheduler',['../scheduler_8h.html#a9fa00b0be5d3c4781048861e2506eb63',1,'scheduler(void):&#160;scheduler.c'],['../scheduler_8c.html#ad8e3087dd5a5c3096d2499c84f670c28',1,'scheduler():&#160;scheduler.c']]],
+  ['scheduler_5finit',['scheduler_init',['../scheduler_8h.html#aefb253fc4282656f63fbd58cb81b6066',1,'scheduler_init(timer_struct_t s_Timer, timer_interruptType_enum_t interrupt):&#160;scheduler.c'],['../scheduler_8c.html#aefb253fc4282656f63fbd58cb81b6066',1,'scheduler_init(timer_struct_t s_Timer, timer_interruptType_enum_t interrupt):&#160;scheduler.c']]],
+  ['setkd',['setKd',['../pid_8h.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b',1,'setKd(float Kd):&#160;pid.c'],['../pid_8c.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b',1,'setKd(float Kd):&#160;pid.c']]],
+  ['setki',['setKi',['../pid_8h.html#a6f4527c28814aea91d6950ba6eeb86a3',1,'setKi(float Ki):&#160;pid.c'],['../pid_8c.html#a6f4527c28814aea91d6950ba6eeb86a3',1,'setKi(float Ki):&#160;pid.c']]],
+  ['setkp',['setKp',['../pid_8h.html#a9752ae975fdd9149a7ccbde93fb08c2c',1,'setKp(float Kp):&#160;pid.c'],['../pid_8c.html#a9752ae975fdd9149a7ccbde93fb08c2c',1,'setKp(float Kp):&#160;pid.c']]],
+  ['setmeasurementtimingbudget',['setMeasurementTimingBudget',['../vl53l0x_8c.html#a6a2f49c4674616c50d96f8c80d5d9c6c',1,'vl53l0x.c']]],
+  ['setsignalratelimit',['setSignalRateLimit',['../vl53l0x_8c.html#aa22b777aa64112db72bb33de05e3b92d',1,'vl53l0x.c']]],
+  ['setvcselpulseperiod',['setVcselPulsePeriod',['../vl53l0x_8c.html#ab3266266fb9eee032f24a6fce561a9ce',1,'vl53l0x.c']]],
+  ['starttimeout',['startTimeout',['../vl53l0x_8c.html#aa855f6b4c0704b15101c1b0ad7bb944d',1,'vl53l0x.c']]],
+  ['surface_5fgetcalibrationvalues',['surface_getCalibrationValues',['../surface__sensor_8h.html#a51ef81b83dfde37b1422de332ff0f583',1,'surface_getCalibrationValues(surface_struct_t surface_struct):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a51ef81b83dfde37b1422de332ff0f583',1,'surface_getCalibrationValues(surface_struct_t surface_struct):&#160;surface_sensor.c']]],
+  ['surface_5fisblack',['surface_IsBlack',['../surface__sensor_8h.html#a1af0f4bdc750756c72c0f21026f6b932',1,'surface_IsBlack(surface_struct_t surface_struct):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a1af0f4bdc750756c72c0f21026f6b932',1,'surface_IsBlack(surface_struct_t surface_struct):&#160;surface_sensor.c']]],
+  ['surface_5fiswhite',['surface_IsWhite',['../surface__sensor_8h.html#a0402ac989c62c40469197e2b2d6654b9',1,'surface_IsWhite(surface_struct_t surface_struct):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a0402ac989c62c40469197e2b2d6654b9',1,'surface_IsWhite(surface_struct_t surface_struct):&#160;surface_sensor.c']]],
+  ['surface_5fread',['surface_read',['../surface__sensor_8h.html#aadf8b409fb780fdb3987ee2fcafaed89',1,'surface_read(surface_struct_t surface_struct):&#160;surface_sensor.c'],['../surface__sensor_8c.html#aadf8b409fb780fdb3987ee2fcafaed89',1,'surface_read(surface_struct_t surface_struct):&#160;surface_sensor.c']]],
+  ['surface_5fsensor_5finit',['surface_sensor_init',['../surface__sensor_8h.html#a49a51e777009cc5dfd565a8905efd9fe',1,'surface_sensor_init(surface_struct_t surface_struct):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a49a51e777009cc5dfd565a8905efd9fe',1,'surface_sensor_init(surface_struct_t surface_struct):&#160;surface_sensor.c']]],
+  ['surface_5fsetblacktreshold',['surface_setBlackTreshold',['../surface__sensor_8h.html#a61ce5007e17b21a3119f46136954caca',1,'surface_setBlackTreshold(u8 black_treshold):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a6dea1092d68b27904343d85c1165c3c4',1,'surface_setBlackTreshold(u8 treshold):&#160;surface_sensor.c']]],
+  ['surface_5fsetcalibrationvalues',['surface_setCalibrationValues',['../surface__sensor_8h.html#a3778d98d2abc60878c41b7a663b60046',1,'surface_setCalibrationValues():&#160;surface_sensor.c'],['../surface__sensor_8c.html#a3778d98d2abc60878c41b7a663b60046',1,'surface_setCalibrationValues():&#160;surface_sensor.c']]],
+  ['surface_5fsetwhitetreshold',['surface_setWhiteTreshold',['../surface__sensor_8h.html#a821170a33eb6d1d949cc948ad74f07e8',1,'surface_setWhiteTreshold(u8 white_treshold):&#160;surface_sensor.c'],['../surface__sensor_8c.html#a887ee1665de06e33fd2092736de7d6e9',1,'surface_setWhiteTreshold(u8 treshold):&#160;surface_sensor.c']]]
 ];

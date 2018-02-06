@@ -24,9 +24,9 @@
   <td id="projectlogo"><img alt="Logo" src=""/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Robot Components
-   &#160;<span id="projectnumber">build 24</span>
+   &#160;<span id="projectnumber">build 32</span>
    </div>
-   <div id="projectbrief"># Robot-Components</div>
+   <div id="projectbrief">Middle layer for sensors, motors etc. as well as some abstract components.</div>
   </td>
  </tr>
  </tbody>
@@ -65,487 +65,132 @@ $(function() {
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>s16
-: <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#a5ffa4f640862b25ba6d4f635b78bdbe1">types.h</a>
+<li>s_debugUart
+: <a class="el" href="debug_8c.html#a37d2b734d15298bd03fc8cba6b80c257">debug.c</a>
 </li>
-<li>s32
-: <a class="el" href="_h_a_l_2_include_2types_8h.html#adafe97a8e4be18b0198f234819016582">types.h</a>
+<li>s_encoderLeft
+: <a class="el" href="encoder_8c.html#a663cbd7eddc469c0a9ef598bd8f0b74e">encoder.c</a>
 </li>
-<li>s8
-: <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#a151f780fb455885061d3b77ec1c90c03">types.h</a>
+<li>s_encoderRight
+: <a class="el" href="encoder_8c.html#a4058f7bccc3d91269bec8b0854f65553">encoder.c</a>
+</li>
+<li>s_frontSensor
+: <a class="el" href="vl53l0x__example_8c.html#af9e0834c69c5ab9cbd1fabe56547c32d">vl53l0x_example.c</a>
+</li>
+<li>s_i2cInterface
+: <a class="el" href="vl53l0x_8c.html#aeac31ad99f4650c4561f4f713628ef31">vl53l0x.c</a>
+</li>
+<li>s_timeoutTimer
+: <a class="el" href="vl53l0x__example_8c.html#a57376d9a787b10b2bf18a3e9902597e7">vl53l0x_example.c</a>
 </li>
 <li>scheduler()
-: <a class="el" href="scheduler_8h.html#a9fa00b0be5d3c4781048861e2506eb63">scheduler.h</a>
+: <a class="el" href="scheduler_8c.html#ad8e3087dd5a5c3096d2499c84f670c28">scheduler.c</a>
+, <a class="el" href="scheduler_8h.html#a9fa00b0be5d3c4781048861e2506eb63">scheduler.h</a>
 </li>
 <li>scheduler_init()
 : <a class="el" href="scheduler_8h.html#aefb253fc4282656f63fbd58cb81b6066">scheduler.h</a>
-</li>
-<li>section()
-: <a class="el" href="bootloader__setup_8h.html#ad33d3541a25955f0ccf3f1946cb24646">bootloader_setup.h</a>
-</li>
-<li>send_data_from_battery_buffer()
-: <a class="el" href="group__battery.html#gadbe397b01f265560923e867ed27ec2db">battery.h</a>
-</li>
-<li>send_data_from_heart_rate_buffer()
-: <a class="el" href="group__heart__rate__service.html#ga64d1b327d6cd19929ec0833a5546904d">heart_rate.h</a>
-</li>
-<li>SERIAL_COMMS_Enum_Devices()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a1dceea14aff3dd6f573f6de1aff1d19e">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Fini_UART_PRAGUE()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a2203097b21adc6657ce5bc55834f7006">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Fini_UBOOT()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#acc93d843393b5aad5d01759fe50a70e1">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Fini_UBOOT_CCI()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a56b1adcb876a09b9a49f6eba7378031b">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Fini_UBOOT_I2C()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a73a2b0abd8da2fbdbdcf749d69b2c180">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Fini_UBOOT_V2W()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a2e5a856826570d45b20a8b0b701d360c">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Get_Comms_Type_String()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a2ec4ba7eba576397801d72043002116b">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Get_Display_String()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a84f62c6d02b96e923e3edea41e81c2bf">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Get_Error_Text()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a05990d18e78e6ed0de6f0910ea3609cc">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Get_Num_Comms_Types()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a10318809a4003a6cc4ef4f7f82263a6c">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Init_UART_PRAGUE()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a1160c250f1b9975a0cde126e869e80a1">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Init_UBOOT()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#ae8d290e13ab21b168ff535426988a83f">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Init_UBOOT_CCI()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a7d62c7969bf67a6c2cda80d12b52b99b">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Init_UBOOT_I2C()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#ae2536bf8338f53e072b890b5665189fb">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Init_UBOOT_V2W()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a78b8139a77e9c7da4b526910954bd3e2">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Read_UART_PRAGUE()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#ae8e8ff219da218a77650a6d39e76209e">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Read_UBOOT()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#aab52a9ad8c0dc2d7c458b48d8df407d7">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Read_UBOOT_CCI()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a490c6680c6f305e7575e9222713cde96">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Read_UBOOT_I2C()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a7f3f89c35b6bb4b306b50014727f0b8b">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Read_UBOOT_V2W()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a44be0b34675e888321648870350559ab">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Write_UART_PRAGUE()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#aeb9e25c3bacb228a57b2cf3fe6dbe266">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Write_UBOOT()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a0c65d1e52c9da5dbb4a067cde575cdc1">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Write_UBOOT_CCI()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a338a820cf498b9fbaa93cc5ea5951a94">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Write_UBOOT_I2C()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#aea542428fab05e62c6ca3687ba13eb7a">SERIAL_COMMS.h</a>
-</li>
-<li>SERIAL_COMMS_Write_UBOOT_V2W()
-: <a class="el" href="_s_e_r_i_a_l___c_o_m_m_s_8h.html#a9175466851dfd9b4b542ec1ae4a7f7dd">SERIAL_COMMS.h</a>
-</li>
-<li>SERVICES_PIPE_TYPE_MAPPING_CONTENT
-: <a class="el" href="ble__my__project__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__my__project__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__proximity__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__proximity__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__temperature__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__temperature__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__uart__project__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__uart__project__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__bandwidth__test_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__bandwidth__test_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__broadcast_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__broadcast_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__heart__rate__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template__with__battery__service_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__heart__rate__template__with__battery__service_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template__with__simulated__battery__service_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__heart__rate__template__with__simulated__battery__service_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__template_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble___h_i_d__template_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="ble__modify__setup__data_2services_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services.h</a>
-, <a class="el" href="ble__modify__setup__data_2services__lock_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_lock.h</a>
-, <a class="el" href="services__ota__with__pipe_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_ota_with_pipe.h</a>
-, <a class="el" href="services__ota__with__pipe__ota__removed_8h.html#ae22eb7ad4889c04ffb0d75e549268bb9">services_ota_with_pipe_ota_removed.h</a>
-</li>
-<li>SET
-: <a class="el" href="_example_2_h_a_l_2_include_2types_8h.html#a156cd7ccbe6d974e42e6791b1e7e189dab44c8101cc294c074709ec1b14211792">types.h</a>
-</li>
-<li>set_sequence_step_timeout()
-: <a class="el" href="_example_2_adafruit___v_l53_l0_x-master_2src_2vl53l0x__api__core_8h.html#a2f3b8cfe04613bfed29bfdd1de235f0e">vl53l0x_api_core.h</a>
-</li>
-<li>setAddress()
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#ac65d5d7f461e3a8249389e16d4008756">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#ac65d5d7f461e3a8249389e16d4008756">vl53l0x - wire.h</a>
-</li>
-<li>setBit()
-: <a class="el" href="_example_2_h_a_l_2_include_2math_8h.html#ae520bc216f02d5cad7be0416a8a809b1">math.h</a>
+, <a class="el" href="scheduler_8c.html#aefb253fc4282656f63fbd58cb81b6066">scheduler.c</a>
 </li>
 <li>setKd()
 : <a class="el" href="pid_8h.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b">pid.h</a>
+, <a class="el" href="pid_8c.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b">pid.c</a>
 </li>
 <li>setKi()
 : <a class="el" href="pid_8h.html#a6f4527c28814aea91d6950ba6eeb86a3">pid.h</a>
+, <a class="el" href="pid_8c.html#a6f4527c28814aea91d6950ba6eeb86a3">pid.c</a>
 </li>
 <li>setKp()
-: <a class="el" href="pid_8h.html#a9752ae975fdd9149a7ccbde93fb08c2c">pid.h</a>
+: <a class="el" href="pid_8c.html#a9752ae975fdd9149a7ccbde93fb08c2c">pid.c</a>
+, <a class="el" href="pid_8h.html#a9752ae975fdd9149a7ccbde93fb08c2c">pid.h</a>
 </li>
 <li>setMeasurementTimingBudget()
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#ad0dde31e18ac5d63958c904bad43cf0d">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#ad0dde31e18ac5d63958c904bad43cf0d">vl53l0x - wire.h</a>
+: <a class="el" href="vl53l0x_8c.html#a6a2f49c4674616c50d96f8c80d5d9c6c">vl53l0x.c</a>
 </li>
 <li>setSignalRateLimit()
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#aa0bb9894626f36f5d59bc4dde2dbabe4">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#aa0bb9894626f36f5d59bc4dde2dbabe4">vl53l0x - wire.h</a>
-</li>
-<li>setTimeout()
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a1f86b886cef10e98da0286554fbbe32f">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a1f86b886cef10e98da0286554fbbe32f">vl53l0x - wire.h</a>
-</li>
-<li>SETUP_FAIL_COMMAND_QUEUE_NOT_EMPTY
-: <a class="el" href="aci__setup_8h.html#a747b5ee6eb9e6c5fcb803ec6cc5c2e18">aci_setup.h</a>
-</li>
-<li>SETUP_FAIL_EVENT_QUEUE_NOT_EMPTY
-: <a class="el" href="aci__setup_8h.html#ac6be2ed23a67bd7960cd16fd94f93414">aci_setup.h</a>
-</li>
-<li>SETUP_FAIL_NOT_COMMAND_RESPONSE
-: <a class="el" href="aci__setup_8h.html#ac9d53c2e6d5d23ac5851b8111aa53ef7">aci_setup.h</a>
-</li>
-<li>SETUP_FAIL_NOT_SETUP_EVENT
-: <a class="el" href="aci__setup_8h.html#a7d20a0002b7f86234c7c188aa966db09">aci_setup.h</a>
-</li>
-<li>SETUP_FAIL_TIMEOUT
-: <a class="el" href="aci__setup_8h.html#afc52df8fdc218dcd14f4e25017cbeb3d">aci_setup.h</a>
-</li>
-<li>SETUP_FORMAT
-: <a class="el" href="ble__my__project__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__my__project__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__temperature__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__temperature__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__uart__project__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__uart__project__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__bandwidth__test_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__bandwidth__test_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__heart__rate__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-, <a class="el" href="ble__modify__setup__data_2services_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services.h</a>
-, <a class="el" href="ble__modify__setup__data_2services__lock_8h.html#a80308b76ba5950c7b28fa85bd83102fc">services_lock.h</a>
-</li>
-<li>SETUP_ID
-: <a class="el" href="ble___a___hello___world___program_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__bandwidth__test_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__bandwidth__test_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__heart__rate__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__modify__setup__data_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__modify__setup__data_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__my__project__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__my__project__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__temperature__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__temperature__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__uart__project__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-, <a class="el" href="ble__uart__project__template_2services__lock_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services_lock.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services_8h.html#a9440d35f689e6b49e485b48d55b2fd15">services.h</a>
-</li>
-<li>SETUP_MESSAGES_CONTENT
-: <a class="el" href="ble___h_i_d__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble___a___hello___world___program_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble___a_n_c_s__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__bandwidth__test_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__broadcast_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__heart__rate__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template__with__battery__service_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__heart__rate__template__with__battery__service_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__heart__rate__template__with__simulated__battery__service_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__heart__rate__template__with__simulated__battery__service_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__2__bonds__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble___h_i_d__keyboard__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble___h_i_d__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble___h_i_d__template___h_i_d___h_r_m_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__modify__setup__data_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="services__ota__with__pipe_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_ota_with_pipe.h</a>
-, <a class="el" href="services__ota__with__pipe__ota__removed_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_ota_with_pipe_ota_removed.h</a>
-, <a class="el" href="ble__my__project__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__my__project__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__proximity__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__proximity__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__temperature__broadcast_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__temperature__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__uart__project__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-, <a class="el" href="ble__uart__project__with__dfu__template_2services_8h.html#a64c4576c7c141ed32b827e7521f0f896">services.h</a>
-, <a class="el" href="ble__proximity__with__dfu__template_2services__lock_8h.html#a64c4576c7c141ed32b827e7521f0f896">services_lock.h</a>
-</li>
-<li>SETUP_SUCCESS
-: <a class="el" href="aci__setup_8h.html#a8243554e4c79fbc9107a976b50def785">aci_setup.h</a>
+: <a class="el" href="vl53l0x_8c.html#aa22b777aa64112db72bb33de05e3b92d">vl53l0x.c</a>
 </li>
 <li>setVcselPulsePeriod()
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#aba67456f8a5927ea1717ed72b48001a3">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#aba67456f8a5927ea1717ed72b48001a3">vl53l0x - wire.h</a>
-</li>
-<li>SIMULATION
-: <a class="el" href="hrm__definitions_8h.html#ac7fb2cb2a2581dadbd7fe52fba78a31da9b333c1a669a4460c7f9f3212696de6f">hrm_definitions.h</a>
-</li>
-<li>SINGLE_CONVERSION
-: <a class="el" href="_h_a_l_2_include_2adc_8h.html#a22bdf8867c10e570ca99d5f0743814f9a192044c1df908c9c5eb05dcfe9401ee4">adc.h</a>
+: <a class="el" href="vl53l0x_8c.html#ab3266266fb9eee032f24a6fce561a9ce">vl53l0x.c</a>
 </li>
 <li>SOFT_RESET_GO2_SOFT_RESET_N
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#aed7d6f6ff00ee90082c44540e294ea5e">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#aed7d6f6ff00ee90082c44540e294ea5e">vl53l0x - wire.h</a>
-</li>
-<li>SPI
-: <a class="el" href="_example_2_v_l53_l0_x__1_80_82_2_api_2platform_2inc_2vl53l0x__i2c__platform_8h.html#aadd93900fc87105fa3ef514675d4133b">vl53l0x_i2c_platform.h</a>
-</li>
-<li>spi_attachInterrupt()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#ac69c419938383a739cb0a60829833e20">spi.h</a>
-</li>
-<li>spi_clkDivision_enum_t
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a9ec0e005c8156f3a917ba2382070c486">spi.h</a>
-</li>
-<li>spi_dataOrder_enum_t
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a9356b197edc29dca9e57b92f769eb24f">spi.h</a>
-</li>
-<li>spi_detachInterrupt()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a8e55cad67132c190813db9f087a6e9e1">spi.h</a>
-</li>
-<li>spi_disableInterrupts()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a33d000b1ff749c88202abc0215821f9c">spi.h</a>
-</li>
-<li>spi_enableInterrupts()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#aa3e53a2583ba242dd72d140f36cac7d1">spi.h</a>
-</li>
-<li>spi_init()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#ad28318fff6384c618f43f5a42c92537b">spi.h</a>
+: <a class="el" href="vl53l0x_8c.html#aed7d6f6ff00ee90082c44540e294ea5e">vl53l0x.c</a>
 </li>
 <li>SPI_INTERRUPT_MODE
-: <a class="el" href="_h_a_l_2_config_2spi__config_8h.html#aa192cf4d5e9a0608acf1175a3ff7d08a">spi_config.h</a>
-</li>
-<li>SPI_MASTER
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a3428ee7fec530ef640ba0681fcf769aca84379dc90398ca075038c8d5ee465f6a">spi.h</a>
-</li>
-<li>spi_master_enum_t
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a3428ee7fec530ef640ba0681fcf769ac">spi.h</a>
-</li>
-<li>SPI_PRESCALER_128
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a9ec0e005c8156f3a917ba2382070c486a78fbe405e0c3996c67f445abde64df9b">spi.h</a>
-</li>
-<li>SPI_PRESCALER_16
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a9ec0e005c8156f3a917ba2382070c486ab231bb2590fdbb093b95150e8e07c3be">spi.h</a>
-</li>
-<li>SPI_PRESCALER_4
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a9ec0e005c8156f3a917ba2382070c486a56fe4c63aa874c1306900df32ae13d07">spi.h</a>
-</li>
-<li>SPI_PRESCALER_64
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a9ec0e005c8156f3a917ba2382070c486aa1b859dec27953493fa03e0a1eafbde1">spi.h</a>
+: <a class="el" href="spi__config_8h.html#aa192cf4d5e9a0608acf1175a3ff7d08a">spi_config.h</a>
 </li>
 <li>SPI_R_BUFFER_MAX_SIZE
-: <a class="el" href="_h_a_l_2_config_2spi__config_8h.html#aa17b9044b2d2a0449e1d912a7d21aa85">spi_config.h</a>
-</li>
-<li>spi_readData()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a384a873b40dd6c23f0138d6c252cb842">spi.h</a>
-</li>
-<li>spi_readWrite_enum_t
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#afd85dfdc150d8093d80e1ad603bcc884">spi.h</a>
-</li>
-<li>spi_sckIdleState_enum_t
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a3361f7838f23e518c8bea81f9523237a">spi.h</a>
-</li>
-<li>spi_sckSampleEdge_enum_t
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a4f0f5cf206d0b4271139a5522497e26b">spi.h</a>
-</li>
-<li>SPI_SLAVE
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a3428ee7fec530ef640ba0681fcf769acabc98c1546fe12d3fceb1f86cf670faa9">spi.h</a>
-</li>
-<li>spi_start()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#ae2c961ee31d2129f4a6fb509c6a128b7">spi.h</a>
-</li>
-<li>spi_stop()
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#a0d23cee65975b027625cad5ae40451ca">spi.h</a>
+: <a class="el" href="spi__config_8h.html#aa17b9044b2d2a0449e1d912a7d21aa85">spi_config.h</a>
 </li>
 <li>SPI_T_BUFFER_MAX_SIZE
-: <a class="el" href="_example_2_h_a_l_2_config_2spi__config_8h.html#afcbdd478c14ff315e404d4a0f8c4b0b0">spi_config.h</a>
+: <a class="el" href="spi__config_8h.html#afcbdd478c14ff315e404d4a0f8c4b0b0">spi_config.h</a>
 </li>
-<li>spi_transferData()
-: <a class="el" href="_example_2_h_a_l_2_include_2spi_8h.html#ace38c318f39d081e9e2854e9e8f3fa08">spi.h</a>
-</li>
-<li>spi_writeData()
-: <a class="el" href="_h_a_l_2_include_2spi_8h.html#a540753de3494892429cd5b25cd11b0ae">spi.h</a>
-</li>
-<li>startContinuous()
-: <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a9f9c05948b75c7a5c8d3320ea0594f39">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a9f9c05948b75c7a5c8d3320ea0594f39">vl53l0x - wire.h</a>
-</li>
-<li>stmvl53l0x_cleanup()
-: <a class="el" href="stmvl53l0x_8h.html#a12236e19969cdb0557b8515d723cc261">stmvl53l0x.h</a>
-</li>
-<li>STMVL53L0X_DRV_NAME
-: <a class="el" href="stmvl53l0x_8h.html#adee6b6f7060234fdf78e67efb0e35da0">stmvl53l0x.h</a>
-</li>
-<li>stmvl53l0x_exit_i2c()
-: <a class="el" href="stmvl53l0x-i2c_8h.html#a84487003d990103390d7aed862c35c86">stmvl53l0x-i2c.h</a>
-</li>
-<li>stmvl53l0x_init_i2c()
-: <a class="el" href="stmvl53l0x-i2c_8h.html#ad2f976d5e3dcf9c1d3f5b4403e4a876f">stmvl53l0x-i2c.h</a>
-</li>
-<li>stmvl53l0x_power_down_i2c()
-: <a class="el" href="stmvl53l0x-i2c_8h.html#ac1b77f0b5a2bd668b8f1aaba6e45c338">stmvl53l0x-i2c.h</a>
-</li>
-<li>stmvl53l0x_power_up_i2c()
-: <a class="el" href="stmvl53l0x-i2c_8h.html#aaf832cdd70fcda09ac8254f915038044">stmvl53l0x-i2c.h</a>
-</li>
-<li>stmvl53l0x_setup()
-: <a class="el" href="stmvl53l0x_8h.html#a2b8771e09fff3f91f3153b2c18d67738">stmvl53l0x.h</a>
-</li>
-<li>STMVL53L0X_SLAVE_ADDR
-: <a class="el" href="stmvl53l0x_8h.html#af7db24e45e0cb92808f527a6efc1c981">stmvl53l0x.h</a>
-</li>
-<li>stop_variable
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a8594209ef2e1ec1cfa6b516779ae74ad">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a8594209ef2e1ec1cfa6b516779ae74ad">vl53l0x - wire.h</a>
-</li>
-<li>stopContinuous()
-: <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#ab98eeee334e85d5d84bbf798c8219067">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#ab98eeee334e85d5d84bbf798c8219067">vl53l0x - wire.h</a>
-</li>
-<li>SUCCESS
-: <a class="el" href="hrm__definitions_8h.html#a49d93165b5c605878ea194e1210b7e04ac7f69f7c9e5aea9b8f54cf02870e2bf8">hrm_definitions.h</a>
+<li>startTimeout()
+: <a class="el" href="vl53l0x_8c.html#aa855f6b4c0704b15101c1b0ad7bb944d">vl53l0x.c</a>
 </li>
 <li>surface_getCalibrationValues()
 : <a class="el" href="surface__sensor_8h.html#a51ef81b83dfde37b1422de332ff0f583">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a51ef81b83dfde37b1422de332ff0f583">surface_sensor.c</a>
 </li>
 <li>surface_IsBlack()
 : <a class="el" href="surface__sensor_8h.html#a1af0f4bdc750756c72c0f21026f6b932">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a1af0f4bdc750756c72c0f21026f6b932">surface_sensor.c</a>
 </li>
 <li>surface_IsWhite()
 : <a class="el" href="surface__sensor_8h.html#a0402ac989c62c40469197e2b2d6654b9">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a0402ac989c62c40469197e2b2d6654b9">surface_sensor.c</a>
 </li>
 <li>surface_read()
-: <a class="el" href="surface__sensor_8h.html#aadf8b409fb780fdb3987ee2fcafaed89">surface_sensor.h</a>
+: <a class="el" href="surface__sensor_8c.html#aadf8b409fb780fdb3987ee2fcafaed89">surface_sensor.c</a>
+, <a class="el" href="surface__sensor_8h.html#aadf8b409fb780fdb3987ee2fcafaed89">surface_sensor.h</a>
 </li>
 <li>surface_sensor_init()
 : <a class="el" href="surface__sensor_8h.html#a49a51e777009cc5dfd565a8905efd9fe">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a49a51e777009cc5dfd565a8905efd9fe">surface_sensor.c</a>
 </li>
 <li>surface_setBlackTreshold()
-: <a class="el" href="surface__sensor_8h.html#a61ce5007e17b21a3119f46136954caca">surface_sensor.h</a>
+: <a class="el" href="surface__sensor_8c.html#a6dea1092d68b27904343d85c1165c3c4">surface_sensor.c</a>
+, <a class="el" href="surface__sensor_8h.html#a61ce5007e17b21a3119f46136954caca">surface_sensor.h</a>
 </li>
 <li>surface_setCalibrationValues()
 : <a class="el" href="surface__sensor_8h.html#a3778d98d2abc60878c41b7a663b60046">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a3778d98d2abc60878c41b7a663b60046">surface_sensor.c</a>
 </li>
 <li>surface_setWhiteTreshold()
-: <a class="el" href="surface__sensor_8h.html#a821170a33eb6d1d949cc948ad74f07e8">surface_sensor.h</a>
+: <a class="el" href="surface__sensor_8c.html#a887ee1665de06e33fd2092736de7d6e9">surface_sensor.c</a>
+, <a class="el" href="surface__sensor_8h.html#a821170a33eb6d1d949cc948ad74f07e8">surface_sensor.h</a>
 </li>
 <li>SYSRANGE_START
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#a8927855b04ea03b9a4678ef42fc3073e">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a8927855b04ea03b9a4678ef42fc3073e">vl53l0x.h</a>
-</li>
-<li>SYSTEM_CLOCK_FREQUENCY
-: <a class="el" href="_example_2_h_a_l_2_config_2device__config_8h.html#a137017b073e0ce3016dfffb6eb40a16e">device_config.h</a>
+: <a class="el" href="vl53l0x_8c.html#a8927855b04ea03b9a4678ef42fc3073e">vl53l0x.c</a>
 </li>
 <li>SYSTEM_HISTOGRAM_BIN
-: <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a6d3e0fc7c392cea736c4114fa1233b4c">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a6d3e0fc7c392cea736c4114fa1233b4c">vl53l0x - wire.h</a>
+: <a class="el" href="vl53l0x_8c.html#a6d3e0fc7c392cea736c4114fa1233b4c">vl53l0x.c</a>
 </li>
 <li>SYSTEM_INTERMEASUREMENT_PERIOD
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#a31c96b7ce1d07686e72a3b9642c3f4bc">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a31c96b7ce1d07686e72a3b9642c3f4bc">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#a31c96b7ce1d07686e72a3b9642c3f4bc">vl53l0x.c</a>
 </li>
 <li>SYSTEM_INTERRUPT_CLEAR
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a74241935b17022399d0348e1c9b136f8">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a74241935b17022399d0348e1c9b136f8">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a74241935b17022399d0348e1c9b136f8">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#a74241935b17022399d0348e1c9b136f8">vl53l0x.c</a>
 </li>
 <li>SYSTEM_INTERRUPT_CONFIG_GPIO
-: <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#ada6400414ef4b8244c32441531b66bd5">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#ada6400414ef4b8244c32441531b66bd5">vl53l0x - wire.h</a>
+: <a class="el" href="vl53l0x_8c.html#ada6400414ef4b8244c32441531b66bd5">vl53l0x.c</a>
 </li>
 <li>SYSTEM_RANGE_CONFIG
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#a76b774b2c00ba9412c301d70f7050115">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a76b774b2c00ba9412c301d70f7050115">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#a76b774b2c00ba9412c301d70f7050115">vl53l0x.c</a>
 </li>
 <li>SYSTEM_SEQUENCE_CONFIG
-: <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a2e37298ac5ecbe7ca0900315e71e9375">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a2e37298ac5ecbe7ca0900315e71e9375">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a2e37298ac5ecbe7ca0900315e71e9375">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#a2e37298ac5ecbe7ca0900315e71e9375">vl53l0x.c</a>
 </li>
 <li>SYSTEM_THRESH_HIGH
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#abe305ff4b6e18509568202e772bd4810">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#abe305ff4b6e18509568202e772bd4810">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#abe305ff4b6e18509568202e772bd4810">vl53l0x.c</a>
 </li>
 <li>SYSTEM_THRESH_LOW
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#aafa1b54eb9121c8a9f18ca154db8e6d4">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#aafa1b54eb9121c8a9f18ca154db8e6d4">vl53l0x.h</a>
+: <a class="el" href="vl53l0x_8c.html#aafa1b54eb9121c8a9f18ca154db8e6d4">vl53l0x.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 13 2017 16:01:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 6 2018 03:20:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

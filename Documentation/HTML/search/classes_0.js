@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5faci_5fpacked_5f',['_aci_packed_',['../struct__aci__packed__.html',1,'']]]
+  ['encoder_5fstruct_5ft',['encoder_struct_t',['../structencoder__struct__t.html',1,'']]]
 ];

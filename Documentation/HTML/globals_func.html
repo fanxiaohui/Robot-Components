@@ -24,9 +24,9 @@
   <td id="projectlogo"><img alt="Logo" src=""/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Robot Components
-   &#160;<span id="projectnumber">build 24</span>
+   &#160;<span id="projectnumber">build 32</span>
    </div>
-   <div id="projectbrief"># Robot-Components</div>
+   <div id="projectbrief">Middle layer for sensors, motors etc. as well as some abstract components.</div>
   </td>
  </tr>
  </tbody>
@@ -64,15 +64,400 @@ $(function() {
 <div class="contents">
 &#160;
 
-<h3><a id="index__"></a>- _ -</h3><ul>
-<li>__ble_assert()
-: <a class="el" href="ble__assert_8h.html#a49767c55f2ad54a5a5d0c8d2d4df5ac8">ble_assert.h</a>
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>activate_task()
+: <a class="el" href="scheduler_8h.html#ac232d88e9a172a9e3985133300702596">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#ac232d88e9a172a9e3985133300702596">scheduler.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>byteToASCIIHex()
+: <a class="el" href="debug_8c.html#ac98e705ec309cf5caa09e1c80f0144fd">debug.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_c"></a>- c -</h3><ul>
+<li>calcMacroPeriod()
+: <a class="el" href="vl53l0x_8c.html#ad5157db48703f8dcde0713e96d92660f">vl53l0x.c</a>
+</li>
+<li>calibrateSpeed()
+: <a class="el" href="motor_8c.html#a0370c14de7645e146da2f73a99607774">motor.c</a>
+</li>
+<li>checkTimeoutExpired()
+: <a class="el" href="vl53l0x_8c.html#a6b334e8ad6e78543ec1474f18e06e23c">vl53l0x.c</a>
+</li>
+<li>create_task()
+: <a class="el" href="scheduler_8h.html#ad1b6c54ec22b68ee3133a14c339689a6">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#ad1b6c54ec22b68ee3133a14c339689a6">scheduler.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_d"></a>- d -</h3><ul>
+<li>deactivate_task()
+: <a class="el" href="scheduler_8h.html#a712829ce5563ab8c3115f0b7c3899ae2">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#a712829ce5563ab8c3115f0b7c3899ae2">scheduler.c</a>
+</li>
+<li>debug_init()
+: <a class="el" href="debug_8h.html#aed51223c2946020f1b5b26af2c2fd0e9">debug.h</a>
+, <a class="el" href="debug_8c.html#aed51223c2946020f1b5b26af2c2fd0e9">debug.c</a>
+</li>
+<li>debug_start()
+: <a class="el" href="debug_8h.html#a3695bf7268750bf6b161cf0e55d877c0">debug.h</a>
+</li>
+<li>debug_stop()
+: <a class="el" href="debug_8h.html#af54b230debf49877b8d444121ad6da47">debug.h</a>
+</li>
+<li>debug_writeChar()
+: <a class="el" href="debug_8h.html#a9f8f753e40e070973244b170fcd3d7de">debug.h</a>
+, <a class="el" href="debug_8c.html#a9f8f753e40e070973244b170fcd3d7de">debug.c</a>
+</li>
+<li>debug_writeDecimal()
+: <a class="el" href="debug_8h.html#a9bf71a15d16a445586cf3d65c0885ee4">debug.h</a>
+, <a class="el" href="debug_8c.html#a9bf71a15d16a445586cf3d65c0885ee4">debug.c</a>
+</li>
+<li>debug_writeHex()
+: <a class="el" href="debug_8h.html#a095a2aff42e3b4097d033c23681ffefb">debug.h</a>
+, <a class="el" href="debug_8c.html#a095a2aff42e3b4097d033c23681ffefb">debug.c</a>
+</li>
+<li>debug_writeHexDWord()
+: <a class="el" href="debug_8h.html#a2e853a3cef97fcbb575e7396edc8a374">debug.h</a>
+, <a class="el" href="debug_8c.html#a2e853a3cef97fcbb575e7396edc8a374">debug.c</a>
+</li>
+<li>debug_writeHexWord()
+: <a class="el" href="debug_8h.html#abfc06fa645475bdc16df133b91a67e63">debug.h</a>
+, <a class="el" href="debug_8c.html#abfc06fa645475bdc16df133b91a67e63">debug.c</a>
+</li>
+<li>debug_writeString()
+: <a class="el" href="debug_8h.html#a8915a3e4308b9c5b407e40a2227964c0">debug.h</a>
+, <a class="el" href="debug_8c.html#a8915a3e4308b9c5b407e40a2227964c0">debug.c</a>
+</li>
+<li>decodeTimeout()
+: <a class="el" href="vl53l0x_8c.html#ad5490203a45a72c88783b9ef61eb9985">vl53l0x.c</a>
+</li>
+<li>decodeVcselPeriod()
+: <a class="el" href="vl53l0x_8c.html#a57b2e841a4e7a5f687e05203667f2434">vl53l0x.c</a>
+</li>
+<li>destroy_task()
+: <a class="el" href="scheduler_8h.html#a89234d624e7590d1cd571746fbc1304c">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#a89234d624e7590d1cd571746fbc1304c">scheduler.c</a>
+</li>
+<li>distanceSensor_defaultTest()
+: <a class="el" href="vl53l0x__example_8c.html#a43d8fe97d328e7b99d678e465433369e">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#a43d8fe97d328e7b99d678e465433369e">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_init()
+: <a class="el" href="vl53l0x__example_8c.html#a7beb2efbf5e697b3f566308ba83ede58">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#a7beb2efbf5e697b3f566308ba83ede58">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_maxAccuracyTest()
+: <a class="el" href="vl53l0x__example_8c.html#ae26d8e3c5e2bc459c367105c9c76a918">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#ae26d8e3c5e2bc459c367105c9c76a918">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_maxRangeTest()
+: <a class="el" href="vl53l0x__example_8c.html#ae8ee5ba4469d93c600f7aaac1d2a4773">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#ae8ee5ba4469d93c600f7aaac1d2a4773">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_maxSpeedTest()
+: <a class="el" href="vl53l0x__example_8c.html#abf35396afeba8dc74c6b8a70c46784c4">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#abf35396afeba8dc74c6b8a70c46784c4">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_obstacleTest()
+: <a class="el" href="vl53l0x__example_8c.html#a1a7a968715c8d7f3615d46ed3cb45d38">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#a1a7a968715c8d7f3615d46ed3cb45d38">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_singleTest()
+: <a class="el" href="vl53l0x__example_8c.html#a0b4be934bcc225a53db3fcf0cea4e99e">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#a0b4be934bcc225a53db3fcf0cea4e99e">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_sleepTest()
+: <a class="el" href="vl53l0x__example_8c.html#a0f8087359e95ece08349608d0edd0271">vl53l0x_example.c</a>
+, <a class="el" href="vl53l0x__example_8h.html#a0f8087359e95ece08349608d0edd0271">vl53l0x_example.h</a>
+</li>
+<li>distanceSensor_stop()
+: <a class="el" href="vl53l0x__example_8h.html#a3e53cc0c24a9bde8a4f5ff68a46ef5c2">vl53l0x_example.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>encoder_getCounter()
+: <a class="el" href="encoder_8h.html#a1fb4fecea5a759d8881ad3d8f205318c">encoder.h</a>
+, <a class="el" href="encoder_8c.html#a1fb4fecea5a759d8881ad3d8f205318c">encoder.c</a>
+</li>
+<li>encoder_increment()
+: <a class="el" href="encoder_8c.html#a29d38bb69d71a963464130e559b15d0d">encoder.c</a>
+</li>
+<li>encoder_init()
+: <a class="el" href="encoder_8h.html#aba3a0b81a2de068cfc63026958202e58">encoder.h</a>
+, <a class="el" href="encoder_8c.html#aba3a0b81a2de068cfc63026958202e58">encoder.c</a>
+</li>
+<li>encoder_reset()
+: <a class="el" href="encoder_8c.html#a0c83cbc324a738c201a434cd3bf5a6ba">encoder.c</a>
+</li>
+<li>encoder_resetCounter()
+: <a class="el" href="encoder_8h.html#ade761678dfc4f606b71fdfb620172eb3">encoder.h</a>
+</li>
+<li>encoder_start()
+: <a class="el" href="encoder_8h.html#a1f18ceeae4739d7dc46fa5aa6dbd76f9">encoder.h</a>
+, <a class="el" href="encoder_8c.html#a1f18ceeae4739d7dc46fa5aa6dbd76f9">encoder.c</a>
+</li>
+<li>encoder_stop()
+: <a class="el" href="encoder_8h.html#a5d1b6ee13a86fb5907c545bb35e7e1bc">encoder.h</a>
+, <a class="el" href="encoder_8c.html#a5d1b6ee13a86fb5907c545bb35e7e1bc">encoder.c</a>
+</li>
+<li>encodeTimeout()
+: <a class="el" href="vl53l0x_8c.html#a2a6b738c81c1f91fac9d0dbbed5bdda8">vl53l0x.c</a>
+</li>
+<li>encodeVcselPeriod()
+: <a class="el" href="vl53l0x_8c.html#a3c0819e3b4985669979d7ab9d66c762d">vl53l0x.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>FlagUpdate()
+: <a class="el" href="scheduler_8c.html#a66d3a4ff780639fbd95dd24055310822">scheduler.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>getKd()
+: <a class="el" href="pid_8h.html#a20cf3515ee717a7250fb36f2a35e46c1">pid.h</a>
+, <a class="el" href="pid_8c.html#a20cf3515ee717a7250fb36f2a35e46c1">pid.c</a>
+</li>
+<li>getKi()
+: <a class="el" href="pid_8h.html#a96d53075be56a51b0e719484421f8aa3">pid.h</a>
+, <a class="el" href="pid_8c.html#a96d53075be56a51b0e719484421f8aa3">pid.c</a>
+</li>
+<li>getKp()
+: <a class="el" href="pid_8h.html#a3be13c0a69427736b45717c0ce087bb5">pid.h</a>
+, <a class="el" href="pid_8c.html#a3be13c0a69427736b45717c0ce087bb5">pid.c</a>
+</li>
+<li>getSequenceStepEnables()
+: <a class="el" href="vl53l0x_8c.html#a642d24fe45d9a580cd0c9de4a078a33e">vl53l0x.c</a>
+</li>
+<li>getSequenceStepTimeouts()
+: <a class="el" href="vl53l0x_8c.html#a51ec85f0f953489e3f077f5ba924640c">vl53l0x.c</a>
+</li>
+<li>getSpadInfo()
+: <a class="el" href="vl53l0x_8c.html#a39267fe1e48f3ea1fa0db5fcffcef22d">vl53l0x.c</a>
+</li>
+<li>getVcselPulsePeriod()
+: <a class="el" href="vl53l0x_8c.html#add6dfa5e4b565e3cb3e3206dc591e677">vl53l0x.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>main()
+: <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main.c</a>
+</li>
+<li>motor_direction()
+: <a class="el" href="motor_8h.html#a25a3f72a5a73353d338072874669d7d4">motor.h</a>
+, <a class="el" href="motor_8c.html#a25a3f72a5a73353d338072874669d7d4">motor.c</a>
+</li>
+<li>motor_individualDirSpeed()
+: <a class="el" href="motor_8h.html#a37afb6ac47cfc7978cf6ca11fa10d009">motor.h</a>
+, <a class="el" href="motor_8c.html#a37afb6ac47cfc7978cf6ca11fa10d009">motor.c</a>
+</li>
+<li>motor_init()
+: <a class="el" href="motor_8h.html#a6e370caa40a475d8e799381c220a17a6">motor.h</a>
+, <a class="el" href="motor_8c.html#a6e370caa40a475d8e799381c220a17a6">motor.c</a>
+</li>
+<li>motor_speed()
+: <a class="el" href="motor_8h.html#a04cb27a9b3972bf5a1f32c0df2548e68">motor.h</a>
+, <a class="el" href="motor_8c.html#a04cb27a9b3972bf5a1f32c0df2548e68">motor.c</a>
+</li>
+<li>motor_start()
+: <a class="el" href="motor_8h.html#a3fe4e3b719e51e346d83912287c5e1b0">motor.h</a>
+, <a class="el" href="motor_8c.html#a3fe4e3b719e51e346d83912287c5e1b0">motor.c</a>
+</li>
+<li>motor_stop()
+: <a class="el" href="motor_8h.html#a8d61a881d25362a3040e56baac29178b">motor.h</a>
+, <a class="el" href="motor_8c.html#a8d61a881d25362a3040e56baac29178b">motor.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>performSingleRefCalibration()
+: <a class="el" href="vl53l0x_8c.html#ac90912cb91fa6cbb0ba7b7d8849120f1">vl53l0x.c</a>
+</li>
+<li>PID_GetCorrection()
+: <a class="el" href="pid_8h.html#a1794a53accb51065e1c73cc0d767d139">pid.h</a>
+, <a class="el" href="pid_8c.html#a1794a53accb51065e1c73cc0d767d139">pid.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_r"></a>- r -</h3><ul>
+<li>Read_encoders()
+: <a class="el" href="_tasks_8c.html#a6ced727b9996b8776fb49d156fcb1654">Tasks.c</a>
+</li>
+<li>readMulti()
+: <a class="el" href="vl53l0x_8c.html#a7c1eadd3a562a83ab4a687487ede037a">vl53l0x.c</a>
+</li>
+<li>readReg()
+: <a class="el" href="vl53l0x_8c.html#a653022454af15f15c516a1ab2b42413b">vl53l0x.c</a>
+</li>
+<li>readReg16Bit()
+: <a class="el" href="vl53l0x_8c.html#a7b965f32bb1c5212177297c219142c52">vl53l0x.c</a>
+</li>
+<li>readReg32Bit()
+: <a class="el" href="vl53l0x_8c.html#a242af5910076113fb413ae18cda60173">vl53l0x.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>scheduler()
+: <a class="el" href="scheduler_8h.html#a9fa00b0be5d3c4781048861e2506eb63">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#ad8e3087dd5a5c3096d2499c84f670c28">scheduler.c</a>
+</li>
+<li>scheduler_init()
+: <a class="el" href="scheduler_8h.html#aefb253fc4282656f63fbd58cb81b6066">scheduler.h</a>
+, <a class="el" href="scheduler_8c.html#aefb253fc4282656f63fbd58cb81b6066">scheduler.c</a>
+</li>
+<li>setKd()
+: <a class="el" href="pid_8h.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b">pid.h</a>
+, <a class="el" href="pid_8c.html#a75c91ff1cc6221fdeaa9aba1d4b98d8b">pid.c</a>
+</li>
+<li>setKi()
+: <a class="el" href="pid_8h.html#a6f4527c28814aea91d6950ba6eeb86a3">pid.h</a>
+, <a class="el" href="pid_8c.html#a6f4527c28814aea91d6950ba6eeb86a3">pid.c</a>
+</li>
+<li>setKp()
+: <a class="el" href="pid_8h.html#a9752ae975fdd9149a7ccbde93fb08c2c">pid.h</a>
+, <a class="el" href="pid_8c.html#a9752ae975fdd9149a7ccbde93fb08c2c">pid.c</a>
+</li>
+<li>setMeasurementTimingBudget()
+: <a class="el" href="vl53l0x_8c.html#a6a2f49c4674616c50d96f8c80d5d9c6c">vl53l0x.c</a>
+</li>
+<li>setSignalRateLimit()
+: <a class="el" href="vl53l0x_8c.html#aa22b777aa64112db72bb33de05e3b92d">vl53l0x.c</a>
+</li>
+<li>setVcselPulsePeriod()
+: <a class="el" href="vl53l0x_8c.html#ab3266266fb9eee032f24a6fce561a9ce">vl53l0x.c</a>
+</li>
+<li>startTimeout()
+: <a class="el" href="vl53l0x_8c.html#aa855f6b4c0704b15101c1b0ad7bb944d">vl53l0x.c</a>
+</li>
+<li>surface_getCalibrationValues()
+: <a class="el" href="surface__sensor_8h.html#a51ef81b83dfde37b1422de332ff0f583">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a51ef81b83dfde37b1422de332ff0f583">surface_sensor.c</a>
+</li>
+<li>surface_IsBlack()
+: <a class="el" href="surface__sensor_8h.html#a1af0f4bdc750756c72c0f21026f6b932">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a1af0f4bdc750756c72c0f21026f6b932">surface_sensor.c</a>
+</li>
+<li>surface_IsWhite()
+: <a class="el" href="surface__sensor_8h.html#a0402ac989c62c40469197e2b2d6654b9">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a0402ac989c62c40469197e2b2d6654b9">surface_sensor.c</a>
+</li>
+<li>surface_read()
+: <a class="el" href="surface__sensor_8h.html#aadf8b409fb780fdb3987ee2fcafaed89">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#aadf8b409fb780fdb3987ee2fcafaed89">surface_sensor.c</a>
+</li>
+<li>surface_sensor_init()
+: <a class="el" href="surface__sensor_8h.html#a49a51e777009cc5dfd565a8905efd9fe">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a49a51e777009cc5dfd565a8905efd9fe">surface_sensor.c</a>
+</li>
+<li>surface_setBlackTreshold()
+: <a class="el" href="surface__sensor_8h.html#a61ce5007e17b21a3119f46136954caca">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a6dea1092d68b27904343d85c1165c3c4">surface_sensor.c</a>
+</li>
+<li>surface_setCalibrationValues()
+: <a class="el" href="surface__sensor_8h.html#a3778d98d2abc60878c41b7a663b60046">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a3778d98d2abc60878c41b7a663b60046">surface_sensor.c</a>
+</li>
+<li>surface_setWhiteTreshold()
+: <a class="el" href="surface__sensor_8h.html#a821170a33eb6d1d949cc948ad74f07e8">surface_sensor.h</a>
+, <a class="el" href="surface__sensor_8c.html#a887ee1665de06e33fd2092736de7d6e9">surface_sensor.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>timeoutMclksToMicroseconds()
+: <a class="el" href="vl53l0x_8c.html#afdea5c78cbd747bf0fefc5fbf14bb42c">vl53l0x.c</a>
+</li>
+<li>timeoutMicrosecondsToMclks()
+: <a class="el" href="vl53l0x_8c.html#a6bc800961afd408b0e50327c4d409eb4">vl53l0x.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>vl53l0x_incrementTimeoutCounter()
+: <a class="el" href="vl53l0x_8h.html#aa047cb26a671fc90c135d3ef59b5fb22">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#aa047cb26a671fc90c135d3ef59b5fb22">vl53l0x.c</a>
+</li>
+<li>vl53l0x_init()
+: <a class="el" href="vl53l0x_8h.html#a4a9d9593e399ed688188496e232f0ffe">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a4a9d9593e399ed688188496e232f0ffe">vl53l0x.c</a>
+</li>
+<li>vl53l0x_readRangeContinuous()
+: <a class="el" href="vl53l0x_8h.html#a00c01f521279eb029ba64f51453bfc14">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a00c01f521279eb029ba64f51453bfc14">vl53l0x.c</a>
+</li>
+<li>vl53l0x_readRangeSingle()
+: <a class="el" href="vl53l0x_8h.html#aac488bc722fff6401b6ef604061c4eeb">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#aac488bc722fff6401b6ef604061c4eeb">vl53l0x.c</a>
+</li>
+<li>vl53l0x_setAddress()
+: <a class="el" href="vl53l0x_8h.html#a486d2db8c03a09d08740e25832fee6d3">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a486d2db8c03a09d08740e25832fee6d3">vl53l0x.c</a>
+</li>
+<li>vl53l0x_setMode()
+: <a class="el" href="vl53l0x_8h.html#a15ba6ed6de1cbd298fbd871ddf0e6449">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a15ba6ed6de1cbd298fbd871ddf0e6449">vl53l0x.c</a>
+</li>
+<li>vl53l0x_start()
+: <a class="el" href="vl53l0x_8h.html#ad54073b5a9943c5ba18e7234f33630e0">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#ad54073b5a9943c5ba18e7234f33630e0">vl53l0x.c</a>
+</li>
+<li>vl53l0x_startContinuous()
+: <a class="el" href="vl53l0x_8h.html#aa8e07bbd421d44b3bc1633dbf9c822a4">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#aa8e07bbd421d44b3bc1633dbf9c822a4">vl53l0x.c</a>
+</li>
+<li>vl53l0x_stop()
+: <a class="el" href="vl53l0x_8h.html#a65ac2f01c3c30c415d896060ffac62ed">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a65ac2f01c3c30c415d896060ffac62ed">vl53l0x.c</a>
+</li>
+<li>vl53l0x_stopContinuous()
+: <a class="el" href="vl53l0x_8h.html#a8d590c48ccda524ad3f92e5edc9bb089">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#a8d590c48ccda524ad3f92e5edc9bb089">vl53l0x.c</a>
+</li>
+<li>vl53l0x_timeoutOccurred()
+: <a class="el" href="vl53l0x_8h.html#ad5ceaacd1045cc260e01716498b4919f">vl53l0x.h</a>
+, <a class="el" href="vl53l0x_8c.html#ad5ceaacd1045cc260e01716498b4919f">vl53l0x.c</a>
+</li>
+</ul>
+
+
+<h3><a id="index_w"></a>- w -</h3><ul>
+<li>writeMulti()
+: <a class="el" href="vl53l0x_8c.html#a939bc389e2186238f7418165d8357c0e">vl53l0x.c</a>
+</li>
+<li>writeReg()
+: <a class="el" href="vl53l0x_8c.html#a92ff3f8e2e9adf4e7fdd6d66ec549441">vl53l0x.c</a>
+</li>
+<li>writeReg16Bit()
+: <a class="el" href="vl53l0x_8c.html#a2e01fbaffefaf8f13ed7f684138f285b">vl53l0x.c</a>
+</li>
+<li>writeReg32Bit()
+: <a class="el" href="vl53l0x_8c.html#a91a48fcf13aa07a28c0122e0fc837822">vl53l0x.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 13 2017 16:01:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 6 2018 03:20:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

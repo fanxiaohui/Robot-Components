@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['jtag_5freset',['JTAG_RESET',['../_example_2_h_a_l_2_include_2device_8h.html#a34401aa222162b45a46cf1c851470d20ab7ef2c7bb900201ca9f1d456136399fe',1,'JTAG_RESET():&#160;device.h'],['../_h_a_l_2_include_2device_8h.html#a34401aa222162b45a46cf1c851470d20ab7ef2c7bb900201ca9f1d456136399fe',1,'JTAG_RESET():&#160;device.h']]]
+  ['laststate',['lastState',['../structencoder__struct__t.html#a48375fca7d8f346e7a64103c963e6bc8',1,'encoder_struct_t']]],
+  ['led_5fpin',['led_pin',['../structsurface__struct__t.html#abafe61913fe90f60f5f0119bf65a0e58',1,'surface_struct_t']]],
+  ['left',['LEFT',['../motor_8h.html#a93b858fd8505b539fe9e73b0dbca915dadb45120aafd37a973140edee24708065',1,'motor.h']]]
 ];

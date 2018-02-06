@@ -24,9 +24,9 @@
   <td id="projectlogo"><img alt="Logo" src=""/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Robot Components
-   &#160;<span id="projectnumber">build 24</span>
+   &#160;<span id="projectnumber">build 32</span>
    </div>
-   <div id="projectbrief"># Robot-Components</div>
+   <div id="projectbrief">Middle layer for sensors, motors etc. as well as some abstract components.</div>
   </td>
  </tr>
  </tbody>
@@ -62,111 +62,63 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;
-
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>address
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#af295f9c996709fe6d6a35da1602013dc">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#af295f9c996709fe6d6a35da1602013dc">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#af295f9c996709fe6d6a35da1602013dc">vl53l0x.h</a>
+&#160;<ul>
+<li>black_treshold
+: <a class="el" href="surface__sensor_8c.html#af0d8f9df90c1106a1b8ffe7f2f73560e">surface_sensor.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>DefaultTuningSettings
-: <a class="el" href="_example_2_adafruit___v_l53_l0_x-master_2src_2vl53l0x__tuning_8h.html#a4a877a9eccbbadcccf066d8c797a3713">vl53l0x_tuning.h</a>
+<li>Kd
+: <a class="el" href="pid_8c.html#a98268d71502ba080d88a9b1f50fdbe80">pid.c</a>
 </li>
-<li>did_timeout
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#a7b27e983b86755c46d24a2db88258e1a">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a7b27e983b86755c46d24a2db88258e1a">vl53l0x.h</a>
+<li>Ki
+: <a class="el" href="pid_8c.html#a59fac16f568541187ff485c4c47b0ec5">pid.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>InterruptThresholdSettings
-: <a class="el" href="_example_2_adafruit___v_l53_l0_x-master_2src_2vl53l0x__interrupt__threshold__settings_8h.html#a8539bb00e132ef61f0719540c6f30c7e">vl53l0x_interrupt_threshold_settings.h</a>
+<li>Kp
+: <a class="el" href="pid_8c.html#a09cfc766a233ad617270562cc4146d07">pid.c</a>
 </li>
-<li>io_timeout
-: <a class="el" href="vl53l0x_01-_01wire_8h.html#ab8d8a6fd15d0b3c66f4e7485bf97bc11">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#ab8d8a6fd15d0b3c66f4e7485bf97bc11">vl53l0x.h</a>
+<li>max
+: <a class="el" href="surface__sensor_8c.html#a279ed97089091b3aae9c0617d1d1cbbe">surface_sensor.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>last_status
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a676edc9f24b1aef4fd5c3491f0ed7e9b">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a676edc9f24b1aef4fd5c3491f0ed7e9b">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a676edc9f24b1aef4fd5c3491f0ed7e9b">vl53l0x.h</a>
+<li>min
+: <a class="el" href="surface__sensor_8c.html#ab7e24e653a226218133723786f7bf62b">surface_sensor.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>measurement_timing_budget_us
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#abb9ec07af1ed33c200973d3b732c5c9b">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#abb9ec07af1ed33c200973d3b732c5c9b">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#abb9ec07af1ed33c200973d3b732c5c9b">vl53l0x.h</a>
+<li>previousError
+: <a class="el" href="pid_8c.html#a96c2aac50a994c372e4dd05dc424df40">pid.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>naked
-: <a class="el" href="bootloader__setup_8h.html#a71db13eb87d73a21e257244ee61e94fd">bootloader_setup.h</a>
+<li>s_debugUart
+: <a class="el" href="debug_8c.html#a37d2b734d15298bd03fc8cba6b80c257">debug.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>rxBuffer
-: <a class="el" href="_wire_8h.html#a6cfdd612c2807217c88db6a9bf88bed5">Wire.h</a>
+<li>s_encoderLeft
+: <a class="el" href="encoder_8c.html#a663cbd7eddc469c0a9ef598bd8f0b74e">encoder.c</a>
 </li>
-<li>rxBufferIndex
-: <a class="el" href="_wire_8h.html#a84810accadab91d0f82cc64b0b14299c">Wire.h</a>
+<li>s_encoderRight
+: <a class="el" href="encoder_8c.html#a4058f7bccc3d91269bec8b0854f65553">encoder.c</a>
 </li>
-<li>rxBufferLength
-: <a class="el" href="_wire_8h.html#a5c7c6a1b6c6738c54df43f3198f8bd57">Wire.h</a>
+<li>s_frontSensor
+: <a class="el" href="vl53l0x__example_8c.html#af9e0834c69c5ab9cbd1fabe56547c32d">vl53l0x_example.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>stop_variable
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a8594209ef2e1ec1cfa6b516779ae74ad">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a8594209ef2e1ec1cfa6b516779ae74ad">vl53l0x - wire.h</a>
-, <a class="el" href="_include_2pololu_01i2c_2_v_l53_l0_x_8h.html#a8594209ef2e1ec1cfa6b516779ae74ad">vl53l0x.h</a>
+<li>s_i2cInterface
+: <a class="el" href="vl53l0x_8c.html#aeac31ad99f4650c4561f4f713628ef31">vl53l0x.c</a>
 </li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>timeout_start_ms
-: <a class="el" href="_include_2original_2_v_l53_l0_x_8h.html#a8aa46e43ca06cf30f43e41ce4ad7f4eb">vl53l0x.h</a>
-, <a class="el" href="vl53l0x_01-_01wire_8h.html#a8aa46e43ca06cf30f43e41ce4ad7f4eb">vl53l0x - wire.h</a>
+<li>s_timeoutTimer
+: <a class="el" href="vl53l0x__example_8c.html#a57376d9a787b10b2bf18a3e9902597e7">vl53l0x_example.c</a>
 </li>
-<li>transmitting
-: <a class="el" href="_wire_8h.html#a644e185d161753815dee00d99436020a">Wire.h</a>
+<li>timer_flag
+: <a class="el" href="scheduler_8c.html#abe92b2c0a5756fc070788bee1d5db2c2">scheduler.c</a>
 </li>
-<li>txAddress
-: <a class="el" href="_wire_8h.html#a6513e8eb38a5a0f36ba035183777bf3d">Wire.h</a>
+<li>totalError
+: <a class="el" href="pid_8c.html#a4493bf9bc4dbf87a1d24fdd875b89dde">pid.c</a>
 </li>
-<li>txBuffer
-: <a class="el" href="_wire_8h.html#a0e100328618a485984e8687f46ca020d">Wire.h</a>
+<li>u32_milliseconds
+: <a class="el" href="vl53l0x_8c.html#a351c1702c6efc46f828ba7e507452ba8">vl53l0x.c</a>
 </li>
-<li>txBufferIndex
-: <a class="el" href="_wire_8h.html#a2618e808e24710cd5b45031f3fbb6c45">Wire.h</a>
-</li>
-<li>txBufferLength
-: <a class="el" href="_wire_8h.html#acf2766b9fecf3902e44401ad1566b351">Wire.h</a>
+<li>white_treshold
+: <a class="el" href="surface__sensor_8c.html#aea026efa22698261c5384a1a3fbf11d6">surface_sensor.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 13 2017 16:01:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 6 2018 03:20:17 for Robot Components by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

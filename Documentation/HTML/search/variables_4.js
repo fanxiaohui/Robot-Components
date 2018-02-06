@@ -1,19 +1,7 @@
 var searchData=
 [
-  ['echo',['echo',['../struct__aci__packed__.html#abc00f898a4c462ab9d5b82ba67d14e3f',1,'_aci_packed_::echo()'],['../struct__aci__packed__.html#a46d0343ee11089a21de7d77c7aefca04',1,'_aci_packed_::echo()']]],
-  ['echo_5fdata',['echo_data',['../struct__aci__packed__.html#a9fb6d2c0d92d2ac097ce9c143f487b67',1,'_aci_packed_']]],
-  ['edge',['edge',['../structcounter__struct__t.html#acad3fb60065fcc2ea9f4775825d4713e',1,'counter_struct_t::edge()'],['../structinput_capture__struct__t.html#a852da40c812346f1a9bd3224429524ce',1,'inputCapture_struct_t::edge()']]],
-  ['effectivespadrtncount',['EffectiveSpadRtnCount',['../struct_v_l53_l0_x___ranging_measurement_data__t.html#a7d482b02afa5b4d4f6c10e40c6353afc',1,'VL53L0X_RangingMeasurementData_t']]],
-  ['enable_5fps_5fsensor',['enable_ps_sensor',['../structstmvl53l0x__data.html#acca827581c9316ee2429db255ebfbf0d',1,'stmvl53l0x_data']]],
-  ['enabled',['enabled',['../structpwm__channel__struct__t.html#a4827b6bc73e66fe4d03f54694f65e6dd',1,'pwm_channel_struct_t']]],
-  ['enabledebug',['enableDebug',['../structstmvl53l0x__data.html#a12328fd67bb12d9848c8231ddd29dfdc',1,'stmvl53l0x_data']]],
-  ['error_5fcode',['error_code',['../struct__aci__packed__.html#a576d4567118fb5e687daf60f908b0112',1,'_aci_packed_']]],
-  ['error_5fdata',['error_data',['../struct__aci__packed__.html#a326abd80ae236e1ed998313ec02ffbc9',1,'_aci_packed_']]],
-  ['errorstatus',['ErrorStatus',['../struct_v_l53_l0_x___histogram_measurement_data__t.html#a10956a69ce41362e5d289b57089e4a33',1,'VL53L0X_HistogramMeasurementData_t']]],
-  ['event_5fflags',['event_flags',['../structble__ancs__c__evt__ios__notification__t.html#ae86652b6297b0f664e3f4a655307867c',1,'ble_ancs_c_evt_ios_notification_t']]],
-  ['event_5fid',['event_id',['../structble__ancs__c__evt__ios__notification__t.html#a90230cdca1fd3326d9e518cf30df6763',1,'ble_ancs_c_evt_ios_notification_t']]],
-  ['evt',['evt',['../struct__aci__packed__.html#a772672fc1de397109717c8539c9507c7',1,'_aci_packed_']]],
-  ['evt_5flsb',['evt_lsb',['../struct__aci__packed__.html#ae6930d47639af5bded3e25b769bf13a6',1,'_aci_packed_']]],
-  ['evt_5fmsb',['evt_msb',['../struct__aci__packed__.html#a4a51de1d7695cecbab1a90ddc3d11f17',1,'_aci_packed_']]],
-  ['evt_5fopcode',['evt_opcode',['../struct__aci__packed__.html#a7cd1722342f9a57abc202a81d6f525df',1,'_aci_packed_']]]
+  ['final_5frange',['final_range',['../structsequence_step_enables__t.html#a0de2fc516ab8ccdf98142dec03ee3a73',1,'sequenceStepEnables_t']]],
+  ['final_5frange_5fmclks',['final_range_mclks',['../structsequence_step_timeouts__t.html#a2ca3cd1c8a13457b0cd677d6dc3df322',1,'sequenceStepTimeouts_t']]],
+  ['final_5frange_5fus',['final_range_us',['../structsequence_step_timeouts__t.html#ade4bed0a8230d435bde865f02b792102',1,'sequenceStepTimeouts_t']]],
+  ['final_5frange_5fvcsel_5fperiod_5fpclks',['final_range_vcsel_period_pclks',['../structsequence_step_timeouts__t.html#a8f79352917220608f6c050f4f98628a8',1,'sequenceStepTimeouts_t']]]
 ];
