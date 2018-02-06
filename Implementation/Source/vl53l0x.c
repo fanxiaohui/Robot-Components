@@ -92,6 +92,11 @@ typedef struct sequenceStepTimeouts_t
 	u32 msrc_dss_tcc_us,    pre_range_us,    final_range_us;
 }sequenceStepTimeouts_t;
 
+typedef enum vcselPeriodType_enum_t
+{
+	VcselPeriodPreRange, VcselPeriodFinalRange
+}vcselPeriodType_enum_t;
+
 /************************************************************************/
 /* Internal variables                                                   */
 /************************************************************************/
@@ -565,11 +570,11 @@ void vl53l0x_init(vl53l0x_struct_t* ps_sensor)
 
 	gpio_init(ps_sensor->xshutPin);
 	gpio_setDirectionOutput(&ps_sensor->xshutPin);
-	gpio_out_set(ps_sensor->xshutPin);
 }
 
 bool vl53l0x_start(vl53l0x_struct_t* ps_sensor)
 {
+	gpio_out_set(ps_sensor->xshutPin);
 	writeReg(ps_sensor, VHV_CONFIG_PAD_SCL_SDA__EXTSUP_HV, readReg(ps_sensor, VHV_CONFIG_PAD_SCL_SDA__EXTSUP_HV) | 0x01);
 
 	/* Set I2C standard mode */
