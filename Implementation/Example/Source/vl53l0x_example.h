@@ -9,6 +9,7 @@
 void distanceSensor_init();
 void distanceSensor_stop();
 void distanceSensor_defaultTest();
+void distanceSensor_sleepTest();
 void distanceSensor_maxAccuracyTest();
 void distanceSensor_maxRangeTest();
 void distanceSensor_maxSpeedTest();
