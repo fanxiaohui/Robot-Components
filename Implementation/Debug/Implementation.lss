@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00001b10  00000000  00000000  0000af1c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002f19  00000000  00000000  0000ca2c  2**0
+  8 .debug_line   00003045  00000000  00000000  0000ca2c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00001470  00000000  00000000  0000f948  2**2
+  9 .debug_frame  00001470  00000000  00000000  0000fa74  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001dd5  00000000  00000000  00010db8  2**0
+ 10 .debug_str    00001e59  00000000  00000000  00010ee4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00004c25  00000000  00000000  00012b8d  2**0
+ 11 .debug_loc    00004c25  00000000  00000000  00012d3d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000570  00000000  00000000  000177b2  2**0
+ 12 .debug_ranges 00000570  00000000  00000000  00017962  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -153,18 +153,14 @@ Disassembly of section .text:
       d6:	94 cf       	rjmp	.-216    	; 0x0 <__vectors>
 
 000000d8 <main>:
+#include "debug.h"
 #include "device.h"
 #include "vl53l0x_example.h"
 
 int main()
 {
-	device_disableJTAG();
       d8:	89 d0       	rcall	.+274    	; 0x1ec <device_disableJTAG>
-	debug_init();
       da:	0e 94 0c 0b 	call	0x1618	; 0x1618 <debug_init>
-	distanceSensor_init();
-
-	distanceSensor_sleepTest();
       de:	02 d0       	rcall	.+4      	; 0xe4 <distanceSensor_init>
       e0:	4f d0       	rcall	.+158    	; 0x180 <distanceSensor_sleepTest>
       e2:	ff cf       	rjmp	.-2      	; 0xe2 <main+0xa>
@@ -582,9 +578,9 @@ void gpio_out_set(gpio_struct_t s_gpio)
      360:	90 e0       	ldi	r25, 0x00	; 0
      362:	c5 c1       	rjmp	.+906    	; 0x6ee <setBit>
 			break;
-     364:	08 95       	ret
 		case PD:
 			setBit(&PORTD, s_gpio.number);
+     364:	08 95       	ret
      366:	67 2f       	mov	r22, r23
      368:	8b e2       	ldi	r24, 0x2B	; 43
      36a:	90 e0       	ldi	r25, 0x00	; 0
@@ -630,9 +626,9 @@ void gpio_out_reset(gpio_struct_t s_gpio)
      398:	90 e0       	ldi	r25, 0x00	; 0
      39a:	b5 c1       	rjmp	.+874    	; 0x706 <clearBit>
 			break;
-     39c:	08 95       	ret
 		case PD:
 			clearBit(&PORTD, s_gpio.number);
+     39c:	08 95       	ret
      39e:	67 2f       	mov	r22, r23
      3a0:	8b e2       	ldi	r24, 0x2B	; 43
      3a2:	90 e0       	ldi	r25, 0x00	; 0
@@ -948,22 +944,14 @@ u8 i2c_sendStart(u8 u8_address)
 
 u8 i2c_sendRepStart(u8 u8_address)
 {
-	return i2c_sendStart(u8_address);
      57c:	9d cf       	rjmp	.-198    	; 0x4b8 <i2c_sendStart>
-}
      57e:	08 95       	ret
 
 00000580 <i2c_sendStop>:
-
-void i2c_sendStop(void)
-{
      580:	0f 93       	push	r16
      582:	1f 93       	push	r17
      584:	cf 93       	push	r28
      586:	df 93       	push	r29
-	u16 timeout=0xFFFF;
-	/* Send stop condition */
-	TWCR |= (1 << TWINT) | (1 << TWSTO) | (checkBit(TWCR, TWEN) << TWEN);
      588:	cc eb       	ldi	r28, 0xBC	; 188
      58a:	d0 e0       	ldi	r29, 0x00	; 0
      58c:	88 81       	ld	r24, Y
@@ -979,9 +967,6 @@ void i2c_sendStop(void)
      5a0:	88 83       	st	Y, r24
      5a2:	ce ef       	ldi	r28, 0xFE	; 254
      5a4:	df ef       	ldi	r29, 0xFF	; 255
-	/* Wait until stop condition is sent and bus is released */
-	while(--timeout > 0)
-		if(!checkBit(TWCR, TWSTO))
      5a6:	0c eb       	ldi	r16, 0xBC	; 188
      5a8:	10 e0       	ldi	r17, 0x00	; 0
      5aa:	f8 01       	movw	r30, r16
@@ -991,16 +976,7 @@ void i2c_sendStop(void)
      5b2:	88 23       	and	r24, r24
      5b4:	11 f0       	breq	.+4      	; 0x5ba <i2c_sendStop+0x3a>
      5b6:	21 97       	sbiw	r28, 0x01	; 1
-{
-	u16 timeout=0xFFFF;
-	/* Send stop condition */
-	TWCR |= (1 << TWINT) | (1 << TWSTO) | (checkBit(TWCR, TWEN) << TWEN);
-	/* Wait until stop condition is sent and bus is released */
-	while(--timeout > 0)
      5b8:	c1 f7       	brne	.-16     	; 0x5aa <i2c_sendStop+0x2a>
-		if(!checkBit(TWCR, TWSTO))
-			return;
-}
      5ba:	df 91       	pop	r29
      5bc:	cf 91       	pop	r28
      5be:	1f 91       	pop	r17
@@ -1008,18 +984,11 @@ void i2c_sendStop(void)
      5c2:	08 95       	ret
 
 000005c4 <i2c_write>:
-
-u8 i2c_write(u8 u8_data)
-{
      5c4:	0f 93       	push	r16
      5c6:	1f 93       	push	r17
      5c8:	cf 93       	push	r28
      5ca:	df 93       	push	r29
-	u16 timeout=0xFFFF;
-	/* Send byte */
-	TWDR = u8_data;
      5cc:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
-	TWCR = (1 << TWINT) | (checkBit(TWCR, TWEN) << TWEN);
      5d0:	cc eb       	ldi	r28, 0xBC	; 188
      5d2:	d0 e0       	ldi	r29, 0x00	; 0
      5d4:	88 81       	ld	r24, Y
@@ -1033,10 +1002,6 @@ u8 i2c_write(u8 u8_data)
      5e4:	88 83       	st	Y, r24
      5e6:	ce ef       	ldi	r28, 0xFE	; 254
      5e8:	df ef       	ldi	r29, 0xFF	; 255
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
-		if(checkBit(TWCR, TWINT))
      5ea:	0c eb       	ldi	r16, 0xBC	; 188
      5ec:	10 e0       	ldi	r17, 0x00	; 0
      5ee:	f8 01       	movw	r30, r16
@@ -1046,49 +1011,23 @@ u8 i2c_write(u8 u8_data)
      5f6:	81 11       	cpse	r24, r1
      5f8:	0f c0       	rjmp	.+30     	; 0x618 <i2c_write+0x54>
      5fa:	21 97       	sbiw	r28, 0x01	; 1
-	/* Send byte */
-	TWDR = u8_data;
-	TWCR = (1 << TWINT) | (checkBit(TWCR, TWEN) << TWEN);
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
      5fc:	c1 f7       	brne	.-16     	; 0x5ee <i2c_write+0x2a>
-		if(checkBit(TWCR, TWINT))
-			break;
-	if(timeout == 0)
-		return I2C_BUS_LOCKED;
      5fe:	8f ef       	ldi	r24, 0xFF	; 255
      600:	11 c0       	rjmp	.+34     	; 0x624 <i2c_write+0x60>
-
-	/* Check if ACK was received */
-	if (((TW_STATUS & 0xF8) != TW_MT_SLA_ACK) && ((TW_STATUS & 0xF8) != TW_MR_SLA_ACK))
      602:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
      606:	88 7f       	andi	r24, 0xF8	; 248
      608:	80 34       	cpi	r24, 0x40	; 64
      60a:	21 f0       	breq	.+8      	; 0x614 <i2c_write+0x50>
-		return (TW_STATUS & 0xF8);
      60c:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
      610:	88 7f       	andi	r24, 0xF8	; 248
      612:	08 c0       	rjmp	.+16     	; 0x624 <i2c_write+0x60>
-
-	return I2C_NO_ERROR;
      614:	80 e0       	ldi	r24, 0x00	; 0
      616:	06 c0       	rjmp	.+12     	; 0x624 <i2c_write+0x60>
-			break;
-	if(timeout == 0)
-		return I2C_BUS_LOCKED;
-
-	/* Check if ACK was received */
-	if (((TW_STATUS & 0xF8) != TW_MT_SLA_ACK) && ((TW_STATUS & 0xF8) != TW_MR_SLA_ACK))
      618:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
      61c:	88 7f       	andi	r24, 0xF8	; 248
      61e:	88 31       	cpi	r24, 0x18	; 24
      620:	81 f7       	brne	.-32     	; 0x602 <i2c_write+0x3e>
-		return (TW_STATUS & 0xF8);
-
-	return I2C_NO_ERROR;
      622:	80 e0       	ldi	r24, 0x00	; 0
-}
      624:	df 91       	pop	r29
      626:	cf 91       	pop	r28
      628:	1f 91       	pop	r17
@@ -1096,16 +1035,10 @@ u8 i2c_write(u8 u8_data)
      62c:	08 95       	ret
 
 0000062e <i2c_readAck>:
-
-u8 i2c_readAck(void)
-{
      62e:	0f 93       	push	r16
      630:	1f 93       	push	r17
      632:	cf 93       	push	r28
      634:	df 93       	push	r29
-	u16 timeout=0xFFFF;
-	/* Receive byte */
-	TWCR = (1<<TWINT) | (1<<TWEA) | (checkBit(TWCR, TWEN) << TWEN);
      636:	cc eb       	ldi	r28, 0xBC	; 188
      638:	d0 e0       	ldi	r29, 0x00	; 0
      63a:	88 81       	ld	r24, Y
@@ -1119,10 +1052,6 @@ u8 i2c_readAck(void)
      64a:	88 83       	st	Y, r24
      64c:	ce ef       	ldi	r28, 0xFE	; 254
      64e:	df ef       	ldi	r29, 0xFF	; 255
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
-		if(checkBit(TWCR, TWINT))
      650:	0c eb       	ldi	r16, 0xBC	; 188
      652:	10 e0       	ldi	r17, 0x00	; 0
      654:	f8 01       	movw	r30, r16
@@ -1131,23 +1060,11 @@ u8 i2c_readAck(void)
      65a:	62 d0       	rcall	.+196    	; 0x720 <checkBit>
      65c:	88 23       	and	r24, r24
      65e:	19 f0       	breq	.+6      	; 0x666 <i2c_readAck+0x38>
-		return TWDR;
      660:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
      664:	03 c0       	rjmp	.+6      	; 0x66c <i2c_readAck+0x3e>
      666:	21 97       	sbiw	r28, 0x01	; 1
-	u16 timeout=0xFFFF;
-	/* Receive byte */
-	TWCR = (1<<TWINT) | (1<<TWEA) | (checkBit(TWCR, TWEN) << TWEN);
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
      668:	a9 f7       	brne	.-22     	; 0x654 <i2c_readAck+0x26>
-		if(checkBit(TWCR, TWINT))
-		return TWDR;
-
-	return I2C_BUS_LOCKED;
      66a:	8f ef       	ldi	r24, 0xFF	; 255
-}
      66c:	df 91       	pop	r29
      66e:	cf 91       	pop	r28
      670:	1f 91       	pop	r17
@@ -1155,16 +1072,10 @@ u8 i2c_readAck(void)
      674:	08 95       	ret
 
 00000676 <i2c_readNak>:
-
-u8 i2c_readNak(void)
-{
      676:	0f 93       	push	r16
      678:	1f 93       	push	r17
      67a:	cf 93       	push	r28
      67c:	df 93       	push	r29
-	u16 timeout=0xFFFF;
-	/* Receive byte */
-	TWCR = (1<<TWINT) | (checkBit(TWCR, TWEN) << TWEN);
      67e:	cc eb       	ldi	r28, 0xBC	; 188
      680:	d0 e0       	ldi	r29, 0x00	; 0
      682:	88 81       	ld	r24, Y
@@ -1178,10 +1089,6 @@ u8 i2c_readNak(void)
      692:	88 83       	st	Y, r24
      694:	ce ef       	ldi	r28, 0xFE	; 254
      696:	df ef       	ldi	r29, 0xFF	; 255
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
-		if(checkBit(TWCR, TWINT))
      698:	0c eb       	ldi	r16, 0xBC	; 188
      69a:	10 e0       	ldi	r17, 0x00	; 0
      69c:	f8 01       	movw	r30, r16
@@ -1190,23 +1097,11 @@ u8 i2c_readNak(void)
      6a2:	3e d0       	rcall	.+124    	; 0x720 <checkBit>
      6a4:	88 23       	and	r24, r24
      6a6:	19 f0       	breq	.+6      	; 0x6ae <i2c_readNak+0x38>
-			return TWDR;
      6a8:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
      6ac:	03 c0       	rjmp	.+6      	; 0x6b4 <i2c_readNak+0x3e>
      6ae:	21 97       	sbiw	r28, 0x01	; 1
-	u16 timeout=0xFFFF;
-	/* Receive byte */
-	TWCR = (1<<TWINT) | (checkBit(TWCR, TWEN) << TWEN);
-
-	/* Wait until transmission is completed */
-	while(--timeout > 0)
      6b0:	a9 f7       	brne	.-22     	; 0x69c <i2c_readNak+0x26>
-		if(checkBit(TWCR, TWINT))
-			return TWDR;
-
-	return I2C_BUS_LOCKED;
      6b2:	8f ef       	ldi	r24, 0xFF	; 255
-}
      6b4:	df 91       	pop	r29
      6b6:	cf 91       	pop	r28
      6b8:	1f 91       	pop	r17

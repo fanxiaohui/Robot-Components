@@ -84,94 +84,94 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGcc>
-        <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p"</avrgcc.common.Device>
-        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
-        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcc.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>NDEBUG</Value>
-          </ListValues>
-        </avrgcc.compiler.symbols.DefSymbols>
-        <avrgcc.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-          </ListValues>
-        </avrgcc.compiler.directories.IncludePaths>
-        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-        <avrgcc.linker.libraries.Libraries>
-          <ListValues>
-            <Value>libm</Value>
-          </ListValues>
-        </avrgcc.linker.libraries.Libraries>
-        <avrgcc.assembler.general.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-          </ListValues>
-        </avrgcc.assembler.general.IncludePaths>
-      </AvrGcc>
+  <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p"</avrgcc.common.Device>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+  <avrgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+    </ListValues>
+  </avrgcc.assembler.general.IncludePaths>
+</AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-        <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p"</avrgcc.common.Device>
-        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
-        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
-        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-        <avrgcc.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>DEBUG</Value>
-            <Value>F_CPU=8000000UL</Value>
-          </ListValues>
-        </avrgcc.compiler.symbols.DefSymbols>
-        <avrgcc.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>../Include</Value>
-            <Value>../Example/Config</Value>
-            <Value>../HAL/Include</Value>
-            <Value>../HAL/Config</Value>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-          </ListValues>
-        </avrgcc.compiler.directories.IncludePaths>
-        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
-        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-        <avrgcc.linker.libraries.Libraries>
-          <ListValues>
-            <Value>libm</Value>
-          </ListValues>
-        </avrgcc.linker.libraries.Libraries>
-        <avrgcc.assembler.general.IncludePaths>
-          <ListValues>
-            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.150\include</Value>
-          </ListValues>
-        </avrgcc.assembler.general.IncludePaths>
-        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
-      </AvrGcc>
+  <avrgcc.common.Device>-mmcu=atmega1284p -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p"</avrgcc.common.Device>
+  <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=8000000UL</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../Include</Value>
+      <Value>../Example/Config</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+      <Value>../HAL/Implementation/Include</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+  <avrgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
+    </ListValues>
+  </avrgcc.assembler.general.IncludePaths>
+  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+</AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Example" />
     <Folder Include="Example\Config" />
     <Folder Include="Example\Source" />
-    <Folder Include="HAL\Include" />
-    <Folder Include="HAL\Source" />
+    <Folder Include="HAL\Implementation" />
+    <Folder Include="HAL\Implementation\Include" />
+    <Folder Include="HAL\Implementation\Source" />
     <Folder Include="Include" />
     <Folder Include="HAL" />
     <Folder Include="Source" />
@@ -219,85 +219,85 @@
     <Compile Include="Example\Source\vl53l0x_example.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\adc.h">
+    <Compile Include="HAL\Implementation\Include\adc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\asyncTimer.h">
+    <Compile Include="HAL\Implementation\Include\asyncTimer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\counter.h">
+    <Compile Include="HAL\Implementation\Include\counter.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\device.h">
+    <Compile Include="HAL\Implementation\Include\device.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\gpio.h">
+    <Compile Include="HAL\Implementation\Include\gpio.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\i2c.h">
+    <Compile Include="HAL\Implementation\Include\i2c.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\inputCapture.h">
+    <Compile Include="HAL\Implementation\Include\inputCapture.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\math.h">
+    <Compile Include="HAL\Implementation\Include\math.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\pwm.h">
+    <Compile Include="HAL\Implementation\Include\pwm.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\spi.h">
+    <Compile Include="HAL\Implementation\Include\spi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\timer.h">
+    <Compile Include="HAL\Implementation\Include\timer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\types.h">
+    <Compile Include="HAL\Implementation\Include\types.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\uart.h">
+    <Compile Include="HAL\Implementation\Include\uart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Include\wdg.h">
+    <Compile Include="HAL\Implementation\Include\wdg.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\adc.c">
+    <Compile Include="HAL\Implementation\Source\adc.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\asyncTimer.c">
+    <Compile Include="HAL\Implementation\Source\asyncTimer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\counter.c">
+    <Compile Include="HAL\Implementation\Source\counter.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\device.c">
+    <Compile Include="HAL\Implementation\Source\device.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\gpio.c">
+    <Compile Include="HAL\Implementation\Source\gpio.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\i2c.c">
+    <Compile Include="HAL\Implementation\Source\i2c.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\inputCapture.c">
+    <Compile Include="HAL\Implementation\Source\inputCapture.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\math.c">
+    <Compile Include="HAL\Implementation\Source\math.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\pwm.c">
+    <Compile Include="HAL\Implementation\Source\pwm.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\spi.c">
+    <Compile Include="HAL\Implementation\Source\spi.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\timer.c">
+    <Compile Include="HAL\Implementation\Source\timer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\uart.c">
+    <Compile Include="HAL\Implementation\Source\uart.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Source\wdg.c">
+    <Compile Include="HAL\Implementation\Source\wdg.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Include\debug.h">

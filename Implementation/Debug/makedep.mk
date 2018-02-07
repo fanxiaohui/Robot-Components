@@ -6,31 +6,31 @@ Example\Source\main.c
 
 Example\Source\vl53l0x_example.c
 
-HAL\Source\adc.c
+HAL\Implementation\Source\adc.c
 
-HAL\Source\asyncTimer.c
+HAL\Implementation\Source\asyncTimer.c
 
-HAL\Source\counter.c
+HAL\Implementation\Source\counter.c
 
-HAL\Source\device.c
+HAL\Implementation\Source\device.c
 
-HAL\Source\gpio.c
+HAL\Implementation\Source\gpio.c
 
-HAL\Source\i2c.c
+HAL\Implementation\Source\i2c.c
 
-HAL\Source\inputCapture.c
+HAL\Implementation\Source\inputCapture.c
 
-HAL\Source\math.c
+HAL\Implementation\Source\math.c
 
-HAL\Source\pwm.c
+HAL\Implementation\Source\pwm.c
 
-HAL\Source\spi.c
+HAL\Implementation\Source\spi.c
 
-HAL\Source\timer.c
+HAL\Implementation\Source\timer.c
 
-HAL\Source\uart.c
+HAL\Implementation\Source\uart.c
 
-HAL\Source\wdg.c
+HAL\Implementation\Source\wdg.c
 
 Source\debug.c
 

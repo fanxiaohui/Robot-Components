@@ -36,8 +36,9 @@ SUBDIRS :=  \
 ../Example \
 ../Example/Config \
 ../Example/Source \
-../HAL/Include \
-../HAL/Source \
+../HAL/Implementation \
+../HAL/Implementation/Include \
+../HAL/Implementation/Source \
 ../Include \
 ../HAL \
 ../Source
@@ -47,19 +48,19 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../Example/Source/main.c \
 ../Example/Source/vl53l0x_example.c \
-../HAL/Source/adc.c \
-../HAL/Source/asyncTimer.c \
-../HAL/Source/counter.c \
-../HAL/Source/device.c \
-../HAL/Source/gpio.c \
-../HAL/Source/i2c.c \
-../HAL/Source/inputCapture.c \
-../HAL/Source/math.c \
-../HAL/Source/pwm.c \
-../HAL/Source/spi.c \
-../HAL/Source/timer.c \
-../HAL/Source/uart.c \
-../HAL/Source/wdg.c \
+../HAL/Implementation/Source/adc.c \
+../HAL/Implementation/Source/asyncTimer.c \
+../HAL/Implementation/Source/counter.c \
+../HAL/Implementation/Source/device.c \
+../HAL/Implementation/Source/gpio.c \
+../HAL/Implementation/Source/i2c.c \
+../HAL/Implementation/Source/inputCapture.c \
+../HAL/Implementation/Source/math.c \
+../HAL/Implementation/Source/pwm.c \
+../HAL/Implementation/Source/spi.c \
+../HAL/Implementation/Source/timer.c \
+../HAL/Implementation/Source/uart.c \
+../HAL/Implementation/Source/wdg.c \
 ../Source/debug.c \
 ../Source/encoder.c \
 ../Source/motor.c \
@@ -78,19 +79,19 @@ ASM_SRCS +=
 OBJS +=  \
 Example/Source/main.o \
 Example/Source/vl53l0x_example.o \
-HAL/Source/adc.o \
-HAL/Source/asyncTimer.o \
-HAL/Source/counter.o \
-HAL/Source/device.o \
-HAL/Source/gpio.o \
-HAL/Source/i2c.o \
-HAL/Source/inputCapture.o \
-HAL/Source/math.o \
-HAL/Source/pwm.o \
-HAL/Source/spi.o \
-HAL/Source/timer.o \
-HAL/Source/uart.o \
-HAL/Source/wdg.o \
+HAL/Implementation/Source/adc.o \
+HAL/Implementation/Source/asyncTimer.o \
+HAL/Implementation/Source/counter.o \
+HAL/Implementation/Source/device.o \
+HAL/Implementation/Source/gpio.o \
+HAL/Implementation/Source/i2c.o \
+HAL/Implementation/Source/inputCapture.o \
+HAL/Implementation/Source/math.o \
+HAL/Implementation/Source/pwm.o \
+HAL/Implementation/Source/spi.o \
+HAL/Implementation/Source/timer.o \
+HAL/Implementation/Source/uart.o \
+HAL/Implementation/Source/wdg.o \
 Source/debug.o \
 Source/encoder.o \
 Source/motor.o \
@@ -102,19 +103,19 @@ Source/vl53l0x.o
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
 Example/Source/vl53l0x_example.o \
-HAL/Source/adc.o \
-HAL/Source/asyncTimer.o \
-HAL/Source/counter.o \
-HAL/Source/device.o \
-HAL/Source/gpio.o \
-HAL/Source/i2c.o \
-HAL/Source/inputCapture.o \
-HAL/Source/math.o \
-HAL/Source/pwm.o \
-HAL/Source/spi.o \
-HAL/Source/timer.o \
-HAL/Source/uart.o \
-HAL/Source/wdg.o \
+HAL/Implementation/Source/adc.o \
+HAL/Implementation/Source/asyncTimer.o \
+HAL/Implementation/Source/counter.o \
+HAL/Implementation/Source/device.o \
+HAL/Implementation/Source/gpio.o \
+HAL/Implementation/Source/i2c.o \
+HAL/Implementation/Source/inputCapture.o \
+HAL/Implementation/Source/math.o \
+HAL/Implementation/Source/pwm.o \
+HAL/Implementation/Source/spi.o \
+HAL/Implementation/Source/timer.o \
+HAL/Implementation/Source/uart.o \
+HAL/Implementation/Source/wdg.o \
 Source/debug.o \
 Source/encoder.o \
 Source/motor.o \
@@ -126,19 +127,19 @@ Source/vl53l0x.o
 C_DEPS +=  \
 Example/Source/main.d \
 Example/Source/vl53l0x_example.d \
-HAL/Source/adc.d \
-HAL/Source/asyncTimer.d \
-HAL/Source/counter.d \
-HAL/Source/device.d \
-HAL/Source/gpio.d \
-HAL/Source/i2c.d \
-HAL/Source/inputCapture.d \
-HAL/Source/math.d \
-HAL/Source/pwm.d \
-HAL/Source/spi.d \
-HAL/Source/timer.d \
-HAL/Source/uart.d \
-HAL/Source/wdg.d \
+HAL/Implementation/Source/adc.d \
+HAL/Implementation/Source/asyncTimer.d \
+HAL/Implementation/Source/counter.d \
+HAL/Implementation/Source/device.d \
+HAL/Implementation/Source/gpio.d \
+HAL/Implementation/Source/i2c.d \
+HAL/Implementation/Source/inputCapture.d \
+HAL/Implementation/Source/math.d \
+HAL/Implementation/Source/pwm.d \
+HAL/Implementation/Source/spi.d \
+HAL/Implementation/Source/timer.d \
+HAL/Implementation/Source/uart.d \
+HAL/Implementation/Source/wdg.d \
 Source/debug.d \
 Source/encoder.d \
 Source/motor.d \
@@ -150,19 +151,19 @@ Source/vl53l0x.d
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
 Example/Source/vl53l0x_example.d \
-HAL/Source/adc.d \
-HAL/Source/asyncTimer.d \
-HAL/Source/counter.d \
-HAL/Source/device.d \
-HAL/Source/gpio.d \
-HAL/Source/i2c.d \
-HAL/Source/inputCapture.d \
-HAL/Source/math.d \
-HAL/Source/pwm.d \
-HAL/Source/spi.d \
-HAL/Source/timer.d \
-HAL/Source/uart.d \
-HAL/Source/wdg.d \
+HAL/Implementation/Source/adc.d \
+HAL/Implementation/Source/asyncTimer.d \
+HAL/Implementation/Source/counter.d \
+HAL/Implementation/Source/device.d \
+HAL/Implementation/Source/gpio.d \
+HAL/Implementation/Source/i2c.d \
+HAL/Implementation/Source/inputCapture.d \
+HAL/Implementation/Source/math.d \
+HAL/Implementation/Source/pwm.d \
+HAL/Implementation/Source/spi.d \
+HAL/Implementation/Source/timer.d \
+HAL/Implementation/Source/uart.d \
+HAL/Implementation/Source/wdg.d \
 Source/debug.d \
 Source/encoder.d \
 Source/motor.d \
@@ -233,21 +234,21 @@ LINKER_SCRIPT_DEP+=
 Example/Source/%.o: ../Example/Source/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"../HAL/Include" -I"../HAL/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL/Implementation/Include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-HAL/Source/%.o: ../HAL/Source/%.c
+HAL/Implementation/Source/%.o: ../HAL/Implementation/Source/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"../HAL/Include" -I"../HAL/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL/Implementation/Include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 Source/%.o: ../Source/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"../HAL/Include" -I"../HAL/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=8000000UL  -I"../Include" -I"../Example/Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL/Implementation/Include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -276,7 +277,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Implementation.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\gcc\dev\atmega1284p"  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Implementation.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega1284p"  
 	@echo Finished building target: $@
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Implementation.elf" "Implementation.hex"
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Implementation.elf" "Implementation.eep" || exit 0
