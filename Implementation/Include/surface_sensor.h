@@ -21,7 +21,7 @@
 
 typedef struct surface_struct_t
 {
-	adc_struct_t transistor_channel;
+	adc_channel_struct_t transistor_channel;
 	gpio_struct_t led_pin;
 }surface_struct_t;
 
