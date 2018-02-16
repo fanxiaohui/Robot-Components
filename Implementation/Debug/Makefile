@@ -47,6 +47,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Example/Source/main.c \
+../Example/Source/surface_sensor_example.c \
 ../Example/Source/vl53l0x_example.c \
 ../HAL/Implementation/Source/adc.c \
 ../HAL/Implementation/Source/asyncTimer.c \
@@ -78,6 +79,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 Example/Source/main.o \
+Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
 HAL/Implementation/Source/asyncTimer.o \
@@ -102,6 +104,7 @@ Source/vl53l0x.o
 
 OBJS_AS_ARGS +=  \
 Example/Source/main.o \
+Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
 HAL/Implementation/Source/asyncTimer.o \
@@ -126,6 +129,7 @@ Source/vl53l0x.o
 
 C_DEPS +=  \
 Example/Source/main.d \
+Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
 HAL/Implementation/Source/asyncTimer.d \
@@ -150,6 +154,7 @@ Source/vl53l0x.d
 
 C_DEPS_AS_ARGS +=  \
 Example/Source/main.d \
+Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
 HAL/Implementation/Source/asyncTimer.d \
@@ -186,6 +191,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

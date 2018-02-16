@@ -12,6 +12,9 @@
 #define SURFACE_SENSOR_EXAMPLE_H_
 
 void surfaceSensor_init();
+void surfaceSensor_stop();
+void surfaceSensor_start();
+void surfaceSensor_read();
 
 
 

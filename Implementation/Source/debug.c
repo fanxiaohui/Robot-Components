@@ -38,9 +38,9 @@ void byteToASCIIHex(u8* au8_result, u8 u8_byte)
 
 void debug_init()
 {
-	s_debugUart.baudRate = _57600;
+	s_debugUart.baudRate = _19200;
 	s_debugUart.frameSize = _8BIT;
-	s_debugUart.parityBit = NONE;
+	s_debugUart.parityBit = EVEN;
 	s_debugUart.peripheral = UART0;
 	s_debugUart.stopBits = _1BIT;
 	s_debugUart.useRx = FALSE;
@@ -52,7 +52,7 @@ void debug_init()
 void debug_writeChar(u8 u8_char)
 {
 	uart_transmit(s_debugUart, u8_char);
-	uart_transmit(s_debugUart, '\n');
+	//uart_transmit(s_debugUart, '\n');
 }
 
 void debug_writeString(char* pc8_string)

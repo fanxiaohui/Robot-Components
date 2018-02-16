@@ -4,6 +4,8 @@
 
 Example\Source\main.c
 
+Example\Source\surface_sensor_example.c
+
 Example\Source\vl53l0x_example.c
 
 HAL\Implementation\Source\adc.c

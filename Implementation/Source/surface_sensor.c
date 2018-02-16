@@ -10,6 +10,7 @@
 #include "gpio.h"
 #include "types.h"
 
+extern adc_config_struct_t s_adc;
 
 u8 white_treshold = 100, black_treshold = 200;
 u8 max = 0;
@@ -18,8 +19,8 @@ u8 min = 255;
 
 void surface_sensor_init(surface_struct_t surface_struct)
 {
-	adc_init(surface_struct.transistor_channel);
-	adc_start(surface_struct.transistor_channel);
+	//adc_init(surface_struct.transistor_channel);
+	//adc_start(surface_struct.transistor_channel);
 
 	surface_struct.led_pin.direction = OUTPUT;
 
@@ -36,8 +37,8 @@ u8 surface_read(surface_struct_t surface_struct)
 		asm("nop");
 	}
 	
-	u8 read = adc_singleRead(surface_struct.transistor_channel);
-	gpio_out_reset(surface_struct.led_pin);
+	u8 read = adc_singleRead(s_adc, surface_struct.transistor_channel);
+	//gpio_out_reset(surface_struct.led_pin);
 
 	return read;
 }
