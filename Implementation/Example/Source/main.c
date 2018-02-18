@@ -14,6 +14,9 @@
 gpio_struct_t s_gpio;
 gpio_struct_t s_gpio2;
 
+motor_struct_t motors;
+motor_struct_t rightMotor;
+
 extern vl53l0x_struct_t s_frontSensor;
 extern vl53l0x_struct_t s_leftSensor;
 extern vl53l0x_struct_t s_rightSensor;
@@ -24,6 +27,24 @@ int main()
 {
 	device_disableJTAG();
 	debug_init();
+	
+	motors.motorEnable.port = PD;
+	motors.motorEnable.number = 2;
+	motors.motorDirectionA.port = PD;
+	motors.motorDirectionA.number = 3;
+	motors.motorDirectionB.port = PD;
+	motors.motorDirectionB.number = 6;
+	motors.motorPWM.base.frequency = 100000;
+	motors.motorPWM.base.peripheral = TIMER1;
+	motors.motorPWM.signalType = DUTY_CYCLE_VARIABLE;
+	motors.motorPWM.mode = FAST_PWM;
+	motors.motorPWM.channelA.enabled = TRUE;
+	motors.motorPWM.channelA.invertedOutput = FALSE;
+	motors.motorPWM.channelB.enabled = TRUE;
+	motors.motorPWM.channelB.invertedOutput = FALSE;
+	
+	motor_init(motors);
+	motor_start(motors);
 	
 	distanceSensor_multiInit();
 	
@@ -46,7 +67,38 @@ int main()
 	
 	while(1)
 	{
-		//surfaceSensor_read();
+		distance = vl53l0x_readRangeContinuous(&s_frontSensor);
+		if (distance != 0xffff)
+		{
+			if (distance > 100)
+				motor_speed(motors, 60);
+			else
+				motor_speed(motors, 0);
+			/*else
+			{
+				distance = vl53l0x_readRangeContinuous(&s_rightSensor);
+				if (distance != 0xffff && distance > 100)
+				{
+					motor_direction(motors, RIGHT);
+					motor_speed(motors, 80);
+					_delay_ms(500);
+				}
+				else
+				{
+					distance = vl53l0x_readRangeContinuous(&s_leftSensor);
+					if (distance != 0xffff && distance > 100)
+					{
+						motor_direction(motors, LEFT);
+						motor_speed(motors, 80);
+						_delay_ms(500);
+					}
+					else
+						motor_speed(motors, 0);
+				}
+			}*/
+			debug_writeDecimal(distance);
+			debug_writeNewLine();
+		}
 	}
 
 	return 0;

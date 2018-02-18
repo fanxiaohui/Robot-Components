@@ -33,7 +33,6 @@ void motor_init(motor_struct_t s_motor){
 	gpio_init(s_motor.motorDirectionA);
 	gpio_init(s_motor.motorDirectionB);
 	gpio_init(s_motor.motorEnable);
-	timer_init(s_motor.motorTimer);
 	pwm_init(&s_motor.motorPWM);
 }
 
