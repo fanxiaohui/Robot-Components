@@ -67,4 +67,6 @@ void debug_writeHexWord(u16 u16_data);
 */
 void debug_writeHexDWord(u32 u32_data);
 
+void debug_writeNewLine();
+
 #endif /* DEBUG_H_ */

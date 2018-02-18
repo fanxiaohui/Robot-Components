@@ -100,5 +100,9 @@ void debug_writeDecimal(u16 u16_data)
 	uart_transmit(s_debugUart, u16_data / 100 % 10 + '0');
 	uart_transmit(s_debugUart, u16_data / 10 % 10 + '0');
 	uart_transmit(s_debugUart, u16_data % 10 + '0');
+}
+
+void debug_writeNewLine()
+{
 	uart_transmit(s_debugUart, '\n');
 }

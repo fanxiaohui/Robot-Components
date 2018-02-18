@@ -15,5 +15,7 @@ void distanceSensor_maxRangeTest();
 void distanceSensor_maxSpeedTest();
 void distanceSensor_singleTest();
 void distanceSensor_obstacleTest();
+void distanceSensor_multiInit();
+void distanceSensor_multiDefaultTest();
 
 #endif /* VL53L0X_EXAMPLE_H_ */
