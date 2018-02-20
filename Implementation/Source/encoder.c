@@ -18,51 +18,29 @@
 /************************************************************************/
 
 #include "encoder.h"
+#include "encoder_config.h"
 #include "math.h"
 
 /************************************************************************/
 /* Internal variables                                                   */
 /************************************************************************/
 
-encoder_struct_t s_encoderLeft;
-encoder_struct_t s_encoderRight;
-
 /************************************************************************/
 /* Internal functions                                                   */
 /************************************************************************/
-
-void encoder_increment()
-{
-	s_encoderLeft.currentState = ((checkBit(s_encoderLeft.A.port, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(s_encoderLeft.B.port, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
-	s_encoderRight.currentState = ((checkBit(s_encoderRight.A.port, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(s_encoderLeft.B.port, s_encoderRight.B.number)) << s_encoderRight.B.number);
-	if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.A.number)){
-		s_encoderLeft.counter++;
-	}
-	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.B.number)){
-		s_encoderLeft.counter++;
-	}
-	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.A.number)){
-		s_encoderRight.counter++;
-	}
-	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.B.number)){
-		s_encoderRight.counter++;
-	}
-	s_encoderLeft.lastState = s_encoderLeft.currentState;
-	s_encoderRight.lastState = s_encoderRight.currentState;
-}
 
 /************************************************************************/
 /* Exported functions                                                   */
 /************************************************************************/
 
-void encoder_init(encoder_struct_t s_encoder){
-	gpio_init(s_encoder.A);
-	gpio_init(s_encoder.B);
-	s_encoder.counter = 0;
-	s_encoder.lastState = 0;
-	s_encoder.currentState = 0;
-	gpio_attachInterrupt(s_encoder.A, INTERRUPT_TOGGLE, encoder_increment);
-	gpio_attachInterrupt(s_encoder.B, INTERRUPT_TOGGLE, encoder_increment);
+void encoder_init(encoder_struct_t *s_encoder, void (*p_function)(void)){
+	gpio_init(s_encoder->A);
+	gpio_init(s_encoder->B);
+	s_encoder->counter = 0;
+	s_encoder->lastState = 0;
+	s_encoder->currentState = 0;
+	gpio_attachInterrupt(s_encoder->A, INTERRUPT_TOGGLE, p_function);
+	gpio_attachInterrupt(s_encoder->B, INTERRUPT_TOGGLE, p_function);
 }
 
 void encoder_start(encoder_struct_t s_encoder){
@@ -79,8 +57,12 @@ u32 encoder_getCounter(encoder_struct_t s_encoder){
 	return s_encoder.counter;
 }
 
-void encoder_reset(encoder_struct_t s_encoder){
-	s_encoder.counter = 0;
-	s_encoder.currentState = 0;
-	s_encoder.lastState = 0;
+void encoder_resetCounter(encoder_struct_t *s_encoder){
+	s_encoder->counter = 0;
+	s_encoder->currentState = 0;
+	s_encoder->lastState = 0;
+}
+
+double encoder_getDistanceCm(encoder_struct_t s_encoder){
+	return ((double) s_encoder.counter /(double)(GEAR_RATIO * 12)) * (double)(3.141592 * WHEEL_DIAMETER);
 }

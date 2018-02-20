@@ -46,7 +46,9 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../Example/Source/encoder_example.c \
 ../Example/Source/main.c \
+../Example/Source/motor_example.c \
 ../Example/Source/surface_sensor_example.c \
 ../Example/Source/vl53l0x_example.c \
 ../HAL/Implementation/Source/adc.c \
@@ -78,7 +80,9 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+Example/Source/encoder_example.o \
 Example/Source/main.o \
+Example/Source/motor_example.o \
 Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
@@ -103,7 +107,9 @@ Source/surface_sensor.o \
 Source/vl53l0x.o
 
 OBJS_AS_ARGS +=  \
+Example/Source/encoder_example.o \
 Example/Source/main.o \
+Example/Source/motor_example.o \
 Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
@@ -128,7 +134,9 @@ Source/surface_sensor.o \
 Source/vl53l0x.o
 
 C_DEPS +=  \
+Example/Source/encoder_example.d \
 Example/Source/main.d \
+Example/Source/motor_example.d \
 Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
@@ -153,7 +161,9 @@ Source/surface_sensor.d \
 Source/vl53l0x.d
 
 C_DEPS_AS_ARGS +=  \
+Example/Source/encoder_example.d \
 Example/Source/main.d \
+Example/Source/motor_example.d \
 Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
@@ -191,6 +201,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

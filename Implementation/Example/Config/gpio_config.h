@@ -9,10 +9,10 @@
 
 /** Used pin change interrupts
 */
-//#define USING_PCINT0
-//#define USING_PCINT1
-//#define USING_PCINT2
-//#define USING_PCINT3
+#define USING_PCINT0
+#define USING_PCINT1
+#define USING_PCINT2
+#define USING_PCINT3
 
 /** Using external edge or low level interrupts
 */

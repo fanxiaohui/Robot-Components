@@ -186,6 +186,9 @@
     <Compile Include="Example\Config\counter_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Example\Config\encoder_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Example\Config\gpio_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -193,6 +196,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Example\Config\inputCapture_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Config\motor_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Example\Config\pwm_config.h">
@@ -210,7 +216,19 @@
     <Compile Include="Example\Config\vl53l0x_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Example\Source\encoder_example.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Source\encoder_example.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Example\Source\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Source\motor_example.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Source\motor_example.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Example\Source\surface_sensor_example.c">

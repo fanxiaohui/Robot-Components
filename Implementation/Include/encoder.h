@@ -44,6 +44,8 @@ typedef struct encoder_struct_t{
 	gpio_struct_t A;
 /** Second output pin of the encoder */
 	gpio_struct_t B;
+/** Pointer to counter handling function */
+	void (*p_countCallback)(void);
 }encoder_struct_t;
 
 /************************************************************************/
@@ -54,7 +56,7 @@ typedef struct encoder_struct_t{
 	@remark		Must be called before any other encoder function
 	@param[in]	s_encoder: encoder parameters to initialize
 */
-void encoder_init(encoder_struct_t s_encoder);
+void encoder_init(encoder_struct_t *s_encoder, void (*p_function)(void));
 
 /** Starts encoder driver.
 	@pre		Must be called after the encoder was initialized (with @link encoder_init @endlink).
@@ -79,6 +81,8 @@ u32 encoder_getCounter(encoder_struct_t s_encoder);
 	@pre		Must be called after the encoder was initialized (with @link encoder_init @endlink).
 	@param[in]	s_encoder: encoder peripheral to use
 */
-void encoder_resetCounter(encoder_struct_t s_encoder);
+void encoder_resetCounter(encoder_struct_t *s_encoder);
+
+double encoder_getDistanceCm(encoder_struct_t s_encoder);
 
 #endif /* ENCODER_H_ */
