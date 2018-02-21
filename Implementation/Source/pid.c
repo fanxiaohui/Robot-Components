@@ -1,6 +1,11 @@
 #include "pid.h"
 
-
+void pid_init(pid_struct_t s_pid_example){
+	s_pid_example.correction = 0;
+	s_pid_example.currentError = 0;
+	s_pid_example.previousError = 0;
+	s_pid_example.totalError = 0;
+}
 
 s8 pid_getCorrection(pid_struct_t s_pid_example)
 {

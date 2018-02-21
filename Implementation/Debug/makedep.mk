@@ -2,7 +2,11 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Example\Source\encoder_example.c
+
 Example\Source\main.c
+
+Example\Source\motor_example.c
 
 Example\Source\surface_sensor_example.c
 

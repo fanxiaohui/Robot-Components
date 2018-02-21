@@ -20,27 +20,81 @@
 #include "encoder.h"
 #include "encoder_config.h"
 #include "math.h"
+#include "debug.h"
 
 /************************************************************************/
 /* Internal variables                                                   */
 /************************************************************************/
 
+extern encoder_struct_t s_encoderLeft;
+extern encoder_struct_t s_encoderRight;
+
 /************************************************************************/
 /* Internal functions                                                   */
 /************************************************************************/
+
+void encoder_increment()
+{
+	switch(s_encoderLeft.A.port){
+		case PA:
+			s_encoderLeft.currentState = ((checkBit(PINA, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(PINA, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
+			break;
+		case PB:
+			s_encoderLeft.currentState = ((checkBit(PINB, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(PINB, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
+			break;
+		case PC:
+			s_encoderLeft.currentState = ((checkBit(PINC, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(PINC, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
+			break;
+		case PD:
+			s_encoderLeft.currentState = ((checkBit(PIND, s_encoderLeft.A.number)) << s_encoderLeft.A.number) | ((checkBit(PIND, s_encoderLeft.B.number)) << s_encoderLeft.B.number);
+			break;
+		default:
+			break;
+	}
+	switch(s_encoderRight.A.port){
+		case PA:
+			s_encoderRight.currentState = ((checkBit(PINA, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(PINA, s_encoderRight.B.number)) << s_encoderRight.B.number);
+			break;
+		case PB:
+			s_encoderRight.currentState = ((checkBit(PINB, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(PINB, s_encoderRight.B.number)) << s_encoderRight.B.number);
+			break;
+		case PC:
+			s_encoderRight.currentState = ((checkBit(PINC, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(PINC, s_encoderRight.B.number)) << s_encoderRight.B.number);
+			break;
+		case PD:
+			s_encoderRight.currentState = ((checkBit(PIND, s_encoderRight.A.number)) << s_encoderRight.A.number) | ((checkBit(PIND, s_encoderRight.B.number)) << s_encoderRight.B.number);
+			break;
+		default:
+			break;
+	}
+	if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.A.number)){
+		s_encoderLeft.counter++;
+	}
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderLeft.B.number)){
+		s_encoderLeft.counter++;
+	}
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.A.number)){
+		s_encoderRight.counter++;
+	}
+	else if(((s_encoderLeft.lastState | s_encoderRight.lastState) ^ (s_encoderLeft.currentState | s_encoderRight.currentState)) == (1 << s_encoderRight.B.number)){
+		s_encoderRight.counter++;
+	}
+	s_encoderLeft.lastState = s_encoderLeft.currentState;
+	s_encoderRight.lastState = s_encoderRight.currentState;
+}
 
 /************************************************************************/
 /* Exported functions                                                   */
 /************************************************************************/
 
-void encoder_init(encoder_struct_t *s_encoder, void (*p_function)(void)){
+void encoder_init(encoder_struct_t *s_encoder){
 	gpio_init(s_encoder->A);
 	gpio_init(s_encoder->B);
 	s_encoder->counter = 0;
 	s_encoder->lastState = 0;
 	s_encoder->currentState = 0;
-	gpio_attachInterrupt(s_encoder->A, INTERRUPT_TOGGLE, p_function);
-	gpio_attachInterrupt(s_encoder->B, INTERRUPT_TOGGLE, p_function);
+	gpio_attachInterrupt(s_encoder->A, INTERRUPT_TOGGLE, encoder_increment);
+	gpio_attachInterrupt(s_encoder->B, INTERRUPT_TOGGLE, encoder_increment);
 }
 
 void encoder_start(encoder_struct_t s_encoder){

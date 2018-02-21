@@ -56,7 +56,7 @@ typedef struct encoder_struct_t{
 	@remark		Must be called before any other encoder function
 	@param[in]	s_encoder: encoder parameters to initialize
 */
-void encoder_init(encoder_struct_t *s_encoder, void (*p_function)(void));
+void encoder_init(encoder_struct_t *s_encoder);
 
 /** Starts encoder driver.
 	@pre		Must be called after the encoder was initialized (with @link encoder_init @endlink).
