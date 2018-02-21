@@ -49,6 +49,7 @@ C_SRCS +=  \
 ../Example/Source/encoder_example.c \
 ../Example/Source/main.c \
 ../Example/Source/motor_example.c \
+../Example/Source/scheduler_example.c \
 ../Example/Source/surface_sensor_example.c \
 ../Example/Source/vl53l0x_example.c \
 ../HAL/Implementation/Source/adc.c \
@@ -83,6 +84,7 @@ OBJS +=  \
 Example/Source/encoder_example.o \
 Example/Source/main.o \
 Example/Source/motor_example.o \
+Example/Source/scheduler_example.o \
 Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
@@ -110,6 +112,7 @@ OBJS_AS_ARGS +=  \
 Example/Source/encoder_example.o \
 Example/Source/main.o \
 Example/Source/motor_example.o \
+Example/Source/scheduler_example.o \
 Example/Source/surface_sensor_example.o \
 Example/Source/vl53l0x_example.o \
 HAL/Implementation/Source/adc.o \
@@ -137,6 +140,7 @@ C_DEPS +=  \
 Example/Source/encoder_example.d \
 Example/Source/main.d \
 Example/Source/motor_example.d \
+Example/Source/scheduler_example.d \
 Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
@@ -164,6 +168,7 @@ C_DEPS_AS_ARGS +=  \
 Example/Source/encoder_example.d \
 Example/Source/main.d \
 Example/Source/motor_example.d \
+Example/Source/scheduler_example.d \
 Example/Source/surface_sensor_example.d \
 Example/Source/vl53l0x_example.d \
 HAL/Implementation/Source/adc.d \
@@ -201,6 +206,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

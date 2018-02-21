@@ -8,6 +8,8 @@ Example\Source\main.c
 
 Example\Source\motor_example.c
 
+Example\Source\scheduler_example.c
+
 Example\Source\surface_sensor_example.c
 
 Example\Source\vl53l0x_example.c

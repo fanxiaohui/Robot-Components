@@ -204,6 +204,9 @@
     <Compile Include="Example\Config\pwm_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Example\Config\scheduler_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Example\Config\spi_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -229,6 +232,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Example\Source\motor_example.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Source\scheduler_example.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Example\Source\scheduler_example.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Example\Source\surface_sensor_example.c">

@@ -20,7 +20,7 @@
 //#define USING_TIMER0
 #define USING_TIMER1
 //#define USING_TIMER2
-//#define USING_TIMER3
+#define USING_TIMER3
 
 /** Using interrupt mode for Timers
 */

@@ -46,7 +46,10 @@ void distanceSensor_defaultTest()
 		/* This can be put in a scheduler if no GPIO pin from the sensor is available */
 		distance = vl53l0x_readRangeContinuous(&s_frontSensor);
 		if (distance != 0xffff)
+		{
 			debug_writeDecimal(distance);
+			debug_writeNewLine();
+		}
 	}
 }
 

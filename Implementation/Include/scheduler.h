@@ -11,24 +11,23 @@
 
 #include "timer.h"
 
-#define DEACTIVATE		0
-#define MAX_NO_OF_TASKS 10
-typedef void (*pf_TaskHandler)(void);
-typedef u8 taskIdType;
-
 typedef struct task_struct_t
 {
-	u16 timerValue;
-	pf_TaskHandler pf_task;
+	u16 period;
+	void (*function)(void);
 }task_struct_t;
 
 /************************************************************************/
 /* Exported functions                                                   */
 /************************************************************************/
-extern void scheduler_init(timer_struct_t s_Timer, timer_interruptType_enum_t interrupt);
-extern void activate_task(u8 taskId,u16 task_timer);
-extern void deactivate_task(u8 taskId);
-extern void scheduler (void);
-extern void create_task (taskIdType taskId, pf_TaskHandler pf_taskH );
-extern void destroy_task (taskIdType taskId);
+
+void scheduler_init(timer_struct_t s_timer);
+void scheduler_start();
+void scheduler_stop();
+void scheduler_createTask(task_struct_t s_task);
+void scheduler_destroyTask(task_struct_t s_task);
+void scheduler_enableTask(task_struct_t s_task);
+void scheduler_disableTask(task_struct_t s_task);
+void scheduler_loop();
+
 #endif /* SCHEDULER_H_ */
