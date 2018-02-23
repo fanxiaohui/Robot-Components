@@ -17,6 +17,7 @@ vl53l0x_struct_t s_rightSensor;
 
 void distanceSensor_init()
 {
+	
 	s_timeoutTimer.frequency = 1000;
 	s_timeoutTimer.peripheral = TIMER3;
 	timer_init(s_timeoutTimer);
@@ -198,6 +199,7 @@ void distanceSensor_multiInit()
 
 void distanceSensor_multiDefaultTest()
 {
+
 	u16 distance;
 	vl53l0x_start(&s_leftSensor);
 	vl53l0x_setAddress(&s_leftSensor, s_leftSensor.address + 1);
@@ -215,6 +217,7 @@ void distanceSensor_multiDefaultTest()
 
 	while (1)
 	{
+	   
 		/* This can be put in a scheduler if no GPIO pin from the sensor is available */
 		distance = vl53l0x_readRangeContinuous(&s_leftSensor);
 		if (distance != 0xffff)

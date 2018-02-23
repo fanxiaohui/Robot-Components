@@ -28,7 +28,7 @@ void surfaceSensor_start(){
 }
 
 
-void surfaceSensor_read(){
+int surfaceSensor_read(){
 /*Reads the sensor and stores it in variable "citire" */
 
 	citire = surface_read(sensorOne);
@@ -57,7 +57,7 @@ void surfaceSensor_init(){
 }
 
  
-void surfaceSensor_isBlack(){
+bool surfaceSensor_isBlack(){
 	
 	citire = surface_read(sensorOne);
 	
@@ -70,7 +70,7 @@ void surfaceSensor_isBlack(){
 	    return FALSE;
 }
 
-void surfaceSensor_isWhite(){
+bool surfaceSensor_isWhite(){
 	
 	citire = surface_read(sensorOne);
 	

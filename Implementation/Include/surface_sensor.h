@@ -27,7 +27,14 @@ typedef struct surface_struct_t
 
 /** Initializes the surface sensor
 */
-void surface_sensor_init(surface_struct_t surface_struct);
+void surface_init(surface_struct_t surface_struct);
+
+
+void surface_start();
+
+
+void surface_stop();
+
 
 /** Reads data from the surface sensor
 */

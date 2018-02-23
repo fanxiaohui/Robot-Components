@@ -10,21 +10,35 @@
 #include "gpio.h"
 #include "types.h"
 
-extern adc_config_struct_t s_adc;
+adc_config_struct_t s_adc;
 
-u8 white_treshold = 100, black_treshold = 200;
+u8 white_treshold = 200, black_treshold = 100;
 u8 max = 0;
 u8 min = 255;
 
 
-void surface_sensor_init(surface_struct_t surface_struct)
+void surface_init(surface_struct_t surface_struct)
 {
-	//adc_init(surface_struct.transistor_channel);
-	//adc_start(surface_struct.transistor_channel);
-
+	s_adc.conversionMode = SINGLE_CONVERSION;
+	s_adc.prescaler = ADC_PRESCALER_128;
+	adc_init(s_adc);
+	adc_start(s_adc);
+	
 	surface_struct.led_pin.direction = OUTPUT;
 
 	gpio_init(surface_struct.led_pin);
+}
+
+void surface_start(){
+	/*Starts the ADC */
+	adc_start(s_adc);
+}
+
+void surface_stop(){
+	/*Stops the ADC */
+
+	adc_stop(s_adc);
+	
 }
 
 u8 surface_read(surface_struct_t surface_struct)
@@ -47,7 +61,7 @@ bool surface_IsWhite(surface_struct_t surface_struct)
 {
 	u8 read = surface_read(surface_struct);
 	
-	if(read <= white_treshold)
+	if(read >= white_treshold)
 	{
 		return TRUE;
 	}
@@ -61,7 +75,7 @@ bool surface_IsBlack(surface_struct_t surface_struct)
 {
 	u8 read = surface_read(surface_struct);
 
-	if(read > black_treshold)
+	if(read < black_treshold)
 	{
 		return TRUE;
 	}

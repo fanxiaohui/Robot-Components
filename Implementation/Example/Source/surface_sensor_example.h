@@ -13,10 +13,10 @@
 
 void surfaceSensor_init();
 void surfaceSensor_start();
-void surfaceSensor_read();
+int surfaceSensor_read();
 void surfaceSensor_stop();
-void surfaceSensor_isBlack();
-void surfaceSensor_isWhite();
+bool surfaceSensor_isBlack();
+bool surfaceSensor_isWhite();
 
 
 

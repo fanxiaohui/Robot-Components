@@ -15,7 +15,8 @@ int main()
 {
 	device_disableJTAG();
 	debug_init();
-	
+
+
 	distanceSensor_multiInit();
 	distanceSensor_multiDefaultTest();
 	
