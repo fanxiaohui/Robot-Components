@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Example\Source\button_example.c
+
 Example\Source\encoder_example.c
 
 Example\Source\main.c
@@ -39,6 +41,8 @@ HAL\Implementation\Source\timer.c
 HAL\Implementation\Source\uart.c
 
 HAL\Implementation\Source\wdg.c
+
+Source\button.c
 
 Source\debug.c
 

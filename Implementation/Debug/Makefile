@@ -46,6 +46,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../Example/Source/button_example.c \
 ../Example/Source/encoder_example.c \
 ../Example/Source/main.c \
 ../Example/Source/motor_example.c \
@@ -65,6 +66,7 @@ C_SRCS +=  \
 ../HAL/Implementation/Source/timer.c \
 ../HAL/Implementation/Source/uart.c \
 ../HAL/Implementation/Source/wdg.c \
+../Source/button.c \
 ../Source/debug.c \
 ../Source/encoder.c \
 ../Source/motor.c \
@@ -81,6 +83,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+Example/Source/button_example.o \
 Example/Source/encoder_example.o \
 Example/Source/main.o \
 Example/Source/motor_example.o \
@@ -100,6 +103,7 @@ HAL/Implementation/Source/spi.o \
 HAL/Implementation/Source/timer.o \
 HAL/Implementation/Source/uart.o \
 HAL/Implementation/Source/wdg.o \
+Source/button.o \
 Source/debug.o \
 Source/encoder.o \
 Source/motor.o \
@@ -109,6 +113,7 @@ Source/surface_sensor.o \
 Source/vl53l0x.o
 
 OBJS_AS_ARGS +=  \
+Example/Source/button_example.o \
 Example/Source/encoder_example.o \
 Example/Source/main.o \
 Example/Source/motor_example.o \
@@ -128,6 +133,7 @@ HAL/Implementation/Source/spi.o \
 HAL/Implementation/Source/timer.o \
 HAL/Implementation/Source/uart.o \
 HAL/Implementation/Source/wdg.o \
+Source/button.o \
 Source/debug.o \
 Source/encoder.o \
 Source/motor.o \
@@ -137,6 +143,7 @@ Source/surface_sensor.o \
 Source/vl53l0x.o
 
 C_DEPS +=  \
+Example/Source/button_example.d \
 Example/Source/encoder_example.d \
 Example/Source/main.d \
 Example/Source/motor_example.d \
@@ -156,6 +163,7 @@ HAL/Implementation/Source/spi.d \
 HAL/Implementation/Source/timer.d \
 HAL/Implementation/Source/uart.d \
 HAL/Implementation/Source/wdg.d \
+Source/button.d \
 Source/debug.d \
 Source/encoder.d \
 Source/motor.d \
@@ -165,6 +173,7 @@ Source/surface_sensor.d \
 Source/vl53l0x.d
 
 C_DEPS_AS_ARGS +=  \
+Example/Source/button_example.d \
 Example/Source/encoder_example.d \
 Example/Source/main.d \
 Example/Source/motor_example.d \
@@ -184,6 +193,7 @@ HAL/Implementation/Source/spi.d \
 HAL/Implementation/Source/timer.d \
 HAL/Implementation/Source/uart.d \
 HAL/Implementation/Source/wdg.d \
+Source/button.d \
 Source/debug.d \
 Source/encoder.d \
 Source/motor.d \
@@ -206,6 +216,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

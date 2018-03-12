@@ -5,7 +5,7 @@
 
 #include "debug.h"
 #include "device.h"
-#include "vl53l0x_example.h"
+#include "button_example.h"
 
 #include <util/delay.h>
 #include <avr/io.h>
@@ -15,10 +15,13 @@ int main()
 {
 	device_disableJTAG();
 	debug_init();
-
-
-	distanceSensor_multiInit();
-	distanceSensor_multiDefaultTest();
+	testButton_init();
 	
+	sei();
+
+	debug_writeHex(PCMSK3);
+
+	while(1);
+
 	return 0;
 }
