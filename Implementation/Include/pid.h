@@ -4,25 +4,25 @@
 
 typedef struct pid_struct_t
 {
-	
 /** Proportional error value **/
-	float Kp;
+	f24 Kp;
 /** Derivative error value **/	
-	float Kd;
+	f24 Kd;
 /** Integral error value **/	
-	float Ki;
+	f24 Ki;
 /** Stores the previous error **/
-	float previousError;
+	s32 previousError;
 /** Store the total error value, sum of all current error **/
-	float totalError;
+	s32 totalError;
 /** The current error **/	
-	float currentError;
-/** The corection needed after the following formula (Kp * currentError) + (Kd * (currentError - previousError)) + (Ki * totalError)**/
-	float correction;
-	
+	s32 currentError;
+/**	Correction minimum value */
+	f24 minimumCorrection;
+/**	Correction maximum value */
+	f24 maximumCorrection;
 }pid_struct_t;
 
-s8 pid_getCorrection(pid_struct_t s_pid_example);
+f24 pid_getCorrection(pid_struct_t s_pid);
 
 /**	Gets the correction needed using a PID regulator
 	@param[in]	currentError: This variable stores the current error

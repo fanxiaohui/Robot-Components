@@ -95,6 +95,5 @@ void motor_speed(motor_struct_t s_motor, u8 speed);
 */
 void motor_driverDisable(motor_struct_t s_motor);
 
-u8 motor_calibrateSpeed(u8 speed);
 
 #endif /* MOTOR_H_ */

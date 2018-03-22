@@ -7,6 +7,7 @@
 /* AVR includes                                                         */
 /************************************************************************/
 
+#include <stdlib.h>
 #include <string.h>
 
 /************************************************************************/
@@ -52,14 +53,12 @@ void debug_init()
 void debug_writeChar(u8 u8_char)
 {
 	uart_transmit(s_debugUart, u8_char);
-	//uart_transmit(s_debugUart, '\n');
 }
 
 void debug_writeString(char* pc8_string)
 {
 	for (int i = 0; i < strlen(pc8_string); i++)
 		uart_transmit(s_debugUart, pc8_string[i]);
-	uart_transmit(s_debugUart, '\n');
 }
 
 void debug_writeHex(u8 u8_data)
@@ -68,7 +67,6 @@ void debug_writeHex(u8 u8_data)
 	byteToASCIIHex(u8_ASCIIData, u8_data);
 	for (u8 i = 0; i < 2; i++)
 	uart_transmit(s_debugUart, u8_ASCIIData[i]);
-	uart_transmit(s_debugUart, '\n');
 }
 
 void debug_writeHexWord(u16 u16_data)
@@ -78,7 +76,6 @@ void debug_writeHexWord(u16 u16_data)
 	byteToASCIIHex(u8_ASCIIData + 2, u16_data);
 	for (u8 i = 0; i < 4; i++)
 		uart_transmit(s_debugUart, u8_ASCIIData[i]);
-	uart_transmit(s_debugUart, '\n');
 }
 
 void debug_writeHexDWord(u32 u32_data)
@@ -90,16 +87,49 @@ void debug_writeHexDWord(u32 u32_data)
 	byteToASCIIHex(u8_ASCIIData + 6, u32_data);
 	for (u8 i = 0; i < 8; i++)
 		uart_transmit(s_debugUart, u8_ASCIIData[i]);
-	uart_transmit(s_debugUart, '\n');
 }
 
-void debug_writeDecimal(u16 u16_data)
+void debug_writeDecimal(s16 s16_data)
 {
-	uart_transmit(s_debugUart, u16_data / 10000 % 10 + '0');
-	uart_transmit(s_debugUart, u16_data / 1000 % 10 + '0');
-	uart_transmit(s_debugUart, u16_data / 100 % 10 + '0');
-	uart_transmit(s_debugUart, u16_data / 10 % 10 + '0');
-	uart_transmit(s_debugUart, u16_data % 10 + '0');
+	u16 u16_data;
+	
+	if (s16_data < 0)
+	{
+		debug_writeChar('-');
+		u16_data = 0x10000 - s16_data;
+	}
+	else
+	{
+		debug_writeChar('+');
+		u16_data = s16_data;
+	}
+	debug_writeChar(u16_data / 10000 % 10 + '0');
+	debug_writeChar(u16_data / 1000 % 10 + '0');
+	debug_writeChar(u16_data / 100 % 10 + '0');
+	debug_writeChar(u16_data / 10 % 10 + '0');
+	debug_writeChar(u16_data % 10 + '0');
+}
+
+void debug_writeFixedPoint(f24 f24_data)
+{
+	u32 integer = f24tos32_integer(f24_data);
+	u32 decimal = f24tos32_decimal(f24_data);
+	
+	if (f24_data < 0)
+		debug_writeChar('-');
+	else
+		debug_writeChar('+');
+	
+	debug_writeChar(integer / 10000 % 10 + '0');
+	debug_writeChar(integer / 1000 % 10 + '0');
+	debug_writeChar(integer / 100 % 10 + '0');
+	debug_writeChar(integer / 10 % 10 + '0');
+	debug_writeChar(integer % 10 + '0');
+	debug_writeChar('.');
+	debug_writeChar(decimal / 1000 % 10 + '0');
+	debug_writeChar(decimal / 100 % 10 + '0');
+	debug_writeChar(decimal / 10 % 10 + '0');
+	debug_writeChar(decimal % 10 + '0');
 }
 
 void debug_writeNewLine()

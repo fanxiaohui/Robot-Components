@@ -66,7 +66,3 @@ void motor_direction(motor_struct_t s_motor, motorDirection direction){
 void motor_speed(motor_struct_t s_motor, u8 speed){
 	pwm_setDutyCycle(s_motor.PWM, s_motor.channel, speed);
 }
-
-u8 motor_calibrateSpeed(u8 speed){
-	return (u8)CALIBRATION_COEFFICIENT*speed;
-}
